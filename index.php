@@ -34,7 +34,7 @@
             </p>
             <br>
             <button id="btn-abrir-modal">
-                <p>Crear Cuenta</p>
+                Crear Cuenta
             </button>
 
             <dialog id="modal">

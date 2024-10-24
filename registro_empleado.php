@@ -99,9 +99,8 @@
                         <br><br>
                         <select name="cargo" class="Cargos">
                             <option value="1">Administrativo</option>
-                            <option value="2">Intendente</option>
-                            <option value="3">Recursos Humano</option>
-                            <option value="4">Sub Jefe</option>
+                            <option value="2">Asesor de Viajes</option>
+                            <option value="3">Guia Turistico</option>
                         </select>
                     </div>
                 </div>
