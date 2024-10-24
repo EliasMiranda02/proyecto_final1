@@ -17,6 +17,10 @@
             <img src="./IMG/registro/Logo.png" alt="">
             <br>
             <h1><b>Crear Cuenta</b></h1>
+            <?php
+                include "modelo/conexion.php";
+                include "controlador/registro_empleado.php";
+            ?>
             <br><br>
             <form action="" method="post">
 
@@ -29,7 +33,7 @@
                     <!-- El nombre de usuario -->
                     <div class="apaterno-container">
                         <label for="amaterno">Nombre de usuario</label>
-                        <input type="text" name="nombre" class="apaterno" required>
+                        <input type="text" name="nombre_usuario" class="apaterno" required>
                     </div>
 
                 </div>
@@ -54,19 +58,19 @@
 
                 <label for="correo">Correo electrónico</label>
                 <br>
-                <input type="text" name="amaterno" class="amaterno" required>
+                <input type="text" name="email" class="amaterno" required>
 
                 <br><br>
                 <div class="login">
 
                     <div class="password1">
                         <label for="contraseña">Contraseña</label>
-                        <input type="password" name="contraseña" class="contraseña" required>
+                        <input type="password" name="contraseña1" class="contraseña" required>
                     </div>
 
                     <div class="password2">
                         <label for="contraseña">Confirma tu contraseña</label>
-                        <input type="password" name="contraseña" class="contraseña" required>
+                        <input type="password" name="contraseña2" class="contraseña" required>
                     </div>
 
                 </div>
@@ -76,11 +80,11 @@
                 <label for="numero">Número de celular</label>
                 <br><br>
                 <Select name="opcion" class="telefonos">
-                    <option value="1">961</option>
-                    <option value="2">664</option>
-                    <option value="3">229</option>
-                    <option value="4">81</option>
-                    <option value="5">33</option>
+                    <option value="961">961</option>
+                    <option value="664">664</option>
+                    <option value="229">229</option>
+                    <option value="81">81</option>
+                    <option value="33">33</option>
                 </Select>
                 
                 <!-- PARA HACER QUE EN EL INPUT SOLO PERMITA NUMEROS CON UN LIMITE DE 7 -->
@@ -92,15 +96,15 @@
                 <div class="apellidos">
                     <div class="apaterno-container">
                         <label for="NIP" class="nip">NIP</label>
-                        <input type="password" class="num_nip" id="numero" name="numero" pattern="^\d{1,4}$" required oninput="this.value = this.value.replace(/[^0-9]/g, '').slice(0, 4)">
+                        <input type="password" class="num_nip" id="numero" name="nip" pattern="^\d{1,4}$" required oninput="this.value = this.value.replace(/[^0-9]/g, '').slice(0, 4)">
                     </div>
                     <div class="apaterno-container">
                         <label for="cargo_empleado" class="cargo_emp">Cargo del Empleado</label>
                         <br><br>
                         <select name="cargo" class="Cargos">
-                            <option value="1">Administrativo</option>
-                            <option value="2">Asesor de Viajes</option>
-                            <option value="3">Guia Turistico</option>
+                            <option value="Administrativo">Administrativo</option>
+                            <option value="Asesor de Viajes">Asesor de Viajes</option>
+                            <option value="Guia Turistico">Guia Turistico</option>
                         </select>
                     </div>
                 </div>
@@ -114,7 +118,7 @@
                     <a href="#">Términos y condiciones</a> </b>
                 </p>
 
-                <input type="submit" value="Regístrate ahora" id="submit" disabled> <!-- Botón de submit deshabilitado -->
+                <input type="submit" name="registrar" value="Regístrate ahora" id="submit" disabled> <!-- Botón de submit deshabilitado -->
 
             </form>
 

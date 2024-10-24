@@ -1,0 +1,19 @@
+.modal-backdrop {
+    display: none !important;
+}
+/* Asegurarse de que el modal no se desborde de la pantalla */
+.modal-dialog {
+    max-width: 90vw; /* Ancho máximo del modal */
+    margin: auto; /* Centrar el modal */
+}
+
+/* Para la tabla dentro del modal */
+.table-responsive {
+    max-height: 60vh; /* Altura máxima para la tabla */
+    overflow-y: auto; /* Agregar desplazamiento vertical si el contenido es demasiado grande */
+}
+
+/* Opcional: hacer que las celdas de la tabla se ajusten al contenido */
+.table th, .table td {
+    white-space: nowrap; /* Evitar que el texto se rompa */
+}
