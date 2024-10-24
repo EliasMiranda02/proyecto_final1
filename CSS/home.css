@@ -1,0 +1,166 @@
+* {
+    font-family: 'Poppins', sans-serif;
+    text-align: center;
+}
+
+body{
+    background-color: #fff;
+}
+
+
+.carrusel-container {
+    display: flex;
+    align-items: center; /* Para alinear verticalmente */
+    width: 1200px; /* Asegura que el contenedor abarque todo el ancho disponible */
+    padding: 0px 50px; /* Puedes ajustar el padding si es necesario */
+}
+
+
+.carrusel {
+    width: 100%; /* El carrusel ocupará todo el ancho del contenedor */
+    max-width: 1200px; /* Ajusta según el tamaño de tus imágenes */
+    overflow: hidden; /* Esconde imágenes fuera del contenedor */
+    margin: 0 auto; /* Centra el carrusel */
+}
+
+
+.Imagen {
+    display: flex; /* Cambia a flex para que las imágenes se alineen horizontalmente */
+    transition: transform 0.5s ease; /* Añade transición para el movimiento */
+    gap: 15px;
+    padding: 0px 20px;
+}
+
+.img {
+    min-width: 32.677%; /* Muestra 3 imágenes a la vez */
+    height: 500px; /* Altura del contenedor de la imagen */
+}
+
+.img img {
+    width: 90%;
+    height: 100%;
+    object-fit: cover;
+    border-radius: 10px;
+    transition: opacity 0.3s ease; /* Transición suave para la opacidad */
+}
+
+.img:hover img {
+    opacity: 0.9; /* Ajusta la opacidad al pasar el cursor (70% visible) */
+}
+
+
+
+.prev{
+    width: 70px; /* Ancho del botón */
+    height: 70px; /* Alto del botón */
+    background-image: url('./IMG/home/IzquierdaAzul.png'); /* Imagen de fondo sin fondo */
+    background-size: contain; /* Ajusta la imagen al tamaño del botón */
+    background-repeat: no-repeat; /* No repetir la imagen */
+    border: none; /* Sin borde */
+    background-color: transparent; /* Fondo transparente del botón */
+    margin-right: 20px;
+}
+
+.next{
+    width: 50px; /* Ancho del botón */
+    height: 53px; /* Alto del botón */
+    background-image: url('./IMG/home/DerechaAzul.png'); /* Imagen de fondo sin fondo */
+    background-size: contain; /* Ajusta la imagen al tamaño del botón */
+    background-repeat: no-repeat; /* No repetir la imagen */
+    border: none; /* Sin borde */
+    background-color: transparent; /* Fondo transparente del botón */
+    margin-left: 20px;
+}
+
+
+
+
+
+
+/* PREGUNTAS */
+
+.container-Preguntas {
+    width: 80%;
+    margin: 0 auto;
+}
+
+.PREGUNTAS {
+    display: flex;
+    justify-content: space-between; /* Espacio entre las dos columnas */
+}
+
+.columna {
+    width: 48%; /* Ajusta el ancho de cada columna, dejando espacio entre ellas */
+}
+
+.pregunta {
+    margin-bottom: 10px;
+}
+
+.pregunta-contenedor {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.PREGUNTAS h4 {
+    text-align: left;
+    margin: 0;
+}
+
+hr {
+    border: none;
+    border-top: 2px solid rgb(0, 0, 0);
+    width: 100%;
+    margin: 3px 0;
+}
+
+
+
+.respuesta {
+    display: none; /* Ocultar el contenido por defecto */
+}
+
+/* Responsive Design */
+@media (max-width: 600px) {
+    .PREGUNTAS {
+        flex-direction: column; /* Cambiar a una sola columna en pantallas pequeñas */
+    }
+
+    .columna {
+        width: 100%;
+    }
+}
+
+
+
+/* jojo */
+.questions_title{
+    text-align: left;
+    display: flex;
+    padding: 0px 0px;
+    cursor: pointer;
+    color: var(--color-title);
+    justify-content: space-between;
+}
+
+.questions_arrow{
+    border-radius: 50%;
+    width: 10px;
+    height: 10px;
+    display: flex;
+    padding: 0px 15px;
+    justify-content: center;
+    align-items: center;
+    align-self: flex-end;
+    transition:  transform .3s;
+}
+
+.questions_arrow--rotate{
+    transform: rotate(180deg);
+}
+
+.questions_img{
+    width: 30px;
+    height: 20px;
+}

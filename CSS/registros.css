@@ -1,0 +1,226 @@
+body {
+    height: 100vh; 
+    display: flex; 
+    justify-content: center; 
+    align-items: center; 
+    padding: 0px; 
+    background-image: url('../IMG/registro/FondoA.png'); 
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-position: center; /* Cambia a center para centrar la imagen */
+    overflow: hidden; /* Evita que se desplace el body */
+}
+
+.registro {
+    background: rgba(49, 74, 101, 0.4); 
+    border-radius: 10px;
+    padding: 20px;
+    width: 600px;
+    height: 80vh; /* Ajusta la altura del contenedor para que sea desplazable */
+    color: #FFF;
+    overflow-y: scroll; /* Permite el scroll en el contenedor */
+    
+    /* Ocultar scrollbar en Chrome, Safari y Edge */
+    ::-webkit-scrollbar {
+        width: 0px;
+    }
+
+    /* Ocultar scrollbar en Firefox */
+    scrollbar-width: none;
+}
+
+
+*{
+    
+    font-family: 'Poppins', sans-serif;
+}
+
+
+.registro img {
+    display: block; 
+    margin: 0 auto; 
+}
+
+
+h1{
+    text-align: center;
+}
+
+label {
+    font-size: 20px;
+    margin: 80px 0px;
+}
+
+.nomb{
+    font-size: 20px;
+    margin: 80px 0px;
+}
+
+.nombre{
+    background-color: #000;
+    font-size: 20px;
+    padding: 10px 10px;
+    color: #FFF;
+    opacity: 0.5;
+    border: none;
+    margin-top: 10px; 
+    width: 230px;
+    height: 30px;
+    border-radius: 20px;
+}
+
+.apellidos{
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 40px;
+}
+
+.apellidos input{
+    background-color: #000;
+    font-size: 20px;
+    padding: 10px 10px;
+    color: #FFF;
+    opacity: 0.5;
+    border: none;
+    margin-top: 10px; 
+    width: 230px;
+    height: 30px;
+    border-radius: 20px;
+}
+
+.amaterno{
+    background-color: #000;
+    font-size: 20px;
+    padding: 10px 10px;
+    color: #FFF;
+    opacity: 0.5;
+    border: none;
+    margin-top: 10px; 
+    width: 90%;
+    height: 30px;
+    border-radius: 20px;
+}
+
+.login{
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 40px;
+}
+
+.login input{
+    background-color: #000;
+    font-size: 20px;
+    padding: 10px 10px;
+    color: #FFF;
+    opacity: 0.5;
+    border: none;
+    margin-top: 10px; 
+    width: 230px;
+    height: 30px;
+    border-radius: 20px;
+}
+
+select{
+    background-color: #000;
+    opacity: 0.5;
+    color: #FFF;
+    width: 80px;
+    height: 35px;
+    border-radius: 20px;
+    text-align: center;
+    font-size: 18px;
+}
+
+
+
+.numero{
+    background-color: #000;
+    font-size: 20px;
+    padding: 10px 10px;
+    color: #FFF;
+    opacity: 0.5;
+    border: none;
+    margin-top: 10px; 
+    width: 300px;
+    height: 35px;
+    border-radius: 20px;
+    text-align: center;
+}
+
+.requisitos{
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+}
+
+p{
+    text-align: center;
+    color: #AFC2D9;
+}
+
+a{
+    text-decoration: none;
+}
+
+a:hover{
+    color: #90AACA;
+}
+
+
+/* PARA EL BOTON DE REGISTRAR */
+
+
+input[type="submit"] {
+    background-color: #666; /* Color gris cuando está deshabilitado */
+    font-size: 20px;
+    color: #FFF;
+    width: 200px;
+    height: 40px;
+    border-radius: 5px;
+    opacity: 1; 
+    display: block; 
+    margin: 20px auto; 
+}
+
+/* Estilo para el botón de envío cuando está habilitado */
+input[type="submit"].enabled {
+    background-color: #314A65; /* Color azul cuando está habilitado */
+    cursor: pointer; /* Cambia el cursor para indicar que se puede hacer clic */
+}
+
+/* Estilo de hover cuando el botón está habilitado */
+input[type="submit"].enabled:hover {
+    background-color: #283C52; /* Azul más claro al hacer hover */
+}
+
+/* Deshabilitar hover cuando el botón está deshabilitado */
+input[type="submit"]:disabled:hover {
+    background-color: #666; /* Color gris cuando está deshabilitado */
+}
+
+
+/* 3 ELEMENTOS MÁS */
+.Cargos {
+    width: 250px;  /* Ancho del select */
+    height: 40px;  /* Altura del select */
+    font-size: 16px;  /* Tamaño del texto */
+    padding: 5px;  /* Espaciado interior para el texto */
+    border-radius: 20px;  /* Bordes redondeados */
+}
+
+.nip{
+    padding: 0px 10px ;
+}
+
+.num_nip{
+    background-color: #000;
+    font-size: 20px;
+    padding: 10px 20px;
+    color: #FFF;
+    opacity: 0.5;
+    border: none;
+    margin-top: 10px; 
+    width: 230px;
+    height: 30px;
+    border-radius: 20px;
+    text-align: center;
+}

@@ -1,0 +1,163 @@
+* {
+    margin: 0;
+    padding: 0;
+    font-family: 'Poppins', sans-serif;
+}
+
+html{
+    height: 100%; /* Asegura que ocupen toda la altura */
+}
+
+body {
+    background-image: url('../IMG/index/FU.png');
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-position: center; /* Cambia a center para centrar la imagen */
+    overflow: hidden; /* Evita el desplazamiento */
+}
+
+.texto {
+    display: flex; 
+    flex-direction: column; 
+    align-items: center;
+    text-align: center; 
+    color: #FFF;
+}
+
+.texto h1 {
+    font-size: 60px;
+}
+
+.frase1, .frase2 {
+    font-size: 20px;
+}
+
+.inicio {
+    background: rgba(49, 74, 101, 0.4);
+    border-radius: 10px; 
+    padding: 20px; 
+    width: 350px; 
+    color: #FFF; 
+}
+
+.inicio h1 {
+    text-align: center;
+}
+
+label {
+    font-size: 20px;
+    margin: 80px 0px;
+}
+
+input {
+    background-color: #000;
+    font-size: 20px;
+    padding: 10px;
+    color: #FFF;
+    opacity: 0.5;
+    border: none;
+    margin-top: 10px; /* Espacio entre el label y el input */
+    width: 300px;
+    height: 35px;
+    border-radius: 20px;
+}
+
+input[type="submit"] {
+    background-color: #514A65;
+    font-size: 20px;
+    color: #FFF;
+    width: 200px;
+    height: 40px;
+    border-radius: 5px;
+    opacity: 1; 
+    display: block; 
+    margin: 20px auto; 
+}
+
+input[type="submit"]:hover {
+    background-color: #283c52;
+}
+
+.login {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 150px;
+    padding: 90px 120px;
+}
+
+a {
+    color: #FFF;
+    text-decoration: none;
+}
+
+button {
+    height: 50px;
+    width: 200px;
+    background-color: #514A65;
+    font-size: 20px;
+    padding: 10px 20px; 
+    border-radius: 5px; 
+    display: block;
+    margin-top: 20px; 
+}
+
+button:hover {
+    background-color: #283c52;
+}
+
+
+/* PARTE DE LALO BUTON */
+
+/* Estilos para el modal */
+dialog#modal {
+    border: none; /* Eliminar el borde por defecto */
+    border-radius: 10px; /* Bordes redondeados */
+    padding: 20px; /* Espacio interno */
+    background-color: #FFF; /* Fondo blanco semitransparente */
+    width: 400px; /* Ancho del modal */
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.2); /* Sombra para efecto de profundidad */
+    position: fixed; /* Fijar el modal en la pantalla */
+    top: 50%; /* Centrar verticalmente */
+    left: 50%; /* Centrar horizontalmente */
+    transform: translate(-50%, -50%); /* Ajuste para centrar correctamente */
+}
+
+/* Estilo del backdrop */
+#modal::backdrop {
+    background-color: rgba(0, 0, 0, 0.55);
+}
+
+/* Centrado de los botones dentro del modal */
+.modal-buttons {
+    display: flex;
+    justify-content: center; 
+    gap: 20px; /* Espacio entre los botones */
+    margin: 90px 0; /* Margen superior e inferior */
+}
+
+/* Estilo de los botones en el modal */
+.modal-buttons button,
+.btn-cerrar {
+    background-color: #514A65; 
+    color: #FFF; 
+    border: none; 
+    border-radius: 5px; /* Bordes redondeados */
+    padding: 10px 20px; /* Espaciado interno */
+    font-size: 16px; 
+    cursor: pointer; /* Cambia el cursor al pasar */
+    transition: background-color 0.3s ease; /* Efecto de transición */
+}
+
+/* Efecto hover para los botones */
+.modal-buttons button:hover,
+.btn-cerrar:hover {
+    background-color: #283c52; /* Color al pasar el ratón */
+}
+
+/* Estilo del botón de cerrar */
+.btn-cerrar {
+    position: absolute; /* Posición absoluta */
+    bottom: 20px; /* Espaciado desde la parte inferior */
+    right: 20px;
+    width: 120px; /* Ancho del botón */
+}
