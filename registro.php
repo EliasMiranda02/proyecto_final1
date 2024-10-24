@@ -21,7 +21,6 @@
             <?php
                 include "modelo/conexion.php";
                 include "controlador/registro_usuario.php";
-
             ?>
             <!-- SECCION PARA EL NOMBRE, APELLIDOS -->
             <form action="" method="POST">

@@ -1,16 +1,19 @@
 <?php
-    include "modelo/conexion.php";
-    if(!empty($_POST["eliminar"])){
+include "modelo/conexion.php"; // Asegúrate de que `$conn` esté disponible
 
-        $id= $_POST["eliminar"];
+    if(!empty($_GET["eliminar"])){
+        $id=$_GET["eliminar"];
 
-        $sql=$conexion->query("DELETE FROM clientes WHERE id_cliente == $id");
-        if($sql ==1){
-            echo '<div class="alert alert-success">Persona eliminada correctamente</div>';
+        $sql=$conexion->query("DELETE FROM cliente WHERE id_cliente==$id");
+
+        if ($sql == 1) {
+            echo "ELIMINADO";
         }
         else{
-            echo '<div class="alert alert-danger">Persona eliminada incorrectamente</div>';
+            echo "ERROR";
         }
-    }
+        
+        
 
+    }
 ?>
