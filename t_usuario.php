@@ -48,6 +48,7 @@
             <tbody>
                 <?php
                 include "modelo/conexion.php";
+                include "controlador/eliminar_usuario.php";
                 $sql = $conexion->query("select * from clientes");
                 while ($datos = $sql->fetch_object()) { ?>
                     <tr>
@@ -62,11 +63,14 @@
                         <td><?= $datos->contraseña ?></td>
                         <td>
                             <!-- Botón de edición con ícono y modal -->
-                            <a href="#" class="btn btn-small btn-warning" data-bs-toggle="modal" data-bs-target="#editModal<?= $datos->id_cliente ?>">
-                                <i class="fa-solid fa-pen-to-square"></i>
+            
+                            <!-- Modal Bootstrap -->
+                
+                            <a href="#" class="btn btn-small btn-danger" data-bs-toggle="modal" data-bs-target="#editModal<?= $datos->id_cliente ?>">
+                                <i class="fa-solid fa-trash"></i>
                             </a>
 
-                            <!-- Modal Bootstrap -->
+
                             <div class="modal fade" id="editModal<?= $datos->id_cliente ?>" tabindex="-1" aria-labelledby="editModalLabel<?= $datos->id_cliente ?>" aria-hidden="true">
                                 <div class="modal-dialog modal-dialog-centered">
                                     <div class="modal-content">
@@ -81,8 +85,8 @@
                                                     <input type="text" class="form-control" id="nombre" value="<?= $datos->nombre ?>">
                                                 </div>
                                                 <div class="mb-3">
-                                                    <label for="nombre" class="form-label">Contraseña</label>
-                                                    <input type="text" class="form-control" id="nombre" value="<?= $datos->contraseña?>">
+                                                    <label for="nombre" class="form-label">Telefono</label>
+                                                    <input type="text" class="form-control" id="nombre" value="<?= $datos->telefono?>">
                                                 </div>
 
                                                 <div class="mb-3">
@@ -90,17 +94,17 @@
                                                     <input type="email" class="form-control" id="email" value="<?= $datos->email ?>">
                                                 </div>
                                                 <!-- Agrega más campos según sea necesario -->
+                                                <input type="submit" name="eliminar" value="Eliminar">
                                             </form>
+
                                         </div>
                                         <div class="modal-footer">
                                             <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cerrar</button>
-                                            <button type="button" class="btn btn-primary">Guardar cambios</button>
                                         </div>
                                     </div>
                                 </div>
                             </div>
 
-                            <a href="" class="btn btn-small btn-danger"><i class="fa-solid fa-trash"></i></a>
                         </td>
                     </tr>
                 <?php } ?>
