@@ -31,8 +31,7 @@
             <tbody>
                 <?php
                 include "modelo/conexion.php";
-                include "controlador/eliminar_usuario.php";
-                $sql = $conexion->query("select * from clientes");
+                $sql = $conexion->query("SELECT* FROM clientes");
                 while ($datos = $sql->fetch_object()) { ?>
                     <tr>
                         <th scope="row"><?= $datos->id_cliente ?></th>
@@ -44,6 +43,7 @@
                         <td><?= $datos->telefono ?></td>
                         <td><?= $datos->fecha_registro ?></td>
                         <td><?= $datos->contraseña ?></td>
+
                         <td>
                             <!-- Botón de edición con ícono y modal -->
             
@@ -76,8 +76,10 @@
                                                     <label for="email" class="form-label">Email</label>
                                                     <input type="email" class="form-control" id="email" value="<?= $datos->email ?>" disabled>
                                                 </div>
+
+                                                <input type="submit" name="eliminar" value="Regístrate ahora">
                                                 <!-- Agrega más campos según sea necesario -->
-                                                <input type="submit" name="eliminar" value="Eliminar">
+                                                
                                             </form>
 
                                         </div>
@@ -89,8 +91,10 @@
                             </div>
 
                         </td>
+
                     </tr>
                 <?php } ?>
+                    
             </tbody>
         </table>
     </div>
