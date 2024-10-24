@@ -79,19 +79,19 @@
                                             <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
                                         </div>
                                         <div class="modal-body">
-                                            <form>
+                                            <form method="post">
                                                 <div class="mb-3">
                                                     <label for="nombre" class="form-label">Nombre</label>
-                                                    <input type="text" class="form-control" id="nombre" value="<?= $datos->nombre ?>">
+                                                    <input type="text" class="form-control" id="nombre" value="<?= $datos->nombre ?>" disabled>
                                                 </div>
                                                 <div class="mb-3">
                                                     <label for="nombre" class="form-label">Telefono</label>
-                                                    <input type="text" class="form-control" id="nombre" value="<?= $datos->telefono?>">
+                                                    <input type="text" class="form-control" id="nombre" value="<?= $datos->telefono?>" disabled>
                                                 </div>
 
                                                 <div class="mb-3">
                                                     <label for="email" class="form-label">Email</label>
-                                                    <input type="email" class="form-control" id="email" value="<?= $datos->email ?>">
+                                                    <input type="email" class="form-control" id="email" value="<?= $datos->email ?>" disabled>
                                                 </div>
                                                 <!-- Agrega más campos según sea necesario -->
                                                 <input type="submit" name="eliminar" value="Eliminar">

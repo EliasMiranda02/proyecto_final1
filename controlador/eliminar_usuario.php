@@ -1,5 +1,6 @@
 <?php
     include "modelo/conexion.php";
+    
     if(!empty($_POST["eliminar"])){
 
         $id= $_POST["eliminar"];
