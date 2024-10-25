@@ -11,7 +11,7 @@
 
 <body>
     <div class="col-12 p-2">
-        <form id="deleteForm" action="controlador/eliminar_usuario.php" method="post">
+        <form id="Clientes" action="controlador/eliminar_usuario.php" method="post">
             <table class="table">
                 <thead class="bg-info">
                     <tr>
@@ -49,8 +49,23 @@
                 </tbody>
             </table>
             <button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#eliminar">Eliminar seleccionados</button>
+            <button type="button" class="btn btn-warning" id="btnEditar" data-bs-toggle="modal" data-bs-target="#editar">Editar Usuario</button>
         </form>
     </div>
+    <?php if (isset($_GET['mensaje'])): ?>
+        <div class="alert alert-info">
+            <?php
+            if ($_GET['mensaje'] == 'actualizado') {
+                echo "Usuario actualizado correctamente.";
+            } elseif ($_GET['mensaje'] == 'error') {
+                echo "Hubo un error: " . ($_GET['detalle'] ?? '');
+            } elseif ($_GET['mensaje'] == 'no_id') {
+                echo "No se seleccionó ningún usuario para editar.";
+            }
+            ?>
+        </div>
+    <?php endif; ?>
+
 
     <?php if (isset($_GET['mensaje'])): ?>
         <div class="alert alert-info">
@@ -68,10 +83,51 @@
         </div>
     <?php endif; ?>
 
-
+    <?php include "modal_editar.php"; ?>
     <?php include "modal_usuario.php"; ?>
 
     <script>
+        // ESTE PARA EL BOTON DE EDITAR
+        document.addEventListener('DOMContentLoaded', function() {
+            const btnEditar = document.getElementById('btnEditar');
+
+            btnEditar.addEventListener('click', function() {
+                const checkboxes = document.querySelectorAll('input[name="ids[]"]:checked');
+                if (checkboxes.length === 1) {
+                    const id = checkboxes[0].value;
+                    const row = checkboxes[0].closest('tr');
+
+                    // Obtener los datos de la fila
+                    const nombre = row.cells[2].innerText;
+                    const apellidoMaterno = row.cells[3].innerText;
+                    const apellidoPaterno = row.cells[4].innerText;
+                    const email = row.cells[5].innerText;
+                    const pass = row.cells[9].innerText; // Suponiendo que la contraseña está en la columna 9
+                    const numero = row.cells[7].innerText; // Ajusta el índice según tu tabla
+
+                    // Llenar los campos del modal
+                    document.getElementById('id_usuario_editar').value = id;
+                    document.getElementById('nombre').value = nombre;
+                    document.getElementById('apellido_materno').value = apellidoMaterno;
+                    document.getElementById('apellido_paterno').value = apellidoPaterno;
+                    document.getElementById('email').value = email;
+                    document.getElementById('pass').value = pass;
+                    document.getElementById('numero').value = numero;
+                } else {
+                    alert('Por favor, selecciona un único registro para editar.');
+                    $('#editar').modal('hide'); // Ocultar el modal si no hay un único registro seleccionado
+                }
+            });
+
+            // Enviar el formulario al hacer clic en "Guardar Cambios"
+            document.getElementById('confirmarEditar').addEventListener('click', function() {
+                document.getElementById('editarForm').submit(); // Envía el formulario para actualizar el registro
+            });
+        });
+
+
+
+        // Para eliminar
         document.getElementById('selectAll').addEventListener('change', function() {
             let checkboxes = document.querySelectorAll('input[name="ids[]"]');
             checkboxes.forEach(checkbox => checkbox.checked = this.checked);
