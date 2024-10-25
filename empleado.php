@@ -53,8 +53,8 @@
                                             <tr>
                                                 <th scope="col">id_usuario</th>
                                                 <th scope="col">nombre</th>
-                                                <th scope="col">apellido materno</th>
                                                 <th scope="col">apellido paterno</th>
+                                                <th scope="col">apellido materno</th>
                                                 <th scope="col" class="px-3 text-center">email</th>
                                                 <th scope="col" class="text-center">clave_lada</th>
                                                 <th scope="col">telefono</th>
@@ -75,8 +75,8 @@
                                                 <tr>
                                                     <th scope="row"><?= $datos->id_empleado ?></th>
                                                     <td><?= $datos->nombre ?></td>
-                                                    <td><?= $datos->apellido_materno ?></td>
                                                     <td><?= $datos->apellido_paterno ?></td>
+                                                    <td><?= $datos->apellido_materno ?></td>
                                                     <td><?= $datos->email ?></td>
                                                     <td><?= $datos->clave_lada ?></td>
                                                     <td><?= $datos->telefono ?></td>
@@ -158,8 +158,8 @@
                                             <tr>
                                                 <th scope="col">id_usuario</th>
                                                 <th scope="col">nombre</th>
-                                                <th scope="col">apellido materno</th>
                                                 <th scope="col">apellido paterno</th>
+                                                <th scope="col">apellido materno</th>
                                                 <th scope="col" class="px-3 text-center">email</th>
                                                 <th scope="col" class="text-center">clave_lada</th>
                                                 <th scope="col">telefono</th>
@@ -180,8 +180,8 @@
                                                 <tr>
                                                     <th scope="row"><?= $datos->id_empleado ?></th>
                                                     <td><?= $datos->nombre ?></td>
-                                                    <td><?= $datos->apellido_materno ?></td>
                                                     <td><?= $datos->apellido_paterno ?></td>
+                                                    <td><?= $datos->apellido_materno ?></td>
                                                     <td><?= $datos->email ?></td>
                                                     <td><?= $datos->clave_lada ?></td>
                                                     <td><?= $datos->telefono ?></td>
@@ -263,8 +263,8 @@
                                             <tr>
                                                 <th scope="col">id_usuario</th>
                                                 <th scope="col">nombre</th>
-                                                <th scope="col">apellido materno</th>
                                                 <th scope="col">apellido paterno</th>
+                                                <th scope="col">apellido materno</th>
                                                 <th scope="col" class="px-3 text-center">email</th>
                                                 <th scope="col" class="text-center">clave_lada</th>
                                                 <th scope="col">telefono</th>
@@ -285,8 +285,8 @@
                                                 <tr>
                                                     <th scope="row"><?= $datos->id_empleado ?></th>
                                                     <td><?= $datos->nombre ?></td>
-                                                    <td><?= $datos->apellido_materno ?></td>
                                                     <td><?= $datos->apellido_paterno ?></td>
+                                                    <td><?= $datos->apellido_materno ?></td>
                                                     <td><?= $datos->email ?></td>
                                                     <td><?= $datos->clave_lada ?></td>
                                                     <td><?= $datos->telefono ?></td>
