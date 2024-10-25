@@ -44,6 +44,11 @@
                             <td><?= $datos->telefono ?></td>
                             <td><?= $datos->fecha_registro ?></td>
                             <td><?= $datos->contraseña ?></td>
+                            <td>
+                                <button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#banco" data-id="<?= $datos->id_cliente ?>">Banco</button>
+                            </td>
+
+
                         </tr>
                     <?php } ?>
                 </tbody>
@@ -85,6 +90,7 @@
 
     <?php include "modal_editar.php"; ?>
     <?php include "modal_usuario.php"; ?>
+    <?php include "modal_usuario/D_bancariosU.php" ?>
 
     <script>
         // ESTE PARA EL BOTON DE EDITAR
@@ -131,6 +137,46 @@
         document.getElementById('selectAll').addEventListener('change', function() {
             let checkboxes = document.querySelectorAll('input[name="ids[]"]');
             checkboxes.forEach(checkbox => checkbox.checked = this.checked);
+        });
+
+        // DATOS BANCARIOS 
+        document.addEventListener('DOMContentLoaded', function() {
+            const buttonsBanco = document.querySelectorAll('button[data-bs-target="#banco"]');
+
+            buttonsBanco.forEach(button => {
+                button.addEventListener('click', function() {
+                    const row = this.closest('tr');
+                    const id_cliente = row.querySelector('input[name="ids[]"]').value;
+                    const idClienteDisplay = document.getElementById('idClienteDisplay');
+                    idClienteDisplay.innerHTML = 'ID Cliente: ' + id_cliente;
+
+                    fetch(`controlador/datos_bancario.php?id_cliente=${id_cliente}`)
+                        .then(response => response.json())
+                        .then(data => {
+                            const datosBancarios = document.getElementById('datosBancarios');
+                            datosBancarios.innerHTML = '';
+
+                            if (data.length > 0) {
+                                data.forEach(dato => {
+                                    datosBancarios.innerHTML += `
+                                <p><strong>ID Tarjeta:</strong> ${dato.id_tarjeta}</p>
+                                <p><strong>Número de Cuenta:</strong> ${dato.numero_cuenta}</p>
+                                <p><strong>Fecha de Vencimiento:</strong> ${dato.fecha_vencimiento}</p>
+                                <p><strong>Nombre Titular:</strong> ${dato.nombre_titular}</p>
+                                <p><strong>Código de Seguridad:</strong> ${dato.codigo_seguridad}</p>
+                                <p><strong>Nombre Banco:</strong> ${dato.nombre_banco}</p>
+                                <hr>
+                            `;
+                                });
+                            } else {
+                                datosBancarios.innerHTML = '<p>No se encontraron datos bancarios para este cliente.</p>';
+                            }
+                        })
+                        .catch(error => {
+                            console.error('Error al obtener los datos bancarios:', error);
+                        });
+                });
+            });
         });
     </script>
 
