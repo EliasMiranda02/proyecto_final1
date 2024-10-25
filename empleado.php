@@ -63,7 +63,6 @@
                                                 <th scope="col">nombre_usuario</th>
                                                 <th scope="col">NIP</th>
                                                 <th scope="col">cargo</th>
-                                                <th scope="col">Acciones</th>
                                             </tr>
                                         </thead>
                                         <tbody>
@@ -85,51 +84,6 @@
                                                     <td><?= $datos->nombre_usuario ?></td>
                                                     <td><?= $datos->NIP ?></td>
                                                     <td><?= $datos->cargo ?></td>
-                                                    <td>
-                                                        <!-- Botón de edición con ícono y modal -->
-
-                                                        <!-- Modal Bootstrap -->
-
-                                                        <a href="#" class="btn btn-small btn-danger" data-bs-toggle="modal" data-bs-target="#editModal<?= $datos->id_empleado ?>">
-                                                            <i class="fa-solid fa-trash"></i>
-                                                        </a>
-
-
-                                                        <div class="modal fade" id="editModal<?= $datos->id_empleado ?>" tabindex="-1" aria-labelledby="editModalLabel<?= $datos->id_empleado ?>" aria-hidden="true">
-                                                            <div class="modal-dialog modal-dialog-centered">
-                                                                <div class="modal-content">
-                                                                    <div class="modal-header">
-                                                                        <h5 class="modal-title" id="editModalLabel<?= $datos->id_empleado ?>">Editar Usuario <?= $datos->id_empleado ?></h5>
-                                                                        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
-                                                                    </div>
-                                                                    <div class="modal-body">
-                                                                        <form>
-                                                                            <div class="mb-3">
-                                                                                <label for="nombre" class="form-label">Nombre</label>
-                                                                                <input type="text" class="form-control" id="nombre" value="<?= $datos->nombre ?>">
-                                                                            </div>
-                                                                            <div class="mb-3">
-                                                                                <label for="nombre" class="form-label">Telefono</label>
-                                                                                <input type="text" class="form-control" id="nombre" value="<?= $datos->telefono ?>">
-                                                                            </div>
-
-                                                                            <div class="mb-3">
-                                                                                <label for="email" class="form-label">Email</label>
-                                                                                <input type="email" class="form-control" id="email" value="<?= $datos->email ?>">
-                                                                            </div>
-                                                                            <!-- Agrega más campos según sea necesario -->
-                                                                            <input type="submit" name="eliminar" value="Eliminar">
-                                                                        </form>
-
-                                                                    </div>
-                                                                    <div class="modal-footer">
-                                                                        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cerrar</button>
-                                                                    </div>
-                                                                </div>
-                                                            </div>
-                                                        </div>
-
-                                                    </td>
                                                 </tr>
                                             <?php } ?>
                                         </tbody>
@@ -168,7 +122,7 @@
                                                 <th scope="col">nombre_usuario</th>
                                                 <th scope="col">NIP</th>
                                                 <th scope="col">cargo</th>
-                                                <th scope="col">Acciones</th>
+                                                
                                             </tr>
                                         </thead>
                                         <tbody>
@@ -190,51 +144,6 @@
                                                     <td><?= $datos->nombre_usuario ?></td>
                                                     <td><?= $datos->NIP ?></td>
                                                     <td><?= $datos->cargo ?></td>
-                                                    <td>
-                                                        <!-- Botón de edición con ícono y modal -->
-
-                                                        <!-- Modal Bootstrap -->
-
-                                                        <a href="#" class="btn btn-small btn-danger" data-bs-toggle="modal" data-bs-target="#editModal<?= $datos->id_empleado ?>">
-                                                            <i class="fa-solid fa-trash"></i>
-                                                        </a>
-
-
-                                                        <div class="modal fade" id="editModal<?= $datos->id_empleado ?>" tabindex="-1" aria-labelledby="editModalLabel<?= $datos->id_empleado ?>" aria-hidden="true">
-                                                            <div class="modal-dialog modal-dialog-centered">
-                                                                <div class="modal-content">
-                                                                    <div class="modal-header">
-                                                                        <h5 class="modal-title" id="editModalLabel<?= $datos->id_empleado ?>">Editar Usuario <?= $datos->id_empleado ?></h5>
-                                                                        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
-                                                                    </div>
-                                                                    <div class="modal-body">
-                                                                        <form>
-                                                                            <div class="mb-3">
-                                                                                <label for="nombre" class="form-label">Nombre</label>
-                                                                                <input type="text" class="form-control" id="nombre" value="<?= $datos->nombre ?>">
-                                                                            </div>
-                                                                            <div class="mb-3">
-                                                                                <label for="nombre" class="form-label">Telefono</label>
-                                                                                <input type="text" class="form-control" id="nombre" value="<?= $datos->telefono ?>">
-                                                                            </div>
-
-                                                                            <div class="mb-3">
-                                                                                <label for="email" class="form-label">Email</label>
-                                                                                <input type="email" class="form-control" id="email" value="<?= $datos->email ?>">
-                                                                            </div>
-                                                                            <!-- Agrega más campos según sea necesario -->
-                                                                            <input type="submit" name="eliminar" value="Eliminar">
-                                                                        </form>
-
-                                                                    </div>
-                                                                    <div class="modal-footer">
-                                                                        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cerrar</button>
-                                                                    </div>
-                                                                </div>
-                                                            </div>
-                                                        </div>
-
-                                                    </td>
                                                 </tr>
                                             <?php } ?>
                                         </tbody>
@@ -273,7 +182,7 @@
                                                 <th scope="col">nombre_usuario</th>
                                                 <th scope="col">NIP</th>
                                                 <th scope="col">cargo</th>
-                                                <th scope="col">Acciones</th>
+                                                
                                             </tr>
                                         </thead>
                                         <tbody>
@@ -295,51 +204,6 @@
                                                     <td><?= $datos->nombre_usuario ?></td>
                                                     <td><?= $datos->NIP ?></td>
                                                     <td><?= $datos->cargo ?></td>
-                                                    <td>
-                                                        <!-- Botón de edición con ícono y modal -->
-
-                                                        <!-- Modal Bootstrap -->
-
-                                                        <a href="#" class="btn btn-small btn-danger" data-bs-toggle="modal" data-bs-target="#editModal<?= $datos->id_empleado ?>">
-                                                            <i class="fa-solid fa-trash"></i>
-                                                        </a>
-
-
-                                                        <div class="modal fade" id="editModal<?= $datos->id_empleado ?>" tabindex="-1" aria-labelledby="editModalLabel<?= $datos->id_empleado ?>" aria-hidden="true">
-                                                            <div class="modal-dialog modal-dialog-centered">
-                                                                <div class="modal-content">
-                                                                    <div class="modal-header">
-                                                                        <h5 class="modal-title" id="editModalLabel<?= $datos->id_empleado ?>">Editar Usuario <?= $datos->id_empleado ?></h5>
-                                                                        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
-                                                                    </div>
-                                                                    <div class="modal-body">
-                                                                        <form>
-                                                                            <div class="mb-3">
-                                                                                <label for="nombre" class="form-label">Nombre</label>
-                                                                                <input type="text" class="form-control" id="nombre" value="<?= $datos->nombre ?>">
-                                                                            </div>
-                                                                            <div class="mb-3">
-                                                                                <label for="nombre" class="form-label">Telefono</label>
-                                                                                <input type="text" class="form-control" id="nombre" value="<?= $datos->telefono ?>">
-                                                                            </div>
-
-                                                                            <div class="mb-3">
-                                                                                <label for="email" class="form-label">Email</label>
-                                                                                <input type="email" class="form-control" id="email" value="<?= $datos->email ?>">
-                                                                            </div>
-                                                                            <!-- Agrega más campos según sea necesario -->
-                                                                            <input type="submit" name="eliminar" value="Eliminar">
-                                                                        </form>
-
-                                                                    </div>
-                                                                    <div class="modal-footer">
-                                                                        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cerrar</button>
-                                                                    </div>
-                                                                </div>
-                                                            </div>
-                                                        </div>
-
-                                                    </td>
                                                 </tr>
                                             <?php } ?>
                                         </tbody>
