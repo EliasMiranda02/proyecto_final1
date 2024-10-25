@@ -42,6 +42,7 @@
                     <div class="modal-content">
                         <div class="modal-header">
                             <h5 class="modal-title">ADMINISTRADORES</h5>
+                            
                             <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
                         </div>
                         <div class="modal-body">
@@ -91,7 +92,7 @@
                                                 <?php } ?>
                                             </tbody>
                                         </table>
-                                        <button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#eliminar">Eliminar seleccionados</button>
+                                        <button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#eliminar" data-form-id="deleteForm">Eliminar seleccionados</button>
                                 </form>
                             </div>
                         </div>
@@ -111,7 +112,7 @@
                     <div class="modal-body">
                         <!-- TABLA DE USUARIOS -->
                         <div class="col-12 p-2">
-                            <form id="deleteForm" action="controlador/eliminar_empleado.php" method="post">
+                            <form id="deleteFormAsesor" action="controlador/eliminar_empleado.php" method="post">
                                 <div class="table-responsive">
                                     <table class="table">
                                         <thead class="Bg-info">
@@ -156,7 +157,7 @@
                                             <?php } ?>
                                         </tbody>
                                     </table>
-                                    <button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#eliminar">Eliminar seleccionados</button>
+                                    <button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#eliminar" data-form-id="deleteFormAsesor">Eliminar seleccionados</button>
                             </form>
                         </div>
                     </div>
@@ -176,7 +177,7 @@
                 <div class="modal-body">
                     <!-- TABLA DE USUARIOS -->
                     <div class="col-12 p-2">
-                        <form id="deleteForm" action="controlador/eliminar_empleado.php" method="post">
+                        <form id="deleteFormGuia" action="controlador/eliminar_empleado.php" method="post">
                             <div class="table-responsive">
                                 <table class="table">
                                     <thead class="Bg-info">
@@ -221,7 +222,7 @@
                                         <?php } ?>
                                     </tbody>
                                 </table>
-                                <button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#eliminar">Eliminar seleccionados</button>
+                                <button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#eliminar" data-form-id="deleteFormGuia">Eliminar seleccionados</button>
                         </form>
                     </div>
                 </div>
@@ -250,13 +251,7 @@
 
 
     <?php include "modal_empleado/administradores.php"; ?>
-
-    <script>
-        document.getElementById('selectAll').addEventListener('change', function() {
-            let checkboxes = document.querySelectorAll('input[name="ids[]"]');
-            checkboxes.forEach(checkbox => checkbox.checked = this.checked);
-        });
-    </script>
+    <script src="JS/t_empleado.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz" crossorigin="anonymous"></script>
 </body>
 

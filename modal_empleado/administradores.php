@@ -10,7 +10,7 @@
       </div>
       <div class="modal-footer">
         <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cancelar</button>
-        <button type="button" class="btn btn-primary" onclick="document.getElementById('deleteForm').submit();">Eliminar</button>
+        <button type="button" class="btn btn-primary" onclick="document.getElementById(this.dataset.formId).submit();">Eliminar</button>
       </div>
     </div>
   </div>
