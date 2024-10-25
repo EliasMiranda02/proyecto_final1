@@ -42,7 +42,19 @@
                     <div class="modal-content">
                         <div class="modal-header">
                             <h5 class="modal-title">ADMINISTRADORES</h5>
-                            
+                            <form id="searchForm" class="mb-3" method="POST" action="controlador/buscar_empleados.php">
+                            <input type="hidden" name="cargo" value="Administrativo"> <!-- Campo oculto -->
+                                <div class="input-group">
+                                    <select name="campo" class="form-select" required>
+                                        <option value="nombre">Nombre</option>
+                                        <option value="apellido_paterno">Apellido Paterno</option>
+                                        <option value="apellido_materno">Apellido Materno</option>
+                                        <option value="email">Email</option>
+                                    </select>
+                                    <input type="text" class="form-control" name="query" placeholder="Buscar..." required>
+                                    <button type="submit" class="btn btn-primary">Buscar</button>
+                                </div>
+                            </form>
                             <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
                         </div>
                         <div class="modal-body">
@@ -107,6 +119,19 @@
                 <div class="modal-content">
                     <div class="modal-header">
                         <h5 class="modal-title">ASESORES DE VIAJE</h5>
+                        <form id="searchFormAsesor" class="mb-3" method="POST" action="controlador/buscar_empleados.php">
+                        <input type="hidden" name="cargo" value="Asesor de Viajes"> <!-- Campo oculto -->
+                            <div class="input-group">
+                                <select name="campo" class="form-select" required>
+                                    <option value="nombre">Nombre</option>
+                                    <option value="apellido_paterno">Apellido Paterno</option>
+                                    <option value="apellido_materno">Apellido Materno</option>
+                                    <option value="email">Email</option>
+                                </select>
+                                <input type="text" class="form-control" name="query" placeholder="Buscar..." required>
+                                <button type="submit" class="btn btn-primary">Buscar</button>
+                            </div>
+                        </form>
                         <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
                     </div>
                     <div class="modal-body">
@@ -172,6 +197,19 @@
             <div class="modal-content">
                 <div class="modal-header">
                     <h5 class="modal-title">GUIAS TURISTICOS</h5>
+                    <form id="searchFormGuia" class="mb-3" method="POST" action="controlador/buscar_empleados.php">
+                    <input type="hidden" name="cargo" value="Guia Turistico"> <!-- Campo oculto -->
+                        <div class="input-group">
+                            <select name="campo" class="form-select" required>
+                                <option value="nombre">Nombre</option>
+                                <option value="apellido_paterno">Apellido Paterno</option>
+                                <option value="apellido_materno">Apellido Materno</option>
+                                <option value="email">Email</option>
+                            </select>
+                            <input type="text" class="form-control" name="query" placeholder="Buscar..." required>
+                            <button type="submit" class="btn btn-primary">Buscar</button>
+                        </div>
+                    </form>
                     <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
                 </div>
                 <div class="modal-body">

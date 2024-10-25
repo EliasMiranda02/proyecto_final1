@@ -13,4 +13,58 @@ document.getElementById('selectAll').addEventListener('change', function() {
       deleteButton.setAttribute('data-form-id', formId);
     });
   });
-  
+  // Para Administradores
+document.getElementById('searchForm').addEventListener('submit', function(e) {
+    e.preventDefault();
+
+    const formData = new FormData(this);
+
+    fetch('controlador/buscar_empleado.php', {
+        method: 'POST',
+        body: formData
+    })
+    .then(response => response.text())
+    .then(data => {
+        const tbody = document.querySelector('#Administradores table tbody'); // Especifica el tbody correcto
+        tbody.innerHTML = data;
+    })
+    .catch(error => console.error('Error:', error));
+});
+
+// Para Asesores
+document.getElementById('searchFormAsesor').addEventListener('submit', function(e) {
+    e.preventDefault();
+
+    const formData = new FormData(this);
+
+    fetch('controlador/buscar_empleado.php', {
+        method: 'POST',
+        body: formData
+    })
+    .then(response => response.text())
+    .then(data => {
+        const tbody = document.querySelector('#Asesor table tbody'); // Especifica el tbody correcto
+        tbody.innerHTML = data;
+    })
+    .catch(error => console.error('Error:', error));
+});
+document.getElementById('searchFormGuia').addEventListener('submit', function(e) {
+    e.preventDefault();
+
+    const formData = new FormData(this);
+
+    fetch('controlador/buscar_empleado.php', {
+        method: 'POST',
+        body: formData
+    })
+    .then(response => response.text())
+    .then(data => {
+        const tbody = document.querySelector('#Guias table tbody'); // Especifica el tbody correcto
+        tbody.innerHTML = data;
+    })
+    .catch(error => console.error('Error:', error));
+});
+
+
+
+
