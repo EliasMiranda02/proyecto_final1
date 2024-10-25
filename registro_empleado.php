@@ -20,9 +20,15 @@
             <?php
                 include "modelo/conexion.php";
                 include "controlador/registro_empleado.php";
+
+            ini_set('display_errors', 1);
+            ini_set('display_startup_errors', 1);
+            error_reporting(E_ALL);
+
             ?>
+            
             <br><br>
-            <form action="" method="post">
+            <form action="" method="POST">
 
                 <div class="apellidos">
                     <!-- Dato personal: Nombre -->
