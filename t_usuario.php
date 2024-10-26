@@ -10,83 +10,76 @@
 </head>
 
 <body>
-    <div class="col-12 p-2">
-        <form id="Clientes" action="controlador/eliminar_usuario.php" method="post">
-            <table class="table">
-                <thead class="bg-info">
-                    <tr>
-                        <th scope="col"><input type="hidden" id="selectAll"></th>
-                        <th scope="col">id_usuario</th>
-                        <th scope="col">nombre</th>
-                        <th scope="col">apellido materno</th>
-                        <th scope="col">apellido paterno</th>
-                        <th scope="col" class="text-center">email</th>
-                        <th scope="col" class="text-center">clave_lada</th>
-                        <th scope="col">telefono</th>
-                        <th scope="col">fecha_registro</th>
-                        <th scope="col">contraseña</th>
-                    </tr>
-                </thead>
-                <tbody>
+
+    <div class="d-flex justify-content-center align-items-center vh-100">
+        <div class=" col-8 p-2">
+
+            <?php if (isset($_GET['mensaje'])): ?>
+                <div class="alert alert-info" id="mensajeAlerta">
                     <?php
-                    include "modelo/conexion.php";
+                    if ($_GET['mensaje'] == 'actualizado') {
+                        echo "Usuario actualizado correctamente.";
+                    } elseif ($_GET['mensaje'] == 'error') {
+                        echo "Hubo un error: " . ($_GET['detalle'] ?? '');
+                    } elseif ($_GET['mensaje'] == 'no_id') {
+                        echo "No se seleccionó ningún usuario para editar.";
+                    } elseif ($_GET['mensaje'] == 'eliminado') {
+                        echo "Usuarios eliminados correctamente.";
+                    } elseif ($_GET['mensaje'] == 'id_invalido') {
+                        echo "ID de usuario inválido.";
+                    }
+                    ?>
+                </div>
+            <?php endif; ?>
 
-                    $sql = $conexion->query("SELECT * FROM clientes");
-                    while ($datos = $sql->fetch_object()) { ?>
+            <form id="Clientes" action="controlador/eliminar_usuario.php" method="post">
+                <table class="table">
+                    <thead class="bg-info">
                         <tr>
-                            <td><input type="checkbox" name="ids[]" value="<?= $datos->id_cliente ?>"></td>
-                            <th scope="row"><?= $datos->id_cliente ?></th>
-                            <td><?= $datos->nombre ?></td>
-                            <td><?= $datos->apellido_materno ?></td>
-                            <td><?= $datos->apellido_paterno ?></td>
-                            <td><?= $datos->email ?></td>
-                            <td class="text-center"><?= $datos->clave_lada ?></td>
-                            <td><?= $datos->telefono ?></td>
-                            <td><?= $datos->fecha_registro ?></td>
-                            <td><?= $datos->contraseña ?></td>
-                            <td>
-                                <button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#banco" data-id="<?= $datos->id_cliente ?>">Banco</button>
-                            </td>
-
-
+                            <th scope="col"><input type="hidden" id="selectAll"></th>
+                            <th scope="col">id_usuario</th>
+                            <th scope="col">nombre</th>
+                            <th scope="col">apellido materno</th>
+                            <th scope="col">apellido paterno</th>
+                            <th scope="col" class="text-center">email</th>
+                            <th scope="col" class="text-center">clave_lada</th>
+                            <th scope="col">telefono</th>
+                            <th scope="col">fecha_registro</th>
+                            <th scope="col">contraseña</th>
                         </tr>
-                    <?php } ?>
-                </tbody>
-            </table>
-            <button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#eliminar">Eliminar seleccionados</button>
-            <button type="button" class="btn btn-warning" id="btnEditar" data-bs-toggle="modal" data-bs-target="#editar">Editar Usuario</button>
-        </form>
+                    </thead>
+                    <tbody>
+                        <?php
+                        include "modelo/conexion.php";
+
+                        $sql = $conexion->query("SELECT * FROM clientes");
+                        while ($datos = $sql->fetch_object()) { ?>
+                            <tr>
+                                <td><input type="checkbox" name="ids[]" value="<?= $datos->id_cliente ?>"></td>
+                                <th scope="row"><?= $datos->id_cliente ?></th>
+                                <td><?= $datos->nombre ?></td>
+                                <td><?= $datos->apellido_materno ?></td>
+                                <td><?= $datos->apellido_paterno ?></td>
+                                <td><?= $datos->email ?></td>
+                                <td class="text-center"><?= $datos->clave_lada ?></td>
+                                <td><?= $datos->telefono ?></td>
+                                <td><?= $datos->fecha_registro ?></td>
+                                <td><?= $datos->contraseña ?></td>
+                                <td>
+                                    <button type="button" class="btn btn-success" data-bs-toggle="modal" data-bs-target="#banco" data-id="<?= $datos->id_cliente ?>">Banco</button>
+                                </td>
+
+
+                            </tr>
+                        <?php } ?>
+                    </tbody>
+                </table>
+                <button type="button" class="btn btn-danger" data-bs-toggle="modal" data-bs-target="#eliminar">Eliminar seleccionados</button>
+                <button type="button" class="btn btn-warning" id="btnEditar" data-bs-toggle="modal" data-bs-target="#editar">Editar Usuario</button>
+            </form>
+        </div>
+
     </div>
-    <?php if (isset($_GET['mensaje'])): ?>
-        <div class="alert alert-info">
-            <?php
-            if ($_GET['mensaje'] == 'actualizado') {
-                echo "Usuario actualizado correctamente.";
-            } elseif ($_GET['mensaje'] == 'error') {
-                echo "Hubo un error: " . ($_GET['detalle'] ?? '');
-            } elseif ($_GET['mensaje'] == 'no_id') {
-                echo "No se seleccionó ningún usuario para editar.";
-            }
-            ?>
-        </div>
-    <?php endif; ?>
-
-
-    <?php if (isset($_GET['mensaje'])): ?>
-        <div class="alert alert-info">
-            <?php
-            if ($_GET['mensaje'] == 'eliminado') {
-                echo "Usuarios eliminados correctamente.";
-            } elseif ($_GET['mensaje'] == 'error') {
-                echo "Hubo un error: " . ($_GET['detalle'] ?? '');
-            } elseif ($_GET['mensaje'] == 'id_invalido') {
-                echo "ID de usuario inválido.";
-            } elseif ($_GET['mensaje'] == 'no_id') {
-                echo "No se seleccionó ningún usuario para eliminar.";
-            }
-            ?>
-        </div>
-    <?php endif; ?>
 
     <?php include "modal_editar.php"; ?>
     <?php include "modal_usuario.php"; ?>
@@ -178,6 +171,14 @@
                 });
             });
         });
+
+        // Oculta el mensaje después de 5 segundos
+        setTimeout(function() {
+            const mensajeAlerta = document.getElementById('mensajeAlerta');
+            if (mensajeAlerta) {
+                mensajeAlerta.style.display = 'none';
+            }
+        }, 2000); // 5000 milisegundos = 5 segundos
     </script>
 
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
