@@ -66,7 +66,7 @@
                                             <thead class="Bg-info">
                                                 <tr>
                                                     <th scope="col"><input type="hidden" id="selectAll"></th>
-                                                    <th scope="col">id_usuario</th>
+                                                    <th scope="col">id_empleado</th>
                                                     <th scope="col">nombre</th>
                                                     <th scope="col">apellido paterno</th>
                                                     <th scope="col">apellido materno</th>
@@ -144,7 +144,7 @@
                                         <thead class="Bg-info">
                                             <tr>
                                                 <th scope="col"><input type="hidden" id="selectAll"></th>
-                                                <th scope="col">id_usuario</th>
+                                                <th scope="col">id_empleado</th>
                                                 <th scope="col">nombre</th>
                                                 <th scope="col">apellido paterno</th>
                                                 <th scope="col">apellido materno</th>
@@ -214,55 +214,86 @@
                     <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
                 </div>
                 <div class="modal-body">
-                    <!-- TABLA DE USUARIOS -->
-                    <div class="col-12 p-2">
-                        <form id="deleteFormGuia" action="controlador/eliminar_empleado.php" method="post">
-                            <div class="table-responsive">
-                                <table class="table">
-                                    <thead class="Bg-info">
-                                        <tr>
-                                            <th scope="col"><input type="hidden" id="selectAll"></th>
-                                            <th scope="col">id_usuario</th>
-                                            <th scope="col">nombre</th>
-                                            <th scope="col">apellido paterno</th>
-                                            <th scope="col">apellido materno</th>
-                                            <th scope="col" class="px-3 text-center">email</th>
-                                            <th scope="col" class="text-center">clave_lada</th>
-                                            <th scope="col">telefono</th>
-                                            <th scope="col">fecha_registro</th>
-                                            <th scope="col">contraseña</th>
-                                            <th scope="col">nombre_usuario</th>
-                                            <th scope="col">NIP</th>
-                                            <th scope="col">cargo</th>
-
-                                        </tr>
-                                    </thead>
-                                    <tbody>
-                                        <?php
-                                        include "modelo/conexion.php";
-                                        $cargo = "Guia Turistico";
-                                        $sql = $conexion->query("select * from empleados where cargo = '$cargo'");
-                                        while ($datos = $sql->fetch_object()) { ?>
+                    <div class="row">
+                        <!-- TABLA DE USUARIOS -->
+                        <div class="col-8">
+                            <form id="deleteFormGuia" action="controlador/eliminar_empleado.php" method="post">
+                                <div class="table-responsive">
+                                    <table class="table">
+                                        <thead class="Bg-info">
                                             <tr>
-                                                <td><input type="checkbox" name="ids[]" value="<?= $datos->id_empleado ?>"></td>
-                                                <th scope="row"><?= $datos->id_empleado ?></th>
-                                                <td><?= $datos->nombre ?></td>
-                                                <td><?= $datos->apellido_paterno ?></td>
-                                                <td><?= $datos->apellido_materno ?></td>
-                                                <td><?= $datos->email ?></td>
-                                                <td><?= $datos->clave_lada ?></td>
-                                                <td><?= $datos->telefono ?></td>
-                                                <td><?= $datos->fecha_registro ?></td>
-                                                <td><?= $datos->contraseña ?></td>
-                                                <td><?= $datos->nombre_usuario ?></td>
-                                                <td><?= $datos->NIP ?></td>
-                                                <td><?= $datos->cargo ?></td>
+                                                <th scope="col"><input type="hidden" id="selectAll"></th>
+                                                <th scope="col">id_empleado</th>
+                                                <th scope="col">nombre</th>
+                                                <th scope="col">apellido paterno</th>
+                                                <th scope="col">apellido materno</th>
+                                                <th scope="col" class="px-3 text-center">email</th>
+                                                <th scope="col" class="text-center">clave_lada</th>
+                                                <th scope="col">telefono</th>
+                                                <th scope="col">fecha_registro</th>
+                                                <th scope="col">contraseña</th>
+                                                <th scope="col">nombre_usuario</th>
+                                                <th scope="col">NIP</th>
+                                                <th scope="col">cargo</th>
+
                                             </tr>
-                                        <?php } ?>
-                                    </tbody>
-                                </table>
-                                <button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#eliminar" data-form-id="deleteFormGuia">Eliminar seleccionados</button>
-                        </form>
+                                        </thead>
+                                        <tbody>
+                                            <?php
+                                            include "modelo/conexion.php";
+                                            $cargo = "Guia Turistico";
+                                            $sql = $conexion->query("select * from empleados where cargo = '$cargo'");
+                                            while ($datos = $sql->fetch_object()) { ?>
+                                                <tr>
+                                                    <td><input type="checkbox" name="ids[]" value="<?= $datos->id_empleado ?>"></td>
+                                                    <th scope="row"><?= $datos->id_empleado ?></th>
+                                                    <td><?= $datos->nombre ?></td>
+                                                    <td><?= $datos->apellido_paterno ?></td>
+                                                    <td><?= $datos->apellido_materno ?></td>
+                                                    <td><?= $datos->email ?></td>
+                                                    <td><?= $datos->clave_lada ?></td>
+                                                    <td><?= $datos->telefono ?></td>
+                                                    <td><?= $datos->fecha_registro ?></td>
+                                                    <td><?= $datos->contraseña ?></td>
+                                                    <td><?= $datos->nombre_usuario ?></td>
+                                                    <td><?= $datos->NIP ?></td>
+                                                    <td><?= $datos->cargo ?></td>
+                                                </tr>
+                                            <?php } ?>
+                                        </tbody>
+                                    </table>
+                                    <button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#eliminar" data-form-id="deleteFormGuia">Eliminar seleccionados</button>
+                                </div>
+                            </form>
+                        </div>
+                        <!-- Nueva tabla (Derecha) -->
+                    <div class="col-4">
+                        <div class="table-responsive">
+                            <table class="table">
+                                <thead>
+                                    <tr>
+                                        <th>Columna 1</th>
+                                        <th>Columna 2</th>
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                    <tr>
+                                        <td>Texto ejemplo 1</td>
+                                        <td>Información 1</td>
+                                    </tr>
+                                    <tr>
+                                        <td>Texto ejemplo 2</td>
+                                        <td>Información 2</td>
+                                    </tr>
+                                    <tr>
+                                        <td>Texto ejemplo 3</td>
+                                        <td>Información 3</td>
+                                    </tr>
+                                    <!-- Puedes agregar más filas según sea necesario -->
+                                </tbody>
+                            </table>
+                        </div>
+                    </div>
                     </div>
                 </div>
             </div>
