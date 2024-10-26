@@ -318,7 +318,6 @@
             ?>
         </div>
     <?php endif; ?>
-
     <?php include "modal_empleado/edit_empleado.php"; ?>
     <?php include "modal_empleado/administradores.php"; ?>
     <script src="JS/t_empleado.js"></script>
