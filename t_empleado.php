@@ -36,6 +36,8 @@
                 </ul>
             </div>
 
+            <button class="btn btn-success m-1">AGREGAR</button>
+
             <!-- Modal ADMIN -->
             <div class="modal" id="Administradores" tabindex="-1" data-bs-backdrop="static" data-bs-keyboard="false" aria-labelledby="exampleModalLabel" aria-hidden="true">
                 <div class="modal-dialog modal-xl" style="margin-left: auto; margin-right: 0;">
@@ -44,7 +46,7 @@
                             <h5 class="modal-title">ADMINISTRADORES</h5>
                             <form id="searchForm" class="mb-3" method="POST" action="controlador/buscar_empleados.php">
                                 <input type="hidden" name="cargo" value="Administrativo"> <!-- Campo oculto -->
-                                <div class="input-group">
+                                <div class="input-group m-2 ">
                                     <select name="campo" class="form-select" required>
                                         <option value="nombre">Nombre</option>
                                         <option value="apellido_paterno">Apellido Paterno</option>
@@ -55,11 +57,12 @@
                                     <button type="submit" class="btn btn-primary">Buscar</button>
                                 </div>
                             </form>
+
                             <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
                         </div>
                         <div class="modal-body">
                             <!-- TABLA DE USUARIOS -->
-                            <div class="col-12 p-2">
+                            <div class="col-12 p-3">
                                 <form id="deleteForm" action="controlador/eliminar_empleado.php" method="post">
                                     <div class="table-responsive">
                                         <table class="table">
