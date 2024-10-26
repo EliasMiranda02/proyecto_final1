@@ -43,7 +43,7 @@
                         <div class="modal-header">
                             <h5 class="modal-title">ADMINISTRADORES</h5>
                             <form id="searchForm" class="mb-3" method="POST" action="controlador/buscar_empleados.php">
-                            <input type="hidden" name="cargo" value="Administrativo"> <!-- Campo oculto -->
+                                <input type="hidden" name="cargo" value="Administrativo"> <!-- Campo oculto -->
                                 <div class="input-group">
                                     <select name="campo" class="form-select" required>
                                         <option value="nombre">Nombre</option>
@@ -120,7 +120,7 @@
                     <div class="modal-header">
                         <h5 class="modal-title">ASESORES DE VIAJE</h5>
                         <form id="searchFormAsesor" class="mb-3" method="POST" action="controlador/buscar_empleados.php">
-                        <input type="hidden" name="cargo" value="Asesor de Viajes"> <!-- Campo oculto -->
+                            <input type="hidden" name="cargo" value="Asesor de Viajes"> <!-- Campo oculto -->
                             <div class="input-group">
                                 <select name="campo" class="form-select" required>
                                     <option value="nombre">Nombre</option>
@@ -198,7 +198,7 @@
                 <div class="modal-header">
                     <h5 class="modal-title">GUIAS TURISTICOS</h5>
                     <form id="searchFormGuia" class="mb-3" method="POST" action="controlador/buscar_empleados.php">
-                    <input type="hidden" name="cargo" value="Guia Turistico"> <!-- Campo oculto -->
+                        <input type="hidden" name="cargo" value="Guia Turistico"> <!-- Campo oculto -->
                         <div class="input-group">
                             <select name="campo" class="form-select" required>
                                 <option value="nombre">Nombre</option>
@@ -272,16 +272,18 @@
     </div>
     </div>
     <?php if (isset($_GET['mensaje'])): ?>
-        <div class="alert alert-info">
+        <div class="alert alert-info" id="mensajeAlerta">
             <?php
-            if ($_GET['mensaje'] == 'eliminado') {
-                echo "Usuarios eliminados correctamente.";
+            if ($_GET['mensaje'] == 'actualizado') {
+                echo "Usuario actualizado correctamente.";
             } elseif ($_GET['mensaje'] == 'error') {
                 echo "Hubo un error: " . ($_GET['detalle'] ?? '');
+            } elseif ($_GET['mensaje'] == 'no_id') {
+                echo "No se seleccionó ningún usuario para editar.";
+            } elseif ($_GET['mensaje'] == 'eliminado') {
+                echo "Usuarios eliminados correctamente.";
             } elseif ($_GET['mensaje'] == 'id_invalido') {
                 echo "ID de usuario inválido.";
-            } elseif ($_GET['mensaje'] == 'no_id') {
-                echo "No se seleccionó ningún usuario para eliminar.";
             }
             ?>
         </div>

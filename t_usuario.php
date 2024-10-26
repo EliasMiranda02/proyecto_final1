@@ -89,12 +89,32 @@
         // ESTE PARA EL BOTON DE EDITAR
         document.addEventListener('DOMContentLoaded', function() {
             const btnEditar = document.getElementById('btnEditar');
+            const checkboxes = document.querySelectorAll('input[name="ids[]"]');
 
-            btnEditar.addEventListener('click', function() {
-                const checkboxes = document.querySelectorAll('input[name="ids[]"]:checked');
-                if (checkboxes.length === 1) {
-                    const id = checkboxes[0].value;
-                    const row = checkboxes[0].closest('tr');
+            // Deshabilitar el botón al cargar la página
+            btnEditar.disabled = true;
+
+            // Añadir un event listener a cada checkbox
+            checkboxes.forEach(checkbox => {
+                checkbox.addEventListener('change', function() {
+                    // Obtener el número de checkboxes seleccionados
+                    const checkedCount = Array.from(checkboxes).filter(checkbox => checkbox.checked).length;
+
+                    // Habilitar el botón solo si hay exactamente un checkbox seleccionado
+                    btnEditar.disabled = checkedCount !== 1;
+                });
+            });
+
+            btnEditar.addEventListener('click', function(event) {
+                const checkedCheckboxes = document.querySelectorAll('input[name="ids[]"]:checked');
+
+                // Prevenir el comportamiento por defecto del botón
+                event.preventDefault();
+
+                // Comprobar si hay exactamente un checkbox seleccionado
+                if (checkedCheckboxes.length === 1) {
+                    const id = checkedCheckboxes[0].value;
+                    const row = checkedCheckboxes[0].closest('tr');
 
                     // Obtener los datos de la fila
                     const nombre = row.cells[2].innerText;
@@ -112,9 +132,12 @@
                     document.getElementById('email').value = email;
                     document.getElementById('pass').value = pass;
                     document.getElementById('numero').value = numero;
+
+                    // Abrir el modal
+                    $('#editar').modal('show');
                 } else {
+                    // Solo mostrar la alerta, sin abrir el modal
                     alert('Por favor, selecciona un único registro para editar.');
-                    $('#editar').modal('hide'); // Ocultar el modal si no hay un único registro seleccionado
                 }
             });
 
@@ -123,6 +146,9 @@
                 document.getElementById('editarForm').submit(); // Envía el formulario para actualizar el registro
             });
         });
+
+
+
 
 
 

@@ -66,5 +66,10 @@ document.getElementById('searchFormGuia').addEventListener('submit', function(e)
 });
 
 
-
+setTimeout(function() {
+    const mensajeAlerta = document.getElementById('mensajeAlerta');
+    if (mensajeAlerta) {
+        mensajeAlerta.style.display = 'none';
+    }
+}, 2000); // 5000 milisegundos = 5 segundos
 
