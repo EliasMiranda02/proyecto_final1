@@ -5,7 +5,7 @@ ini_set('display_errors', 1);
 
 // Verificar que se haya enviado el ID y los datos necesarios para la actualización
 if (isset($_POST['id_empleado_editar']) && !empty($_POST['id_empleado_editar'])) {
-    $id_usuario_editar = $conexion->real_escape_string($_POST['id_empleado_editar']); // Escapar el ID
+    $id_empleado_editar = $conexion->real_escape_string($_POST['id_empleado_editar']); // Escapar el ID
 
     // Obtener los demás datos
     $nombre = $conexion->real_escape_string($_POST['nombre']);
@@ -23,7 +23,7 @@ if (isset($_POST['id_empleado_editar']) && !empty($_POST['id_empleado_editar']))
         email = '$email', 
         telefono = '$numero',
         nip = '$nip'
-    WHERE id_empleado = '$id_usuario_editar'";
+    WHERE id_empleado = '$id_empleado_editar'";
 
     if ($conexion->query($sql) === TRUE) {
         // Redirigir con éxito

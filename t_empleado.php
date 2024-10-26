@@ -35,9 +35,7 @@
                     </li>
                 </ul>
             </div>
-
-            <button class="btn btn-success m-1">AGREGAR</button>
-
+            <button class="btn btn-success float-end">AGREGAR</button>
             <!-- Modal ADMIN -->
             <div class="modal" id="Administradores" tabindex="-1" data-bs-backdrop="static" data-bs-keyboard="false" aria-labelledby="exampleModalLabel" aria-hidden="true">
                 <div class="modal-dialog modal-xl" style="margin-left: auto; margin-right: 0;">
@@ -46,7 +44,7 @@
                             <h5 class="modal-title">ADMINISTRADORES</h5>
                             <form id="searchForm" class="mb-3" method="POST" action="controlador/buscar_empleados.php">
                                 <input type="hidden" name="cargo" value="Administrativo"> <!-- Campo oculto -->
-                                <div class="input-group m-2 ">
+                                <div class="input-group">
                                     <select name="campo" class="form-select" required>
                                         <option value="nombre">Nombre</option>
                                         <option value="apellido_paterno">Apellido Paterno</option>
@@ -57,12 +55,11 @@
                                     <button type="submit" class="btn btn-primary">Buscar</button>
                                 </div>
                             </form>
-
                             <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
                         </div>
                         <div class="modal-body">
                             <!-- TABLA DE USUARIOS -->
-                            <div class="col-12 p-3">
+                            <div class="col-12 p-2">
                                 <form id="deleteForm" action="controlador/eliminar_empleado.php" method="post">
                                     <div class="table-responsive">
                                         <table class="table">
@@ -95,8 +92,8 @@
                                                         <td><?= $datos->nombre ?></td>
                                                         <td><?= $datos->apellido_paterno ?></td>
                                                         <td><?= $datos->apellido_materno ?></td>
-                                                        <td><?= $datos->email ?></td>
-                                                        <td><?= $datos->clave_lada ?></td>
+                                                        <td><?= $datos->email?></td>
+                                                        <td><?= $datos->clave_lada?></td>
                                                         <td><?= $datos->telefono ?></td>
                                                         <td><?= $datos->fecha_registro ?></td>
                                                         <td><?= $datos->contraseña ?></td>
@@ -270,28 +267,33 @@
                             </form>
                         </div>
                         <!-- Nueva tabla (Derecha) -->
-                        <div class="col-4">
-                            <div class="table-responsive">
-                                <table class="table">
-                                    <thead class="Bg-info">
-                                        <tr>
-                                            <th scope="col">disponibilidad</th>
-                                            <th> </th>
-                                        </tr>
-                                    </thead>
-                                    <tbody>
-                                        <?php
-                                        include "modelo/conexion.php";
-                                        $sql = $conexion->query("select * from guias_turisticos");
-                                        while ($datos = $sql->fetch_object()) { ?>
-                                            <tr>
-                                                <th scope="row"><?= $datos->nombre ?></th>
-                                            </tr>
-                                        <?php } ?>
-                                    </tbody>
-                                </table>
-                            </div>
+                    <div class="col-4">
+                        <div class="table-responsive">
+                            <table class="table">
+                                <thead>
+                                    <tr>
+                                        <th>Columna 1</th>
+                                        <th>Columna 2</th>
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                    <tr>
+                                        <td>Texto ejemplo 1</td>
+                                        <td>Información 1</td>
+                                    </tr>
+                                    <tr>
+                                        <td>Texto ejemplo 2</td>
+                                        <td>Información 2</td>
+                                    </tr>
+                                    <tr>
+                                        <td>Texto ejemplo 3</td>
+                                        <td>Información 3</td>
+                                    </tr>
+                                    
+                                </tbody>
+                            </table>
                         </div>
+                    </div>
                     </div>
                 </div>
             </div>
@@ -318,9 +320,11 @@
             ?>
         </div>
     <?php endif; ?>
+
     <?php include "modal_empleado/edit_empleado.php"; ?>
     <?php include "modal_empleado/administradores.php"; ?>
     <script src="JS/t_empleado.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz" crossorigin="anonymous"></script>
 </body>
+
 </html>
