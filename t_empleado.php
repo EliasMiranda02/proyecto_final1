@@ -288,7 +288,7 @@
                                         <td>Texto ejemplo 3</td>
                                         <td>Información 3</td>
                                     </tr>
-                                    <!-- Puedes agregar más filas según sea necesario -->
+                                    
                                 </tbody>
                             </table>
                         </div>
