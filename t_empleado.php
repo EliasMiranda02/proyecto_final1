@@ -35,7 +35,7 @@
                     </li>
                 </ul>
             </div>
-            <button class="btn btn-success float-end">AGREGAR</button>
+            <button type="button" class="btn btn-success" data-bs-toggle="modal" data-bs-target="#agregar">Agregar Empleado</button>
             <!-- Modal ADMIN -->
             <div class="modal" id="Administradores" tabindex="-1" data-bs-backdrop="static" data-bs-keyboard="false" aria-labelledby="exampleModalLabel" aria-hidden="true">
                 <div class="modal-dialog modal-xl" style="margin-left: auto; margin-right: 0;">
@@ -104,7 +104,7 @@
                                                 <?php } ?>
                                             </tbody>
                                         </table>
-                                        <button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#eliminar" data-form-id="deleteForm">Eliminar seleccionados</button>
+                                        <button type="button" class="btn btn-danger" data-bs-toggle="modal" data-bs-target="#eliminar" data-form-id="deleteForm">Eliminar seleccionados</button>
                                         <button type="button" class="btn btn-warning" id="btnEditar" data-bs-toggle="modal" data-bs-target="#editar">Editar Usuario</button>
                                 </form>
                             </div>
@@ -184,7 +184,8 @@
                                         </tbody>
                                     </table>
                                     <button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#eliminar" data-form-id="deleteFormAsesor">Eliminar seleccionados</button>
-                            </form>
+                                    <button type="button" class="btn btn-warning" id="btnEditar" data-bs-toggle="modal" data-bs-target="#editar">Editar Usuario</button>
+                                </form>
                         </div>
                     </div>
                 </div>
@@ -262,7 +263,9 @@
                                             <?php } ?>
                                         </tbody>
                                     </table>
+                                    
                                     <button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#eliminar" data-form-id="deleteFormGuia">Eliminar seleccionados</button>
+                                    <button type="button" class="btn btn-warning" id="btnEditar" data-bs-toggle="modal" data-bs-target="#editar">Editar Usuario</button>
                                 </div>
                             </form>
                         </div>
@@ -320,9 +323,11 @@
             ?>
         </div>
     <?php endif; ?>
-
+    
     <?php include "modal_empleado/edit_empleado.php"; ?>
     <?php include "modal_empleado/administradores.php"; ?>
+    <?php include "modal_empleado/add_empleado.php";?>
+
     <script src="JS/t_empleado.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz" crossorigin="anonymous"></script>
 </body>

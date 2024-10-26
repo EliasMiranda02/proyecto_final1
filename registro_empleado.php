@@ -18,8 +18,8 @@
             <br>
             <h1><b>Crear Cuenta</b></h1>
             <?php
-                include "modelo/conexion.php";
-                include "controlador/registro_empleado.php";
+            include "modelo/conexion.php";
+            include "controlador/registro_empleado.php";
 
             ini_set('display_errors', 1);
             ini_set('display_startup_errors', 1);
@@ -64,7 +64,7 @@
 
                 <label for="correo">Correo electrónico</label>
                 <br>
-                <input type="text" name="email" class="amaterno" required>
+                <input type="email" name="email" class="amaterno" required>
 
                 <br><br>
                 <div class="login">
