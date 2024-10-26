@@ -92,8 +92,8 @@
                                                         <td><?= $datos->nombre ?></td>
                                                         <td><?= $datos->apellido_paterno ?></td>
                                                         <td><?= $datos->apellido_materno ?></td>
-                                                        <td><?= $datos->email?></td>
-                                                        <td><?= $datos->clave_lada?></td>
+                                                        <td><?= $datos->email ?></td>
+                                                        <td><?= $datos->clave_lada ?></td>
                                                         <td><?= $datos->telefono ?></td>
                                                         <td><?= $datos->fecha_registro ?></td>
                                                         <td><?= $datos->contraseña ?></td>
@@ -267,33 +267,28 @@
                             </form>
                         </div>
                         <!-- Nueva tabla (Derecha) -->
-                    <div class="col-4">
-                        <div class="table-responsive">
-                            <table class="table">
-                                <thead>
-                                    <tr>
-                                        <th>Columna 1</th>
-                                        <th>Columna 2</th>
-                                    </tr>
-                                </thead>
-                                <tbody>
-                                    <tr>
-                                        <td>Texto ejemplo 1</td>
-                                        <td>Información 1</td>
-                                    </tr>
-                                    <tr>
-                                        <td>Texto ejemplo 2</td>
-                                        <td>Información 2</td>
-                                    </tr>
-                                    <tr>
-                                        <td>Texto ejemplo 3</td>
-                                        <td>Información 3</td>
-                                    </tr>
-                                    
-                                </tbody>
-                            </table>
+                        <div class="col-4">
+                            <div class="table-responsive">
+                                <table class="table">
+                                    <thead class="Bg-info">
+                                        <tr>
+                                            <th scope="col">disponibilidad</th>
+                                            <th> </th>
+                                        </tr>
+                                    </thead>
+                                    <tbody>
+                                        <?php
+                                        include "modelo/conexion.php";
+                                        $sql = $conexion->query("select * from guias_turisticos");
+                                        while ($datos = $sql->fetch_object()) { ?>
+                                            <tr>
+                                                <th scope="row"><?= $datos->nombre ?></th>
+                                            </tr>
+                                        <?php } ?>
+                                    </tbody>
+                                </table>
+                            </div>
                         </div>
-                    </div>
                     </div>
                 </div>
             </div>
