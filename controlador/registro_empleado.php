@@ -18,7 +18,7 @@ if (!empty($_POST["registrar"])) {
             $amaterno = $_POST["amaterno"];
             $apaterno = $_POST["apaterno"];
             $email = $_POST["email"];
-            $contraseña = password_hash($_POST["contraseña1"], PASSWORD_DEFAULT);  // Contraseña cifrada
+            $contraseña = $_POST["contraseña1"];  // Contraseña cifrada
             $lada = $_POST["opcion"];
             $telefono = $_POST["numero"];
             $nombre_usuario = $_POST["nombre_usuario"];

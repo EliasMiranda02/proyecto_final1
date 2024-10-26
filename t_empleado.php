@@ -92,8 +92,8 @@
                                                         <td><?= $datos->nombre ?></td>
                                                         <td><?= $datos->apellido_paterno ?></td>
                                                         <td><?= $datos->apellido_materno ?></td>
-                                                        <td><?= $datos->email ?></td>
-                                                        <td><?= $datos->clave_lada ?></td>
+                                                        <td><?= $datos->email?></td>
+                                                        <td><?= $datos->clave_lada?></td>
                                                         <td><?= $datos->telefono ?></td>
                                                         <td><?= $datos->fecha_registro ?></td>
                                                         <td><?= $datos->contraseña ?></td>
@@ -105,6 +105,7 @@
                                             </tbody>
                                         </table>
                                         <button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#eliminar" data-form-id="deleteForm">Eliminar seleccionados</button>
+                                        <button type="button" class="btn btn-warning" id="btnEditar" data-bs-toggle="modal" data-bs-target="#editar">Editar Usuario</button>
                                 </form>
                             </div>
                         </div>
@@ -320,7 +321,7 @@
         </div>
     <?php endif; ?>
 
-
+    <?php include "modal_empleado/edit_empleado.php"; ?>
     <?php include "modal_empleado/administradores.php"; ?>
     <script src="JS/t_empleado.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz" crossorigin="anonymous"></script>
