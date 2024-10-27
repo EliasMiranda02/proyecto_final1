@@ -322,12 +322,12 @@
             }
             ?>
         </div>
+        
     <?php endif; ?>
-    
+
     <?php include "modal_empleado/edit_empleado.php"; ?>
     <?php include "modal_empleado/administradores.php"; ?>
     <?php include "modal_empleado/add_empleado.php";?>
-
     <script src="JS/t_empleado.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz" crossorigin="anonymous"></script>
 </body>
