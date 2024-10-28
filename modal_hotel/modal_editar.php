@@ -5,7 +5,7 @@
         <h1 class="modal-title fs-5">Editar Hotel</h1>
       </div>
       <div class="modal-body">
-        <form id="editarForm" action="../controlador/editar_hotel.php" method="post">
+        <form id="editarForm" action="./controlador/editar_hotel.php" method="post">
           <input type="hidden" id="id_hotel_editar" name="id_hotel_editar">
           
           <div class="mb-3">
@@ -14,7 +14,7 @@
           </div>
           <div class="mb-3">
             <label for="telefono" class="form-label">direccion</label>
-            <input type="text" class="form-control" id="direccion" name="direccion" pattern="^\d{1,7}$" required oninput="this.value = this.value.replace(/[^0-9]/g, '').slice(0, 7)">
+            <input type="text" class="form-control" id="direccion" name="direccion">
           </div>
           <div class="mb-3">
             <label for="clave_lada" class="form-label">Clave Lada</label>
