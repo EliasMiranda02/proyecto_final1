@@ -53,32 +53,31 @@
             </form>
 
             <!-- TABLA DE RUTAS -->
-            <form id="Rutas" action="controlador/delete.php" method="post">
+            <form id="Rutas" action="controlador/" method="post">
                 <table class="table" id="table-body">
                     <thead class="bg-info">
                         <tr>
                             <th scope="col"><input type="hidden" id="selectAll"></th>
-                            <th scope="col">id_ruta</th>
-                            <th scope="col">origen</th>
-                            <th scope="col">destino</th>
-                            <th scope="col">distancia</th>
-                            <th scope="col" class="text-center">duracion</th>
-                            <th scope="col" class="text-center">matricula</th>
+                            <th scope="col">id_recorrido</th>
+                            <th scope="col">fecha_salida</th>
+                            <th scope="col">fecha_llegada</th>
+                            <th scope="col">precio_boleto</th>
+                            <th scope="col" class="text-center">estado</th>
+                            <th scope="col" class="text-center"></th>
                         </tr>
                     </thead>
                     <tbody>
                         <?php
                         include "modelo/conexion.php";
-                        $sql = $conexion->query("SELECT * FROM rutas");
+                        $sql = $conexion->query("SELECT * FROM recorridos");
                         while ($datos = $sql->fetch_object()) { ?>
                             <tr>
-                                <td><input type="checkbox" name="ids[]" value="<?= $datos->id_ruta ?>"></td>
-                                <th scope="row"><?= $datos->id_ruta ?></th>
-                                <td><?= $datos->origen ?></td>
-                                <td><?= $datos->destino ?></td>
-                                <td><?= $datos->distancia ?></td>
-                                <td><?= $datos->duracion ?></td>
-                                <td class="text-center"><?= $datos->matricula ?></td>
+                                <td><input type="checkbox" name="ids[]" value="<?= $datos->id_recorrido ?>"></td>
+                                <th scope="row"><?= $datos->id_recorrido ?></th>
+                                <td><?= $datos->fecha_salida ?></td>
+                                <td><?= $datos->fecha_llegada ?></td>
+                                <td><?= $datos->precio_boleto ?></td>
+                                <td><?= $datos->estado ?></td>
                             </tr>
                         <?php } ?>
                     </tbody>
@@ -87,13 +86,13 @@
                 <button type="button" class="btn btn-warning" id="btnEditar" data-bs-toggle="modal" data-bs-target="#editar">Editar Usuario</button>
             </form>
             <div class="d-flex justify-content-center">
-                <button type="button" class="btn btn-primary" onclick="window.location.href='t_recorridos.php'">Recorridos</button>
+                <button type="button" class="btn btn-primary" onclick="window.location.href='rutas.php'">Rutas</button>
             </div>
         </div>
 
     </div>
-    <?php include "Rutas/delete.php"; ?>
-    <?php include "Rutas/edit.php"; ?>
+    
+    <?php include "modal_recorrido/editar.php"?>
 
     <script>
         // PARA EDITAR
@@ -127,18 +126,16 @@
                     const row = checkedCheckboxes[0].closest('tr');
 
                     // Obtener los datos de la fila
-                    const origen = row.cells[2].innerText; // Asegúrate de que los índices son correctos
-                    const destino = row.cells[3].innerText;
-                    const distancia = row.cells[4].innerText;
-                    const duracion = row.cells[5].innerText; // Verifica el índice
-                    const matricula = row.cells[6].innerText; // Asegúrate de que este es el índice correcto para contraseña
+                    const fecha_salida = row.cells[2].innerText;
+                    const fecha_llegada = row.cells[3].innerText; // Asegúrate de que los índices son correctos
+                    const boleto = row.cells[4].innerText;
+                    const estado = row.cells[5].innerText; // Verifica el índice
                     // Llenar los campos del modal
-                    document.getElementById('id_ruta_editar').value = id;
-                    document.getElementById('origen').value = origen;
-                    document.getElementById('destino').value = destino;
-                    document.getElementById('distancia').value = distancia;
-                    document.getElementById('duracion').value = duracion;
-                    document.getElementById('matricula').value = matricula;
+                    document.getElementById('id_recorrido_editar').value = id;
+                    document.getElementById('date_salida').value = fecha_salida;
+                    document.getElementById('date_llegada').value = fecha_llegada;
+                    document.getElementById('boleto').value = boleto;
+                    document.getElementById('estado').value = estado;
                     // Abrir el modal
                     $('#editar').modal('show');
                 } else {
