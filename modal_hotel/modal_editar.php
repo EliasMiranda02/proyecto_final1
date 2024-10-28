@@ -5,7 +5,7 @@
         <h1 class="modal-title fs-5">Editar Hotel</h1>
       </div>
       <div class="modal-body">
-        <form id="editarForm" action="../controlador/hotel/editar_hotel.php" method="post">
+        <form id="editarForm" action="../controlador/editar_hotel.php" method="post">
           <input type="hidden" id="id_hotel_editar" name="id_hotel_editar">
           <div class="mb-3">
             <label for="nombre_hotel" class="form-label">Nombre del Hotel</label>
@@ -38,8 +38,12 @@
             <input type="text" class="form-control" id="descripcion" name="descripcion" required>
           </div>
           <div class="mb-3">
-            <label for="descripcion" class="form-label">Descripcion</label>
-            <input type="text" class="form-control" id="descripcion" name="descripcion" required>
+            <label for="precio_noche" class="form-label">Precio por Noche</label>
+            <input type="text" class="form-control" id="precio_noche" name="precio_noche" required>
+          </div>
+          <div class="mb-3">
+            <label for="calificacion" class="form-label">Calificacion</label>
+            <input type="text" class="form-control" id="calificacion" name="calificacion" required>
           </div>
         </form>
       </div>

@@ -32,7 +32,7 @@
                 </div>
             <?php endif; ?>
 
-            <form id="Hoteles" action="controlador/hotel/eliminar_hotel.php" method="post">
+            <form id="Hoteles" action="controlador/eliminar_hotel.php" method="post">
                 <table class="table">
                     <thead class="bg-info">
                         <tr>
@@ -45,8 +45,8 @@
                             <th scope="col">correo electronico</th>
                             <th scope="col">numero habitaciones</th>
                             <th scope="col">descripcion</th>
-                            <th scope="col">precio noche</th>
-                            <th scope="col">descripcion</th>
+                            <th scope="col">precio por noche</th>
+                            <th scope="col">calificacion</th>
                         </tr>
                     </thead>
                     <tbody>
@@ -82,7 +82,7 @@
 
     <?php include "modal_hotel/modal_editar.php"; ?>
     <?php include "modal_hotel/modal_eliminar.php"; ?>
-
+    
     <script>
         // ESTE PARA EL BOTON DE EDITAR
         document.addEventListener('DOMContentLoaded', function() {
@@ -115,21 +115,27 @@
                     const row = checkedCheckboxes[0].closest('tr');
 
                     // Obtener los datos de la fila
-                    const nombre = row.cells[2].innerText;
-                    const apellidoMaterno = row.cells[3].innerText;
-                    const apellidoPaterno = row.cells[4].innerText;
-                    const email = row.cells[5].innerText;
-                    const pass = row.cells[9].innerText; // Suponiendo que la contraseña está en la columna 9
-                    const numero = row.cells[7].innerText; // Ajusta el índice según tu tabla
+                    const nombre_hotel = row.cells[2].innerText;
+                    const direccion = row.cells[3].innerText;
+                    const clave_lada = row.cells[4].innerText;
+                    const telefono = row.cells[5].innerText;
+                    const correo_electronico = row.cells[6].innerText; // Suponiendo que la contraseña está en la columna 9
+                    const numero_habitaciones = row.cells[7].innerText; // Ajusta el índice según tu tabla
+                    const descripcion = row.cells[8].innerText;
+                    const precio_noche = row.cells[9].innerText; 
+                    const calificacion = row.cells[10].innerText;
 
                     // Llenar los campos del modal
-                    document.getElementById('id_usuario_editar').value = id;
-                    document.getElementById('nombre').value = nombre;
-                    document.getElementById('apellido_materno').value = apellidoMaterno;
-                    document.getElementById('apellido_paterno').value = apellidoPaterno;
-                    document.getElementById('email').value = email;
-                    document.getElementById('pass').value = pass;
-                    document.getElementById('numero').value = numero;
+                    document.getElementById('id_hotel_editar').value = id;
+                    document.getElementById('nombre_hotel').value = nombre_hotel;
+                    document.getElementById('direccion').value = direccion;
+                    document.getElementById('clave_lada').value = clave_lada;
+                    document.getElementById('telefono').value = telefono;
+                    document.getElementById('correo_electronico').value = correo_electronico;
+                    document.getElementById('numero_habitaciones').value = numero_habitaciones;
+                    document.getElementById('descripcion').value = descripcion;
+                    document.getElementById('precio_noche').value = precio_noche;
+                    document.getElementById('calificacion').value = calificacion;
 
                     // Abrir el modal
                     $('#editar').modal('show');

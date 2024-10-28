@@ -1,5 +1,5 @@
 <?php
-include "./modelo/conexion.php"; // Asegúrate de que la ruta esté correcta
+include "../modelo/conexion.php"; // Asegúrate de que la ruta esté correcta
 
 if (isset($_POST['ids']) && !empty($_POST['ids'])) {
     $ids = $_POST['ids']; // Obtener los IDs seleccionados
