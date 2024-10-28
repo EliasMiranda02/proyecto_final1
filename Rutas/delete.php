@@ -1,4 +1,4 @@
-<div class="modal fade" id="eliminar" tabindex="-1" aria-labelledby="eliminarLabel" aria-hidden="true">
+<div class="modal fade" id="eliminar_ruta" tabindex="-1" aria-labelledby="eliminarLabel" aria-hidden="true">
   <div class="modal-dialog">
     <div class="modal-content">
       <div class="modal-header">
@@ -10,7 +10,7 @@
       </div>
       <div class="modal-footer">
         <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cancelar</button>
-        <button type="button" class="btn btn-primary" onclick="document.getElementById('Clientes').submit();">Eliminar</button>
+        <button type="button" class="btn btn-primary" onclick="document.getElementById('Rutas').submit();">Eliminar</button>
       </div>
     </div>
   </div>
