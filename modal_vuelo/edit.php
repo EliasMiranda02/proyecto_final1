@@ -5,8 +5,20 @@
         <h1 class="modal-title fs-5">Editar Usuario</h1>
       </div>
       <div class="modal-body">
-        <form id="editarForm" action="controlador/edit_recorrido.php" method="post">
-          <input type="hidden" id="id_recorrido_editar" name="id_recorrido_editar">
+        <form id="editarForm" action="controlador/edit_vuelo.php" method="post">
+          <input type="hidden" id="id_vuelo_editar" name="id_vuelo_editar">
+          <div class="form-floating mb-3">
+            <input type="text" class="form-control" id="no_vuelo" name="no_vuelo" required>
+            <label for="floatingInput" class="form-label">Numero de Vuelo</label>
+          </div>
+          <div class="form-floating mb-3">
+            <input type="text" class="form-control" id="origen" name="origen" required>
+            <label for="floatingInput" class="form-label">Origen</label>
+          </div>
+          <div class="form-floating mb-3">
+            <input type="text" class="form-control" id="destino" name="destino" required>
+            <label for="floatingInput" class="form-label">Destino</label>
+          </div>
           <div class="form-floating mb-3">
             <input type="datetime-local" class="form-control" id="date_salida" name="date_salida">
             <label for="floatingInput">Fecha Salida</label>
@@ -16,18 +28,10 @@
             <label for="floatingInput" class="form-label">Fecha Llegada</label>
           </div>
           <div class="form-floating mb-3">
-            <input type="text" class="form-control" id="boleto" name="boleto" required>
-            <label for="floatingInput" class="form-label">Precio del Boleto</label>
+            <input type="text" class="form-control" id="precio" name="precio" required>
+            <label for="floatingInput" class="form-label">Precio de Vuelo</label>
           </div>
-          <div class="input-group">
-            <span class="input-group-text">Estado</span>
-            <input type="text" aria-label="First name" class="form-control" id="estados" disabled>
-            <select id="estado" name="estado" class="form-select">
-              <option value="Activo">Activo</option>
-              <option value="Pendiente">Pendiente</option>
-              <option value="Inactivo">Inactivo</option>
-            </select>
-          </div>
+          
 
         </form>
       </div>

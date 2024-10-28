@@ -4,7 +4,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Recorridos</title>
+    <title>Volante</title>
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
     <script src="https://kit.fontawesome.com/90c11f8b3b.js" crossorigin="anonymous"></script>
 </head>
@@ -39,7 +39,7 @@
             <?php endif; ?>
             <!-- BUSACDOR DE LAS RUTAS -->
 
-            <form id="searchFormAsesor" class="mb-3" method="POST" action="controlador/buscar_ruta.php">
+            <form id="searchFormAsesor" class="mb-3" method="POST" action="">
                 <input type="hidden" name="cargo" value="Asesor de Viajes"> <!-- Campo oculto -->
                 <div class="input-group">
                     <select name="campo" class="form-select" required>
@@ -53,61 +53,49 @@
             </form>
 
             <!-- TABLA DE RUTAS -->
-            <form id="Recorrido" action="controlador/delete_recorrido.php" method="post">
+            <form id="Recorrido" action="controlador/delete_vuelo.php" method="post">
                 <table class="table" id="table-body">
                     <thead class="bg-info">
                         <tr>
                             <th scope="col"><input type="hidden" id="selectAll"></th>
-                            <th scope="col">id_recorrido</th>
-                            <th scope="col">fecha_salida</th>
-                            <th scope="col">fecha_llegada</th>
-                            <th scope="col">precio_boleto</th>
-                            <th scope="col" class="text-center">estado</th>
-                            <th scope="col" class="text-center"></th>
+                            <th scope="col">id_vuelo</th>
+                            <th scope="col">numero_vuelo</th>
+                            <th scope="col">origen</th>
+                            <th scope="col">destino</th>
+                            <th scope="col" class="text-center">fecha_salida</th>
+                            <th scope="col" class="text-center">fecha_llegada</th>
+                            <th scope="col">precio_vuelo</th>
                         </tr>
                     </thead>
                     <tbody>
                         <?php
                         include "modelo/conexion.php";
-                        $sql = $conexion->query("SELECT * FROM recorridos");
+                        $sql = $conexion->query("SELECT * FROM vuelos");
                         while ($datos = $sql->fetch_object()) { ?>
                             <tr>
-                                <td><input type="checkbox" name="ids[]" value="<?= $datos->id_recorrido ?>"></td>
-                                <th scope="row"><?= $datos->id_recorrido ?></th>
+                                <td><input type="checkbox" name="ids[]" value="<?= $datos->id_vuelo ?>"></td>
+                                <th scope="row"><?= $datos->id_vuelo ?></th>
+                                <td><?= $datos->numero_vuelo ?></td>
+                                <td><?= $datos->origen ?></td>
+                                <td><?= $datos->destino ?></td>
                                 <td><?= $datos->fecha_salida ?></td>
                                 <td><?= $datos->fecha_llegada ?></td>
-                                <td><?= $datos->precio_boleto ?></td>
-                                <td><?= $datos->estado ?></td>
-                            </tr>
+                                <td><?= $datos->precio_vuelo ?></td>
+                            </tr>   
                         <?php } ?>
                     </tbody>
                 </table>
                 <button type="button" class="btn btn-danger" data-bs-toggle="modal" data-bs-target="#eliminar_ruta">Eliminar seleccionados</button>
                 <button type="button" class="btn btn-warning" id="btnEditar" data-bs-toggle="modal" data-bs-target="#editar">Editar Usuario</button>
             </form>
-            <div class="d-flex justify-content-center">
-                <button type="button" class="btn btn-primary" onclick="window.location.href='rutas.php'">Rutas</button>
-            </div>
         </div>
 
     </div>
 
-    <?php include "modal_recorrido/editar.php"; ?>
-    <?php include "modal_recorrido/delete.php"; ?>
+    <?php include "modal_vuelo/delete.php";?>
+    <?php include "modal_vuelo/edit.php";?>
 
     <script>
-        // Deshabilitar el botón de editar al cargar la página
-        document.getElementById('btnEditar').disabled = true;
-
-        // Habilitar o deshabilitar el botón de editar según los checkboxes seleccionados
-        document.querySelectorAll('input[name="ids[]"]').forEach(checkbox => {
-            checkbox.addEventListener('change', function() {
-                const checkedCheckboxes = document.querySelectorAll('input[name="ids[]"]:checked');
-                // Habilitar el botón si hay exactamente un checkbox seleccionado, deshabilitar si hay 0 o más de 1
-                document.getElementById('btnEditar').disabled = checkedCheckboxes.length !== 1;
-            });
-        });
-
         // PARA EDITAR
         btnEditar.addEventListener('click', function(event) {
             const checkedCheckboxes = document.querySelectorAll('input[name="ids[]"]:checked');
@@ -118,18 +106,21 @@
                 const row = checkedCheckboxes[0].closest('tr');
 
                 // Obtener los datos de la fila
-                const fecha_salida = row.cells[2].innerText;
-                const fecha_llegada = row.cells[3].innerText;
-                const boleto = row.cells[4].innerText;
-                const estado = row.cells[5].innerText;
+                const no_vuelo = row.cells[2].innerText;
+                const origen = row.cells[3].innerText;
+                const destino = row.cells[4].innerText;
+                const fecha_salida = row.cells[5].innerText;
+                const fecha_llegada = row.cells[6].innerText;
+                const precio= row.cells[7].innerText;
 
                 // Llenar los campos del modal
-                document.getElementById('id_recorrido_editar').value = id;
+                document.getElementById('id_vuelo_editar').value = id;
+                document.getElementById('no_vuelo').value = no_vuelo;
+                document.getElementById('origen').value = origen;
+                document.getElementById('destino').value = destino;
                 document.getElementById('date_salida').value = fecha_salida.replace(" ", "T").slice(0, 16);
                 document.getElementById('date_llegada').value = fecha_llegada.replace(" ", "T").slice(0, 16);
-                document.getElementById('boleto').value = boleto;
-                document.getElementById('estados').value = estado;
-
+                document.getElementById('precio').value = precio;
                 // Abrir el modal
                 $('#editar').modal('show');
             } else {
