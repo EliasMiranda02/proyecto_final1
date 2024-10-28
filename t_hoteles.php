@@ -13,8 +13,14 @@
 <body>
 
     <div class="d-flex justify-content-center align-items-center vh-100">
+    <div class="row justify-content-end">
+                <div class="col-auto">
+                    <a href="#" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#añadirmodal"><i class="fa-solid fa-circle-plus"></i></a>
+                    <i>Nuevo Hotel</i>
+                </div>
+            </div>
         <div class=" col-8 p-2">
-
+            
             <?php if (isset($_GET['mensaje'])): ?>
                 <div class="alert alert-info" id="mensajeAlerta">
                     <?php
@@ -32,7 +38,7 @@
                     ?>
                 </div>
             <?php endif; ?>
-
+            
             <form id="searchFormHotel" class="mb-3" method="POST" action="controlador/buscar_hotel.php">
                 <input type="hidden" name="Hotel" value="Hotel"> <!-- Campo oculto -->
                 <div class="input-group">
@@ -82,8 +88,6 @@
                                 <td><?= $datos->descripcion ?></td>
                                 <td><?= $datos->precio_noche ?></td>
                                 <td><?= $datos->calificacion ?></td>
-
-
                             </tr>
                         <?php } ?>
                     </tbody>
@@ -98,7 +102,7 @@
 
     <?php include "modal_hotel/modal_editar.php"; ?>
     <?php include "modal_hotel/modal_eliminar.php"; ?>
-    
+    <?php include "modal_hotel/modal_añadir.php";?>
     <script src="JS/t_hotel.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
 </body>
