@@ -64,7 +64,6 @@
                             <th scope="col">distancia</th>
                             <th scope="col" class="text-center">duracion</th>
                             <th scope="col" class="text-center">matricula</th>
-                            <th scope="col"></th>
                         </tr>
                     </thead>
                     <tbody>
@@ -80,15 +79,15 @@
                                 <td><?= $datos->distancia ?></td>
                                 <td><?= $datos->duracion ?></td>
                                 <td class="text-center"><?= $datos->matricula ?></td>
-                                <td>
-                                    <button type="button" class="btn btn-success" data-bs-toggle="modal" data-bs-target="#banco" data-id="<?= $datos->id_ruta ?>">Recorrido</button>
-                                </td>
                             </tr>
                         <?php } ?>
                     </tbody>
                 </table>
                 <button type="button" class="btn btn-danger" data-bs-toggle="modal" data-bs-target="#eliminar_ruta">Eliminar seleccionados</button>
                 <button type="button" class="btn btn-warning" id="btnEditar" data-bs-toggle="modal" data-bs-target="#editar">Editar Usuario</button>
+                <div>
+                    <button></button>
+                </div>
             </form>
         </div>
 
