@@ -1,0 +1,9 @@
+.table-responsive {
+    max-height: 60vh; /* Altura máxima para la tabla */
+    overflow-y: auto; /* Agregar desplazamiento vertical si el contenido es demasiado grande */
+}
+
+/* Opcional: hacer que las celdas de la tabla se ajusten al contenido */
+.table th, .table td {
+    white-space: nowrap; /* Evitar que el texto se rompa */
+}
