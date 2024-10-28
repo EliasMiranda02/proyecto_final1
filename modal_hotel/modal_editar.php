@@ -18,7 +18,7 @@
           </div>
           <div class="mb-3">
             <label for="clave_lada" class="form-label">Clave Lada</label>
-            <select id="clave_lada" name="clave_lada" class="form-control" required>
+            <select id="clave_lada" name="clave_lada" class="form-select" required>
               <option value="961">961</option>
               <option value="664">664</option>
               <option value="229">229</option>
