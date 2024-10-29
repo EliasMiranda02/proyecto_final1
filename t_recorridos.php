@@ -38,7 +38,11 @@
                 </div>
             <?php endif; ?>
             <!-- BUSACDOR DE LAS RUTAS -->
-
+            <div class="col-auto">
+                <a href="#" class="btn btn-success" data-bs-toggle="modal" data-bs-target="#agregar"><i class="fa-solid fa-circle-plus"></i></a>
+                <i>Nuevo Vuelo</i>
+            </div>
+            <br>
             <form id="searchFormAsesor" class="mb-3" method="POST" action="controlador/buscar_ruta.php">
                 <input type="hidden" name="cargo" value="Asesor de Viajes"> <!-- Campo oculto -->
                 <div class="input-group">
@@ -59,6 +63,7 @@
                         <tr>
                             <th scope="col"><input type="hidden" id="selectAll"></th>
                             <th scope="col">id_recorrido</th>
+                            <th scope="col">id_ruta</th>
                             <th scope="col">fecha_salida</th>
                             <th scope="col">fecha_llegada</th>
                             <th scope="col">precio_boleto</th>
@@ -74,6 +79,7 @@
                             <tr>
                                 <td><input type="checkbox" name="ids[]" value="<?= $datos->id_recorrido ?>"></td>
                                 <th scope="row"><?= $datos->id_recorrido ?></th>
+                                <th><?=$datos->id_ruta?></th>
                                 <td><?= $datos->fecha_salida ?></td>
                                 <td><?= $datos->fecha_llegada ?></td>
                                 <td><?= $datos->precio_boleto ?></td>
@@ -96,17 +102,6 @@
     <?php include "modal_recorrido/delete.php"; ?>
 
     <script>
-        // Deshabilitar el botón de editar al cargar la página
-        document.getElementById('btnEditar').disabled = true;
-
-        // Habilitar o deshabilitar el botón de editar según los checkboxes seleccionados
-        document.querySelectorAll('input[name="ids[]"]').forEach(checkbox => {
-            checkbox.addEventListener('change', function() {
-                const checkedCheckboxes = document.querySelectorAll('input[name="ids[]"]:checked');
-                // Habilitar el botón si hay exactamente un checkbox seleccionado, deshabilitar si hay 0 o más de 1
-                document.getElementById('btnEditar').disabled = checkedCheckboxes.length !== 1;
-            });
-        });
 
         // PARA EDITAR
         btnEditar.addEventListener('click', function(event) {
@@ -118,10 +113,10 @@
                 const row = checkedCheckboxes[0].closest('tr');
 
                 // Obtener los datos de la fila
-                const fecha_salida = row.cells[2].innerText;
-                const fecha_llegada = row.cells[3].innerText;
-                const boleto = row.cells[4].innerText;
-                const estado = row.cells[5].innerText;
+                const fecha_salida = row.cells[3].innerText;
+                const fecha_llegada = row.cells[4].innerText;
+                const boleto = row.cells[5].innerText;
+                const estado = row.cells[6].innerText;
 
                 // Llenar los campos del modal
                 document.getElementById('id_recorrido_editar').value = id;

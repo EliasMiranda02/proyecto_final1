@@ -38,7 +38,11 @@
                 </div>
             <?php endif; ?>
             <!-- BUSACDOR DE LAS RUTAS -->
-
+            <div class="col-auto">
+                <a href="#" class="btn btn-success" data-bs-toggle="modal" data-bs-target="#agregar"><i class="fa-solid fa-circle-plus"></i></a>
+                <i>Nuevo Vuelo</i>
+            </div>
+            <br>
             <form id="searchFormAsesor" class="mb-3" method="POST" action="">
                 <input type="hidden" name="cargo" value="Asesor de Viajes"> <!-- Campo oculto -->
                 <div class="input-group">
@@ -81,7 +85,7 @@
                                 <td><?= $datos->fecha_salida ?></td>
                                 <td><?= $datos->fecha_llegada ?></td>
                                 <td><?= $datos->precio_vuelo ?></td>
-                            </tr>   
+                            </tr>
                         <?php } ?>
                     </tbody>
                 </table>
@@ -92,8 +96,9 @@
 
     </div>
 
-    <?php include "modal_vuelo/delete.php";?>
-    <?php include "modal_vuelo/edit.php";?>
+    <?php include "modal_vuelo/delete.php"; ?>
+    <?php include "modal_vuelo/edit.php"; ?>
+    <?include "modal_vuelo/add.php";?>
 
     <script>
         // PARA EDITAR
@@ -111,7 +116,7 @@
                 const destino = row.cells[4].innerText;
                 const fecha_salida = row.cells[5].innerText;
                 const fecha_llegada = row.cells[6].innerText;
-                const precio= row.cells[7].innerText;
+                const precio = row.cells[7].innerText;
 
                 // Llenar los campos del modal
                 document.getElementById('id_vuelo_editar').value = id;

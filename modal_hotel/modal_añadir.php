@@ -51,12 +51,14 @@
                         <label for="calificacion" class="form-label">Calificacion</label>
                         <input type="number" id="calificacion" name="calificacion" class="form-control" required min="1">
                     </div>
+                    <br>
                     <div class="">
-                        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cerrar</button>
                         <button type="submit" class="btn btn-primary"><i class="fa-solid fa-floppy-disk"></i>Guardar</button>
                     </div>
                 </form>
+
             </div>
+            <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cerrar</button>
         </div>
     </div>
 </div>

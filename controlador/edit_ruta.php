@@ -25,7 +25,6 @@ if (isset($_POST['id_ruta_editar']) && !empty($_POST['id_ruta_editar'])) {
     if ($conexion->query($sql) === TRUE) {
         // Redirigir con éxito
         header('Location: ../rutas.php');
-        echo "Actualizado";
         exit();
     } else {
         // Manejar errores

@@ -81,18 +81,6 @@ document.addEventListener('DOMContentLoaded', function() {
     const checkboxes = document.querySelectorAll('input[name="ids[]"]');
 
     // Deshabilitar el botón al cargar la página
-    btnEditar.disabled = true;
-
-    // Añadir un event listener a cada checkbox
-    checkboxes.forEach(checkbox => {
-        checkbox.addEventListener('change', function() {
-            // Obtener el número de checkboxes seleccionados
-            const checkedCount = Array.from(checkboxes).filter(checkbox => checkbox.checked).length;
-
-            // Habilitar el botón solo si hay exactamente un checkbox seleccionado
-            btnEditar.disabled = checkedCount !== 1;
-        });
-    });
 
     btnEditar.addEventListener('click', function (event) {
 
