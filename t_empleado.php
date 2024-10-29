@@ -215,9 +215,9 @@
                     <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
                 </div>
                 <div class="modal-body">
-                    <div class="row">
+                    
                         <!-- TABLA DE USUARIOS -->
-                        <div class="col-8">
+                        <div class="col-12 p-2">
                             <form id="deleteFormGuia" action="controlador/eliminar_empleado.php" method="post">
                                 <div class="table-responsive">
                                     <table class="table">
@@ -236,6 +236,7 @@
                                                 <th scope="col">nombre_usuario</th>
                                                 <th scope="col">NIP</th>
                                                 <th scope="col">cargo</th>
+                                                <th scope="col">disponibilidad</th>
 
                                             </tr>
                                         </thead>
@@ -259,6 +260,7 @@
                                                     <td><?= $datos->nombre_usuario ?></td>
                                                     <td><?= $datos->NIP ?></td>
                                                     <td><?= $datos->cargo ?></td>
+                                                    <td><?= $datos->disponibilidad ?></td>
                                                 </tr>
                                             <?php } ?>
                                         </tbody>
@@ -269,35 +271,7 @@
                                 </div>
                             </form>
                         </div>
-                        <!-- Nueva tabla (Derecha) -->
-                    <div class="col-4">
-                        <div class="table-responsive">
-                            <table class="table">
-                                <thead>
-                                    <tr>
-                                        <th>Columna 1</th>
-                                        <th>Columna 2</th>
-                                    </tr>
-                                </thead>
-                                <tbody>
-                                    <tr>
-                                        <td>Texto ejemplo 1</td>
-                                        <td>Información 1</td>
-                                    </tr>
-                                    <tr>
-                                        <td>Texto ejemplo 2</td>
-                                        <td>Información 2</td>
-                                    </tr>
-                                    <tr>
-                                        <td>Texto ejemplo 3</td>
-                                        <td>Información 3</td>
-                                    </tr>
-                                    
-                                </tbody>
-                            </table>
-                        </div>
-                    </div>
-                    </div>
+                    
                 </div>
             </div>
 
