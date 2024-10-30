@@ -1,0 +1,69 @@
+<!-- Modal -->
+<div class="modal fade" id="añadirmodal" tabindex="-1" aria-labelledby="añadirmodalLabel" aria-hidden="true">
+    <div class="modal-dialog modal-lg">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h1 class="modal-title fs-5" id="exampleModalLabel">Agregar Excursion</h1>
+                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+            </div>
+            <div class="modal-body">
+                <form action="./controlador/guardar_excursion.php" method="post" enctype="multipart/form-data">
+                    <div class="mb-3">
+                        <label for="nombre" class="form-label">Nombre de la Excursion</label>
+                        <input type="text" name="nombre" id="nombre" class="form-control" required>
+                    </div>
+                    <div class="mb-3">
+                        <label for="descripcion" class="form-label">Descripcion</label>
+                        <textarea name="descripcion" id="descripcion" class="form-control" rows="3" required></textarea>
+                    </div>
+                    <div class="mb-3">
+                        <label for="precio_aproximado" class="form-label">Precio Aproximado</label>
+                        <input type="number" id="precio_aproximado" name="precio_aproximado" class="form-control" required min="100" step="0.01">
+                    </div>
+                    <div class="mb-3">
+                        <label for="duracion_horas" class="form-label">Duracion por Horas</label>
+                        <input type="number" id="duracion_horas" name="duracion_horas" class="form-control" required min="1">
+                    </div>
+                    <div class="mb-3">
+                        <label for="ubicacion" class="form-label">Ubicacion</label>
+                        <textarea name="ubicacion" id="ubicacion" class="form-control" rows="2" required></textarea>
+                    </div>
+                    <div class="mb-3">
+                        <label for="clasificacion" class="form-label">Clasificacion</label>
+                        <select id="clasificacion" name="clasificacion" class="form-select" required>
+                            <option value="">Seleccionar...</option>
+                            <option value="Aventura y Exploracion">Aventura y Exploracion</option>
+                            <option value="Conexión con la Naturaleza">Conexión con la Naturaleza</option>
+                            <option value="Cultural e Histórico">Cultural e Histórico</option>
+                            <option value="Gastronómica">Gastronómica</option>
+                            <option value="Fotográfica">Fotográfica</option>
+                        </select>
+                    </div>
+                    <div class="mb-3">
+                        <label for="cantidad_maxima" class="form-label">Cantidad Maxima de Personas</label>
+                        <input type="number" id="cantidad_maxima" name="cantidad_maxima" class="form-control" required min="2">
+                    </div>
+                    <div class="mb-3">
+                        <label for="porcentaje_descuento" class="form-label">Porcentaje del Descuento</label>
+                        <input type="number" id="porcentaje_descuento" name="porcentaje_descuento" class="form-control" required min="10">
+                    </div>
+                    <div class="mb-3">
+                        <label for="precio_porcentaje" class="form-label">Precio con Descuento</label>
+                        <input type="number" id="precio_porcentaje" name="precio_porcentaje" class="form-control" required min="100" step="0.01">
+                    </div>
+                    
+                    <div class="mb-3">
+                        <label for="disponibilidad" class="form-label">Disponibilidad de Cupos</label>
+                        <input type="number" id="disponibilidad" name="disponibilidad" class="form-control" required>
+                    </div>
+                    <br>
+                    <div class="">
+                        <button type="submit" class="btn btn-primary"><i class="fa-solid fa-floppy-disk"></i>Guardar</button>
+                    </div>
+                </form>
+
+            </div>
+            <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cerrar</button>
+        </div>
+    </div>
+</div>

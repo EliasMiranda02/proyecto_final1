@@ -1,21 +1,3 @@
-// ESTE PARA EL BOTON DE EDITAR
-document.addEventListener('DOMContentLoaded', function() {
-    const btnEditar = document.getElementById('btnEditar');
-    const checkboxes = document.querySelectorAll('input[name="ids[]"]');
-
-    // Deshabilitar el botón al cargar la página
-    btnEditar.disabled = true;
-
-    // Añadir un event listener a cada checkbox
-    checkboxes.forEach(checkbox => {
-        checkbox.addEventListener('change', function() {
-            // Obtener el número de checkboxes seleccionados
-            const checkedCount = Array.from(checkboxes).filter(checkbox => checkbox.checked).length;
-
-            // Habilitar el botón solo si hay exactamente un checkbox seleccionado
-            btnEditar.disabled = checkedCount !== 1;
-        });
-    });
 
     btnEditar.addEventListener('click', function(event) {
         const checkedCheckboxes = document.querySelectorAll('input[name="ids[]"]:checked');
@@ -63,7 +45,6 @@ document.addEventListener('DOMContentLoaded', function() {
     document.getElementById('confirmarEditar').addEventListener('click', function() {
         document.getElementById('editarForm').submit(); // Envía el formulario para actualizar el registro
     });
-});
 
 // Para eliminar
 document.getElementById('selectAll').addEventListener('change', function() {
@@ -79,18 +60,23 @@ setTimeout(function() {
     }
 }, 2000); // 5000 milisegundos = 5 segundos
 
-document.getElementById('searchFormHotel').addEventListener('submit', function(e) {
+document.getElementById('searchFormExcursion').addEventListener('submit', function(e) {
     e.preventDefault();
 
     const formData = new FormData(this);
     const queryValue = formData.get('query').trim(); // Obtener el valor de 'query' y quitar espacios
-    fetch('controlador/buscar_hotel.php', {
+    if (queryValue === "") {
+        // Si está vacío, usar un valor especial para indicar "todos los registros"
+        formData.set('query', '%'); // Esto actuará como un comodín en SQL para traer todos los registros
+    }
+
+    fetch('controlador/buscar_excursion.php', {
         method: 'POST',
         body: formData
     })
     .then(response => response.text())
     .then(data => {
-        const tbody = document.querySelector('#Hoteles table tbody'); // Especifica el tbody correcto
+        const tbody = document.querySelector('#Excursiones table tbody'); // Especifica el tbody correcto
         tbody.innerHTML = data;
     })
     .catch(error => console.error('Error:', error));

@@ -9,7 +9,7 @@ $campo = $conexion->real_escape_string($campo);
 $query = $conexion->real_escape_string($query);
 
 // Si query es '%', significa que debe mostrar todos los registros
-$sqlQuery = $query === '%' ? "SELECT * FROM hoteles" : "SELECT * FROM hoteles WHERE $campo LIKE '%$query%'";
+$sqlQuery = $query === '%' ? "SELECT * FROM hoteles" : "SELECT * FROM hoteles WHERE $campo LIKE '$query%'";
 
 $sql = $conexion->query($sqlQuery);
 

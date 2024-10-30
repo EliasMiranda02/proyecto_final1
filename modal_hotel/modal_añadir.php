@@ -45,7 +45,7 @@
                     </div>
                     <div class="mb-3">
                         <label for="precio_noche" class="form-label">Precio por Noche</label>
-                        <input type="number" id="precio_noche" name="precio_noche" class="form-control" required min="1" step="0.01">
+                        <input type="number" id="precio_noche" name="precio_noche" class="form-control" required min="100" step="0.01">
                     </div>
                     <div class="mb-3">
                         <label for="calificacion" class="form-label">Calificacion</label>
