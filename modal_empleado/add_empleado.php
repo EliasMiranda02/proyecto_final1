@@ -8,7 +8,7 @@
             </div>
             <div class="modal-body custom-scroll">
                 
-                <form action="controlador/registro_empleado.php" method="post" enctype="multipart/form-data"> <!-- Cambia aquí -->
+                <form action="./controlador/add_empleado.php" method="post" enctype="multipart/form-data"> <!-- Cambia aquí -->
 
                     <div class="form-floating mb-3">
                         <input type="text" class="form-control" id="nombre" name="nombre" required>
@@ -32,11 +32,11 @@
                         <label for="email">Correo Electrónico</label>
                     </div>
                     <div class="form-floating mb-3">
-                        <input type="password" class="form-control" name="contraseña1" id="pass1" required>
+                        <input type="password" class="form-control" name="contraseña1" id="contraseña1" required>
                         <label for="pass1">Contraseña</label>
                     </div>
                     <div class="form-floating mb-3">
-                        <input type="password" class="form-control" name="contraseña2" id="pass2" required>
+                        <input type="password" class="form-control" name="contraseña2" id="contraseña2" required>
                         <label for="pass2">Confirma Contraseña</label>
                     </div>
                     <div class="input-group mb-3">
@@ -66,9 +66,19 @@
                             <label for="cargo">Cargo del Empleado</label>
                         </div>
                     </div>
+                    <div class="col-md mb-3">
+                        <div class="form-floating">
+                            <select name="disponibilidad" class="form-select" id="disponibilidad" required>
+                                <option value="Disponible">Disponible</option>
+                                <option value="No disponible">No Disponible</option>
+                                <option value="Reservado">Reservado</option>
+                            </select>
+                            <label for="disponibilidad">Disponibilidad del Empleado</label>
+                        </div>
+                    </div>
 
                     <div class="">
-                        <button type="submit" name="registrar" class="btn btn-primary">Understood</button>
+                        <button type="submit" class="btn btn-primary">Guardar</button>
                     </div>
 
                 </form>

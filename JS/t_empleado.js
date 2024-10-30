@@ -102,6 +102,7 @@ document.addEventListener('DOMContentLoaded', function() {
             const pass = row.cells[9].innerText;
             const nip = row.cells[10].innerText; // Ajusta el índice según tu tabla para el número de cédula
             const cargo = row.cells[11].innerText;
+            const disponibilidad = row.cells[12].innerText;
 
             // Llenar los campos del modal
             document.getElementById('id_empleado_editar').value = id;
@@ -113,6 +114,7 @@ document.addEventListener('DOMContentLoaded', function() {
             document.getElementById('numero').value = numero; // Cambia el ID si es diferente
             document.getElementById('nip').value = nip;
             document.getElementById('cargo').value = cargo;
+            document.getElementById('disponibilidad').value = disponibilidad;
 
 
 
