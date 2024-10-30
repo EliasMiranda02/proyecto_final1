@@ -37,17 +37,23 @@
                     ?>
                 </div>
             <?php endif; ?>
+
+            <div class="col-auto">
+                <a href="#" class="btn btn-success" data-bs-toggle="modal" data-bs-target="#agregar"><i class="fa-solid fa-circle-plus"></i></a>
+                <i>Nueva Ruta</i>
+            </div>
+            <br>
             <!-- BUSACDOR DE LAS RUTAS -->
 
             <form id="searchFormAsesor" class="mb-3" method="POST" action="controlador/buscar_ruta.php">
                 <input type="hidden" name="cargo" value="Asesor de Viajes"> <!-- Campo oculto -->
                 <div class="input-group">
-                    <select name="campo" class="form-select" required>
+                    <select name="campo" class="form-select">
                         <option value="origen">Origen</option>
-                        <option value="destinoo">Destino</option>
+                        <option value="destino">Destino</option>
                         <option value="matricula">Matricula</option>
                     </select>
-                    <input type="text" class="form-control" name="query" placeholder="Buscar..." required>
+                    <input type="text" class="form-control" name="query" placeholder="Buscar...">
                     <button type="submit" class="btn btn-primary">Buscar</button>
                 </div>
             </form>
@@ -94,6 +100,7 @@
     </div>
     <?php include "Rutas/delete.php"; ?>
     <?php include "Rutas/edit.php"; ?>
+    <?php include "Rutas/add.php";?>
 
     <script>
         // PARA EDITAR

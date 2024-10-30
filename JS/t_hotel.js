@@ -1,23 +1,5 @@
 // ESTE PARA EL BOTON DE EDITAR
-document.addEventListener('DOMContentLoaded', function() {
-    const btnEditar = document.getElementById('btnEditar');
-    const checkboxes = document.querySelectorAll('input[name="ids[]"]');
-
-    // Deshabilitar el botón al cargar la página
-    btnEditar.disabled = true;
-
-    // Añadir un event listener a cada checkbox
-    checkboxes.forEach(checkbox => {
-        checkbox.addEventListener('change', function() {
-            // Obtener el número de checkboxes seleccionados
-            const checkedCount = Array.from(checkboxes).filter(checkbox => checkbox.checked).length;
-
-            // Habilitar el botón solo si hay exactamente un checkbox seleccionado
-            btnEditar.disabled = checkedCount !== 1;
-        });
-    });
-
-    btnEditar.addEventListener('click', function(event) {
+btnEditar.addEventListener('click', function(event) {
         const checkedCheckboxes = document.querySelectorAll('input[name="ids[]"]:checked');
 
         // Prevenir el comportamiento por defecto del botón
@@ -63,7 +45,7 @@ document.addEventListener('DOMContentLoaded', function() {
     document.getElementById('confirmarEditar').addEventListener('click', function() {
         document.getElementById('editarForm').submit(); // Envía el formulario para actualizar el registro
     });
-});
+
 
 // Para eliminar
 document.getElementById('selectAll').addEventListener('change', function() {

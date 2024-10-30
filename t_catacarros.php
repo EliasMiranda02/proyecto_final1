@@ -4,7 +4,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Volante</title>
+    <title>Carros</title>
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
     <script src="https://kit.fontawesome.com/90c11f8b3b.js" crossorigin="anonymous"></script>
 </head>
@@ -37,54 +37,60 @@
                     ?>
                 </div>
             <?php endif; ?>
-            <!-- BUSACDOR DE LAS RUTAS -->
             <div class="col-auto">
                 <a href="#" class="btn btn-success" data-bs-toggle="modal" data-bs-target="#agregar"><i class="fa-solid fa-circle-plus"></i></a>
-                <i>Nuevo Vuelo</i>
+                <i>Nuevo Carro</i>
             </div>
             <br>
-            <form id="searchFormAsesor" class="mb-3" method="POST" action="controlador/buscar_vuelo.php">
+            <!-- BUSACDOR DE LAS RECORRIDOS -->
+            <form id="searchFormAsesor" class="mb-3" method="POST" action="controlador/buscar_catacarro.php">
                 <input type="hidden" name="cargo" value="Asesor de Viajes"> <!-- Campo oculto -->
                 <div class="input-group">
-                    <select name="campo" class="form-select">
-                        <option value="numero_vuelo">No_vuelo</option>
-                        <option value="origen">Origen</option>
-                        <option value="destino">Destino</option>
+                    <select name="campo" class="form-select" >
+                        <option value="marca">Marca</option>
+                        <option value="modelo">Modelo</option>
+                        <option value="placa">Placa</option>
                     </select>
-                    <input type="text" class="form-control" name="query" placeholder="Buscar...">
+                    <input type="text" class="form-control" name="query" placeholder="Buscar..." >
                     <button type="submit" class="btn btn-primary">Buscar</button>
                 </div>
             </form>
 
-            <!-- TABLA DE RUTAS -->
-            <form id="Recorrido" action="controlador/delete_vuelo.php" method="post">
+            <!-- TABLA DE RECORRIDOS -->
+            <form id="Carros" action="controlador/delete_catacarro.php" method="post">
                 <table class="table" id="table-body">
-                    <thead class="bg-info">
+                    <thead class="bg-success">
                         <tr>
                             <th scope="col"><input type="hidden" id="selectAll"></th>
-                            <th scope="col">id_vuelo</th>
-                            <th scope="col">numero_vuelo</th>
-                            <th scope="col">origen</th>
-                            <th scope="col">destino</th>
-                            <th scope="col" class="text-center">fecha_salida</th>
-                            <th scope="col" class="text-center">fecha_llegada</th>
-                            <th scope="col">precio_vuelo</th>
+                            <th scope="col">id_carro</th>
+                            <th scope="col">marca</th>
+                            <th scope="col">modelo</th>
+                            <th scope="col">año_fabricacion</th>
+                            <th scope="col">color</th>
+                            <th scope="col" class="text-center">placa</th>
+                            <th scope="col" class="text-center">precio_renta</th>
+                            <th scope="col">cantidad_dias</th>
+                            <th scope="col">capacidad</th>
+                            <th scope="col">estado</th>
                         </tr>
                     </thead>
-                    <tbody>
+                    <tbody class="">
                         <?php
                         include "modelo/conexion.php";
-                        $sql = $conexion->query("SELECT * FROM vuelos");
+                        $sql = $conexion->query("SELECT * FROM carros");
                         while ($datos = $sql->fetch_object()) { ?>
                             <tr>
-                                <td><input type="checkbox" name="ids[]" value="<?= $datos->id_vuelo ?>"></td>
-                                <th scope="row"><?= $datos->id_vuelo ?></th>
-                                <td><?= $datos->numero_vuelo ?></td>
-                                <td><?= $datos->origen ?></td>
-                                <td><?= $datos->destino ?></td>
-                                <td><?= $datos->fecha_salida ?></td>
-                                <td><?= $datos->fecha_llegada ?></td>
-                                <td><?= $datos->precio_vuelo ?></td>
+                                <td><input type="checkbox" name="ids[]" value="<?= $datos->id_carro ?>"></td>
+                                <th scope="row"><?= $datos->id_carro ?></th>
+                                <th><?= $datos->marca ?></th>
+                                <td><?= $datos->modelo ?></td>
+                                <td><?= $datos->año_fabricacion ?></td>
+                                <td><?= $datos->color ?></td>
+                                <td><?= $datos->placa ?></td>
+                                <td><?= $datos->precio_renta ?></td>
+                                <td><?= $datos->cantidad_dias ?></td>
+                                <td><?= $datos->capacidad ?></td>
+                                <td><?= $datos->estado ?></td>
                             </tr>
                         <?php } ?>
                     </tbody>
@@ -96,9 +102,9 @@
 
     </div>
 
-    <?php include "modal_vuelo/delete.php"; ?>
-    <?php include "modal_vuelo/edit.php"; ?>
-    <?include "modal_vuelo/add.php";?>
+    <?php include "modal_catacarros/add.php"; ?>
+    <?php include "modal_catacarros/delete.php"; ?>
+    <?php include "modal_catacarros/edit.php"; ?>
 
     <script>
         // PARA EDITAR
@@ -110,22 +116,29 @@
                 const id = checkedCheckboxes[0].value;
                 const row = checkedCheckboxes[0].closest('tr');
 
-                // Obtener los datos de la fila
-                const no_vuelo = row.cells[2].innerText;
-                const origen = row.cells[3].innerText;
-                const destino = row.cells[4].innerText;
-                const fecha_salida = row.cells[5].innerText;
-                const fecha_llegada = row.cells[6].innerText;
-                const precio = row.cells[7].innerText;
+                // Obtener los datos de la fila con los índices corregidos
+                const marca = row.cells[2].innerText;
+                const modelo = row.cells[3].innerText;
+                const ano_fabricacion = row.cells[4].innerText;
+                const color = row.cells[5].innerText;
+                const placa = row.cells[6].innerText;
+                const precio_renta = row.cells[7].innerText;
+                const cantidad_dias = row.cells[8].innerText;
+                const capacidad = row.cells[9].innerText;
+                const estado = row.cells[10].innerText;
 
                 // Llenar los campos del modal
-                document.getElementById('id_vuelo_editar').value = id;
-                document.getElementById('no_vuelo').value = no_vuelo;
-                document.getElementById('origen').value = origen;
-                document.getElementById('destino').value = destino;
-                document.getElementById('date_salida').value = fecha_salida.replace(" ", "T").slice(0, 16);
-                document.getElementById('date_llegada').value = fecha_llegada.replace(" ", "T").slice(0, 16);
-                document.getElementById('precio').value = precio;
+                document.getElementById('id_carro_editar').value = id;
+                document.getElementById('marcas').value = marca;
+                document.getElementById('modelos').value = modelo;
+                document.getElementById('ano_fabricacion').value = ano_fabricacion;
+                document.getElementById('colores').value = color;
+                document.getElementById('placas').value = placa;
+                document.getElementById('precios').value = precio_renta;
+                document.getElementById('cantidades').value = cantidad_dias;
+                document.getElementById('capacidades').value = capacidad;
+                document.getElementById('estados').value = estado;
+
                 // Abrir el modal
                 $('#editar').modal('show');
             } else {
@@ -136,7 +149,6 @@
                 document.getElementById('editarForm').submit(); // Envía el formulario para actualizar el registro
             });
         });
-
         // PARA ELIMINAR
         document.getElementById('selectAll').addEventListener('change', function() {
             let checkboxes = document.querySelectorAll('input[name="ids[]"]');
@@ -165,7 +177,7 @@
             }
 
             // Realizar la solicitud AJAX
-            fetch('controlador/buscar_vuelo.php', {
+            fetch('controlador/buscar_catacarro.php', {
                     method: 'POST',
                     body: formData
                 })
