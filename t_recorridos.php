@@ -37,26 +37,26 @@
                     ?>
                 </div>
             <?php endif; ?>
-            <!-- BUSACDOR DE LAS RUTAS -->
             <div class="col-auto">
                 <a href="#" class="btn btn-success" data-bs-toggle="modal" data-bs-target="#agregar"><i class="fa-solid fa-circle-plus"></i></a>
-                <i>Nuevo Vuelo</i>
+                <i>Nuevo Recorrido</i>
             </div>
             <br>
-            <form id="searchFormAsesor" class="mb-3" method="POST" action="controlador/buscar_ruta.php">
+            <!-- BUSACDOR DE LAS RECORRIDOS -->
+            <form id="searchFormAsesor" class="mb-3" method="POST" action="controlador/buscar_recorrido.php">
                 <input type="hidden" name="cargo" value="Asesor de Viajes"> <!-- Campo oculto -->
                 <div class="input-group">
-                    <select name="campo" class="form-select" required>
-                        <option value="origen">Origen</option>
-                        <option value="destinoo">Destino</option>
-                        <option value="matricula">Matricula</option>
+                    <select name="campo" class="form-select">
+                        <option value="id_ruta">id_ruta</option>
+                        <option value="fecha_salida">fecha_salida</option>
+                        <option value="fecha_llegada">fecha_llegada</option>
                     </select>
-                    <input type="text" class="form-control" name="query" placeholder="Buscar..." required>
+                    <input type="text" class="form-control" name="query" placeholder="Buscar...">
                     <button type="submit" class="btn btn-primary">Buscar</button>
                 </div>
             </form>
 
-            <!-- TABLA DE RUTAS -->
+            <!-- TABLA DE RECORRIDOS -->
             <form id="Recorrido" action="controlador/delete_recorrido.php" method="post">
                 <table class="table" id="table-body">
                     <thead class="bg-info">
@@ -71,7 +71,7 @@
                             <th scope="col" class="text-center"></th>
                         </tr>
                     </thead>
-                    <tbody>
+                    <tbody class="">
                         <?php
                         include "modelo/conexion.php";
                         $sql = $conexion->query("SELECT * FROM recorridos");
@@ -98,8 +98,17 @@
 
     </div>
 
+    <?php
+    
+        $sqlrutas = "SELECT id_ruta FROM rutas";
+        $rutas = $conexion->query($sqlrutas);
+    
+    ?>
+
+
     <?php include "modal_recorrido/editar.php"; ?>
     <?php include "modal_recorrido/delete.php"; ?>
+    <?php include "modal_recorrido/add.php";?>
 
     <script>
 
@@ -164,7 +173,7 @@
             }
 
             // Realizar la solicitud AJAX
-            fetch('controlador/buscar_ruta.php', {
+            fetch('controlador/buscar_recorrido.php', {
                     method: 'POST',
                     body: formData
                 })

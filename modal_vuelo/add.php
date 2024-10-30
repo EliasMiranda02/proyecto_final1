@@ -30,19 +30,17 @@
                         <label for="correo_electronico" class="form-label">Fecha de LLegada</label>
                         <input type="datetime-local" class="form-control" id="date_llegada" name="date_llegada" required>
                     </div>
-
-
-
                     <div class="mb-3">
-                        <label for="descripcion" class="form-label">Precio del vuelo</label>
-                        <input type="number" class="form-control" id="precio" name="precio" step="0.01" required>
+                        <label for="telefono" class="form-label">Precio del Vuelo</label>
+                        <input type="text" class="form-control" id="precio" name="precio">
                     </div>
+
 
                     <div class="">
                         <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cerrar</button>
                         <button type="submit" class="btn btn-primary"><i class="fa-solid fa-floppy-disk"></i>Guardar</button>
                     </div>
-                    
+
                 </form>
             </div>
         </div>
