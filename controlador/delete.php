@@ -7,7 +7,7 @@ if (isset($_POST['ids']) && !empty($_POST['ids'])) {
 
     // Verificar que cada ID tenga el formato correcto (R- seguido de seis dígitos)
     foreach ($ids as $id) {
-        if (preg_match('/^R-\d{6}$/', $id)) {
+        if (preg_match('/^RU-\d{6}$/', $id)) {
             $validIds[] = $conexion->real_escape_string($id); // Escapar el ID y agregarlo al arreglo
         }
     }

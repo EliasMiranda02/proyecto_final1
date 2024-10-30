@@ -100,52 +100,43 @@
     </div>
     <?php include "Rutas/delete.php"; ?>
     <?php include "Rutas/edit.php"; ?>
-    <?php include "Rutas/add.php";?>
+    <?php include "Rutas/add.php"; ?>
 
     <script>
         // PARA EDITAR
-        document.addEventListener('DOMContentLoaded', function() {
-            const btnEditar = document.getElementById('btnEditar');
-            const checkboxes = document.querySelectorAll('input[name="ids[]"]');
 
-            // Deshabilitar el botón al cargar la página
-            
+        btnEditar.addEventListener('click', function(event) {
 
-            // Añadir un event listener a cada checkbox
-          
-            btnEditar.addEventListener('click', function(event) {
+            const checkedCheckboxes = document.querySelectorAll('input[name="ids[]"]:checked');
+            // Prevenir el comportamiento por defecto del botón
+            event.preventDefault();
 
-                const checkedCheckboxes = document.querySelectorAll('input[name="ids[]"]:checked');
-                // Prevenir el comportamiento por defecto del botón
-                event.preventDefault();
+            // Comprobar si hay exactamente un checkbox seleccionado
+            if (checkedCheckboxes.length === 1) {
+                const id = checkedCheckboxes[0].value;
+                const row = checkedCheckboxes[0].closest('tr');
 
-                // Comprobar si hay exactamente un checkbox seleccionado
-                if (checkedCheckboxes.length === 1) {
-                    const id = checkedCheckboxes[0].value;
-                    const row = checkedCheckboxes[0].closest('tr');
-
-                    // Obtener los datos de la fila
-                    const origen = row.cells[2].innerText; // Asegúrate de que los índices son correctos
-                    const destino = row.cells[3].innerText;
-                    const distancia = row.cells[4].innerText;
-                    const duracion = row.cells[5].innerText; // Verifica el índice
-                    const matricula = row.cells[6].innerText; // Asegúrate de que este es el índice correcto para contraseña
-                    // Llenar los campos del modal
-                    document.getElementById('id_ruta_editar').value = id;
-                    document.getElementById('origen').value = origen;
-                    document.getElementById('destino').value = destino;
-                    document.getElementById('distancia').value = distancia;
-                    document.getElementById('duracion').value = duracion;
-                    document.getElementById('matricula').value = matricula;
-                    // Abrir el modal
-                    $('#editar').modal('show');
-                } else {
-                    // Solo mostrar la alerta, sin abrir el modal
-                    alert('Por favor, selecciona un único registro para editar.');
-                }
-                document.getElementById('confirmarEditar').addEventListener('click', function() {
-                    document.getElementById('editarForm').submit(); // Envía el formulario para actualizar el registro
-                });
+                // Obtener los datos de la fila
+                const origen = row.cells[2].innerText; // Asegúrate de que los índices son correctos
+                const destino = row.cells[3].innerText;
+                const distancia = row.cells[4].innerText;
+                const duracion = row.cells[5].innerText; // Verifica el índice
+                const matricula = row.cells[6].innerText; // Asegúrate de que este es el índice correcto para contraseña
+                // Llenar los campos del modal
+                document.getElementById('id_ruta_editar').value = id;
+                document.getElementById('origen').value = origen;
+                document.getElementById('destino').value = destino;
+                document.getElementById('distancia').value = distancia;
+                document.getElementById('duracion').value = duracion;
+                document.getElementById('matricula').value = matricula;
+                // Abrir el modal
+                $('#editar').modal('show');
+            } else {
+                // Solo mostrar la alerta, sin abrir el modal
+                alert('Por favor, selecciona un único registro para editar.');
+            }
+            document.getElementById('confirmarEditar').addEventListener('click', function() {
+                document.getElementById('editarForm').submit(); // Envía el formulario para actualizar el registro
             });
         });
 
