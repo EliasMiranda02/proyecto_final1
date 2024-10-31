@@ -13,14 +13,11 @@
 <body>
 
     <div class="d-flex justify-content-center align-items-center vh-100">
-    <div class="row justify-content-end">
-                <div class="col-auto">
-                    <a href="#" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#añadirmodal"><i class="fa-solid fa-circle-plus"></i></a>
-                    <i>Nueva Excursion</i>
-                </div>
-            </div>
+        <div class="row justify-content-end">
+
+        </div>
         <div class=" col-8 p-2">
-            
+
             <?php if (isset($_GET['mensaje'])): ?>
                 <div class="alert alert-info" id="mensajeAlerta">
                     <?php
@@ -38,7 +35,11 @@
                     ?>
                 </div>
             <?php endif; ?>
-            
+            <div class="col-auto">
+                <a href="#" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#añadirmodal"><i class="fa-solid fa-circle-plus"></i></a>
+                <i>Nueva Excursion</i>
+            </div>
+            <br>
             <form id="searchFormExcursion" class="mb-3" method="POST" action="controlador/buscar_excursion.php">
                 <input type="hidden" name="Excursion" value="Excursion"> <!-- Campo oculto -->
                 <div class="input-group">
@@ -53,62 +54,66 @@
             </form>
 
             <form id="Excursiones" action="controlador/eliminar_excursion.php" method="post">
-            <div class="table-responsive">
-                <table class="table">
-                    <thead class="bg-info">
-                        <tr>
-                            <th scope="col"><input type="hidden" id="selectAll"></th>
-                            <th scope="col">id_excursion</th>
-                            <th scope="col">nombre de la excursion</th>
-                            <th scope="col">descripcion</th>
-                            <th scope="col">precio_aproximado</th>
-                            <th scope="col">duracion_horas</th>
-                            <th scope="col">ubicacion</th>
-                            <th scope="col">clasificacion</th>
-                            <th scope="col">cantidad_maxima</th>
-                            <th scope="col">porcentaje_descuento</th>
-                            <th scope="col">precio_porcentaje</th>
-                            <th scope="col">fecha_creacion</th>
-                            <th scope="col">fecha_modificacion</th>
-                            <th scope="col">disponibilidad</th>
-                        </tr>
-                    </thead>
-                    <tbody>
-                        <?php
-                        include "modelo/conexion.php";
-
-                        $sql = $conexion->query("SELECT * FROM excursiones");
-                        while ($datos = $sql->fetch_object()) { ?>
+                <div class="table-responsive">
+                    <table class="table">
+                        <thead class="bg-info">
                             <tr>
-                                <td><input type="checkbox" name="ids[]" value="<?= $datos->id_excursion ?>"></td>
-                                <th scope="row"><?= $datos->id_excursion ?></th>
-                                <td><?= $datos->nombre ?></td>
-                                <td><?= $datos->descripcion ?></td>
-                                <td><?= $datos->precio_aproximado ?></td>
-                                <td><?= $datos->duracion_horas ?></td>
-                                <td><?= $datos->ubicacion ?></td>
-                                <td><?= $datos->clasificacion ?></td>
-                                <td><?= $datos->cantidad_maxima ?></td>
-                                <td><?= $datos->porcentaje_descuento ?></td>
-                                <td><?= $datos->precio_porcentaje ?></td>
-                                <td><?= $datos->fecha_creacion ?></td>
-                                <td><?= $datos->fecha_modificacion ?></td>
-                                <td><?= $datos->disponibilidad ?></td>
+                                <th scope="col"><input type="hidden" id="selectAll"></th>
+                                <th scope="col">id_excursion</th>
+                                <th scope="col">nombre de la excursion</th>
+                                <th scope="col">descripcion</th>
+                                <th scope="col">precio_aproximado</th>
+                                <th scope="col">duracion_horas</th>
+                                <th scope="col">ubicacion</th>
+                                <th scope="col">clasificacion</th>
+                                <th scope="col">cantidad_maxima</th>
+                                <th scope="col">porcentaje_descuento</th>
+                                <th scope="col">precio_porcentaje</th>
+                                <th scope="col">fecha_creacion</th>
+                                <th scope="col">fecha_modificacion</th>
+                                <th scope="col">disponibilidad</th>
                             </tr>
-                        <?php } ?>
-                    </tbody>
-                </table>
-            </div>
+                        </thead>
+                        <tbody>
+                            <?php
+                            include "modelo/conexion.php";
+
+                            $sql = $conexion->query("SELECT * FROM excursiones");
+                            while ($datos = $sql->fetch_object()) { ?>
+                                <tr>
+                                    <td><input type="checkbox" name="ids[]" value="<?= $datos->id_excursion ?>"></td>
+                                    <th scope="row"><?= $datos->id_excursion ?></th>
+                                    <td><?= $datos->nombre ?></td>
+                                    <td><?= $datos->descripcion ?></td>
+                                    <td><?= $datos->precio_aproximado ?></td>
+                                    <td><?= $datos->duracion_horas ?></td>
+                                    <td><?= $datos->ubicacion ?></td>
+                                    <td><?= $datos->clasificacion ?></td>
+                                    <td><?= $datos->cantidad_maxima ?></td>
+                                    <td><?= $datos->porcentaje_descuento ?></td>
+                                    <td><?= $datos->precio_porcentaje ?></td>
+                                    <td><?= $datos->fecha_creacion ?></td>
+                                    <td><?= $datos->fecha_modificacion ?></td>
+                                    <td><?= $datos->disponibilidad ?></td>
+                                </tr>
+                            <?php } ?>
+                        </tbody>
+                    </table>
+                </div>
                 <button type="button" class="btn btn-danger" data-bs-toggle="modal" data-bs-target="#eliminar">Eliminar seleccionados</button>
                 <button type="button" class="btn btn-warning" id="btnEditar" data-bs-toggle="modal" data-bs-target="#editar">Editar Excursion</button>
             </form>
+            <div class="d-flex justify-content-center">
+                <button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#Guias">Guias Turisticos</button>
+            </div>
         </div>
 
     </div>
 
     <?php include "modal_excursion/modal_editar.php"; ?>
     <?php include "modal_excursion/modal_eliminar.php"; ?>
-    <?php include "modal_excursion/modal_anadir.php";?>
+    <?php include "modal_excursion/modal_anadir.php"; ?>
+    <?php include "modal_excursion/modal_guias.php"; ?>
     <script src="JS/t_excursiones.js"></script> <!--PENDIENTE -->
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
 </body>

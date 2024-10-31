@@ -51,7 +51,7 @@
                                         <option value="apellido_materno">Apellido Materno</option>
                                         <option value="email">Email</option>
                                     </select>
-                                    <input type="text" class="form-control" name="query" placeholder="Buscar..." required>
+                                    <input type="text" class="form-control" name="query" placeholder="Buscar...">
                                     <button type="submit" class="btn btn-primary">Buscar</button>
                                 </div>
                             </form>
@@ -129,7 +129,7 @@
                                     <option value="apellido_materno">Apellido Materno</option>
                                     <option value="email">Email</option>
                                 </select>
-                                <input type="text" class="form-control" name="query" placeholder="Buscar..." required>
+                                <input type="text" class="form-control" name="query" placeholder="Buscar...">
                                 <button type="submit" class="btn btn-primary">Buscar</button>
                             </div>
                         </form>
@@ -208,7 +208,7 @@
                                 <option value="apellido_materno">Apellido Materno</option>
                                 <option value="email">Email</option>
                             </select>
-                            <input type="text" class="form-control" name="query" placeholder="Buscar..." required>
+                            <input type="text" class="form-control" name="query" placeholder="Buscar...">
                             <button type="submit" class="btn btn-primary">Buscar</button>
                         </div>
                     </form>

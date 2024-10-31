@@ -42,6 +42,10 @@
                             <option value="Fotográfica">Fotográfica</option>
                         </select>
                     </div>
+                    <div class="mb-3">
+                        <label for="cantidad_maxima" class="form-label">Cantidad Maxima de Personas</label>
+                        <input type="number" id="cantidad_maxima" name="cantidad_maxima" class="form-control" required min="2">
+                    </div>
 
                     <div class="mb-3">
                         <label for="porcentaje_descuento" class="form-label">Porcentaje del Descuento</label>

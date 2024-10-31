@@ -14,10 +14,7 @@
 
     <div class="d-flex justify-content-center align-items-center vh-100">
     <div class="row justify-content-end">
-                <div class="col-auto">
-                    <a href="#" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#añadirmodal"><i class="fa-solid fa-circle-plus"></i></a>
-                    <i>Nuevo Hotel</i>
-                </div>
+                
             </div>
         <div class=" col-8 p-2">
             
@@ -38,7 +35,11 @@
                     ?>
                 </div>
             <?php endif; ?>
-            
+            <div class="col-auto">
+                    <a href="#" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#añadirmodal"><i class="fa-solid fa-circle-plus"></i></a>
+                    <i>Nuevo Hotel</i>
+                </div>
+                <br>
             <form id="searchFormHotel" class="mb-3" method="POST" action="controlador/buscar_hotel.php">
                 <input type="hidden" name="Hotel" value="Hotel"> <!-- Campo oculto -->
                 <div class="input-group">
@@ -47,7 +48,7 @@
                         <option value="numero_habitaciones">Numero de Habitaciones</option>
                         <option value="calificacion">Calificacion</option>
                     </select>
-                    <input type="text" class="form-control" name="query" placeholder="Buscar..." required>
+                    <input type="text" class="form-control" name="query" placeholder="Buscar...">
                     <button type="submit" class="btn btn-primary">Buscar</button>
                 </div>
             </form>

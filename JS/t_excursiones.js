@@ -11,27 +11,31 @@
             const row = checkedCheckboxes[0].closest('tr');
 
             // Obtener los datos de la fila
-            const nombre_hotel = row.cells[2].innerText;
-            const direccion = row.cells[3].innerText;
-            const clave_lada = row.cells[4].innerText;
-            const telefono = row.cells[5].innerText;
-            const correo_electronico = row.cells[6].innerText; // Suponiendo que la contraseña está en la columna 9
-            const numero_habitaciones = row.cells[7].innerText; // Ajusta el índice según tu tabla
-            const descripcion = row.cells[8].innerText;
-            const precio_noche = row.cells[9].innerText; 
-            const calificacion = row.cells[10].innerText;
+            const nombre = row.cells[2].innerText;
+            const descripcion = row.cells[3].innerText;
+            const precio_aproximado = row.cells[4].innerText;
+            const duracion_horas = row.cells[5].innerText;
+            const ubicacion = row.cells[6].innerText; // Suponiendo que la contraseña está en la columna 9
+            const clasificacion = row.cells[7].innerText; // Ajusta el índice según tu tabla
+            const cantidad_maxima = row.cells[8].innerText;
+            const porcentaje_descuento = row.cells[9].innerText; 
+            const precio_porcentaje = row.cells[10].innerText;
+            
+            const disponibilidad = row.cells[13].innerText;
 
             // Llenar los campos del modal
-            document.getElementById('id_hotel_editar').value = id;
-            document.getElementById('nombre_hotel').value = nombre_hotel;
-            document.getElementById('direccion').value = direccion;
-            document.getElementById('clave_lada').value = clave_lada;
-            document.getElementById('telefono').value = telefono;
-            document.getElementById('correo_electronico').value = correo_electronico;
-            document.getElementById('numero_habitaciones').value = numero_habitaciones;
+            document.getElementById('id_excursion_editar').value = id;
+            document.getElementById('nombre').value = nombre;
             document.getElementById('descripcion').value = descripcion;
-            document.getElementById('precio_noche').value = precio_noche;
-            document.getElementById('calificacion').value = calificacion;
+            document.getElementById('precio_aproximado').value = precio_aproximado;
+            document.getElementById('duracion_horas').value = duracion_horas;
+            document.getElementById('ubicacion').value = ubicacion;
+            document.getElementById('clasificacion').value = clasificacion;
+            document.getElementById('cantidad_maxima').value = cantidad_maxima;
+            document.getElementById('porcentaje_descuento').value = porcentaje_descuento;
+            document.getElementById('precio_porcentaje').value = precio_porcentaje;
+            
+            document.getElementById('disponibilidad').value = disponibilidad;
 
             // Abrir el modal
             $('#editar').modal('show');

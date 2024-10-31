@@ -11,6 +11,7 @@ $campo = $conexion->real_escape_string($campo);
 $query = $conexion->real_escape_string($query);
 $cargo = $conexion->real_escape_string($cargo); // Sanitiza el cargo
 
+$sqlQuery = $query === '%' ? "SELECT * FROM empleados" : "SELECT * FROM empleados WHERE $campo LIKE '$query%' AND cargo = '$cargo'";
 // Realiza la consulta
 $sql = $conexion->query("SELECT * FROM empleados WHERE $campo LIKE '$query%' AND cargo = '$cargo'");
 

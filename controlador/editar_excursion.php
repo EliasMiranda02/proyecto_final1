@@ -3,7 +3,7 @@ include "../modelo/conexion.php"; // Asegúrate de que la ruta esté correcta
 
 // Verificar que se haya enviado el ID y los datos necesarios para la actualización
 if (isset($_POST['id_excursion_editar']) && !empty($_POST['id_excursion_editar'])) {
-    $id_hotel_editar = $conexion->real_escape_string($_POST['id_excursion_editar']); // Escapar el ID
+    $id_excursion_editar = $conexion->real_escape_string($_POST['id_excursion_editar']); // Escapar el ID
 
     // Obtener los demás datos
     $nombre = $conexion->real_escape_string($_POST['nombre']);
@@ -36,12 +36,12 @@ if (isset($_POST['id_excursion_editar']) && !empty($_POST['id_excursion_editar']
         exit();
     } else {
         // Manejar errores
-        header('Location: ../t_excursiones.php.php?mensaje=error&detalle=' . urlencode($conexion->error));
+        header('Location: ../t_excursiones.php?mensaje=error&detalle=' . urlencode($conexion->error));
         exit();
     }
 } else {
     // Si no se enviaron datos
-    header('Location: ../t_excursiones.php.php?mensaje=no_id');
+    header('Location: ../t_excursiones.php?mensaje=no_id');
     exit();
 }
 ?>

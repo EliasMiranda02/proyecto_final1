@@ -18,7 +18,11 @@ document.getElementById('searchForm').addEventListener('submit', function(e) {
     e.preventDefault();
 
     const formData = new FormData(this);
-
+    const queryValue = formData.get('query').trim(); // Obtener el valor de 'query' y quitar espacios
+    if (queryValue === "") {
+        // Si está vacío, usar un valor especial para indicar "todos los registros"
+        formData.set('query', '%'); // Esto actuará como un comodín en SQL para traer todos los registros
+    }
     fetch('controlador/buscar_empleado.php', {
         method: 'POST',
         body: formData
@@ -36,7 +40,11 @@ document.getElementById('searchFormAsesor').addEventListener('submit', function(
     e.preventDefault();
 
     const formData = new FormData(this);
-
+    const queryValue = formData.get('query').trim(); // Obtener el valor de 'query' y quitar espacios
+    if (queryValue === "") {
+        // Si está vacío, usar un valor especial para indicar "todos los registros"
+        formData.set('query', '%'); // Esto actuará como un comodín en SQL para traer todos los registros
+    }
     fetch('controlador/buscar_empleado.php', {
         method: 'POST',
         body: formData
@@ -52,7 +60,11 @@ document.getElementById('searchFormGuia').addEventListener('submit', function(e)
     e.preventDefault();
 
     const formData = new FormData(this);
-
+    const queryValue = formData.get('query').trim(); // Obtener el valor de 'query' y quitar espacios
+    if (queryValue === "") {
+        // Si está vacío, usar un valor especial para indicar "todos los registros"
+        formData.set('query', '%'); // Esto actuará como un comodín en SQL para traer todos los registros
+    }
     fetch('controlador/buscar_empleado.php', {
         method: 'POST',
         body: formData

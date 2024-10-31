@@ -66,6 +66,11 @@ document.getElementById('searchFormHotel').addEventListener('submit', function(e
 
     const formData = new FormData(this);
     const queryValue = formData.get('query').trim(); // Obtener el valor de 'query' y quitar espacios
+    
+    if (queryValue === "") {
+        // Si está vacío, usar un valor especial para indicar "todos los registros"
+        formData.set('query', '%'); // Esto actuará como un comodín en SQL para traer todos los registros
+    }
     fetch('controlador/buscar_hotel.php', {
         method: 'POST',
         body: formData
