@@ -78,6 +78,7 @@
                                                     <th scope="col">nombre_usuario</th>
                                                     <th scope="col">NIP</th>
                                                     <th scope="col">cargo</th>
+                                                    <th scope="col">disponibilidad</th>
                                                 </tr>
                                             </thead>
                                             <tbody>
@@ -92,14 +93,15 @@
                                                         <td><?= $datos->nombre ?></td>
                                                         <td><?= $datos->apellido_paterno ?></td>
                                                         <td><?= $datos->apellido_materno ?></td>
-                                                        <td><?= $datos->email?></td>
-                                                        <td><?= $datos->clave_lada?></td>
+                                                        <td><?= $datos->email ?></td>
+                                                        <td><?= $datos->clave_lada ?></td>
                                                         <td><?= $datos->telefono ?></td>
                                                         <td><?= $datos->fecha_registro ?></td>
                                                         <td><?= $datos->contraseña ?></td>
                                                         <td><?= $datos->nombre_usuario ?></td>
                                                         <td><?= $datos->NIP ?></td>
                                                         <td><?= $datos->cargo ?></td>
+                                                        <td><?= $datos->disponibilidad ?></td>
                                                     </tr>
                                                 <?php } ?>
                                             </tbody>
@@ -179,13 +181,14 @@
                                                     <td><?= $datos->nombre_usuario ?></td>
                                                     <td><?= $datos->NIP ?></td>
                                                     <td><?= $datos->cargo ?></td>
+                                                    <td><?= $datos->disponibilidad ?></td>
                                                 </tr>
                                             <?php } ?>
                                         </tbody>
                                     </table>
                                     <button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#eliminar" data-form-id="deleteFormAsesor">Eliminar seleccionados</button>
-                                    <button type="button" class="btn btn-warning" id="btnEditar" data-bs-toggle="modal" data-bs-target="#editar">Editar Usuario</button>
-                                </form>
+                                    <button type="button" class="btn btn-warning" id="btnEditar2" data-bs-toggle="modal" data-bs-target="#editar">Editar Usuario</button>
+                            </form>
                         </div>
                     </div>
                 </div>
@@ -215,63 +218,63 @@
                     <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
                 </div>
                 <div class="modal-body">
-                    
-                        <!-- TABLA DE USUARIOS -->
-                        <div class="col-12 p-2">
-                            <form id="deleteFormGuia" action="controlador/eliminar_empleado.php" method="post">
-                                <div class="table-responsive">
-                                    <table class="table">
-                                        <thead class="Bg-info">
-                                            <tr>
-                                                <th scope="col"><input type="hidden" id="selectAll"></th>
-                                                <th scope="col">id_empleado</th>
-                                                <th scope="col">nombre</th>
-                                                <th scope="col">apellido paterno</th>
-                                                <th scope="col">apellido materno</th>
-                                                <th scope="col" class="px-3 text-center">email</th>
-                                                <th scope="col" class="text-center">clave_lada</th>
-                                                <th scope="col">telefono</th>
-                                                <th scope="col">fecha_registro</th>
-                                                <th scope="col">contraseña</th>
-                                                <th scope="col">nombre_usuario</th>
-                                                <th scope="col">NIP</th>
-                                                <th scope="col">cargo</th>
-                                                <th scope="col">disponibilidad</th>
 
+                    <!-- TABLA DE USUARIOS -->
+                    <div class="col-12 p-2">
+                        <form id="deleteFormGuia" action="controlador/eliminar_empleado.php" method="post">
+                            <div class="table-responsive">
+                                <table class="table">
+                                    <thead class="Bg-info">
+                                        <tr>
+                                            <th scope="col"><input type="hidden" id="selectAll"></th>
+                                            <th scope="col">id_empleado</th>
+                                            <th scope="col">nombre</th>
+                                            <th scope="col">apellido paterno</th>
+                                            <th scope="col">apellido materno</th>
+                                            <th scope="col" class="px-3 text-center">email</th>
+                                            <th scope="col" class="text-center">clave_lada</th>
+                                            <th scope="col">telefono</th>
+                                            <th scope="col">fecha_registro</th>
+                                            <th scope="col">contraseña</th>
+                                            <th scope="col">nombre_usuario</th>
+                                            <th scope="col">NIP</th>
+                                            <th scope="col">cargo</th>
+                                            <th scope="col">disponibilidad</th>
+
+                                        </tr>
+                                    </thead>
+                                    <tbody>
+                                        <?php
+                                        include "modelo/conexion.php";
+                                        $cargo = "Guia Turistico";
+                                        $sql = $conexion->query("select * from empleados where cargo = '$cargo'");
+                                        while ($datos = $sql->fetch_object()) { ?>
+                                            <tr>
+                                                <td><input type="checkbox" name="ids[]" value="<?= $datos->id_empleado ?>"></td>
+                                                <th scope="row"><?= $datos->id_empleado ?></th>
+                                                <td><?= $datos->nombre ?></td>
+                                                <td><?= $datos->apellido_paterno ?></td>
+                                                <td><?= $datos->apellido_materno ?></td>
+                                                <td><?= $datos->email ?></td>
+                                                <td><?= $datos->clave_lada ?></td>
+                                                <td><?= $datos->telefono ?></td>
+                                                <td><?= $datos->fecha_registro ?></td>
+                                                <td><?= $datos->contraseña ?></td>
+                                                <td><?= $datos->nombre_usuario ?></td>
+                                                <td><?= $datos->NIP ?></td>
+                                                <td><?= $datos->cargo ?></td>
+                                                <td><?= $datos->disponibilidad ?></td>
                                             </tr>
-                                        </thead>
-                                        <tbody>
-                                            <?php
-                                            include "modelo/conexion.php";
-                                            $cargo = "Guia Turistico";
-                                            $sql = $conexion->query("select * from empleados where cargo = '$cargo'");
-                                            while ($datos = $sql->fetch_object()) { ?>
-                                                <tr>
-                                                    <td><input type="checkbox" name="ids[]" value="<?= $datos->id_empleado ?>"></td>
-                                                    <th scope="row"><?= $datos->id_empleado ?></th>
-                                                    <td><?= $datos->nombre ?></td>
-                                                    <td><?= $datos->apellido_paterno ?></td>
-                                                    <td><?= $datos->apellido_materno ?></td>
-                                                    <td><?= $datos->email ?></td>
-                                                    <td><?= $datos->clave_lada ?></td>
-                                                    <td><?= $datos->telefono ?></td>
-                                                    <td><?= $datos->fecha_registro ?></td>
-                                                    <td><?= $datos->contraseña ?></td>
-                                                    <td><?= $datos->nombre_usuario ?></td>
-                                                    <td><?= $datos->NIP ?></td>
-                                                    <td><?= $datos->cargo ?></td>
-                                                    <td><?= $datos->disponibilidad ?></td>
-                                                </tr>
-                                            <?php } ?>
-                                        </tbody>
-                                    </table>
-                                    
-                                    <button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#eliminar" data-form-id="deleteFormGuia">Eliminar seleccionados</button>
-                                    <button type="button" class="btn btn-warning" id="btnEditar" data-bs-toggle="modal" data-bs-target="#editar">Editar Usuario</button>
-                                </div>
-                            </form>
-                        </div>
-                    
+                                        <?php } ?>
+                                    </tbody>
+                                </table>
+
+                                <button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#eliminar" data-form-id="deleteFormGuia">Eliminar seleccionados</button>
+                                <button type="button" class="btn btn-warning" id="btnEditar3" data-bs-toggle="modal" data-bs-target="#editar">Editar Usuario</button>
+                            </div>
+                        </form>
+                    </div>
+
                 </div>
             </div>
 
@@ -296,12 +299,12 @@
             }
             ?>
         </div>
-        
+
     <?php endif; ?>
 
     <?php include "modal_empleado/edit_empleado.php"; ?>
     <?php include "modal_empleado/administradores.php"; ?>
-    <?php include "modal_empleado/add_empleado.php";?>
+    <?php include "modal_empleado/add_empleado.php"; ?>
     <script src="JS/t_empleado.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz" crossorigin="anonymous"></script>
 </body>

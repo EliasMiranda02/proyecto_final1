@@ -14,6 +14,7 @@ if (isset($_POST['id_empleado_editar']) && !empty($_POST['id_empleado_editar']))
     $email = $conexion->real_escape_string($_POST['email']);
     $numero = $conexion->real_escape_string($_POST['numero']);
     $nip = $conexion->real_escape_string($_POST['nip']);
+    $disponibilidad = $conexion->real_escape_string($_POST['estado']);
 
     // Preparar la consulta
     $sql = "UPDATE empleados SET 
@@ -22,7 +23,8 @@ if (isset($_POST['id_empleado_editar']) && !empty($_POST['id_empleado_editar']))
         apellido_paterno = '$apellidoPaterno', 
         email = '$email', 
         telefono = '$numero',
-        nip = '$nip'
+        NIP = '$nip',
+        disponibilidad = '$disponibilidad'
     WHERE id_empleado = '$id_empleado_editar'";
 
     if ($conexion->query($sql) === TRUE) {
