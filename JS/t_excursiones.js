@@ -11,31 +11,21 @@
             const row = checkedCheckboxes[0].closest('tr');
 
             // Obtener los datos de la fila
-            const nombre = row.cells[2].innerText;
-            const descripcion = row.cells[3].innerText;
-            const precio_aproximado = row.cells[4].innerText;
-            const duracion_horas = row.cells[5].innerText;
-            const ubicacion = row.cells[6].innerText; // Suponiendo que la contraseña está en la columna 9
-            const clasificacion = row.cells[7].innerText; // Ajusta el índice según tu tabla
-            const cantidad_maxima = row.cells[8].innerText;
-            const porcentaje_descuento = row.cells[9].innerText; 
-            const precio_porcentaje = row.cells[10].innerText;
-            
-            const disponibilidad = row.cells[13].innerText;
+            const descripcion = row.cells[2].innerText;
+            const precio_aproximado = row.cells[3].innerText;
+            const duracion_horas = row.cells[4].innerText;
+            const ubicacion = row.cells[5].innerText; // Suponiendo que la contraseña está en la columna 9
+            const clasificacion = row.cells[6].innerText; // Ajusta el índice según tu tabla
+            const cantidad_maxima = row.cells[7].innerText;
 
             // Llenar los campos del modal
             document.getElementById('id_excursion_editar').value = id;
-            document.getElementById('nombre').value = nombre;
             document.getElementById('descripcion').value = descripcion;
             document.getElementById('precio_aproximado').value = precio_aproximado;
             document.getElementById('duracion_horas').value = duracion_horas;
             document.getElementById('ubicacion').value = ubicacion;
             document.getElementById('clasificacion').value = clasificacion;
             document.getElementById('cantidad_maxima').value = cantidad_maxima;
-            document.getElementById('porcentaje_descuento').value = porcentaje_descuento;
-            document.getElementById('precio_porcentaje').value = precio_porcentaje;
-            
-            document.getElementById('disponibilidad').value = disponibilidad;
 
             // Abrir el modal
             $('#editar').modal('show');

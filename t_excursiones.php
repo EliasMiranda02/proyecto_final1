@@ -44,7 +44,6 @@
                 <input type="hidden" name="Excursion" value="Excursion"> <!-- Campo oculto -->
                 <div class="input-group">
                     <select name="campo" class="form-select" required>
-                        <option value="nombre">Nombre de la Excursion</option>
                         <option value="clasificacion">Clasificacion</option>
                         <option value="cantidad_maxima">Cantidad Maxima de Personas</option>
                     </select>
@@ -60,18 +59,14 @@
                             <tr>
                                 <th scope="col"><input type="hidden" id="selectAll"></th>
                                 <th scope="col">id_excursion</th>
-                                <th scope="col">nombre de la excursion</th>
                                 <th scope="col">descripcion</th>
                                 <th scope="col">precio_aproximado</th>
                                 <th scope="col">duracion_horas</th>
                                 <th scope="col">ubicacion</th>
                                 <th scope="col">clasificacion</th>
                                 <th scope="col">cantidad_maxima</th>
-                                <th scope="col">porcentaje_descuento</th>
-                                <th scope="col">precio_porcentaje</th>
                                 <th scope="col">fecha_creacion</th>
                                 <th scope="col">fecha_modificacion</th>
-                                <th scope="col">disponibilidad</th>
                             </tr>
                         </thead>
                         <tbody>
@@ -83,18 +78,14 @@
                                 <tr>
                                     <td><input type="checkbox" name="ids[]" value="<?= $datos->id_excursion ?>"></td>
                                     <th scope="row"><?= $datos->id_excursion ?></th>
-                                    <td><?= $datos->nombre ?></td>
                                     <td><?= $datos->descripcion ?></td>
                                     <td><?= $datos->precio_aproximado ?></td>
                                     <td><?= $datos->duracion_horas ?></td>
                                     <td><?= $datos->ubicacion ?></td>
                                     <td><?= $datos->clasificacion ?></td>
                                     <td><?= $datos->cantidad_maxima ?></td>
-                                    <td><?= $datos->porcentaje_descuento ?></td>
-                                    <td><?= $datos->precio_porcentaje ?></td>
                                     <td><?= $datos->fecha_creacion ?></td>
                                     <td><?= $datos->fecha_modificacion ?></td>
-                                    <td><?= $datos->disponibilidad ?></td>
                                 </tr>
                             <?php } ?>
                         </tbody>
