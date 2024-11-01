@@ -8,10 +8,7 @@
                 <form id="editarForm" action="./controlador/editar_excursion.php" method="post">
                     <input type="hidden" id="id_excursion_editar" name="id_excursion_editar">
 
-                    <div class="mb-3">
-                        <label for="nombre" class="form-label">Nombre de la Excursion</label>
-                        <input type="text" name="nombre" id="nombre" class="form-control" required>
-                    </div>
+                    
                     <div class="mb-3">
                         <label for="descripcion" class="form-label">Descripcion</label>
                         <textarea name="descripcion" id="descripcion" class="form-control" rows="3" required></textarea>
@@ -47,18 +44,7 @@
                         <input type="number" id="cantidad_maxima" name="cantidad_maxima" class="form-control" required min="2">
                     </div>
 
-                    <div class="mb-3">
-                        <label for="porcentaje_descuento" class="form-label">Porcentaje del Descuento</label>
-                        <input type="number" id="porcentaje_descuento" name="porcentaje_descuento" class="form-control" required min="10">
-                    </div>
-                    <div class="mb-3">
-                        <label for="precio_porcentaje" class="form-label">Precio con Descuento</label>
-                        <input type="number" id="precio_porcentaje" name="precio_porcentaje" class="form-control" required min="100" step="0.01">
-                    </div>
-                    <div class="mb-3">
-                        <label for="disponibilidad" class="form-label">Disponibilidad de Cupos</label>
-                        <input type="number" id="disponibilidad" name="disponibilidad" class="form-control" required>
-                    </div>
+                    
 
                     
                 </form>
