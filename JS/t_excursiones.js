@@ -12,20 +12,20 @@
 
             // Obtener los datos de la fila
             const descripcion = row.cells[2].innerText;
-            const precio_aproximado = row.cells[3].innerText;
+            const precio = row.cells[3].innerText;
             const duracion_horas = row.cells[4].innerText;
             const ubicacion = row.cells[5].innerText; // Suponiendo que la contraseña está en la columna 9
             const clasificacion = row.cells[6].innerText; // Ajusta el índice según tu tabla
-            const cantidad_maxima = row.cells[7].innerText;
+            
 
             // Llenar los campos del modal
             document.getElementById('id_excursion_editar').value = id;
             document.getElementById('descripcion').value = descripcion;
-            document.getElementById('precio_aproximado').value = precio_aproximado;
+            document.getElementById('precio').value = precio;
             document.getElementById('duracion_horas').value = duracion_horas;
             document.getElementById('ubicacion').value = ubicacion;
             document.getElementById('clasificacion').value = clasificacion;
-            document.getElementById('cantidad_maxima').value = cantidad_maxima;
+            
 
             // Abrir el modal
             $('#editar').modal('show');
