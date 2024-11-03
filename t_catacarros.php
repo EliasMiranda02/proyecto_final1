@@ -47,9 +47,9 @@
                 <input type="hidden" name="cargo" value="Asesor de Viajes"> <!-- Campo oculto -->
                 <div class="input-group">
                     <select name="campo" class="form-select" >
-                        <option value="marca">Marca</option>
+                        <option value="capacidad">Capacidad</option>
                         <option value="modelo">Modelo</option>
-                        <option value="placa">Placa</option>
+                        <option value="estado">Estado</option>
                     </select>
                     <input type="text" class="form-control" name="query" placeholder="Buscar..." >
                     <button type="submit" class="btn btn-primary">Buscar</button>
@@ -63,13 +63,8 @@
                         <tr>
                             <th scope="col"><input type="hidden" id="selectAll"></th>
                             <th scope="col">id_carro</th>
-                            <th scope="col">marca</th>
                             <th scope="col">modelo</th>
-                            <th scope="col">año_fabricacion</th>
-                            <th scope="col">color</th>
-                            <th scope="col" class="text-center">placa</th>
                             <th scope="col" class="text-center">precio_renta</th>
-                            <th scope="col">cantidad_dias</th>
                             <th scope="col">capacidad</th>
                             <th scope="col">estado</th>
                         </tr>
@@ -82,13 +77,8 @@
                             <tr>
                                 <td><input type="checkbox" name="ids[]" value="<?= $datos->id_carro ?>"></td>
                                 <th scope="row"><?= $datos->id_carro ?></th>
-                                <th><?= $datos->marca ?></th>
                                 <td><?= $datos->modelo ?></td>
-                                <td><?= $datos->año_fabricacion ?></td>
-                                <td><?= $datos->color ?></td>
-                                <td><?= $datos->placa ?></td>
                                 <td><?= $datos->precio_renta ?></td>
-                                <td><?= $datos->cantidad_dias ?></td>
                                 <td><?= $datos->capacidad ?></td>
                                 <td><?= $datos->estado ?></td>
                             </tr>
@@ -117,25 +107,16 @@
                 const row = checkedCheckboxes[0].closest('tr');
 
                 // Obtener los datos de la fila con los índices corregidos
-                const marca = row.cells[2].innerText;
-                const modelo = row.cells[3].innerText;
-                const ano_fabricacion = row.cells[4].innerText;
-                const color = row.cells[5].innerText;
-                const placa = row.cells[6].innerText;
-                const precio_renta = row.cells[7].innerText;
-                const cantidad_dias = row.cells[8].innerText;
-                const capacidad = row.cells[9].innerText;
-                const estado = row.cells[10].innerText;
+                
+                const modelo = row.cells[2].innerText;
+                const precio_renta = row.cells[3].innerText;
+                const capacidad = row.cells[4].innerText;
+                const estado = row.cells[5].innerText;
 
                 // Llenar los campos del modal
                 document.getElementById('id_carro_editar').value = id;
-                document.getElementById('marcas').value = marca;
                 document.getElementById('modelos').value = modelo;
-                document.getElementById('ano_fabricacion').value = ano_fabricacion;
-                document.getElementById('colores').value = color;
-                document.getElementById('placas').value = placa;
                 document.getElementById('precios').value = precio_renta;
-                document.getElementById('cantidades').value = cantidad_dias;
                 document.getElementById('capacidades').value = capacidad;
                 document.getElementById('estados').value = estado;
 

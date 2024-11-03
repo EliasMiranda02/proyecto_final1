@@ -10,35 +10,16 @@
                 
                 <form action="controlador/add_catacarro.php" method="post" enctype="multipart/form-data"> <!-- Cambia aquí -->
 
-                    <div class="form-floating mb-3">
-                        <input type="text" class="form-control" id="marca" name="marca" required>
-                        <label for="nombre">Marca del carro</label>
-                    </div>
+                    
                     <div class="form-floating mb-3">
                         <input type="text" class="form-control" name="modelo" id="modelo" required>
                         <label for="nombre_usuario">Modelo del carro</label>
-                    </div>
-
-                    <div class="form-floating mb-3">
-                        <input type="year" class="form-control" name="año_fabricacion" id="año_fabricacion" required>
-                        <label for="apaterno">Año de año fabricación</label>
-                    </div>
-                    <div class="form-floating mb-3">
-                        <input type="text" class="form-control" name="color" id="color" required>
-                        <label for="amaterno">Color del carro</label>
-                    </div>
-                    <div class="form-floating mb-3">
-                        <input type="text" class="form-control" name="placa" id="placa" required>
-                        <label for="email">Placa del carro</label>
                     </div>
                     <div class="form-floating mb-3">
                         <input type="text" class="form-control" name="precio" id="precio" required>
                         <label for="pass1">Precio de la renta del carro</label>
                     </div>
-                    <div class="form-floating mb-3">
-                    <input type="text" class="form-control" id="cantidad" name="cantidad" required>
-                        <label for="pass2">Cantidad de dias para la renta</label>
-                    </div>
+                    
                     <div class="form-floating mb-3">
                         <input type="number" step="1" class="form-control" id="capacidad" name="capacidad"required>
                         <label for="nip">Capacidad</label>

@@ -13,8 +13,8 @@
                         <textarea name="descripcion" id="descripcion" class="form-control" rows="3" required></textarea>
                     </div>
                     <div class="mb-3">
-                        <label for="precio_aproximado" class="form-label">Precio Aproximado</label>
-                        <input type="number" id="precio_aproximado" name="precio_aproximado" class="form-control" required min="100" step="0.01">
+                        <label for="precio" class="form-label">Precio</label>
+                        <input type="number" id="precio" name="precio" class="form-control" required min="100" step="0.01">
                     </div>
                     <div class="mb-3">
                         <label for="duracion_horas" class="form-label">Duracion por Horas</label>
@@ -34,10 +34,6 @@
                             <option value="Gastronómica">Gastronómica</option>
                             <option value="Fotográfica">Fotográfica</option>
                         </select>
-                    </div>
-                    <div class="mb-3">
-                        <label for="cantidad_maxima" class="form-label">Cantidad Maxima de Personas</label>
-                        <input type="number" id="cantidad_maxima" name="cantidad_maxima" class="form-control" required min="2">
                     </div>
                     <br>
                     <div class="">

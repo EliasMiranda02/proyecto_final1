@@ -8,14 +8,14 @@ if (isset($_POST['id_excursion_editar']) && !empty($_POST['id_excursion_editar']
     // Obtener los demás datos
     
     $descripcion = $conexion->real_escape_string($_POST['descripcion']);
-    $precio_aproximado = $conexion->real_escape_string($_POST['precio_aproximado']);
+    $precio = $conexion->real_escape_string($_POST['precio']);
     $duracion_horas = $conexion->real_escape_string($_POST['duracion_horas']);
     $ubicacion = $conexion->real_escape_string($_POST['ubicacion']);
     $clasificacion = $conexion->real_escape_string($_POST['clasificacion']); // Ajustar según el tipo de la columna en la BD
     // Construir la consulta para actualizar el registro
     $sql = "UPDATE excursiones SET 
                 descripcion = '$descripcion', 
-                precio_aproximado = '$precio_aproximado', 
+                precio = '$precio', 
                 duracion_horas = '$duracion_horas', 
                 ubicacion = '$ubicacion', 
                 clasificacion = '$clasificacion',

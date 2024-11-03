@@ -4,7 +4,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Excursiones</title>
+    <title>Precio de Paquetes</title>
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
     <link rel="stylesheet" href="CSS/hotel.css">
     <script src="https://kit.fontawesome.com/90c11f8b3b.js" crossorigin="anonymous"></script>
@@ -17,8 +17,7 @@
 
         </div>
         <div class=" col-8 p-2">
-
-            <?php if (isset($_GET['mensaje'])): ?>
+        <?php if (isset($_GET['mensaje'])): ?>
                 <div class="alert alert-info" id="mensajeAlerta">
                     <?php
                     if ($_GET['mensaje'] == 'actualizado') {
@@ -35,75 +34,59 @@
                     ?>
                 </div>
             <?php endif; ?>
-            <div class="col-auto">
-                <a href="#" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#añadirmodal"><i class="fa-solid fa-circle-plus"></i></a>
-                <i>Nueva Excursion</i>
-            </div>
             <br>
-            <form id="searchFormExcursion" class="mb-3" method="POST" action="controlador/buscar_excursion.php">
-                <input type="hidden" name="Excursion" value="Excursion"> <!-- Campo oculto -->
+            <form id="searchFormpp" class="mb-3" method="POST" action="controlador/buscar_pp.php">
+                <input type="hidden" name="Paqueteprecio" value="Paqueteprecio"> <!-- Campo oculto -->
                 <div class="input-group">
                     <select name="campo" class="form-select" required>
-                        <option value="clasificacion">Clasificacion</option>
-                        <option value="duracion_horas">Duracion de Horas</option>
+                        <option value="nombre">Nombre del Paquete</option>
+                        <option value="precio_total">Precio</option>
                     </select>
                     <input type="text" class="form-control" name="query" placeholder="Buscar...">
                     <button type="submit" class="btn btn-primary">Buscar</button>
                 </div>
             </form>
 
-            <form id="Excursiones" action="controlador/eliminar_excursion.php" method="post">
+            <form id="pp" action="controlador/eliminar_pp.php" method="post">
                 <div class="table-responsive">
                     <table class="table">
                         <thead class="bg-info">
                             <tr>
                                 <th scope="col"><input type="hidden" id="selectAll"></th>
-                                <th scope="col">id_excursion</th>
-                                <th scope="col">descripcion</th>
-                                <th scope="col">precio</th>
-                                <th scope="col">duracion_horas</th>
-                                <th scope="col">ubicacion</th>
-                                <th scope="col">clasificacion</th>
-                                <th scope="col">fecha_creacion</th>
-                                <th scope="col">fecha_modificacion</th>
+                                <th scope="col">Numero del Paquete</th>
+                                <th scope="col">Nombre del Paquete</th>
+                                <th scope="col">Destino</th>
+                                <th scope="col">Precio</th>
                             </tr>
                         </thead>
                         <tbody>
                             <?php
                             include "modelo/conexion.php";
 
-                            $sql = $conexion->query("SELECT * FROM excursiones");
+                            $sql = $conexion->query("SELECT p.numero_paquete, p.nombre AS nombre_paquete, p.destino, pp.precio_total, pp.id_precio
+                            FROM paquetes p
+                            JOIN paquetes_precios pp ON p.id_paquete = pp.id_paquete");
                             while ($datos = $sql->fetch_object()) { ?>
                                 <tr>
-                                    <td><input type="checkbox" name="ids[]" value="<?= $datos->id_excursion ?>"></td>
-                                    <th scope="row"><?= $datos->id_excursion ?></th>
-                                    <td><?= $datos->descripcion ?></td>
-                                    <td><?= $datos->precio ?></td>
-                                    <td><?= $datos->duracion_horas ?></td>
-                                    <td><?= $datos->ubicacion ?></td>
-                                    <td><?= $datos->clasificacion ?></td>
-                                    <td><?= $datos->fecha_creacion ?></td>
-                                    <td><?= $datos->fecha_modificacion ?></td>
+                                    <td><input type="checkbox" name="ids[]" value="<?= $datos->id_precio ?>"></td>
+                                    <th scope="row"><?= $datos->numero_paquete ?></th>
+                                    <td><?= $datos->nombre_paquete ?></td>
+                                    <td><?= $datos->destino ?></td>
+                                    <td><?= $datos->precio_total ?></td>
                                 </tr>
                             <?php } ?>
                         </tbody>
                     </table>
                 </div>
                 <button type="button" class="btn btn-danger" data-bs-toggle="modal" data-bs-target="#eliminar">Eliminar seleccionados</button>
-                <button type="button" class="btn btn-warning" id="btnEditar" data-bs-toggle="modal" data-bs-target="#editar">Editar Excursion</button>
             </form>
-            <div class="d-flex justify-content-center">
-                <button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#Guias">Guias Turisticos</button>
-            </div>
         </div>
 
     </div>
 
-    <?php include "modal_excursion/modal_editar.php"; ?>
-    <?php include "modal_excursion/modal_eliminar.php"; ?>
-    <?php include "modal_excursion/modal_anadir.php"; ?>
-    <?php include "modal_excursion/modal_guias.php"; ?>
-    <script src="JS/t_excursiones.js"></script> <!--PENDIENTE -->
+    
+    <?php include "modal_pp/eliminar.php"; ?>
+    <script src="JS/t_paquete_precio.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
 </body>
 
