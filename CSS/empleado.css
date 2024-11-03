@@ -9,4 +9,32 @@
 .table th, .table td {
     white-space: nowrap; /* Evitar que el texto se rompa */
 }
+/* Contenedor principal con flexbox */
+.container {
+    display: flex;
+    align-items: flex-start; /* Alinea los contenedores al inicio verticalmente */
+    margin-top: 10%;
+}
+
+/* Contenedor izquierdo para los botones */
+.left-side {
+    width: 20%;
+    margin-right: 20px;
+}
+
+.btn-group-vertical {
+    display: flex;
+    flex-direction: column;
+    gap: 100px; /* Espacio entre botones */
+}
+
+/* Contenedor derecho para las tablas y el botón "Agregar" */
+.right-side {
+    width: 75%;
+}
+
+/* Ajustes adicionales */
+.table-container {
+    margin-top: 20px; /* Espacio adicional para las tablas */
+}
 
