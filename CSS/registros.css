@@ -224,3 +224,11 @@ input[type="submit"]:disabled:hover {
     border-radius: 20px;
     text-align: center;
 }
+
+.imagen1 #image{
+    border-radius: 20px;
+}
+
+input[type="file"]{
+    padding: 0px 120px;
+}

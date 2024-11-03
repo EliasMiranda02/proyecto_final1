@@ -16,15 +16,30 @@ if (!empty($_POST["registrar"])) {
             $lada = $conexion->real_escape_string($_POST["opcion"]);
             $telefono = $conexion->real_escape_string($_POST["numero"]);
 
-            // Insertar los datos en la base de datos
-            $sql = $conexion->query("INSERT INTO clientes (nombre, apellido_materno, apellido_paterno, email, clave_lada, telefono, fecha_registro, contraseña) 
-                VALUES ('$nombre', '$amaterno', '$apaterno', '$email', '$lada', '$telefono', NOW(), '$contraseña')");
+            // Manejo de la carga de la imagen
+            if (isset($_FILES['selImg']) && $_FILES['selImg']['error'] == 0) {
+                $imagen = $_FILES['selImg'];
+                $rutaImg = 'IMG/cliente/' . basename($imagen['name']);
 
-            // Verificar si la consulta fue exitosa
-            if ($sql) {
-                echo "Registro exitoso.";
+                // Mover el archivo a la carpeta deseada
+                if (move_uploaded_file($imagen['tmp_name'], $rutaImg)) {
+                    // Insertar los datos en la base de datos, incluyendo la ruta de la imagen
+                    $sql = $conexion->query("INSERT INTO clientes (nombre, apellido_materno, apellido_paterno, email, clave_lada, telefono, fecha_registro, contraseña, img) 
+                        VALUES ('$nombre', '$amaterno', '$apaterno', '$email', '$lada', '$telefono', NOW(), '$contraseña', '$rutaImg')");
+
+                    // Verificar si la consulta fue exitosa
+                    if ($sql) {
+                        $_SESSION['mensaje'] = "Registro exitoso!";
+                        header("Location: registro.php");
+                        exit();
+                    } else {
+                        echo "Error al insertar datos: " . $conexion->error;
+                    }
+                } else {
+                    echo "Error al mover la imagen a la carpeta.";
+                }
             } else {
-                echo "Error al insertar datos: " . $conexion->error;
+                echo "Error en la carga de la imagen.";
             }
         } else {
             echo "Las contraseñas no coinciden.";

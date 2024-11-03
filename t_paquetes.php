@@ -1,0 +1,255 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Paquetes</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
+    <script src="https://kit.fontawesome.com/90c11f8b3b.js" crossorigin="anonymous"></script>
+    <link rel="stylesheet" href="./CSS/paquetes.css">
+</head>
+
+<body>
+
+    <div class="d-flex justify-content-center align-items-center vh-100">
+        <div class="col-10">
+
+            <div class="cabeza">
+
+                <div class="add">
+                    <!-- AGREGAR PAQUETE -->
+                    <button type="button" class="btn btn-success mb-3" data-bs-toggle="modal" data-bs-target="#agregar">
+                        <i class="fa-solid fa-plus"></i> Agregar Paquete
+                    </button>
+                </div>
+
+                <div class="search">
+                    <!-- BUSCADOR -->
+                    <form id="searchFormAsesor" class="mb-3" method="POST" action="controlador/buscar_paquete.php">
+                        <input type="hidden" name="cargo" value="Asesor de Viajes"> <!-- Campo oculto -->
+                        <div class="input-group">
+                            <select name="campo" class="form-select">
+                                <option value="id_paquete">id_paquete</option>
+                                <option value="nombre">Nombre</option>
+                                <option value="destino">Destino</option>
+                            </select>
+                            <input type="text" class="form-control" name="query" placeholder="Buscar...">
+                            <button type="submit" class="btn btn-primary">Buscar</button>
+                        </div>
+                    </form>
+                </div>
+            </div>
+
+
+            <!-- ALERTA DE CUANDO SE EJECTUTAN LOS CRUDS -->
+            <?php if (isset($_GET['mensaje'])): ?>
+                <div class="alert alert-info mb-3" id="mensajeAlerta">
+                    <?php
+                    if ($_GET['mensaje'] == 'actualizado') {
+                        echo "Usuario actualizado correctamente.";
+                    } elseif ($_GET['mensaje'] == 'error') {
+                        echo "Hubo un error: " . ($_GET['detalle'] ?? '');
+                    } elseif ($_GET['mensaje'] == 'no_id') {
+                        echo "No se seleccionó ningún usuario para editar.";
+                    } elseif ($_GET['mensaje'] == 'eliminado') {
+                        echo "Usuarios eliminados correctamente.";
+                    } elseif ($_GET['mensaje'] == 'id_invalido') {
+                        echo "ID de usuario inválido.";
+                    }
+                    ?>
+                </div>
+
+            <?php endif; ?>
+
+            <form id="Paquetes" action="controlador/eliminar_paquete.php" method="post">
+                <!-- Contenedor de la tabla con scroll -->
+                <div class="table-container">
+                    <table class="table">
+                        <thead>
+                            <tr>
+                                <th scope="col" class="p-3"><input type="hidden" id="selectAll"></th>
+                                <th scope="col" class="text-center">id_paquete</th>
+                                <th scope="col" class="text-center">nombre</th>
+                                <th scope="col">descripcion</th>
+                                <th scope="col" class="p-2">precio_aproximado</th>
+                                <th scope="col" class="text-center">duracion_dias</th>
+                                <th scope="col" class="text-center">destino</th>
+                                <th scope="col">fecha_creacion</th>
+                                <th scope="col">fecha_modificacion</th>
+                                <th scope="col"></th>
+                            </tr>
+                        </thead>
+                        <tbody id="table-body">
+                            <?php
+                            include "modelo/conexion.php";
+                            $sql = $conexion->query("SELECT * FROM paquetes");
+                            while ($datos = $sql->fetch_object()) { ?>
+                                <tr>
+                                    <td><input type="checkbox" name="ids[]" value="<?= $datos->id_paquete ?>"></td>
+                                    <th scope="row"><?= $datos->id_paquete ?></th>
+                                    <td><?= $datos->nombre ?></td>
+                                    <td class="descripcion"><?= $datos->descripcion ?></td>
+                                    <td><?= $datos->precio_aproximado ?></td>
+                                    <td><?= $datos->duracion_dias ?></td>
+                                    <td class="text-center"><?= $datos->destino ?></td>
+                                    <td><?= $datos->fecha_creacion ?></td>
+                                    <td><?= $datos->fecha_modificacion ?></td>
+                                    <td>
+                                        <button type="button" class="btn btn-secondary" data-bs-toggle="modal" data-bs-target="#banco" data-id="<?= $datos->id_paquete ?>">Iterinarios</button>
+                                    </td>
+                                </tr>
+                            <?php } ?>
+                        </tbody>
+                    </table>
+                </div>
+
+                <!-- Botones fijos debajo de la tabla -->
+                <div class="botones">
+                    <div class="fixed-buttons text-left">
+                        <button type="button" class="btn btn-danger" data-bs-toggle="modal" data-bs-target="#eliminar">Eliminar seleccionados</button>
+                        <button type="button" class="btn btn-warning" id="btnEditar" data-bs-toggle="modal" data-bs-target="#editar">Editar Paquete</button>
+                    </div>
+                    <div class="fixed-buttons text-right">
+                        <button type="button" class="btn btn-primary">Agregar iterinario</button>
+                    </div>
+                </div>
+            </form>
+        </div>
+    </div>
+
+    <?php include "modal_paquete/delete.php"; ?>
+    <?php include "modal_paquete/edit.php"; ?>
+    <?php include "modal_paquete/add.php"; ?>
+    <?php include "modal_paquete/iterinario.php"; ?>
+    <script>
+        // PARA EL BOTON DE ELIMINAR
+        document.getElementById('selectAll').addEventListener('change', function() {
+            let checkboxes = document.querySelectorAll('input[name="ids[]"]');
+            checkboxes.forEach(checkbox => checkbox.checked = this.checked);
+        });
+
+        // PARA EL BOTON DE EDITAR
+        btnEditar.addEventListener('click', function(event) {
+            const checkedCheckboxes = document.querySelectorAll('input[name="ids[]"]:checked');
+            event.preventDefault();
+
+            if (checkedCheckboxes.length === 1) {
+                const id = checkedCheckboxes[0].value;
+                const row = checkedCheckboxes[0].closest('tr');
+
+                // Obtener los datos de la fila
+                const nombre = row.cells[2].innerText;
+                const descripcion = row.cells[3].innerText;
+                const precio_aproximado = row.cells[4].innerText;
+                const duracion_dias = row.cells[5].innerText;
+                const destino = row.cells[6].innerText;
+                const fecha_creacion = row.cells[7].innerText;
+                const fecha_modificacion = row.cells[8].innerText;
+
+                // Llenar los campos del modal
+                document.getElementById('id_paquete_editar').value = id;
+                document.getElementById('nombres').value = nombre;
+                document.getElementById('descripcion').value = descripcion;
+                document.getElementById('precios').value = precio_aproximado;
+                document.getElementById('duracion').value = duracion_dias;
+                document.getElementById('destino').value = destino;
+                document.getElementById('fecha_creacion').value = fecha_creacion.replace(" ", "T").slice(0, 16);
+                document.getElementById('fecha_modificacion').value = fecha_modificacion.replace(" ", "T").slice(0, 16);
+
+                // Abrir el modal
+                $('#editar').modal('show');
+            } else {
+                alert('Por favor, selecciona un único registro para editar.');
+            }
+
+            document.getElementById('confirmarEditar').addEventListener('click', function() {
+                document.getElementById('editarForm').submit(); // Envía el formulario para actualizar el registro
+            });
+        });
+
+        // ELIMINAR EL MENSAJE EN 2 SEGUNDOS
+        setTimeout(function() {
+            const mensajeAlerta = document.getElementById('mensajeAlerta');
+            if (mensajeAlerta) {
+                mensajeAlerta.style.display = 'none';
+            }
+        }, 1000);
+
+        document.getElementById('searchFormAsesor').addEventListener('submit', function(event) {
+    event.preventDefault();
+
+    const formData = new FormData(this);
+    const queryValue = formData.get('query').trim(); // Obtener el valor de 'query' y quitar espacios
+
+    // Verificar si el campo de búsqueda está vacío
+    if (queryValue === "") {
+        // Si está vacío, usar un valor especial para indicar "todos los registros"
+        formData.set('query', '%'); // Esto actuará como un comodín en SQL para traer todos los registros
+    }
+
+    // Realizar la solicitud AJAX
+    fetch('controlador/buscar_paquete.php', {
+            method: 'POST',
+            body: formData
+        })
+        .then(response => response.text())
+        .then(data => {
+            // Actualizar el contenido de la tabla con los resultados de la búsqueda
+            document.getElementById('table-body').innerHTML = data;
+
+            // Reasignar el evento de clic para los botones de itinerarios
+            assignItineraryButtonEvents();
+        })
+        .catch(error => console.error('Error:', error));
+});
+
+// Función para asignar eventos a los botones de itinerarios
+function assignItineraryButtonEvents() {
+    const buttonsBanco = document.querySelectorAll('button[data-bs-target="#banco"]');
+
+    buttonsBanco.forEach(button => {
+        button.addEventListener('click', function() {
+            const row = this.closest('tr');
+            const id_paquete = row.querySelector('input[name="ids[]"]').value;
+            const idPaqueteDisplay = document.getElementById('idPaqueteDisplay');
+            idPaqueteDisplay.innerHTML = 'ID Paquete: ' + id_paquete;
+
+            // Realizar la solicitud para obtener los itinerarios
+            fetch(`controlador/datos_iterinarios.php?id_paquete=${id_paquete}`)
+                .then(response => response.json())
+                .then(data => {
+                    const datosBancarios = document.getElementById('datosBancarios');
+                    datosBancarios.innerHTML = '';
+
+                    if (data.length > 0) {
+                        // Mostrar los datos de cada itinerario sin tabla
+                        data.forEach(dato => {
+                            datosBancarios.innerHTML += `
+                                <p><strong>ID Itinerario:</strong> ${dato.id_itinerario}</p>
+                                <p><strong>Hora:</strong> ${dato.hora}</p>
+                                <p><strong>Día:</strong> ${dato.dia}</p>
+                                <p><strong>Detalle:</strong> ${dato.detalle}</p>
+                                <hr>
+                            `;
+                        });
+                    } else {
+                        datosBancarios.innerHTML = '<p>No se encontraron Itinerarios para este Paquete.</p>';
+                    }
+                })
+                .catch(error => {
+                    console.error('Error al obtener los datos del Itinerario:', error);
+                });
+        });
+    });
+}
+
+// Llama a la función una vez al cargar la página para asegurar que los botones tengan eventos asignados
+assignItineraryButtonEvents();
+
+
+    </script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
+</body>
+
+</html>

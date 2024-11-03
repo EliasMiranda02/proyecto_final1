@@ -224,7 +224,7 @@ document.addEventListener('DOMContentLoaded', function() {
             const cargo = row.cells[12].innerText;
             const disponibilidad = row.cells[13].innerText;
 
-            // Llenar los campos del modal
+            // Llenar los campos del modal                     
             document.getElementById('id_empleado_editar').value = id;
             document.getElementById('nombre').value = nombre;
             document.getElementById('apellido_materno').value = apellidoMaterno;

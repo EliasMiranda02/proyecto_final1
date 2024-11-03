@@ -12,7 +12,7 @@
 <body>
 
     <div class="d-flex justify-content-center align-items-center vh-100">
-        <div class=" col-8 p-2">
+        <div class=" col-10 p-2">
 
             <?php if (isset($_GET['mensaje'])): ?>
                 <div class="alert alert-info" id="mensajeAlerta">
@@ -46,6 +46,7 @@
                             <th scope="col">telefono</th>
                             <th scope="col">fecha_registro</th>
                             <th scope="col">contraseña</th>
+                            <th scope="col">Imagen</th>
                         </tr>
                     </thead>
                     <tbody>
@@ -66,6 +67,9 @@
                                 <td><?= $datos->fecha_registro ?></td>
                                 <td><?= $datos->contraseña ?></td>
                                 <td>
+                                    <img src="<?= $datos->img ?>" alt="Imagen del cliente" style="width: 100px; height: 60px;">
+                                </td>
+                                <td>
                                     <button type="button" class="btn btn-success" data-bs-toggle="modal" data-bs-target="#banco" data-id="<?= $datos->id_cliente ?>">Banco</button>
                                 </td>
 
@@ -75,78 +79,15 @@
                     </tbody>
                 </table>
                 <button type="button" class="btn btn-danger" data-bs-toggle="modal" data-bs-target="#eliminar">Eliminar seleccionados</button>
-                <button type="button" class="btn btn-warning" id="btnEditar" data-bs-toggle="modal" data-bs-target="#editar">Editar Usuario</button>
             </form>
         </div>
 
     </div>
 
-    <?php include "modal_editar.php"; ?>
     <?php include "modal_usuario.php"; ?>
     <?php include "modal_usuario/D_bancariosU.php" ?>
 
     <script>
-        // ESTE PARA EL BOTON DE EDITAR
-        document.addEventListener('DOMContentLoaded', function() {
-            const btnEditar = document.getElementById('btnEditar');
-            const checkboxes = document.querySelectorAll('input[name="ids[]"]');
-
-            // Deshabilitar el botón al cargar la página
-            btnEditar.disabled = true;
-
-            // Añadir un event listener a cada checkbox
-            checkboxes.forEach(checkbox => {
-                checkbox.addEventListener('change', function() {
-                    // Obtener el número de checkboxes seleccionados
-                    const checkedCount = Array.from(checkboxes).filter(checkbox => checkbox.checked).length;
-
-                    // Habilitar el botón solo si hay exactamente un checkbox seleccionado
-                    btnEditar.disabled = checkedCount !== 1;
-                });
-            });
-
-            btnEditar.addEventListener('click', function(event) {
-                const checkedCheckboxes = document.querySelectorAll('input[name="ids[]"]:checked');
-
-                // Prevenir el comportamiento por defecto del botón
-                event.preventDefault();
-
-                // Comprobar si hay exactamente un checkbox seleccionado
-                if (checkedCheckboxes.length === 1) {
-                    const id = checkedCheckboxes[0].value;
-                    const row = checkedCheckboxes[0].closest('tr');
-
-                    // Obtener los datos de la fila
-                    const nombre = row.cells[2].innerText;
-                    const apellidoMaterno = row.cells[3].innerText;
-                    const apellidoPaterno = row.cells[4].innerText;
-                    const email = row.cells[5].innerText;
-                    const pass = row.cells[9].innerText; // Suponiendo que la contraseña está en la columna 9
-                    const numero = row.cells[7].innerText; // Ajusta el índice según tu tabla
-
-                    // Llenar los campos del modal
-                    document.getElementById('id_usuario_editar').value = id;
-                    document.getElementById('nombre').value = nombre;
-                    document.getElementById('apellido_materno').value = apellidoMaterno;
-                    document.getElementById('apellido_paterno').value = apellidoPaterno;
-                    document.getElementById('email').value = email;
-                    document.getElementById('pass').value = pass;
-                    document.getElementById('numero').value = numero;
-
-                    // Abrir el modal
-                    $('#editar').modal('show');
-                } else {
-                    // Solo mostrar la alerta, sin abrir el modal
-                    alert('Por favor, selecciona un único registro para editar.');
-                }
-            });
-
-            // Enviar el formulario al hacer clic en "Guardar Cambios"
-            document.getElementById('confirmarEditar').addEventListener('click', function() {
-                document.getElementById('editarForm').submit(); // Envía el formulario para actualizar el registro
-            });
-        });
-
         // Para eliminar
         document.getElementById('selectAll').addEventListener('change', function() {
             let checkboxes = document.querySelectorAll('input[name="ids[]"]');
