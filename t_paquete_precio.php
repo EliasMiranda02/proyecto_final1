@@ -17,7 +17,7 @@
 
         </div>
         <div class=" col-8 p-2">
-        <?php if (isset($_GET['mensaje'])): ?>
+            <?php if (isset($_GET['mensaje'])): ?>
                 <div class="alert alert-info" id="mensajeAlerta">
                     <?php
                     if ($_GET['mensaje'] == 'actualizado') {
@@ -80,11 +80,15 @@
                 </div>
                 <button type="button" class="btn btn-danger" data-bs-toggle="modal" data-bs-target="#eliminar">Eliminar seleccionados</button>
             </form>
+            <br>
+            <div class="fixed-buttons text-right">
+                <button type="button" class="btn btn-primary" onclick="window.location.href='form_paquete_intinerario.php'">Agregar itinerario</button>
+            </div>
         </div>
 
     </div>
 
-    
+
     <?php include "modal_pp/eliminar.php"; ?>
     <script src="JS/t_paquete_precio.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>

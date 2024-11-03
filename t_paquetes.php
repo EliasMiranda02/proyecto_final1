@@ -88,6 +88,7 @@
                                 <tr>
                                     <td><input type="checkbox" name="ids[]" value="<?= $datos->id_paquete ?>"></td>
                                     <th scope="row"><?= $datos->id_paquete ?></th>
+                                    <td><?=$datos->numero_paquete?></td>
                                     <td><?= $datos->nombre ?></td>
                                     <td class="descripcion"><?= $datos->descripcion ?></td>
                                     <td><?= $datos->precio_aproximado ?></td>
@@ -111,7 +112,7 @@
                         <button type="button" class="btn btn-warning" id="btnEditar" data-bs-toggle="modal" data-bs-target="#editar">Editar Paquete</button>
                     </div>
                     <div class="fixed-buttons text-right">
-                        <button type="button" class="btn btn-primary">Agregar iterinario</button>
+                        <button type="button" class="btn btn-primary" onclick="window.location.href='t_paquete_precio.php'">Agregar itinerario</button>
                     </div>
                 </div>
             </form>
@@ -139,13 +140,13 @@
                 const row = checkedCheckboxes[0].closest('tr');
 
                 // Obtener los datos de la fila
-                const nombre = row.cells[2].innerText;
-                const descripcion = row.cells[3].innerText;
-                const precio_aproximado = row.cells[4].innerText;
-                const duracion_dias = row.cells[5].innerText;
-                const destino = row.cells[6].innerText;
-                const fecha_creacion = row.cells[7].innerText;
-                const fecha_modificacion = row.cells[8].innerText;
+                const nombre = row.cells[3].innerText;
+                const descripcion = row.cells[4].innerText;
+                const precio_aproximado = row.cells[5].innerText;
+                const duracion_dias = row.cells[6].innerText;
+                const destino = row.cells[7].innerText;
+                const fecha_creacion = row.cells[8].innerText;
+                const fecha_modificacion = row.cells[9].innerText;
 
                 // Llenar los campos del modal
                 document.getElementById('id_paquete_editar').value = id;

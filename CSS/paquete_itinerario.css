@@ -1,0 +1,30 @@
+.table-container {
+    max-height: 300px; /* Ajusta la altura para mostrar 6 registros */
+    overflow-y: auto;  /* Permite el desplazamiento vertical */
+    border: 1px solid #ccc; /* Añade un borde para mayor claridad */
+    margin-bottom: 0px; /* Espacio debajo de la tabla */
+}
+
+/* Estilos para el thead */
+thead th {
+    position: sticky;
+    top: 0;
+    background-color: white; /* Fondo blanco para el encabezado */
+    z-index: 10; /* Asegura que el encabezado esté por encima del cuerpo */
+}
+
+/* Evita que las celdas se dividan en varias líneas */
+.table th,
+.table td {
+    white-space: nowrap; /* Mantiene el texto en una sola línea */
+}
+.table td, .table th {
+    padding: 5px; /* Reduce el padding dentro de las celdas */
+    vertical-align: middle; /* Centra verticalmente el contenido */
+}
+
+.botones{
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 200px;
+}

@@ -40,3 +40,84 @@ let packageData = {}; // Almacenará los datos de los paquetes
 
     // Llamar a la función de carga al cargar la página
     document.addEventListener("DOMContentLoaded", loadPackages);
+
+
+
+// ESTE CODIGO ES PARA LA TABLA 
+
+// Inicializa el precio total
+let precioTotal = 0;
+
+// Función para actualizar el precio total en el campo correspondiente
+function actualizarPrecioTotal() {
+    document.getElementById('precio_total').value = precioTotal.toFixed(2); // Formato con dos decimales
+}
+
+// Evento para agregar una actividad a la tabla
+document.getElementById('agregar1').addEventListener('click', function(event) {
+    event.preventDefault(); // Previene el envío del formulario
+
+    // Obtiene los valores de los campos
+    const actividad = document.getElementById('actividad').value;
+    const dia = document.getElementById('dia').value;
+    const hora = document.getElementById('hora').value;
+    const detalle = document.getElementById('detalle').value;
+    const precio = parseFloat(document.getElementById('precio').value);
+
+    // Verifica que los campos no estén vacíos
+    if (actividad === "" || dia === "" || hora === "" || detalle === "" || isNaN(precio)) {
+        alert('Por favor, completa todos los campos correctamente.');
+        return;
+    }
+
+    // Crea una nueva fila
+    const newRow = document.createElement('tr');
+
+    // Agrega las celdas a la nueva fila
+    newRow.innerHTML = `
+        <td><input type="checkbox" class="actividad-checkbox" /></td>
+        <td class="text-center">${actividad}</td>
+        <td class="text-center">${dia}</td>
+        <td>${hora}</td>
+        <td>${detalle}</td>
+        <td class="text-center">${precio.toFixed(2)}</td>
+    `;
+
+    // Agrega la nueva fila al cuerpo de la tabla
+    document.getElementById('itinerarioTableBody').appendChild(newRow);
+
+    // Actualiza el precio total
+    precioTotal += precio;
+    actualizarPrecioTotal();
+
+    // Limpia los campos después de agregar la actividad
+    document.getElementById('actividad').value = '';
+    document.getElementById('dia').value = '';
+    document.getElementById('hora').value = '';
+    document.getElementById('detalle').value = '';
+    document.getElementById('precio').value = '';
+});
+
+// Evento para eliminar actividades seleccionadas
+document.getElementById('eliminar1').addEventListener('click', function(event) {
+    event.preventDefault(); // Previene el envío del formulario
+
+    const checkboxes = document.querySelectorAll('.actividad-checkbox:checked');
+    let precioEliminado = 0;
+
+    checkboxes.forEach(checkbox => {
+        // Encuentra la fila correspondiente al checkbox seleccionado
+        const row = checkbox.closest('tr');
+        // Obtiene el precio de la celda correspondiente
+        const precioCelda = parseFloat(row.cells[5].textContent);
+        // Suma el precio a eliminar
+        precioEliminado += precioCelda;
+        // Elimina la fila de la tabla
+        row.remove();
+    });
+
+    // Actualiza el precio total
+    precioTotal -= precioEliminado;
+    actualizarPrecioTotal();
+});
+
