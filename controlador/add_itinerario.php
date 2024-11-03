@@ -3,49 +3,63 @@ ini_set('display_errors', 1);
 ini_set('display_startup_errors', 1);
 error_reporting(E_ALL);
 
-var_dump($_POST); // Verifica los datos enviados por el formulario
-
 include "../modelo/conexion.php";
 
-// Captura y sanitiza el ID del paquete
-$id_paquete = $conexion->real_escape_string($_POST['packageId']);
+// Verifica que se haya enviado el formulario
+if ($_SERVER["REQUEST_METHOD"] == "POST") {
+    // Depuración: imprimir los datos enviados
+    echo "<pre>";
+    print_r($_POST);
+    echo "</pre>";
 
-// Verifica si se envió el campo de actividades
-if (isset($_POST['activities'])) {
-    // Decodifica el JSON de actividades
-    $activities = json_decode($_POST['activities'], true);
+    // Captura y sanitiza los datos del formulario
+    $packageId = isset($_POST['packageId']) ? $conexion->real_escape_string($_POST['packageId']) : '';
+    $precio_total = isset($_POST['precio_total']) ? $conexion->real_escape_string($_POST['precio_total']) : '';
+
+    // Asegúrate de que los campos de actividades existan
+    $actividades = isset($_POST['actividad']) ? $_POST['actividad'] : [];
+    $dias = isset($_POST['dia']) ? $_POST['dia'] : [];
+    $horas = isset($_POST['hora']) ? $_POST['hora'] : [];
+    $detalles = isset($_POST['detalle']) ? $_POST['detalle'] : [];
+    $precios = isset($_POST['precio']) ? $_POST['precio'] : [];
+
+    // Verifica que los campos son arreglos
+    if (!is_array($actividades) || !is_array($dias) || !is_array($horas) || !is_array($detalles) || !is_array($precios)) {
+        echo "Uno de los campos no es un arreglo.";
+        exit;
+    }
 
     // Prepara la consulta para insertar
-    $sql = "INSERT INTO itinerarios (id_paquete, hora, dia, detalle, nombre_actividad, precio) VALUES ";
+    $stmt = $conexion->prepare("INSERT INTO itinerarios (id_paquete, hora, dia, detalle, nombre_actividad, precio) VALUES (?, ?, ?, ?, ?, ?)");
 
-    // Inicializa un array para las partes de la consulta
-    $values = [];
-
-    foreach ($activities as $activity) {
-        // Sanitiza los datos de cada actividad
-        $horas = $conexion->real_escape_string($activity['hora']);
-        $dias = date('Y-m-d', strtotime($activity['dia'])); // Asegúrate de que el formato sea correcto
-        $detalle = $conexion->real_escape_string($activity['detalle']);
-        $nombre_actividad = $conexion->real_escape_string($activity['actividad']);
-        $precios = $conexion->real_escape_string($activity['precio']); 
-
-        // Agrega los valores a la consulta
-        $values[] = "('$id_paquete', '$horas', '$dias', '$detalle', '$nombre_actividad', '$precios')";
+    // Verifica si la preparación fue exitosa
+    if (!$stmt) {
+        echo "Error en la preparación de la consulta: " . $conexion->error;
+        exit;
     }
 
-    // Concatena las partes de valores en la consulta SQL
-    $sql .= implode(", ", $values);
+    foreach ($actividades as $index => $actividad) {
+        // Sanitiza los valores
+        $actividad = $conexion->real_escape_string(htmlspecialchars($actividad));
+        $dia = $conexion->real_escape_string(htmlspecialchars($dias[$index]));
+        $hora = $conexion->real_escape_string(htmlspecialchars($horas[$index]));
+        $detalle = $conexion->real_escape_string(htmlspecialchars($detalles[$index]));
+        $precio = isset($precios[$index]) ? floatval($precios[$index]) : 0;
 
-    // Ejecuta la consulta y verifica si hay errores
-    if ($conexion->query($sql) === TRUE) {
-        echo "Inserciones realizadas con éxito";
-        header('Location: ../form_paquete_intinerario.php');
-    } else {
-        echo "Error al insertar: " . $conexion->error;
+        // Vincula los parámetros
+        $stmt->bind_param("ssssds", $packageId, $hora, $dia, $detalle, $actividad, $precio);
+
+        // Ejecuta la consulta
+        if (!$stmt->execute()) {
+            echo "Error al insertar datos: " . $stmt->error;
+        }
     }
-} else {
-    echo "No se recibieron actividades para insertar.";
+
+    // Cierra la declaración
+    $stmt->close();
+    echo "Itinerarios agregados con éxito.";
 }
 
+// Cierra la conexión
 $conexion->close();
 ?>

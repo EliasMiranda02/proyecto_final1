@@ -1,50 +1,49 @@
 let packageData = {}; // Almacenará los datos de los paquetes
 
+// Cargar los paquetes desde el archivo PHP
 async function loadPackages() {
-  try {
-      const response = await fetch('controlador/rellenar_form.php');
-      const data = await response.json();
+    try {
+        const response = await fetch('controlador/rellenar_form.php');
+        const data = await response.json();
 
-      const packageSelect = document.getElementById("packageId");
+        const packageSelect = document.getElementById("packageId");
 
-      // Limpia las opciones anteriores
-      packageSelect.innerHTML = '';
+        // Iterar sobre los datos y añadir opciones al combobox
+        data.forEach(package => {
+            packageData[package.id] = package;
+            const option = document.createElement("option");
+            option.value = package.id_paquete; // Asigna el ID del paquete como value
+            option.textContent = package.id_paquete; // Muestra el ID del paquete como texto
+            packageSelect.appendChild(option);
+        });
+    } catch (error) {
+        console.error("Error al cargar los paquetes:", error);
+    }
+}
 
-      // Iterar sobre los datos y añadir opciones al combobox
-      data.forEach(package => {
-          packageData[package.id] = package;
-          const option = document.createElement("option");
-          option.value = package.id; // Asegúrate de que aquí se asigna el ID correcto
-          option.textContent = package.id_paquete;
-          packageSelect.appendChild(option);
-      });
-  } catch (error) {
-      console.error("Error al cargar los paquetes:", error);
+// Llenar los campos del formulario según el paquete seleccionado
+function fillPackageData() {
+  const packageId = document.getElementById("packageId").value;
+  document.getElementById("selectedPackageId").value = packageId; // Asigna el valor al input de texto
+  if (packageId && packageData[packageId]) {
+      document.getElementById("packageNumber").value = packageData[packageId].numero_paquete;
+      document.getElementById("packageName").value = packageData[packageId].nombre;
+      document.getElementById("destination").value = packageData[packageId].destino;
+      document.getElementById("duration").value = packageData[packageId].duracion_dias;
+  } else {
+      // Limpiar los campos si no hay selección válida
+      document.getElementById("packageNumber").value = "";
+      document.getElementById("packageName").value = "";
+      document.getElementById("destination").value = "";
+      document.getElementById("duration").value = "";
   }
 }
 
 
-    // Llenar los campos del formulario según el paquete seleccionado
-    function fillPackageData() {
-      const packageId = document.getElementById("packageId").value;
-      if (packageId && packageData[packageId]) {
-        document.getElementById("packageNumber").value = packageData[packageId].numero_paquete;
-        document.getElementById("packageName").value = packageData[packageId].nombre;
-        document.getElementById("destination").value = packageData[packageId].destino;
-        document.getElementById("duration").value = packageData[packageId].duracion_dias;
-      } else {
-        // Limpiar los campos si no hay selección válida
-        document.getElementById("packageNumber").value = "";
-        document.getElementById("packageName").value = "";
-        document.getElementById("destination").value = "";
-        document.getElementById("duration").value = "";
-      }
-    }
+// Llamar a la función de carga al cargar la página
+document.addEventListener("DOMContentLoaded", loadPackages);
 
-    // Llamar a la función de carga al cargar la página
-    document.addEventListener("DOMContentLoaded", loadPackages);
-
-
+// Código para la tabla y manejo de precios sigue igual
 
 // ESTE CODIGO ES PARA LA TABLA 
 
@@ -124,27 +123,3 @@ document.getElementById('eliminar1').addEventListener('click', function(event) {
     actualizarPrecioTotal();
 });
 
-
-// Antes de enviar el formulario
-document.querySelector("form").addEventListener("submit", function(event) {
-  const tableBody = document.getElementById("itinerarioTableBody");
-  const activities = [];
-
-  // Recorre cada fila de la tabla y almacena los datos
-  Array.from(tableBody.rows).forEach(row => {
-      const actividad = row.cells[1].textContent;
-      const dia = row.cells[2].textContent;
-      const hora = row.cells[3].textContent;
-      const detalle = row.cells[4].textContent;
-      const precio = parseFloat(row.cells[5].textContent);
-
-      activities.push({ actividad, dia, hora, detalle, precio });
-  });
-
-  // Almacena todas las actividades en un campo oculto
-  const activitiesField = document.createElement("input");
-  activitiesField.type = "hidden";
-  activitiesField.name = "activities";
-  activitiesField.value = JSON.stringify(activities);
-  this.appendChild(activitiesField);
-});

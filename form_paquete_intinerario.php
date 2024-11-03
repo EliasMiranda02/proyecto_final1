@@ -24,6 +24,9 @@
           </select>
         </div>
 
+        <input type="text" id="selectedPackageId">
+
+
         <div class="mb-3">
           <label for="packageNumber" class="form-label">Número de Paquete</label>
           <input type="text" class="form-control" id="packageNumber" placeholder="Número de Paquete" readonly>
@@ -113,7 +116,7 @@
               </tr>
             </thead>
             <tbody id="itinerarioTableBody">
-                
+
             </tbody>
           </table>
         </div>
