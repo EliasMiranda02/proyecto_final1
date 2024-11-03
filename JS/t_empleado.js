@@ -248,3 +248,25 @@ document.addEventListener('DOMContentLoaded', function() {
         });
     });
 });
+function showTable(tableId) {
+    // Oculta todas las tablas
+    document.querySelectorAll('.table-container').forEach(function (table) {
+        table.style.display = 'none';
+    });
+
+    // Muestra la tabla correspondiente al botón que se clickeó
+    document.getElementById(tableId).style.display = 'block';
+}
+
+// Espera a que el DOM esté completamente cargado
+document.addEventListener('DOMContentLoaded', function() {
+    // Oculta todas las tablas al cargar la página
+    document.querySelectorAll('.table-container').forEach(function (table) {
+        table.style.display = 'none';
+    });
+
+    // Opcional: Mostrar solo una tabla por defecto
+    // Si quieres que "Administradores" se muestre al cargar:
+    showTable('Administradores');
+});
+
