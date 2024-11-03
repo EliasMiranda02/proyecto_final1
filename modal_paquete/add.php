@@ -7,6 +7,11 @@
             <div class="modal-body custom-scroll">
                 <form action="controlador/add_paquete.php" method="post" enctype="multipart/form-data">
 
+
+                    <div class="form-floating mb-3">
+                        <input type="text" class="form-control" id="numero" name="numero" required>
+                        <label for="floatingInput" class="form-label">Numero del Paquete</label>
+                    </div>
                     <div class="form-floating mb-3">
                         <input type="text" class="form-control" id="nombres" name="nombres" required>
                         <label for="floatingInput" class="form-label">Nombre del Paquete</label>

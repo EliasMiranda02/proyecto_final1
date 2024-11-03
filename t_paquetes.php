@@ -70,6 +70,7 @@
                             <tr>
                                 <th scope="col" class="p-3"><input type="hidden" id="selectAll"></th>
                                 <th scope="col" class="text-center">id_paquete</th>
+                                <th scope="col">numero_paquete</th>
                                 <th scope="col" class="text-center">nombre</th>
                                 <th scope="col">descripcion</th>
                                 <th scope="col" class="p-2">precio_aproximado</th>
@@ -228,6 +229,7 @@ function assignItineraryButtonEvents() {
                         data.forEach(dato => {
                             datosBancarios.innerHTML += `
                                 <p><strong>ID Itinerario:</strong> ${dato.id_itinerario}</p>
+                                <P><strong>Nombre:</strong> ${dato.nombre_actividad}</P> 
                                 <p><strong>Hora:</strong> ${dato.hora}</p>
                                 <p><strong>Día:</strong> ${dato.dia}</p>
                                 <p><strong>Detalle:</strong> ${dato.detalle}</p>

@@ -2,11 +2,10 @@
     <div class="modal-dialog">
         <div class="modal-content">
             <div class="modal-header bg-success text-white">
-                <h1 class="modal-title fs-5" id="staticBackdropLabel">Datos Bancarios</h1>
-                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                <h1 class="modal-title fs-5" id="staticBackdropLabel">Itinerarios</h1>
             </div>
-            <div class="modal-body">
-                <p id="idPaqueteDisplay">ID Paquete: </p>
+            <div class="modal-body custom-scroll">
+                <p id="idPaqueteDisplay"><b>ID Paquete:</b></p>
                 <div id="datosBancarios">
                     <!-- Aquí se llenarán los datos de los itinerarios -->
                 </div>
@@ -17,3 +16,11 @@
         </div>
     </div>
 </div>
+
+<style>
+    .custom-scroll {
+        max-height: 400px;
+        /* Ajusta la altura según tus necesidades */
+        overflow-y: auto;
+    }
+</style>

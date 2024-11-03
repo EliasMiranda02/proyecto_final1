@@ -11,13 +11,14 @@
 </head>
 
 <body>
-  <form>
+
+  <form action="controlador/add_itinerario.php" method="post" enctype="multipart/form-data">
     <div class="container mt-5">
       <div class="formulario p-0">
 
         <div class="mb-3">
           <label for="packageId" class="form-label">Paquete</label>
-          <select class="form-select" id="packageId" onchange="fillPackageData()">
+          <select class="form-select" name="packageId" id="packageId" onchange="fillPackageData()">
             <option value="">Selecciona un paquete</option>
             <!-- Las opciones serán cargadas dinámicamente con JavaScript -->
           </select>
@@ -129,7 +130,7 @@
         </div>
 
         <div class="fixed-buttons text-right">
-          <button type="button" class="btn btn-primary">Nuevo itinerario</button>
+          <button type="submit" class="btn btn-primary">Nuevo itinerario</button>
         </div>
 
       </div>
