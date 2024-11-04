@@ -18,34 +18,30 @@ async function loadPackages() {
         });
     } catch (error) {
         console.error("Error al cargar los paquetes:", error);
+        alert("No se pudieron cargar los paquetes. Inténtalo de nuevo más tarde.");
     }
 }
 
 // Llenar los campos del formulario según el paquete seleccionado
 function fillPackageData() {
-  const packageId = document.getElementById("packageId").value;
-  document.getElementById("selectedPackageId").value = packageId; // Asigna el valor al input de texto
-  if (packageId && packageData[packageId]) {
-      document.getElementById("packageNumber").value = packageData[packageId].numero_paquete;
-      document.getElementById("packageName").value = packageData[packageId].nombre;
-      document.getElementById("destination").value = packageData[packageId].destino;
-      document.getElementById("duration").value = packageData[packageId].duracion_dias;
-  } else {
-      // Limpiar los campos si no hay selección válida
-      document.getElementById("packageNumber").value = "";
-      document.getElementById("packageName").value = "";
-      document.getElementById("destination").value = "";
-      document.getElementById("duration").value = "";
-  }
+    const packageId = document.getElementById("packageId").value;
+    document.getElementById("selectedPackageId").value = packageId; // Asigna el valor al input de texto
+    if (packageId && packageData[packageId]) {
+        document.getElementById("packageNumber").value = packageData[packageId].numero_paquete;
+        document.getElementById("packageName").value = packageData[packageId].nombre;
+        document.getElementById("destination").value = packageData[packageId].destino;
+        document.getElementById("duration").value = packageData[packageId].duracion_dias;
+    } else {
+        // Limpiar los campos si no hay selección válida
+        document.getElementById("packageNumber").value = "";
+        document.getElementById("packageName").value = "";
+        document.getElementById("destination").value = "";
+        document.getElementById("duration").value = "";
+    }
 }
-
 
 // Llamar a la función de carga al cargar la página
 document.addEventListener("DOMContentLoaded", loadPackages);
-
-// Código para la tabla y manejo de precios sigue igual
-
-// ESTE CODIGO ES PARA LA TABLA 
 
 // Inicializa el precio total
 let precioTotal = 0;
@@ -123,3 +119,54 @@ document.getElementById('eliminar1').addEventListener('click', function(event) {
     actualizarPrecioTotal();
 });
 
+// Función para capturar los datos de itinerarios en la tabla y enviarlos
+document.getElementById('itineraryForm').addEventListener('submit', function(event) {
+    event.preventDefault(); // Previene el envío normal del formulario
+
+    const itinerarioTableBody = document.getElementById('itinerarioTableBody');
+    const selectedPackageId = document.getElementById('selectedPackageId').value;
+    let itinerarios = [];
+
+    // Recorre cada fila de la tabla para capturar los datos de los itinerarios
+    Array.from(itinerarioTableBody.rows).forEach(row => {
+        const actividad = row.cells[1].textContent;
+        const dia = row.cells[2].textContent;
+        const hora = row.cells[3].textContent;
+        const detalle = row.cells[4].textContent;
+        const precio = parseFloat(row.cells[5].textContent);
+
+        itinerarios.push({
+            actividad: actividad,
+            dia: dia,
+            hora: hora,
+            detalle: detalle,
+            precio: precio
+        });
+    });
+
+    // Enviar datos al servidor con Fetch API
+    fetch('controlador/add_itinerario.php', {
+        method: 'POST',
+        headers: {
+            'Content-Type': 'application/json'
+        },
+        body: JSON.stringify({
+            selectedPackageId: selectedPackageId,
+            itinerarios: itinerarios,
+            precioTotal: precioTotal
+        })
+    })
+    .then(response => response.json())
+    .then(data => {
+        if (data.success) {
+            alert('Itinerario guardado exitosamente.');
+            // Aquí puedes redirigir a otra página o limpiar el formulario
+        } else {
+            alert('Error al guardar el itinerario. Inténtalo de nuevo.');
+        }
+    })
+    .catch(error => {
+        console.error('Error:', error);
+        alert('Error en la conexión. Inténtalo de nuevo más tarde.');
+    });
+});

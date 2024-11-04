@@ -24,3 +24,4 @@ VALUES('$nombre','$amaterno','$apaterno','$email','$lada','$telefono',NOW(),'$co
 } else {
     echo "Las contraseñas no coinciden.";
 }
+?>

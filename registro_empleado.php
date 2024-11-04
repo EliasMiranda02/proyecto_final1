@@ -17,13 +17,20 @@
             <img src="./IMG/registro/Logo.png" alt="">
             <br>
             <h1><b>Crear Cuenta</b></h1>
+
             <?php
+            session_start();
             include "modelo/conexion.php";
             include "controlador/registro_empleado.php";
 
             ini_set('display_errors', 1);
             ini_set('display_startup_errors', 1);
             error_reporting(E_ALL);
+
+            if (isset($_SESSION['mensaje'])) {
+                echo '<p>' . $_SESSION['mensaje'] . '</p>'; // Muestra el mensaje
+                unset($_SESSION['mensaje']); // Borra el mensaje de la sesión
+            }
 
             ?>
             
@@ -114,7 +121,6 @@
                         </select>
                     </div>
                 </div>
-
                 <br>
 
                 <!-- LUGAR PARA TERMINOS Y CONDICIONES -->
@@ -135,7 +141,14 @@
             </p>
 
         </div>
-
+        <script>
+            setTimeout(function() {
+            const mensajeAlerta = document.getElementById('mensajeAlerta');
+            if (mensajeAlerta) {
+                mensajeAlerta.style.display = 'none';
+            }
+        }, 1000);
+        </script>
     </body>
 
 </html>
