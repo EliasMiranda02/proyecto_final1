@@ -15,6 +15,8 @@ if (isset($_POST['id_empleado_editar']) && !empty($_POST['id_empleado_editar']))
     $numero = $conexion->real_escape_string($_POST['numero']);
     $nip = $conexion->real_escape_string($_POST['nip']);
     $disponibilidad = $conexion->real_escape_string($_POST['estado']);
+    $lada = $conexion->real_escape_string($_POST['no_lada']);
+    $cargo = $conexion->real_escape_string($_POST['cargos']);
 
     // Preparar la consulta
     $sql = "UPDATE empleados SET 
@@ -22,8 +24,10 @@ if (isset($_POST['id_empleado_editar']) && !empty($_POST['id_empleado_editar']))
         apellido_materno = '$apellidoMaterno', 
         apellido_paterno = '$apellidoPaterno', 
         email = '$email', 
+        clave_lada = '$lada',
         telefono = '$numero',
         NIP = '$nip',
+        cargo = '$cargo',
         disponibilidad = '$disponibilidad'
     WHERE id_empleado = '$id_empleado_editar'";
 
