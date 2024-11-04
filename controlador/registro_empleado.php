@@ -1,4 +1,5 @@
 <?php
+session_start();
 include "modelo/conexion.php";
 
 // Muestra todos los errores
@@ -14,35 +15,39 @@ if (!empty($_POST["registrar"])) {
 
         // Verificar que las contraseñas coinciden
         if ($_POST["contraseña1"] === $_POST["contraseña2"]) {
-            $nombre = $_POST["nombre"];
-            $amaterno = $_POST["amaterno"];
-            $apaterno = $_POST["apaterno"];
-            $email = $_POST["email"];
-            $contraseña = $_POST["contraseña1"];  // Contraseña cifrada
-            $lada = $_POST["opcion"];
-            $telefono = $_POST["numero"];
-            $nombre_usuario = $_POST["nombre_usuario"];
-            $NIP = $_POST["nip"];
-            $cargo = $_POST["cargo"];
-
+            $nombre = $conexion->real_escape_string($_POST["nombre"]);
+            $amaterno = $conexion->real_escape_string($_POST["amaterno"]);
+            $apaterno = $conexion->real_escape_string($_POST["apaterno"]);
+            $email = $conexion->real_escape_string($_POST["email"]);
+            $contraseña = $conexion->real_escape_string($_POST["contraseña1"]);  
+            $lada = $conexion->real_escape_string($_POST["opcion"]);
+            $telefono = $conexion->real_escape_string($_POST["numero"]);
+            $nombre_usuario = $conexion->real_escape_string($_POST["nombre_usuario"]);
+            $NIP = $conexion->real_escape_string($_POST["nip"]);
+            $cargo = $conexion->real_escape_string($_POST["cargo"]);
+            $disponibilidad = '';
             // Consulta preparada para insertar los datos
-            $stmt = $conexion->prepare("INSERT INTO empleados (nombre, apellido_materno, apellido_paterno, email, clave_lada, telefono, fecha_registro, contraseña, nombre_usuario, NIP, cargo) 
-                VALUES (?, ?, ?, ?, ?, ?, NOW(), ?, ?, ?, ?)");
-            
-            // Si la preparación falla, muestra el error
+            $stmt = $conexion->prepare("INSERT INTO empleados (nombre, apellido_materno, apellido_paterno, email, clave_lada, telefono, fecha_registro, contraseña, nombre_usuario, NIP, cargo, disponibilidad) 
+VALUES (?, ?, ?, ?, ?, ?, NOW(), ?, ?, ?, ?,?)");
+
+            // Asegúrate de que el número de tipos coincida (11 tipos para 11 variables)
             if (!$stmt) {
                 echo "Error al preparar la consulta: " . $conexion->error;
                 exit();
             }
 
-            $stmt->bind_param("ssssssssss", $nombre, $amaterno, $apaterno, $email, $lada, $telefono, $contraseña, $nombre_usuario, $NIP, $cargo);
+            // Ajusta el tipo para cada campo (aquí no se incluye 'fecha_registro' porque se maneja en la consulta)
+            $stmt->bind_param("sssssssssss", $nombre, $amaterno, $apaterno, $email, $lada, $telefono, $contraseña, $nombre_usuario, $NIP, $cargo,$disponibilidad);
 
             // Ejecutar la consulta y verificar si fue exitosa
             if ($stmt->execute()) {
-                echo "Registro exitoso.";
+                $_SESSION['mensaje'] = "Registro exitoso!";
+                header('Location: registro_empleado.php'); // Redirigir después del registro exitoso
+                exit();
             } else {
                 echo "Error al insertar datos: " . $stmt->error;
             }
+
             $stmt->close();
         } else {
             echo "Las contraseñas no coinciden.";
