@@ -10,7 +10,7 @@ async function loadPackages() {
 
         // Iterar sobre los datos y añadir opciones al combobox
         data.forEach(package => {
-            packageData[package.id] = package;
+            packageData[package.id_paquete] = package;
             const option = document.createElement("option");
             option.value = package.id_paquete; // Asigna el ID del paquete como value
             option.textContent = package.id_paquete; // Muestra el ID del paquete como texto
