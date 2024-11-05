@@ -15,6 +15,6 @@ $calificacion = $conexion->real_escape_string($_POST['calificacion']);
 $sql = "INSERT INTO hoteles (nombre_hotel, direccion, clave_lada, telefono, correo_electronico, numero_habitaciones, descripcion, precio_noche, calificacion) 
 VALUES('$nombre_hotel','$direccion','$clave_lada','$telefono','$correo_electronico','$numero_habitaciones','$descripcion','$precio_noche','$calificacion')";
 ($conexion->query($sql));
-header('Location: ../t_hoteles.php');
+header('Location: ../t_hoteles.php?mensaje=registro_exitoso');
 
 ?>

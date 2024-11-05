@@ -12,6 +12,6 @@ $precio= $conexion->real_escape_string($_POST['precio']);
 $sql = "INSERT INTO vuelos (numero_vuelo, origen, destino, fecha_salida, fecha_llegada, precio_vuelo) 
 VALUES('$no_vuelo','$origen','$destino','$date_salida','$date_llegada','$precio')";
 ($conexion->query($sql));
-header('Location: ../t_volante.php');
+header('Location: ../t_volante.php?mensaje=registro_exitoso');
 
 ?>

@@ -18,7 +18,7 @@ if ($sql->num_rows > 0) {
     echo '<thead class="bg-info">';
     echo '    <tr>';
     echo '        <th scope="col">id_renta</th>';
-    echo '        <th scope="col">id_carro/th>';
+    echo '        <th scope="col">id_carro</th>';
     echo '        <th scope="col">id_cliente</th>';
     echo '        <th scope="col">fecha_renta</th>';
     echo '        <th scope="col">fecha_devolucion</th>';

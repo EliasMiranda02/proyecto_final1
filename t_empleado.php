@@ -10,24 +10,27 @@
 </head>
 
 <body>
-    <?php if (isset($_GET['mensaje'])): ?>
+<?php if (isset($_GET['mensaje'])): ?>
         <div class="alert alert-info" id="mensajeAlerta">
             <?php
             if ($_GET['mensaje'] == 'actualizado') {
-                echo "Usuario actualizado correctamente.";
+                echo "Registro actualizado correctamente.";
             } elseif ($_GET['mensaje'] == 'error') {
                 echo "Hubo un error: " . ($_GET['detalle'] ?? '');
             } elseif ($_GET['mensaje'] == 'no_id') {
                 echo "No se seleccionó ningún registro.";
             } elseif ($_GET['mensaje'] == 'eliminado') {
-                echo "Usuarios eliminados correctamente.";
+                echo "Registros eliminados correctamente.";
             } elseif ($_GET['mensaje'] == 'id_invalido') {
-                echo "ID de usuario inválido.";
+                echo "ID de registro inválido.";
+            } elseif ($_GET['mensaje'] == 'registro_exitoso') {
+                echo "Registro guardado correctamente.";
             }
             ?>
         </div>
     <?php endif; ?>
     <div class="container">
+        
     <div class="left-side">
         <div class="btn-group-vertical" role="group">
             <button type="button" class="btn btn-primary" onclick="showTable('Administradores')">

@@ -14,5 +14,5 @@
         VALUES ('$modelo','$precio','$capacidad','$estado')";
     
     ($conexion->query($sql));
-    header('Location: ../t_catacarros.php');
+    header('Location: ../t_catacarros.php?mensaje=registro_exitoso');
 ?>

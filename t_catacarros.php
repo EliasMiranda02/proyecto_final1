@@ -19,19 +19,22 @@
                     <?php
                     switch ($_GET['mensaje']) {
                         case 'actualizado':
-                            echo "Usuario actualizado correctamente.";
+                            echo "Registro actualizado correctamente.";
                             break;
                         case 'error':
                             echo "Hubo un error: " . ($_GET['detalle'] ?? '');
                             break;
                         case 'no_id':
-                            echo "No se seleccionó ningún usuario para editar.";
+                            echo "No se seleccionó ningún registro.";
                             break;
                         case 'eliminado':
                             echo "Registros eliminados correctamente.";
                             break;
                         case 'id_invalido':
-                            echo "ID de usuario inválido.";
+                            echo "ID de registro inválido.";
+                            break;
+                        case 'registro_exitoso':
+                            echo "Registro guardado correctamente.";
                             break;
                     }
                     ?>
@@ -46,12 +49,12 @@
             <form id="searchFormAsesor" class="mb-3" method="POST" action="controlador/buscar_catacarro.php">
                 <input type="hidden" name="cargo" value="Asesor de Viajes"> <!-- Campo oculto -->
                 <div class="input-group">
-                    <select name="campo" class="form-select" >
+                    <select name="campo" class="form-select">
                         <option value="capacidad">Capacidad</option>
                         <option value="modelo">Modelo</option>
                         <option value="estado">Estado</option>
                     </select>
-                    <input type="text" class="form-control" name="query" placeholder="Buscar..." >
+                    <input type="text" class="form-control" name="query" placeholder="Buscar...">
                     <button type="submit" class="btn btn-primary">Buscar</button>
                 </div>
             </form>
@@ -107,7 +110,7 @@
                 const row = checkedCheckboxes[0].closest('tr');
 
                 // Obtener los datos de la fila con los índices corregidos
-                
+
                 const modelo = row.cells[2].innerText;
                 const precio_renta = row.cells[3].innerText;
                 const capacidad = row.cells[4].innerText;

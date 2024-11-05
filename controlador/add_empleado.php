@@ -20,7 +20,7 @@ if ($_POST["contraseña1"] === $_POST["contraseña2"]) {
     $sql = "INSERT INTO empleados (nombre, apellido_materno, apellido_paterno, email, clave_lada, telefono, fecha_registro, contraseña, nombre_usuario, NIP, cargo, disponibilidad) 
 VALUES('$nombre','$amaterno','$apaterno','$email','$lada','$telefono',NOW(),'$contraseña','$nombre_usuario', '$NIP', '$cargo', '$disponibilidad')";
     ($conexion->query($sql));
-    header('Location: ../t_empleado.php');
+    header('Location: ../t_empleado.php?mensaje=registro_exitoso');
 } else {
     echo "Las contraseñas no coinciden.";
 }

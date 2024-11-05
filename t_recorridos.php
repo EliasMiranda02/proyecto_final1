@@ -19,19 +19,22 @@
                     <?php
                     switch ($_GET['mensaje']) {
                         case 'actualizado':
-                            echo "Usuario actualizado correctamente.";
+                            echo "Registro actualizado correctamente.";
                             break;
                         case 'error':
                             echo "Hubo un error: " . ($_GET['detalle'] ?? '');
                             break;
                         case 'no_id':
-                            echo "No se seleccionó ningún usuario para editar.";
+                            echo "No se seleccionó ningún registro para editar.";
                             break;
                         case 'eliminado':
                             echo "Registros eliminados correctamente.";
                             break;
                         case 'id_invalido':
-                            echo "ID de usuario inválido.";
+                            echo "ID de registro inválido.";
+                            break;
+                        case 'registro_exitoso':
+                            echo "Registro guardado correctamente.";
                             break;
                     }
                     ?>
@@ -79,7 +82,7 @@
                             <tr>
                                 <td><input type="checkbox" name="ids[]" value="<?= $datos->id_recorrido ?>"></td>
                                 <th scope="row"><?= $datos->id_recorrido ?></th>
-                                <th><?=$datos->id_ruta?></th>
+                                <th><?= $datos->id_ruta ?></th>
                                 <td><?= $datos->fecha_salida ?></td>
                                 <td><?= $datos->fecha_llegada ?></td>
                                 <td><?= $datos->precio_boleto ?></td>
@@ -99,19 +102,18 @@
     </div>
 
     <?php
-    
-        $sqlrutas = "SELECT id_ruta FROM rutas";
-        $rutas = $conexion->query($sqlrutas);
-    
+
+    $sqlrutas = "SELECT id_ruta FROM rutas";
+    $rutas = $conexion->query($sqlrutas);
+
     ?>
 
 
     <?php include "modal_recorrido/editar.php"; ?>
     <?php include "modal_recorrido/delete.php"; ?>
-    <?php include "modal_recorrido/add.php";?>
+    <?php include "modal_recorrido/add.php"; ?>
 
     <script>
-
         // PARA EDITAR
         btnEditar.addEventListener('click', function(event) {
             const checkedCheckboxes = document.querySelectorAll('input[name="ids[]"]:checked');
