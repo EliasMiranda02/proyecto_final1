@@ -53,42 +53,34 @@ function actualizarPrecioTotal() {
 
 // Evento para agregar una actividad a la tabla
 document.getElementById('agregar1').addEventListener('click', function(event) {
-    event.preventDefault(); // Previene el envío del formulario
+    event.preventDefault();
 
-    // Obtiene los valores de los campos
     const actividad = document.getElementById('actividad').value;
     const dia = document.getElementById('dia').value;
     const hora = document.getElementById('hora').value;
     const detalle = document.getElementById('detalle').value;
     const precio = parseFloat(document.getElementById('precio').value);
 
-    // Verifica que los campos no estén vacíos
     if (actividad === "" || dia === "" || hora === "" || detalle === "" || isNaN(precio)) {
         alert('Por favor, completa todos los campos correctamente.');
         return;
     }
 
-    // Crea una nueva fila
     const newRow = document.createElement('tr');
-
-    // Agrega las celdas a la nueva fila
     newRow.innerHTML = `
         <td><input type="checkbox" class="actividad-checkbox" /></td>
-        <td class="text-center">${actividad}</td>
-        <td class="text-center">${dia}</td>
-        <td>${hora}</td>
-        <td>${detalle}</td>
-        <td class="text-center">${precio.toFixed(2)}</td>
+        <td class="text-center">${actividad} <input type="hidden" name="actividad[]" value="${actividad}"></td>
+        <td class="text-center">${dia} <input type="hidden" name="dia[]" value="${dia}"></td>
+        <td>${hora} <input type="hidden" name="hora[]" value="${hora}"></td>
+        <td>${detalle} <input type="hidden" name="detalle[]" value="${detalle}"></td>
+        <td class="text-center">${precio.toFixed(2)} <input type="hidden" name="precio[]" value="${precio.toFixed(2)}"></td>
     `;
 
-    // Agrega la nueva fila al cuerpo de la tabla
     document.getElementById('itinerarioTableBody').appendChild(newRow);
-
-    // Actualiza el precio total
     precioTotal += precio;
     actualizarPrecioTotal();
 
-    // Limpia los campos después de agregar la actividad
+    // Limpiar campos después de agregar actividad
     document.getElementById('actividad').value = '';
     document.getElementById('dia').value = '';
     document.getElementById('hora').value = '';
@@ -119,54 +111,3 @@ document.getElementById('eliminar1').addEventListener('click', function(event) {
     actualizarPrecioTotal();
 });
 
-// Función para capturar los datos de itinerarios en la tabla y enviarlos
-document.getElementById('itineraryForm').addEventListener('submit', function(event) {
-    event.preventDefault(); // Previene el envío normal del formulario
-
-    const itinerarioTableBody = document.getElementById('itinerarioTableBody');
-    const selectedPackageId = document.getElementById('selectedPackageId').value;
-    let itinerarios = [];
-
-    // Recorre cada fila de la tabla para capturar los datos de los itinerarios
-    Array.from(itinerarioTableBody.rows).forEach(row => {
-        const actividad = row.cells[1].textContent;
-        const dia = row.cells[2].textContent;
-        const hora = row.cells[3].textContent;
-        const detalle = row.cells[4].textContent;
-        const precio = parseFloat(row.cells[5].textContent);
-
-        itinerarios.push({
-            actividad: actividad,
-            dia: dia,
-            hora: hora,
-            detalle: detalle,
-            precio: precio
-        });
-    });
-
-    // Enviar datos al servidor con Fetch API
-    fetch('controlador/add_itinerario.php', {
-        method: 'POST',
-        headers: {
-            'Content-Type': 'application/json'
-        },
-        body: JSON.stringify({
-            selectedPackageId: selectedPackageId,
-            itinerarios: itinerarios,
-            precioTotal: precioTotal
-        })
-    })
-    .then(response => response.json())
-    .then(data => {
-        if (data.success) {
-            alert('Itinerario guardado exitosamente.');
-            // Aquí puedes redirigir a otra página o limpiar el formulario
-        } else {
-            alert('Error al guardar el itinerario. Inténtalo de nuevo.');
-        }
-    })
-    .catch(error => {
-        console.error('Error:', error);
-        alert('Error en la conexión. Inténtalo de nuevo más tarde.');
-    });
-});

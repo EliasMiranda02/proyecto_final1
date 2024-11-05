@@ -24,7 +24,7 @@
           </select>
         </div>
 
-        <input type="text" id="selectedPackageId">
+        <input type="hidden" id="selectedPackageId" name="selectedPackageId">
 
 
         <div class="mb-3">
