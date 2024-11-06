@@ -22,15 +22,17 @@
                 <div class="alert alert-info" id="mensajeAlerta">
                     <?php
                     if ($_GET['mensaje'] == 'actualizado') {
-                        echo "Hotel actualizado correctamente.";
+                        echo "Registro actualizado correctamente.";
                     } elseif ($_GET['mensaje'] == 'error') {
                         echo "Hubo un error: " . ($_GET['detalle'] ?? '');
                     } elseif ($_GET['mensaje'] == 'no_id') {
-                        echo "No se seleccionó ningún hotel para editar.";
+                        echo "No se seleccionó ningún registro.";
                     } elseif ($_GET['mensaje'] == 'eliminado') {
-                        echo "Hoteles eliminados correctamente.";
+                        echo "Registros eliminados correctamente.";
                     } elseif ($_GET['mensaje'] == 'id_invalido') {
-                        echo "ID de Hotel inválido.";
+                        echo "ID de registro inválido.";
+                    } elseif ($_GET['mensaje'] == 'registro_exitoso') {
+                        echo "Registro guardado correctamente.";
                     }
                     ?>
                 </div>

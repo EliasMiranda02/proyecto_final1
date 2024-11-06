@@ -21,7 +21,7 @@ if (isset($_POST['ids']) && !empty($_POST['ids'])) {
 
         if ($conexion->query($sql) === TRUE) {
             // Redirigir con éxito
-            header('Location: ../rutas.php');
+            header('Location: ../rutas.php?mensaje=eliminado');
             echo "<div>HOLA</div>";
             exit();
         } else {

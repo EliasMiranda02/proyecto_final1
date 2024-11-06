@@ -19,19 +19,22 @@
                     <?php
                     switch ($_GET['mensaje']) {
                         case 'actualizado':
-                            echo "Usuario actualizado correctamente.";
+                            echo "Registro actualizado correctamente.";
                             break;
                         case 'error':
                             echo "Hubo un error: " . ($_GET['detalle'] ?? '');
                             break;
                         case 'no_id':
-                            echo "No se seleccionó ningún usuario para editar.";
+                            echo "No se seleccionó ningún registro.";
                             break;
                         case 'eliminado':
                             echo "Registros eliminados correctamente.";
                             break;
                         case 'id_invalido':
-                            echo "ID de usuario inválido.";
+                            echo "ID de registro inválido.";
+                            break;
+                        case 'registro_exitoso':
+                            echo "Registro guardado correctamente.";
                             break;
                     }
                     ?>

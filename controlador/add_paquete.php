@@ -13,5 +13,5 @@
         VALUES ('$numeros','$nombre','$descripcion','$precio_aproximado','$duracion_horas','$destino',NOW(),NOW())";
     
     ($conexion->query($sql));
-    header('Location: ../t_paquetes.php');
+    header('Location: ../t_paquetes.php?mensaje=registro_exitoso');
 ?>

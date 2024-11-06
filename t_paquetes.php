@@ -15,6 +15,28 @@
     <div class="d-flex justify-content-center align-items-center vh-100">
         <div class="col-10">
 
+        <!-- ALERTA DE CUANDO SE EJECTUTAN LOS CRUDS -->
+        <?php if (isset($_GET['mensaje'])): ?>
+                <div class="alert alert-info mb-3" id="mensajeAlerta">
+                    <?php
+                    if ($_GET['mensaje'] == 'actualizado') {
+                        echo "Registro actualizado correctamente.";
+                    } elseif ($_GET['mensaje'] == 'error') {
+                        echo "Hubo un error: " . ($_GET['detalle'] ?? '');
+                    } elseif ($_GET['mensaje'] == 'no_id') {
+                        echo "No se seleccionó ningún registro.";
+                    } elseif ($_GET['mensaje'] == 'eliminado') {
+                        echo "Registros eliminados correctamente.";
+                    } elseif ($_GET['mensaje'] == 'id_invalido') {
+                        echo "ID de registro inválido.";
+                    } elseif ($_GET['mensaje'] == 'registro_exitoso') {
+                        echo "Registro guardado correctamente.";
+                    }
+                    ?>
+                </div>
+
+            <?php endif; ?>
+
             <div class="cabeza">
 
                 <div class="add">
@@ -42,26 +64,7 @@
             </div>
 
 
-            <!-- ALERTA DE CUANDO SE EJECTUTAN LOS CRUDS -->
-            <?php if (isset($_GET['mensaje'])): ?>
-                <div class="alert alert-info mb-3" id="mensajeAlerta">
-                    <?php
-                    if ($_GET['mensaje'] == 'actualizado') {
-                        echo "Usuario actualizado correctamente.";
-                    } elseif ($_GET['mensaje'] == 'error') {
-                        echo "Hubo un error: " . ($_GET['detalle'] ?? '');
-                    } elseif ($_GET['mensaje'] == 'no_id') {
-                        echo "No se seleccionó ningún usuario para editar.";
-                    } elseif ($_GET['mensaje'] == 'eliminado') {
-                        echo "Usuarios eliminados correctamente.";
-                    } elseif ($_GET['mensaje'] == 'id_invalido') {
-                        echo "ID de usuario inválido.";
-                    }
-                    ?>
-                </div>
-
-            <?php endif; ?>
-
+            
             <form id="Paquetes" action="controlador/eliminar_paquete.php" method="post">
                 <!-- Contenedor de la tabla con scroll -->
                 <div class="table-container">
