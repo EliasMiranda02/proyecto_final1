@@ -35,7 +35,13 @@
             ?>
             
             <br><br>
-            <form action="" method="POST">
+            <form action="" method="POST" enctype="multipart/form-data">
+            <div class="imagen1">               
+                <img id="image" src="" alt="Vista previa de la imagen" style="display: block; max-width: 200px; margin-top: 10px;">
+                <br>
+                <input type="file" id="selImg" name="selImg">
+            </div>
+            <br>
 
                 <div class="apellidos">
                     <!-- Dato personal: Nombre -->
@@ -142,7 +148,25 @@
 
         </div>
         <script>
-            setTimeout(function() {
+            function actualizarImg() {
+            const $inputfile = document.querySelector("#selImg"),
+                $imgcliente = document.querySelector("#image");
+
+            $inputfile.addEventListener("change", function() {
+                const files = $inputfile.files;
+                if (!files || !files.length) {
+                    $imgcliente.src = "";
+                    return;
+                }
+
+                const archivoInicial = files[0];
+                const Url = URL.createObjectURL(archivoInicial);
+                $imgcliente.src = Url;
+            });
+        }
+        actualizarImg();
+
+        setTimeout(function() {
             const mensajeAlerta = document.getElementById('mensajeAlerta');
             if (mensajeAlerta) {
                 mensajeAlerta.style.display = 'none';

@@ -6,6 +6,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Carros</title>
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="CSS/hotel.css">
     <script src="https://kit.fontawesome.com/90c11f8b3b.js" crossorigin="anonymous"></script>
 </head>
 
@@ -61,16 +62,17 @@
 
             <!-- TABLA DE RECORRIDOS -->
             <form id="Carros" action="controlador/delete_catacarro.php" method="post">
+            <div class="table-responsive">
                 <table class="table" id="table-body">
                     <thead class="bg-success">
                         <tr>
                             <th scope="col"><input type="hidden" id="selectAll"></th>
-                            <th scope="col">id_carro</th>
-                            <th scope="col">modelo</th>
+                            <th scope="col" class="text-center">id_carro</th>
+                            <th scope="col" class="text-center">modelo</th>
                             <th scope="col" class="text-center">precio_renta</th>
-                            <th scope="col">capacidad</th>
-                            <th scope="col">estado</th>
-                            <th scope="col">img</th>
+                            <th scope="col" class="text-center">capacidad</th>
+                            <th scope="col" class="text-center">estado</th>
+                            <th scope="col" class="text-center">img</th>
                         </tr>
                     </thead>
                     <tbody class="">
@@ -80,18 +82,19 @@
                         while ($datos = $sql->fetch_object()) { ?>
                             <tr>
                                 <td><input type="checkbox" name="ids[]" value="<?= $datos->id_carro ?>"></td>
-                                <th scope="row"><?= $datos->id_carro ?></th>
-                                <td><?= $datos->modelo ?></td>
-                                <td><?= $datos->precio_renta ?></td>
-                                <td><?= $datos->capacidad ?></td>
-                                <td><?= $datos->estado ?></td>
-                                <td>
+                                <th scope="row" class="text-center"><?= $datos->id_carro ?></th>
+                                <td class="text-center"><?= $datos->modelo ?></td>
+                                <td class="text-center"><?= $datos->precio_renta ?></td>
+                                <td class="text-center"><?= $datos->capacidad ?></td>
+                                <td class="text-center"><?= $datos->estado ?></td>
+                                <td class="text-center">
                                     <img src="<?= $datos->img ?>" alt="Imagen del cliente" style="width: 100px; height: 60px;">
                                 </td>
                             </tr>
                         <?php } ?>
                     </tbody>
                 </table>
+            </div>
                 <button type="button" class="btn btn-danger" data-bs-toggle="modal" data-bs-target="#eliminar_ruta">Eliminar seleccionados</button>
                 <button type="button" class="btn btn-warning" id="btnEditar" data-bs-toggle="modal" data-bs-target="#editar">Editar Usuario</button>
             </form>

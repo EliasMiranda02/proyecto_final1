@@ -72,7 +72,7 @@ document.getElementById('agregar1').addEventListener('click', function(event) {
         <td class="text-center">${actividad} <input type="hidden" name="actividad[]" value="${actividad}"></td>
         <td class="text-center">${dia} <input type="hidden" name="dia[]" value="${dia}"></td>
         <td>${hora} <input type="hidden" name="hora[]" value="${hora}"></td>
-        <td>${detalle} <input type="hidden" name="detalle[]" value="${detalle}"></td>
+        <td class="descripcion">${detalle} <input type="hidden" name="detalle[]" value="${detalle}"></td>
         <td class="text-center">${precio.toFixed(2)} <input type="hidden" name="precio[]" value="${precio.toFixed(2)}"></td>
     `;
 

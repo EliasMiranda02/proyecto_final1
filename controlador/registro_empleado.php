@@ -26,9 +26,17 @@ if (!empty($_POST["registrar"])) {
             $NIP = $conexion->real_escape_string($_POST["nip"]);
             $cargo = $conexion->real_escape_string($_POST["cargo"]);
             $disponibilidad = '';
+
+            if (isset($_FILES['selImg']) && $_FILES['selImg']['error'] == 0) {
+                $imagen = $_FILES['selImg'];
+                $rutaImg = 'IMG/empleado' . basename($imagen['name']);
+
+                // Mover el archivo a la carpeta deseada
+                if (move_uploaded_file($imagen['tmp_name'], $rutaImg)) {
+
             // Consulta preparada para insertar los datos
-            $stmt = $conexion->prepare("INSERT INTO empleados (nombre, apellido_materno, apellido_paterno, email, clave_lada, telefono, fecha_registro, contraseña, nombre_usuario, NIP, cargo, disponibilidad) 
-VALUES (?, ?, ?, ?, ?, ?, NOW(), ?, ?, ?, ?,?)");
+            $stmt = $conexion->prepare("INSERT INTO empleados (nombre, apellido_materno, apellido_paterno, email, clave_lada, telefono, fecha_registro, contraseña, nombre_usuario, NIP, cargo, disponibilidad, img) 
+VALUES (?, ?, ?, ?, ?, ?, NOW(), ?, ?, ?, ?,?, ?)");
 
             // Asegúrate de que el número de tipos coincida (11 tipos para 11 variables)
             if (!$stmt) {
@@ -37,7 +45,7 @@ VALUES (?, ?, ?, ?, ?, ?, NOW(), ?, ?, ?, ?,?)");
             }
 
             // Ajusta el tipo para cada campo (aquí no se incluye 'fecha_registro' porque se maneja en la consulta)
-            $stmt->bind_param("sssssssssss", $nombre, $amaterno, $apaterno, $email, $lada, $telefono, $contraseña, $nombre_usuario, $NIP, $cargo,$disponibilidad);
+            $stmt->bind_param("ssssssssssss", $nombre, $amaterno, $apaterno, $email, $lada, $telefono, $contraseña, $nombre_usuario, $NIP, $cargo,$disponibilidad, $rutaImg);
 
             // Ejecutar la consulta y verificar si fue exitosa
             if ($stmt->execute()) {
@@ -49,6 +57,12 @@ VALUES (?, ?, ?, ?, ?, ?, NOW(), ?, ?, ?, ?,?)");
             }
 
             $stmt->close();
+        } else {
+            echo "Error al mover la imagen a la carpeta.";
+        }
+    } else {
+        echo "Error en la carga de la imagen.";
+    }
         } else {
             echo "Las contraseñas no coinciden.";
         }

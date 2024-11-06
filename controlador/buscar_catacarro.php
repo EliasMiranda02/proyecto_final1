@@ -17,21 +17,25 @@ if ($sql->num_rows > 0) {
     echo '<thead class="bg-info">';
     echo '    <tr>';
     echo '        <th scope="col"></th>';
-    echo '        <th scope="col">id_carro</th>';
-    echo '        <th scope="col">modelo</th>';
-    echo '        <th scope="col">precio_renta</th>';
-    echo '        <th scope="col">capacidad</th>';
-    echo '        <th scope="col">estado</th>';
+    echo '        <th scope="col" class="text-center">id_carro</th>';
+    echo '        <th scope="col" class="text-center">modelo</th>';
+    echo '        <th scope="col" class="text-center">precio_renta</th>';
+    echo '        <th scope="col" class="text-center">capacidad</th>';
+    echo '        <th scope="col" class="text-center">estado</th>';
+    echo '        <th scope="col" class="text-center">img</th>';
     echo '    </tr>';
     echo '</thead>';
     while ($datos = $sql->fetch_object()) {
         echo "<tr>";
         echo "<td><input type='checkbox' name='ids[]' value='{$datos->id_carro}'></td>";
-        echo "<th scope='row'>{$datos->id_carro}</th>";
-        echo "<td>{$datos->modelo}</td>";
-        echo "<td>{$datos->precio_renta}</td>";
-        echo "<td>{$datos->capacidad}</td>";
-        echo "<td>{$datos->estado}</td>";
+        echo "<th scope='row' class='text-center'>{$datos->id_carro}</th>";
+        echo "<td class='text-center'>{$datos->modelo}</td>";
+        echo "<td class='text-center'>{$datos->precio_renta}</td>";
+        echo "<td class='text-center'>{$datos->capacidad}</td>";
+        echo "<td class='text-center'>{$datos->estado}</td>";
+        echo "<td class='text-center'>
+                                    <img src='<?= $datos->img ?>' alt='Imagen del cliente' style='width: 100px; height: 60px;'>
+                                </td>";
         echo "</tr>";
     }
 } else {

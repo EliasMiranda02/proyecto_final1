@@ -1,3 +1,6 @@
+.body{
+    overflow-y: hidden;
+}
 .table-container {
     max-height: 300px; /* Ajusta la altura para mostrar 6 registros */
     overflow-y: auto;  /* Permite el desplazamiento vertical */
@@ -27,4 +30,11 @@ thead th {
     display: grid;
     grid-template-columns: repeat(3, 1fr);
     gap: 200px;
+}
+/* Ajusta el ancho de la columna de descripción */
+.table td.descripcion {
+    max-width: 200px; /* Establece un ancho máximo */
+    overflow: hidden; /* Oculta el texto que se desborda */
+    text-overflow: ellipsis; /* Agrega puntos suspensivos al final del texto que se corta */
+    white-space: nowrap; /* Evita que el texto se divida en varias líneas */
 }
