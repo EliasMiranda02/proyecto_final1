@@ -71,20 +71,20 @@
                             <thead class="bg-info">
                                 <tr>
                                     <th scope="col"><input type="hidden" id="selectAll"></th>
-                                    <th scope="col">id_empleado</th>
-                                    <th scope="col">nombre</th>
-                                    <th scope="col">apellido paterno</th>
-                                    <th scope="col">apellido materno</th>
+                                    <th scope="col" class="text-center">id_empleado</th>
+                                    <th scope="col" class="text-center">nombre</th>
+                                    <th scope="col" class="text-center">apellido paterno</th>
+                                    <th scope="col" class="text-center">apellido materno</th>
                                     <th scope="col" class="px-3 text-center">email</th>
                                     <th scope="col" class="text-center">clave_lada</th>
-                                    <th scope="col">telefono</th>
-                                    <th scope="col">fecha_registro</th>
-                                    <th scope="col">contraseña</th>
-                                    <th scope="col">nombre_usuario</th>
-                                    <th scope="col">NIP</th>
-                                    <th scope="col">cargo</th>
-                                    <th scope="col">disponibilidad</th>
-                                    <th scope="col">Imagen</th>
+                                    <th scope="col" class="text-center">telefono</th>
+                                    <th scope="col" class="text-center">fecha_registro</th>
+                                    <th scope="col" class="text-center">contraseña</th>
+                                    <th scope="col" class="text-center">nombre_usuario</th>
+                                    <th scope="col" class="text-center">NIP</th>
+                                    <th scope="col" class="text-center">cargo</th>
+                                    <th scope="col" class="text-center">disponibilidad</th>
+                                    <th scope="col" class="text-center">Imagen</th>
                                 </tr>
                             </thead>
                             <tbody>
@@ -95,20 +95,20 @@
                                 while ($datos = $sql->fetch_object()) { ?>
                                     <tr>
                                         <td><input type="checkbox" name="ids[]" value="<?= $datos->id_empleado ?>"></td>
-                                        <th scope="row"><?= $datos->id_empleado ?></th>
-                                        <td><?= $datos->nombre ?></td>
-                                        <td><?= $datos->apellido_paterno ?></td>
-                                        <td><?= $datos->apellido_materno ?></td>
-                                        <td><?= $datos->email ?></td>
-                                        <td><?= $datos->clave_lada ?></td>
-                                        <td><?= $datos->telefono ?></td>
-                                        <td><?= $datos->fecha_registro ?></td>
-                                        <td><?= $datos->contraseña ?></td>
-                                        <td><?= $datos->nombre_usuario ?></td>
-                                        <td><?= $datos->NIP ?></td>
-                                        <td><?= $datos->cargo ?></td>
-                                        <td><?= $datos->disponibilidad ?></td>
-                                        <td>
+                                        <th scope="row" class="text-center"><?= $datos->id_empleado ?></th>
+                                        <td class="text-center"><?= $datos->nombre ?></td>
+                                        <td class="text-center"><?= $datos->apellido_paterno ?></td>
+                                        <td class="text-center"><?= $datos->apellido_materno ?></td>
+                                        <td class="text-center"><?= $datos->email ?></td>
+                                        <td class="text-center"><?= $datos->clave_lada ?></td>
+                                        <td class="text-center"><?= $datos->telefono ?></td>
+                                        <td class="text-center"><?= $datos->fecha_registro ?></td>
+                                        <td class="text-center"><?= $datos->contraseña ?></td>
+                                        <td class="text-center"><?= $datos->nombre_usuario ?></td>
+                                        <td class="text-center"><?= $datos->NIP ?></td>
+                                        <td class="text-center"><?= $datos->cargo ?></td>
+                                        <td class="text-center"><?= $datos->disponibilidad ?></td>
+                                        <td class="text-center">
                                             <img src="<?= $datos->img ?>" alt="Imagen del empleado" style="width: 100px; height: 60px;">
                                         </td>
                                     </tr>

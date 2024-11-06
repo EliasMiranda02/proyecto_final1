@@ -17,10 +17,10 @@ if ($sql->num_rows > 0) {
     echo '<thead class="bg-info">';
     echo '    <tr>';
     echo '        <th scope="col"></th>';
-    echo '        <th scope="col">id_ruta</th>';
-    echo '        <th scope="col">origen</th>';
-    echo '        <th scope="col">destino</th>';
-    echo '        <th scope="col">distancia</th>';
+    echo '        <th scope="col" class="text-center">id_ruta</th>';
+    echo '        <th scope="col" class="text-center">origen</th>';
+    echo '        <th scope="col" class="text-center">destino</th>';
+    echo '        <th scope="col" class="text-center">distancia</th>';
     echo '        <th scope="col" class="text-center">duracion</th>';
     echo '        <th scope="col" class="text-center">matricula</th>';
     echo '    </tr>';
@@ -29,11 +29,11 @@ if ($sql->num_rows > 0) {
     while ($datos = $sql->fetch_object()) {
         echo "<tr>";
         echo "<td><input type='checkbox' name='ids[]' value='{$datos->id_ruta}'></td>";
-        echo "<th scope='row'>{$datos->id_ruta}</th>";
-        echo "<td>{$datos->origen}</td>";
-        echo "<td>{$datos->destino}</td>";
-        echo "<td>{$datos->distancia}</td>";
-        echo "<td>{$datos->duracion}</td>";
+        echo "<th scope='row' class='text-center'>{$datos->id_ruta}</th>";
+        echo "<td class='text-center'>{$datos->origen}</td>";
+        echo "<td class='text-center'>{$datos->destino}</td>";
+        echo "<td class='text-center'>{$datos->distancia}</td>";
+        echo "<td class='text-center'>{$datos->duracion}</td>";
         echo "<td class='text-center'>{$datos->matricula}</td>";
         echo "</tr>";
     }

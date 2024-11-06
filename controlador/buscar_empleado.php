@@ -19,18 +19,22 @@ if ($sql->num_rows > 0) {
     while ($datos = $sql->fetch_object()) {
         echo "<tr>";
         echo "<td><input type='checkbox' name='ids[]' value='{$datos->id_empleado}'></td>";
-        echo "<th scope='row'>{$datos->id_empleado}</th>";
-        echo "<td>{$datos->nombre}</td>";
-        echo "<td>{$datos->apellido_paterno}</td>";
-        echo "<td>{$datos->apellido_materno}</td>";
-        echo "<td>{$datos->email}</td>";
-        echo "<td>{$datos->clave_lada}</td>";
-        echo "<td>{$datos->telefono}</td>";
-        echo "<td>{$datos->fecha_registro}</td>";
-        echo "<td>{$datos->contraseña}</td>";
-        echo "<td>{$datos->nombre_usuario}</td>";
-        echo "<td>{$datos->NIP}</td>";
-        echo "<td>{$datos->cargo}</td>";
+        echo "<th scope='row' class='text-center'>{$datos->id_empleado}</th>";
+        echo "<td class='text-center'>{$datos->nombre}</td>";
+        echo "<td class='text-center'>{$datos->apellido_paterno}</td>";
+        echo "<td class='text-center'>{$datos->apellido_materno}</td>";
+        echo "<td class='text-center'>{$datos->email}</td>";
+        echo "<td class='text-center'>{$datos->clave_lada}</td>";
+        echo "<td class='text-center'>{$datos->telefono}</td>";
+        echo "<td class='text-center'>{$datos->fecha_registro}</td>";
+        echo "<td class='text-center'>{$datos->contraseña}</td>";
+        echo "<td class='text-center'>{$datos->nombre_usuario}</td>";
+        echo "<td class='text-center'>{$datos->NIP}</td>";
+        echo "<td class='text-center'>{$datos->cargo}</td>";
+        echo "<td class='text-center'><?= $datos->disponibilidad ?></td>
+                                        <td class='text-center'>
+                                            <img src='<?= $datos->img ?>' alt='Imagen del empleado' style='width: 100px; height: 60px;'>
+                                        </td>";
         echo "</tr>";
     }
 } else {
@@ -38,5 +42,3 @@ if ($sql->num_rows > 0) {
 }
 
 $conexion->close();
-
-?>

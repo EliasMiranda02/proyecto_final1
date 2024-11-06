@@ -17,10 +17,10 @@ if ($sql->num_rows > 0) {
     while ($datos = $sql->fetch_object()) {
         echo "<tr>";
         echo "<td><input type='hidden' name='ids[]' value='{$datos->id_calificacion}'></td>";
-        echo "<th scope='row'>{$datos->id_calificacion}</th>";
-        echo "<td>{$datos->id_cliente}</td>";
-        echo "<td>{$datos->promedio_calificacion}</td>";
-        echo "<td>{$datos->comentario}</td>";
+        echo "<th scope='row' class='text-center'>{$datos->id_calificacion}</th>";
+        echo "<td class='text-center'>{$datos->id_cliente}</td>";
+        echo "<td class='text-center'>{$datos->promedio_calificacion}</td>";
+        echo "<td class='descripcion text-center'>{$datos->comentario}</td>";
         
         echo "</tr>";
     }

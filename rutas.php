@@ -6,6 +6,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>RUTAS</title>
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="CSS/hotel.css">
     <script src="https://kit.fontawesome.com/90c11f8b3b.js" crossorigin="anonymous"></script>
 </head>
 
@@ -63,14 +64,15 @@
 
             <!-- TABLA DE RUTAS -->
             <form id="Rutas" action="controlador/delete.php" method="post">
+            <div class="table-responsive">
                 <table class="table" id="table-body">
                     <thead class="bg-info">
                         <tr>
                             <th scope="col"><input type="hidden" id="selectAll"></th>
-                            <th scope="col">id_ruta</th>
-                            <th scope="col">origen</th>
-                            <th scope="col">destino</th>
-                            <th scope="col">distancia</th>
+                            <th scope="col" class="text-center">id_ruta</th>
+                            <th scope="col" class="text-center">origen</th>
+                            <th scope="col" class="text-center">destino</th>
+                            <th scope="col" class="text-center">distancia</th>
                             <th scope="col" class="text-center">duracion</th>
                             <th scope="col" class="text-center">matricula</th>
                         </tr>
@@ -82,16 +84,17 @@
                         while ($datos = $sql->fetch_object()) { ?>
                             <tr>
                                 <td><input type="checkbox" name="ids[]" value="<?= $datos->id_ruta ?>"></td>
-                                <th scope="row"><?= $datos->id_ruta ?></th>
-                                <td><?= $datos->origen ?></td>
-                                <td><?= $datos->destino ?></td>
-                                <td><?= $datos->distancia ?></td>
-                                <td><?= $datos->duracion ?></td>
+                                <th scope="row" class="text-center"><?= $datos->id_ruta ?></th>
+                                <td class="text-center"><?= $datos->origen ?></td>
+                                <td class="text-center"><?= $datos->destino ?></td>
+                                <td class="text-center"><?= $datos->distancia ?></td>
+                                <td class="text-center"><?= $datos->duracion ?></td>
                                 <td class="text-center"><?= $datos->matricula ?></td>
                             </tr>
                         <?php } ?>
                     </tbody>
                 </table>
+            </div>
                 <button type="button" class="btn btn-danger" data-bs-toggle="modal" data-bs-target="#eliminar_ruta">Eliminar seleccionados</button>
                 <button type="button" class="btn btn-warning" id="btnEditar" data-bs-toggle="modal" data-bs-target="#editar">Editar Usuario</button>
             </form>

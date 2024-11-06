@@ -36,10 +36,10 @@
                         <thead class="bg-info">
                             <tr>
                                 <th scope="col"><input type="hidden" id="selectAll"></th>
-                                <th scope="col">id_calificacion</th>
-                                <th scope="col">id_cliente</th>
-                                <th scope="col">promedio_calificacion</th>
-                                <th scope="col">comentario</th>
+                                <th scope="col" class="text-center">id_calificacion</th>
+                                <th scope="col" class="text-center">id_cliente</th>
+                                <th scope="col" class="text-center">promedio_calificacion</th>
+                                <th scope="col" class="text-center">comentario</th>
                             </tr>
                         </thead>
                         <tbody>
@@ -50,10 +50,10 @@
                             while ($datos = $sql->fetch_object()) { ?>
                                 <tr>
                                     <td><input type="hidden" name="ids[]" value="<?= $datos->id_calificacion ?>"></td>
-                                    <th scope="row"><?= $datos->id_calificacion ?></th>
-                                    <td><?= $datos->id_cliente ?></td>
-                                    <td><?= $datos->promedio_calificacion ?></td>
-                                    <td><?= $datos->comentario ?></td>
+                                    <th scope="row" class="text-center"><?= $datos->id_calificacion ?></th>
+                                    <td class="text-center"><?= $datos->id_cliente ?></td>
+                                    <td class="text-center"><?= $datos->promedio_calificacion ?></td>
+                                    <td class="descripcion text-center"><?= $datos->comentario ?></td>
                                     
                                 </tr>
                             <?php } ?>

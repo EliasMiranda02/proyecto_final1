@@ -83,12 +83,12 @@
                                     <td><input type="checkbox" name="ids[]" value="<?= $datos->id_hotel ?>"></td>
                                     <th scope="row"><?= $datos->id_hotel ?></th>
                                     <td><?= $datos->nombre_hotel ?></td>
-                                    <td><?= $datos->direccion ?></td>
+                                    <td class="descripcion"><?= $datos->direccion ?></td>
                                     <td><?= $datos->clave_lada ?></td>
                                     <td><?= $datos->telefono ?></td>
                                     <td><?= $datos->correo_electronico ?></td>
                                     <td><?= $datos->numero_habitaciones ?></td>
-                                    <td><?= $datos->descripcion ?></td>
+                                    <td class="descripcion"><?= $datos->descripcion ?></td>
                                     <td><?= $datos->precio_noche ?></td>
                                     <td><?= $datos->calificacion ?></td>
                                 </tr>

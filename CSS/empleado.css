@@ -1,8 +1,18 @@
-
+.body{
+    overflow-y: hidden;
+}
 /* Para la tabla dentro del modal */
 .table-responsive {
-    max-height: 60vh; /* Altura máxima para la tabla */
-    overflow-y: auto; /* Agregar desplazamiento vertical si el contenido es demasiado grande */
+    max-height: 300px; /* Ajusta la altura para mostrar 6 registros */
+    overflow-y: auto;  /* Permite el desplazamiento vertical */
+    border: 1px solid #ccc; /* Añade un borde para mayor claridad */
+    margin-bottom: 10px; /* Espacio debajo de la tabla */
+}
+thead th {
+    position: sticky;
+    top: 0;
+    background-color: white; /* Fondo blanco para el encabezado */
+    z-index: 10; /* Asegura que el encabezado esté por encima del cuerpo */
 }
 
 /* Opcional: hacer que las celdas de la tabla se ajusten al contenido */
