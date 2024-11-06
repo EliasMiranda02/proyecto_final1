@@ -7,10 +7,15 @@
                 <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
             </div>
             <div class="modal-body custom-scroll">
-                
+
                 <form action="controlador/add_catacarro.php" method="post" enctype="multipart/form-data"> <!-- Cambia aquí -->
 
-                    
+                    <center><img id="image" src="IMG/Imagen1.png" alt="Vista previa de la imagen" style="display: block; max-width: 200px; margin-top: 10px; border-radius: 60%;"></center>
+                    <div class="form-group mb-3">
+                        <label for="imagen" class="form-label">Imagen</label>
+                        <input class="form-control" type="file" id="selImg" name="selImg">
+                    </div>
+
                     <div class="form-floating mb-3">
                         <input type="text" class="form-control" name="modelo" id="modelo" required>
                         <label for="nombre_usuario">Modelo del carro</label>
@@ -19,9 +24,9 @@
                         <input type="text" class="form-control" name="precio" id="precio" required>
                         <label for="pass1">Precio de la renta del carro</label>
                     </div>
-                    
+
                     <div class="form-floating mb-3">
-                        <input type="number" step="1" class="form-control" id="capacidad" name="capacidad"required>
+                        <input type="number" step="1" class="form-control" id="capacidad" name="capacidad" required>
                         <label for="nip">Capacidad</label>
                     </div>
                     <div class="input-group mb-3" required>

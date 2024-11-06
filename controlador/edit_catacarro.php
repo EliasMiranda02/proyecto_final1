@@ -11,13 +11,33 @@ if (isset($_POST['id_carro_editar']) && !empty($_POST['id_carro_editar'])) {
     $precio = $conexion->real_escape_string($_POST['precios']); // Ajustar según el tipo de la columna en la BD
     $capacidad = $conexion->real_escape_string($_POST['capacidades']);
     $estado = $conexion->real_escape_string($_POST['estado']);
+
+
+    if (isset($_FILES['selImg']) && $_FILES['selImg']['error'] == 0) {
+        $imagen = $_FILES['selImg'];
+        $rutaImg = 'IMG/rodante/' . basename($imagen['name']); // Define la ruta donde se guardará la imagen
+        if (move_uploaded_file($imagen['tmp_name'], '../' . $rutaImg)) {
     // Construir la consulta para actualizar el registro
-    $sql = "UPDATE carros SET 
-                modelo = '$modelo', 
-                precio_renta = '$precio',
-                capacidad = '$capacidad',
-                estado = '$estado'
-            WHERE id_carro = '$id_carro_editar'";
+            $sql = "UPDATE carros SET 
+                        modelo = '$modelo', 
+                        precio_renta = '$precio',
+                        capacidad = '$capacidad',
+                        estado = '$estado',
+                        img = '$rutaImg'
+                    WHERE id_carro = '$id_carro_editar'";
+        }
+        else {
+            echo "Error al mover la imagen a la carpeta.";
+            exit();
+        }
+    } else{
+        $sql = "UPDATE carros SET 
+                        modelo = '$modelo', 
+                        precio_renta = '$precio',
+                        capacidad = '$capacidad',
+                        estado = '$estado'
+                    WHERE id_carro = '$id_carro_editar'";
+    }
 
     // Ejecutar la consulta
     if ($conexion->query($sql) === TRUE) {
