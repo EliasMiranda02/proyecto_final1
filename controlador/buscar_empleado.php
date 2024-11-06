@@ -31,9 +31,9 @@ if ($sql->num_rows > 0) {
         echo "<td class='text-center'>{$datos->nombre_usuario}</td>";
         echo "<td class='text-center'>{$datos->NIP}</td>";
         echo "<td class='text-center'>{$datos->cargo}</td>";
-        echo "<td class='text-center'><?= $datos->disponibilidad ?></td>
+        echo "<td class='text-center'>{$datos->disponibilidad}</td>
                                         <td class='text-center'>
-                                            <img src='<?= $datos->img ?>' alt='Imagen del empleado' style='width: 100px; height: 60px;'>
+                                            <img src='{$datos->img}' alt='Imagen del empleado' style='width: 100px; height: 60px;'>
                                         </td>";
         echo "</tr>";
     }

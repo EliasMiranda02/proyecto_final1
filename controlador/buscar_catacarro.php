@@ -34,7 +34,7 @@ if ($sql->num_rows > 0) {
         echo "<td class='text-center'>{$datos->capacidad}</td>";
         echo "<td class='text-center'>{$datos->estado}</td>";
         echo "<td class='text-center'>
-                                    <img src='<?= $datos->img ?>' alt='Imagen del cliente' style='width: 100px; height: 60px;'>
+                                    <img src='{$datos->img}' alt='Imagen del cliente' style='width: 100px; height: 60px;'>
                                 </td>";
         echo "</tr>";
     }
