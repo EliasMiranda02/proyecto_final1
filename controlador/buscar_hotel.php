@@ -26,8 +26,10 @@ if ($sql->num_rows > 0) {
         echo "<td>{$datos->numero_habitaciones}</td>";
         echo "<td>{$datos->descripcion}</td>";
         echo "<td>{$datos->precio_noche}</td>";
-        echo "<td>{$datos->calificacion}</td>";
-        echo "<td><img src='<?= $datos->img ?>' alt='Imagen' style='width: 100px; height: 60px;'></td>";
+        echo "<td>{$datos->calificacion}</td>
+                                <td class='text-center'>
+                                    <img src='<?= $datos->img ?>' alt='Imagen del cliente' style='width: 100px; height: 60px;'>
+                                </td>";
         echo "</tr>";
     }
 } else {
