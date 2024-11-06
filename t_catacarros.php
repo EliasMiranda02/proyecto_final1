@@ -70,6 +70,7 @@
                             <th scope="col" class="text-center">precio_renta</th>
                             <th scope="col">capacidad</th>
                             <th scope="col">estado</th>
+                            <th scope="col">img</th>
                         </tr>
                     </thead>
                     <tbody class="">
@@ -84,6 +85,9 @@
                                 <td><?= $datos->precio_renta ?></td>
                                 <td><?= $datos->capacidad ?></td>
                                 <td><?= $datos->estado ?></td>
+                                <td>
+                                    <img src="<?= $datos->img ?>" alt="Imagen del cliente" style="width: 100px; height: 60px;">
+                                </td>
                             </tr>
                         <?php } ?>
                     </tbody>
@@ -115,6 +119,7 @@
                 const precio_renta = row.cells[3].innerText;
                 const capacidad = row.cells[4].innerText;
                 const estado = row.cells[5].innerText;
+                const imagen = row.cells[6].querySelector('img').src;
 
                 // Llenar los campos del modal
                 document.getElementById('id_carro_editar').value = id;
@@ -122,6 +127,7 @@
                 document.getElementById('precios').value = precio_renta;
                 document.getElementById('capacidades').value = capacidad;
                 document.getElementById('estados').value = estado;
+                document.getElementById('imagen').src = imagen;
 
                 // Abrir el modal
                 $('#editar').modal('show');
@@ -172,6 +178,34 @@
                 })
                 .catch(error => console.error('Error:', error));
         });
+
+        // JS PARA HACER LA IMAGEN APAREZCA
+        function actualizarImg() {
+            const $inputfile = document.querySelector("#selImg"),
+                $imgcliente = document.querySelector("#image");
+
+            // Establece la imagen por defecto al cargar
+            const defaultImg = "IMG/Imagen1.png";
+            $imgcliente.src = defaultImg;
+
+            $inputfile.addEventListener("change", function() {
+                const files = $inputfile.files;
+                if (!files || !files.length) {
+                    // Si no hay archivos seleccionados, vuelve a la imagen por defecto
+                    $imgcliente.src = defaultImg;
+                    return;
+                }
+
+                // Si hay un archivo seleccionado, reemplaza la imagen por el archivo seleccionado
+                const archivoInicial = files[0];
+                const Url = URL.createObjectURL(archivoInicial);
+                $imgcliente.src = Url;
+            });
+        }
+
+        // Llamada a la función
+        actualizarImg();
+        
     </script>
 
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
