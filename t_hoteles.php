@@ -71,6 +71,7 @@
                                 <th scope="col">descripcion</th>
                                 <th scope="col">precio por noche</th>
                                 <th scope="col">calificacion</th>
+                                <th scope="col">img</th>
                             </tr>
                         </thead>
                         <tbody>
@@ -91,6 +92,9 @@
                                     <td><?= $datos->descripcion ?></td>
                                     <td><?= $datos->precio_noche ?></td>
                                     <td><?= $datos->calificacion ?></td>
+                                    <td>
+                                        <img src="<?= $datos->img ?>" alt="Imagen" style="width: 100px; height: 60px;">
+                                    </td>
                                 </tr>
                             <?php } ?>
                         </tbody>

@@ -16,6 +16,7 @@
                         <label for="imagen" class="form-label">Imagen</label>
                         <input class="form-control" type="file" id="selImg" name="selImg">
                     </div>
+                    
                     <div class="form-floating mb-3">
                         <input type="text" class="form-control" name="modelos" id="modelos" required>
                         <label for="floatingInput">Modelo del carro</label>

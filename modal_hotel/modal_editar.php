@@ -4,10 +4,19 @@
       <div class="modal-header">
         <h1 class="modal-title fs-5">Editar Hotel</h1>
       </div>
-      <div class="modal-body">
-        <form id="editarForm" action="./controlador/editar_hotel.php" method="post">
+      <div class="modal-body custom-scroll">
+        <form id="editarForm" action="./controlador/editar_hotel.php" method="post" enctype="multipart/form-data" >
           <input type="hidden" id="id_hotel_editar" name="id_hotel_editar">
-          
+
+          <center>
+            <!-- Imagen mostrada en el modal, cambiar cuando se seleccione un archivo -->
+            <img id="imagenes" src="" alt="Vista previa de la imagen" style="display: block; max-width: 200px; margin-top: 10px; border-radius: 60%;">
+          </center>
+          <div class="form-group mb-3">
+            <label for="imagen" class="form-label">Imagen</label>
+            <input class="form-control" type="file" id="selImgen" name="selImgen">
+          </div>
+
           <div class="mb-3">
             <label for="nombre_hotel" class="form-label">Nombre del Hotel</label>
             <input type="text" class="form-control" id="nombre_hotel" name="nombre_hotel" required>
@@ -26,39 +35,39 @@
               <option value="33">33</option>
             </select>
           </div>
-          
+
           <div class="mb-3">
             <label for="telefono" class="form-label">Telefono</label>
             <input type="text" class="form-control" id="telefono" name="telefono" pattern="^\d{1,7}$" required oninput="this.value = this.value.replace(/[^0-9]/g, '').slice(0, 7)">
           </div>
-          
+
           <div class="mb-3">
             <label for="correo_electronico" class="form-label">Correo electrónico</label>
             <input type="email" class="form-control" id="correo_electronico" name="correo_electronico" required>
           </div>
-          
+
           <div class="mb-3">
             <label for="numero_habitaciones" class="form-label">Número de Habitaciones</label>
             <input type="text" class="form-control" id="numero_habitaciones" name="numero_habitaciones" required>
           </div>
-          
+
           <div class="mb-3">
             <label for="descripcion" class="form-label">Descripción</label>
             <input type="text" class="form-control" id="descripcion" name="descripcion" required>
           </div>
-          
+
           <div class="mb-3">
             <label for="precio_noche" class="form-label">Precio por Noche</label>
             <input type="text" class="form-control" id="precio_noche" name="precio_noche" required>
           </div>
-          
+
           <div class="mb-3">
             <label for="calificacion" class="form-label">Calificación</label>
             <input type="text" class="form-control" id="calificacion" name="calificacion" required>
           </div>
         </form>
       </div>
-      
+
       <div class="modal-footer">
         <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cancelar</button>
         <button type="button" class="btn btn-primary" id="confirmarEditar" onclick="document.getElementById('editarForm').submit();">Guardar Cambios</button>
@@ -66,3 +75,10 @@
     </div>
   </div>
 </div>
+
+<style>
+    .custom-scroll {
+        max-height: 400px;
+        overflow-y: auto;
+    }
+</style>

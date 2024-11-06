@@ -15,18 +15,41 @@ if (isset($_POST['id_hotel_editar']) && !empty($_POST['id_hotel_editar'])) {
     $descripcion = $conexion->real_escape_string($_POST['descripcion']); 
     $precio_noche = $conexion->real_escape_string($_POST['precio_noche']);
     $calificacion = $conexion->real_escape_string($_POST['calificacion']);
-    // Construir la consulta para actualizar el registro
-    $sql = "UPDATE hoteles SET 
-                nombre_hotel = '$nombre_hotel', 
-                direccion = '$direccion', 
-                clave_lada = '$clave_lada', 
-                telefono = '$telefono', 
-                correo_electronico = '$correo_electronico', 
-                numero_habitaciones = '$numero_habitaciones',
-                descripcion = '$descripcion',
-                precio_noche = '$precio_noche',
-                calificacion = '$calificacion'
-            WHERE id_hotel = '$id_hotel_editar'";
+
+    if (isset($_FILES['selImgen']) && $_FILES['selImgen']['error'] == 0) {
+        $imagen = $_FILES['selImgen'];
+        $rutaImg = 'IMG/hoteles/' . basename($imagen['name']); // Define la ruta donde se guardará la imagen
+        if (move_uploaded_file($imagen['tmp_name'], '../' . $rutaImg)) {
+            $sql = "UPDATE hoteles SET 
+                        nombre_hotel = '$nombre_hotel', 
+                        direccion = '$direccion', 
+                        clave_lada = '$clave_lada', 
+                        telefono = '$telefono', 
+                        correo_electronico = '$correo_electronico', 
+                        numero_habitaciones = '$numero_habitaciones',
+                        descripcion = '$descripcion',
+                        precio_noche = '$precio_noche',
+                        calificacion = '$calificacion',
+                        img = '$rutaImg'
+                    WHERE id_hotel = '$id_hotel_editar'";
+        }
+        else {
+            echo "Error al mover la imagen a la carpeta.";
+            exit();
+        }
+    } else{
+            $sql = "UPDATE hoteles SET 
+                        nombre_hotel = '$nombre_hotel', 
+                        direccion = '$direccion', 
+                        clave_lada = '$clave_lada', 
+                        telefono = '$telefono', 
+                        correo_electronico = '$correo_electronico', 
+                        numero_habitaciones = '$numero_habitaciones',
+                        descripcion = '$descripcion',
+                        precio_noche = '$precio_noche',
+                        calificacion = '$calificacion'
+                    WHERE id_hotel = '$id_hotel_editar'";
+    }
 
     // Ejecutar la consulta
     if ($conexion->query($sql) === TRUE) {

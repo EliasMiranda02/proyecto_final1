@@ -15,8 +15,8 @@
     <div class="d-flex justify-content-center align-items-center vh-100">
         <div class="col-10">
 
-        <!-- ALERTA DE CUANDO SE EJECTUTAN LOS CRUDS -->
-        <?php if (isset($_GET['mensaje'])): ?>
+            <!-- ALERTA DE CUANDO SE EJECTUTAN LOS CRUDS -->
+            <?php if (isset($_GET['mensaje'])): ?>
                 <div class="alert alert-info mb-3" id="mensajeAlerta">
                     <?php
                     if ($_GET['mensaje'] == 'actualizado') {
@@ -64,7 +64,7 @@
             </div>
 
 
-            
+
             <form id="Paquetes" action="controlador/eliminar_paquete.php" method="post">
                 <!-- Contenedor de la tabla con scroll -->
                 <div class="table-container">
@@ -92,7 +92,7 @@
                                 <tr>
                                     <td><input type="checkbox" name="ids[]" value="<?= $datos->id_paquete ?>"></td>
                                     <th scope="row"><?= $datos->id_paquete ?></th>
-                                    <td><?=$datos->numero_paquete?></td>
+                                    <td><?= $datos->numero_paquete ?></td>
                                     <td><?= $datos->nombre ?></td>
                                     <td class="descripcion"><?= $datos->descripcion ?></td>
                                     <td><?= $datos->precio_aproximado ?></td>
@@ -182,55 +182,55 @@
         }, 1000);
 
         document.getElementById('searchFormAsesor').addEventListener('submit', function(event) {
-    event.preventDefault();
+            event.preventDefault();
 
-    const formData = new FormData(this);
-    const queryValue = formData.get('query').trim(); // Obtener el valor de 'query' y quitar espacios
+            const formData = new FormData(this);
+            const queryValue = formData.get('query').trim(); // Obtener el valor de 'query' y quitar espacios
 
-    // Verificar si el campo de búsqueda está vacío
-    if (queryValue === "") {
-        // Si está vacío, usar un valor especial para indicar "todos los registros"
-        formData.set('query', '%'); // Esto actuará como un comodín en SQL para traer todos los registros
-    }
+            // Verificar si el campo de búsqueda está vacío
+            if (queryValue === "") {
+                // Si está vacío, usar un valor especial para indicar "todos los registros"
+                formData.set('query', '%'); // Esto actuará como un comodín en SQL para traer todos los registros
+            }
 
-    // Realizar la solicitud AJAX
-    fetch('controlador/buscar_paquete.php', {
-            method: 'POST',
-            body: formData
-        })
-        .then(response => response.text())
-        .then(data => {
-            // Actualizar el contenido de la tabla con los resultados de la búsqueda
-            document.getElementById('table-body').innerHTML = data;
-
-            // Reasignar el evento de clic para los botones de itinerarios
-            assignItineraryButtonEvents();
-        })
-        .catch(error => console.error('Error:', error));
-});
-
-// Función para asignar eventos a los botones de itinerarios
-function assignItineraryButtonEvents() {
-    const buttonsBanco = document.querySelectorAll('button[data-bs-target="#banco"]');
-
-    buttonsBanco.forEach(button => {
-        button.addEventListener('click', function() {
-            const row = this.closest('tr');
-            const id_paquete = row.querySelector('input[name="ids[]"]').value;
-            const idPaqueteDisplay = document.getElementById('idPaqueteDisplay');
-            idPaqueteDisplay.innerHTML = 'ID Paquete: ' + id_paquete;
-
-            // Realizar la solicitud para obtener los itinerarios
-            fetch(`controlador/datos_iterinarios.php?id_paquete=${id_paquete}`)
-                .then(response => response.json())
+            // Realizar la solicitud AJAX
+            fetch('controlador/buscar_paquete.php', {
+                    method: 'POST',
+                    body: formData
+                })
+                .then(response => response.text())
                 .then(data => {
-                    const datosBancarios = document.getElementById('datosBancarios');
-                    datosBancarios.innerHTML = '';
+                    // Actualizar el contenido de la tabla con los resultados de la búsqueda
+                    document.getElementById('table-body').innerHTML = data;
 
-                    if (data.length > 0) {
-                        // Mostrar los datos de cada itinerario sin tabla
-                        data.forEach(dato => {
-                            datosBancarios.innerHTML += `
+                    // Reasignar el evento de clic para los botones de itinerarios
+                    assignItineraryButtonEvents();
+                })
+                .catch(error => console.error('Error:', error));
+        });
+
+        // Función para asignar eventos a los botones de itinerarios
+        function assignItineraryButtonEvents() {
+            const buttonsBanco = document.querySelectorAll('button[data-bs-target="#banco"]');
+
+            buttonsBanco.forEach(button => {
+                button.addEventListener('click', function() {
+                    const row = this.closest('tr');
+                    const id_paquete = row.querySelector('input[name="ids[]"]').value;
+                    const idPaqueteDisplay = document.getElementById('idPaqueteDisplay');
+                    idPaqueteDisplay.innerHTML = 'ID Paquete: ' + id_paquete;
+
+                    // Realizar la solicitud para obtener los itinerarios
+                    fetch(`controlador/datos_iterinarios.php?id_paquete=${id_paquete}`)
+                        .then(response => response.json())
+                        .then(data => {
+                            const datosBancarios = document.getElementById('datosBancarios');
+                            datosBancarios.innerHTML = '';
+
+                            if (data.length > 0) {
+                                // Mostrar los datos de cada itinerario sin tabla
+                                data.forEach(dato => {
+                                    datosBancarios.innerHTML += `
                                 <p><strong>ID Itinerario:</strong> ${dato.id_itinerario}</p>
                                 <P><strong>Nombre:</strong> ${dato.nombre_actividad}</P> 
                                 <p><strong>Hora:</strong> ${dato.hora}</p>
@@ -238,22 +238,20 @@ function assignItineraryButtonEvents() {
                                 <p><strong>Detalle:</strong> ${dato.detalle}</p>
                                 <hr>
                             `;
+                                });
+                            } else {
+                                datosBancarios.innerHTML = '<p>No se encontraron Itinerarios para este Paquete.</p>';
+                            }
+                        })
+                        .catch(error => {
+                            console.error('Error al obtener los datos del Itinerario:', error);
                         });
-                    } else {
-                        datosBancarios.innerHTML = '<p>No se encontraron Itinerarios para este Paquete.</p>';
-                    }
-                })
-                .catch(error => {
-                    console.error('Error al obtener los datos del Itinerario:', error);
                 });
-        });
-    });
-}
+            });
+        }
 
-// Llama a la función una vez al cargar la página para asegurar que los botones tengan eventos asignados
-assignItineraryButtonEvents();
-
-
+        // Llama a la función una vez al cargar la página para asegurar que los botones tengan eventos asignados
+        assignItineraryButtonEvents();
     </script>
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
 </body>

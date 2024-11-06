@@ -6,8 +6,15 @@
                 <h1 class="modal-title fs-5" id="exampleModalLabel">Agregar Hotel</h1>
                 <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
             </div>
-            <div class="modal-body">
+            <div class="modal-body custom-scroll">
                 <form action="./controlador/guardar_hotel.php" method="post" enctype="multipart/form-data">
+
+                    <center><img id="image" src="IMG/hotel.png" alt="Vista previa de la imagen" style="display: block; max-width: 200px; margin-top: 10px; border-radius: 60%;"></center>
+                    <div class="form-group mb-3">
+                        <label for="imagen" class="form-label">Imagen</label>
+                        <input class="form-control" type="file" id="selImg" name="selImg">
+                    </div>
+
                     <div class="mb-3">
                         <label for="nombre_hotel" class="form-label">Nombre del Hotel</label>
                         <input type="text" name="nombre_hotel" id="nombre_hotel" class="form-control" required>
@@ -62,3 +69,11 @@
         </div>
     </div>
 </div>
+
+<style>
+    .custom-scroll {
+        max-height: 400px;
+        /* Ajusta la altura según tus necesidades */
+        overflow-y: auto;
+    }
+</style>

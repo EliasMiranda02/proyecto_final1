@@ -20,6 +20,7 @@ btnEditar.addEventListener('click', function(event) {
             const descripcion = row.cells[8].innerText;
             const precio_noche = row.cells[9].innerText; 
             const calificacion = row.cells[10].innerText;
+            const imagen = row.cells[11].querySelector('img').src;
 
             // Llenar los campos del modal
             document.getElementById('id_hotel_editar').value = id;
@@ -32,6 +33,7 @@ btnEditar.addEventListener('click', function(event) {
             document.getElementById('descripcion').value = descripcion;
             document.getElementById('precio_noche').value = precio_noche;
             document.getElementById('calificacion').value = calificacion;
+            document.getElementById('imagenes').src = imagen;
 
             // Abrir el modal
             $('#editar').modal('show');
@@ -82,3 +84,30 @@ document.getElementById('searchFormHotel').addEventListener('submit', function(e
     })
     .catch(error => console.error('Error:', error));
 });
+
+// JS PARA HACER LA IMAGEN APAREZCA
+function actualizarImg() {
+    const $inputfile = document.querySelector("#selImg"),
+        $imgcliente = document.querySelector("#image");
+
+    // Establece la imagen por defecto al cargar
+    const defaultImg = "IMG/hotel.png";
+    $imgcliente.src = defaultImg;
+
+    $inputfile.addEventListener("change", function() {
+        const files = $inputfile.files;
+        if (!files || !files.length) {
+            // Si no hay archivos seleccionados, vuelve a la imagen por defecto
+            $imgcliente.src = defaultImg;
+            return;
+        }
+
+        // Si hay un archivo seleccionado, reemplaza la imagen por el archivo seleccionado
+        const archivoInicial = files[0];
+        const Url = URL.createObjectURL(archivoInicial);
+        $imgcliente.src = Url;
+    });
+}
+
+// Llamada a la función
+actualizarImg();
