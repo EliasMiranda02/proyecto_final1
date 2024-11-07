@@ -11,8 +11,28 @@
 </head>
 
 <body>
+<?php if (isset($_GET['mensaje'])): ?>
+                <div class="alert alert-info mb-3" id="mensajeAlerta">
+                    <?php
+                    if ($_GET['mensaje'] == 'actualizado') {
+                        echo "Registro actualizado correctamente.";
+                    } elseif ($_GET['mensaje'] == 'error') {
+                        echo "Hubo un error: " . ($_GET['detalle'] ?? '');
+                    } elseif ($_GET['mensaje'] == 'no_id') {
+                        echo "No se seleccionó ningún registro.";
+                    } elseif ($_GET['mensaje'] == 'eliminado') {
+                        echo "Registros eliminados correctamente.";
+                    } elseif ($_GET['mensaje'] == 'id_invalido') {
+                        echo "ID de registro inválido.";
+                    } elseif ($_GET['mensaje'] == 'registro_exitoso') {
+                        echo "Registro guardado correctamente.";
+                    }
+                    ?>
+                </div>
 
+            <?php endif; ?>
   <form action="controlador/add_itinerario.php" method="post" enctype="multipart/form-data">
+    
     <div class="container mt-5">
       <div class="formulario p-0">
 

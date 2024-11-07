@@ -110,4 +110,12 @@ document.getElementById('eliminar1').addEventListener('click', function(event) {
     precioTotal -= precioEliminado;
     actualizarPrecioTotal();
 });
+setTimeout(function() {
+    const mensajeAlerta = document.getElementById('mensajeAlerta');
+    if (mensajeAlerta) {
+        mensajeAlerta.style.display = 'none';
+    }
+}, 2000); // 5000 milisegundos = 5 segundos
+
+
 
