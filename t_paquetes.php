@@ -72,16 +72,16 @@
                         <thead>
                             <tr>
                                 <th scope="col" class="p-3"><input type="hidden" id="selectAll"></th>
-                                <th scope="col" class="text-center">id_paquete</th>
-                                <th scope="col" class="text-center">numero_paquete</th>
-                                <th scope="col" class="text-center">nombre</th>
-                                <th scope="col" class="text-center descripcion">descripcion</th>
-                                <th scope="col" class="p-2 text-center">precio_aproximado</th>
-                                <th scope="col" class="text-center">duracion_dias</th>
-                                <th scope="col" class="text-center">destino</th>
-                                <th scope="col" class="text-center">fecha_creacion</th>
-                                <th scope="col" class="text-center">fecha_modificacion</th>
-                                <th scope="col" class="text-center">img</th>
+                                <th scope="col" class="text-center">Código</th>
+                                <th scope="col" class="text-center">Número de Paquete</th>
+                                <th scope="col" class="text-center">Paquete</th>
+                                <th scope="col" class="text-center descripcion">Descripción</th>
+                                <th scope="col" class="p-2 text-center">Precio Aproximado</th>
+                                <th scope="col" class="text-center">Duración</th>
+                                <th scope="col" class="text-center">Destino</th>
+                                <th scope="col" class="text-center">Fecha de Creación</th>
+                                <th scope="col" class="text-center">Fecha de Modificación</th>
+                                <th scope="col" class="text-center">Foto</th>
                                 <th scope="col" class="text-center"></th>
                             </tr>
                         </thead>
