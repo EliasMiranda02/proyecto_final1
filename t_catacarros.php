@@ -88,7 +88,7 @@
                                 <td class="text-center"><?= $datos->capacidad ?></td>
                                 <td class="text-center"><?= $datos->estado ?></td>
                                 <td class="text-center">
-                                    <img src="<?= $datos->img ?>" alt="Imagen del cliente" style="width: 100px; height: 60px;">
+                                    <img src="<?= $datos->img ?>" alt="Imagen del carro" style="width: 100px; height: 60px;">
                                 </td>
                             </tr>
                         <?php } ?>
@@ -142,6 +142,7 @@
                 document.getElementById('editarForm').submit(); // Envía el formulario para actualizar el registro
             });
         });
+
         // PARA ELIMINAR
         document.getElementById('selectAll').addEventListener('change', function() {
             let checkboxes = document.querySelectorAll('input[name="ids[]"]');

@@ -13,16 +13,40 @@ if (isset($_POST['id_paquete_editar']) && !empty($_POST['id_paquete_editar'])) {
     $duracion_horas = $conexion->real_escape_string($_POST['duracion']);
     $destino = $conexion->real_escape_string($_POST['destino']); 
 
-    // Construir la consulta para actualizar el registro
-    $sql = "UPDATE paquetes SET 
-                nombre = '$nombre', 
-                descripcion = '$descripcion', 
-                precio_aproximado = '$precio_aproximado', 
-                duracion_dias = '$duracion_horas', 
-                destino = '$destino',
-                fecha_modificacion = NOW()
+
+
+
+    if (isset($_FILES['selImg']) && $_FILES['selImg']['error'] == 0) {
+        $imagen = $_FILES['selImg'];
+        $rutaImg = 'IMG/paquetes/' . basename($imagen['name']); // Define la ruta donde se guardará la imagen
+        if (move_uploaded_file($imagen['tmp_name'], '../' . $rutaImg)) {
+            // Construir la consulta para actualizar el registro
+            $sql = "UPDATE paquetes SET 
+                        nombre = '$nombre', 
+                        descripcion = '$descripcion', 
+                        precio_aproximado = '$precio_aproximado', 
+                        duracion_dias = '$duracion_horas', 
+                        destino = '$destino',
+                        fecha_modificacion = NOW(),
+                        img = '$rutaImg'
+                    WHERE id_paquete = '$id_paquete_editar'";
+        }
+        else {
+            echo "Error al mover la imagen a la carpeta.";
+            exit();
+        }
+    } else{
+
+        $sql = "UPDATE paquetes SET 
+            nombre = '$nombre', 
+            descripcion = '$descripcion', 
+            precio_aproximado = '$precio_aproximado', 
+            duracion_dias = '$duracion_horas', 
+            destino = '$destino',
+            fecha_modificacion = NOW()
             WHERE id_paquete = '$id_paquete_editar'";
 
+    }
     // Ejecutar la consulta
     if ($conexion->query($sql) === TRUE) {
         // Redirigir con éxito

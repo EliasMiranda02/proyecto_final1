@@ -81,6 +81,7 @@
                                 <th scope="col" class="text-center">destino</th>
                                 <th scope="col">fecha_creacion</th>
                                 <th scope="col">fecha_modificacion</th>
+                                <th scope="col">img</th>
                                 <th scope="col"></th>
                             </tr>
                         </thead>
@@ -100,6 +101,9 @@
                                     <td class="text-center"><?= $datos->destino ?></td>
                                     <td><?= $datos->fecha_creacion ?></td>
                                     <td><?= $datos->fecha_modificacion ?></td>
+                                    <td>
+                                        <img src="<?=$datos->img?>" alt="Imagen del paquete" style="width: 100px; height: 60px;">
+                                    </td>
                                     <td>
                                         <button type="button" class="btn btn-secondary" data-bs-toggle="modal" data-bs-target="#banco" data-id="<?= $datos->id_paquete ?>">Iterinarios</button>
                                     </td>
@@ -151,6 +155,7 @@
                 const destino = row.cells[7].innerText;
                 const fecha_creacion = row.cells[8].innerText;
                 const fecha_modificacion = row.cells[9].innerText;
+                const imagen = row.cells[10].querySelector('img').src;
 
                 // Llenar los campos del modal
                 document.getElementById('id_paquete_editar').value = id;
@@ -161,6 +166,7 @@
                 document.getElementById('destino').value = destino;
                 document.getElementById('fecha_creacion').value = fecha_creacion.replace(" ", "T").slice(0, 16);
                 document.getElementById('fecha_modificacion').value = fecha_modificacion.replace(" ", "T").slice(0, 16);
+                document.getElementById('imagen').src = imagen;
 
                 // Abrir el modal
                 $('#editar').modal('show');
@@ -252,6 +258,36 @@
 
         // Llama a la función una vez al cargar la página para asegurar que los botones tengan eventos asignados
         assignItineraryButtonEvents();
+
+
+                // JS PARA HACER LA IMAGEN APAREZCA
+                function actualizarImg() {
+            const $inputfile = document.querySelector("#selImg"),
+                $imgcliente = document.querySelector("#image");
+
+            // Establece la imagen por defecto al cargar
+            const defaultImg = "IMG/paquete.png";
+            $imgcliente.src = defaultImg;
+
+            $inputfile.addEventListener("change", function() {
+                const files = $inputfile.files;
+                if (!files || !files.length) {
+                    // Si no hay archivos seleccionados, vuelve a la imagen por defecto
+                    $imgcliente.src = defaultImg;
+                    return;
+                }
+
+                // Si hay un archivo seleccionado, reemplaza la imagen por el archivo seleccionado
+                const archivoInicial = files[0];
+                const Url = URL.createObjectURL(archivoInicial);
+                $imgcliente.src = Url;
+            });
+        }
+
+        // Llamada a la función
+        actualizarImg();
+        
+
     </script>
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
 </body>

@@ -5,8 +5,18 @@
         <h1 class="modal-title fs-5">Editar Usuario</h1>
       </div>
       <div class="modal-body custom-scroll">
-        <form id="editarForm" action="controlador/edit_paquete.php" method="post">
+        <form id="editarForm" action="controlador/edit_paquete.php" method="post" enctype="multipart/form-data">
           <input type="hidden" id="id_paquete_editar" name="id_paquete_editar">
+
+          <center>
+            <!-- Imagen mostrada en el modal, cambiar cuando se seleccione un archivo -->
+            <img id="imagen" src="" alt="Vista previa de la imagen" style="display: block; max-width: 200px; margin-top: 10px; border-radius: 60%;">
+          </center>
+          <div class="form-group mb-3">
+            <label for="imagen" class="form-label">Imagen</label>
+            <input class="form-control" type="file" id="selImg" name="selImg">
+          </div>
+
           <div class="form-floating mb-3">
             <input type="text" class="form-control" id="nombres" name="nombres" required>
             <label for="floatingInput" class="form-label">Nombre del Paquete</label>
@@ -47,9 +57,9 @@
 </div>
 
 <style>
-    .custom-scroll {
-        max-height: 400px;
-        /* Ajusta la altura según tus necesidades */
-        overflow-y: auto;
-    }
+  .custom-scroll {
+    max-height: 400px;
+    /* Ajusta la altura según tus necesidades */
+    overflow-y: auto;
+  }
 </style>

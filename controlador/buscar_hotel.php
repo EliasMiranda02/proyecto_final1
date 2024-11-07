@@ -28,7 +28,7 @@ if ($sql->num_rows > 0) {
         echo "<td>{$datos->precio_noche}</td>";
         echo "<td>{$datos->calificacion}</td>
                                 <td class='text-center'>
-                                    <img src='<?= $datos->img ?>' alt='Imagen del cliente' style='width: 100px; height: 60px;'>
+                                            <img src='{$datos->img}' alt='Imagen del empleado' style='width: 100px; height: 60px;'>
                                 </td>";
         echo "</tr>";
     }

@@ -19,6 +19,7 @@ if ($sql->num_rows > 0) {
         echo "<tr>";
             echo "<td><input type='checkbox' name='ids[]' value='{$datos->id_paquete}'></td>";
             echo "<th scope='row'>{$datos->id_paquete}</th>";
+            echo "<th>{$datos->numero_paquete}</th>";
             echo "<td>{$datos->nombre}</td>";
             echo "<td>{$datos->descripcion}</td>";
             echo "<td>{$datos->precio_aproximado}</td>";
@@ -26,9 +27,12 @@ if ($sql->num_rows > 0) {
             echo "<td>{$datos->destino}</td>";
             echo "<td>{$datos->fecha_creacion}</td>";
             echo "<td>{$datos->fecha_modificacion}</td>";
+            echo "<td class='text-center'>
+                        <img src='{$datos->img}' alt='Imagen del cliente' style='width: 100px; height: 60px;'>
+                  </td>";
             echo "<td>
                     <button type='button' class='btn btn-secondary itinerarios-button' data-bs-toggle='modal' data-bs-target='#banco' data-id='{$datos->id_paquete}'>Itinerarios</button>
-                </td>";
+                  </td>";
         echo "</tr>";
     }
     
