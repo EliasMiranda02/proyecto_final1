@@ -21,7 +21,7 @@
                 <input type="hidden" name="Reservaea" value="Reservaea"> <!-- Campo oculto -->
                 <div class="input-group">
                     <select name="campo" class="form-select" required>
-                        <option value="id_reservaea">ID</option>
+                        <option value="id_reservaea">Código</option>
                         <option value="cantidad_asientos">Cantidad de Asientos</option>
                         <option value="precio_excursion">Precio de la Excursion</option>
                     </select>

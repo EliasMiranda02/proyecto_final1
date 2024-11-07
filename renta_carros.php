@@ -20,9 +20,9 @@
                 <input type="hidden" name="cargo" value="Asesor de Viajes"> <!-- Campo oculto -->
                 <div class="input-group">
                     <select name="campo" class="form-select">
-                        <option value="id_renta">id_renta</option>
-                        <option value="id_carro">id_carro</option>
-                        <option value="id_cliente">id_cliente</option>
+                        <option value="id_renta">Código de renta</option>
+                        <option value="id_carro">Código de carro</option>
+                        <option value="id_cliente">Código de cliente</option>
                     </select>
                     <input type="text" class="form-control" name="query" placeholder="Buscar...">
                     <button type="submit" class="btn btn-primary">Buscar</button>
