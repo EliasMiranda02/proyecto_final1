@@ -13,9 +13,6 @@ if (isset($_POST['id_paquete_editar']) && !empty($_POST['id_paquete_editar'])) {
     $duracion_horas = $conexion->real_escape_string($_POST['duracion']);
     $destino = $conexion->real_escape_string($_POST['destino']); 
 
-
-
-
     if (isset($_FILES['selImg']) && $_FILES['selImg']['error'] == 0) {
         $imagen = $_FILES['selImg'];
         $rutaImg = 'IMG/paquetes/' . basename($imagen['name']); // Define la ruta donde se guardará la imagen

@@ -12,16 +12,38 @@ if (isset($_POST['id_excursion_editar']) && !empty($_POST['id_excursion_editar']
     $duracion_horas = $conexion->real_escape_string($_POST['duracion_horas']);
     $ubicacion = $conexion->real_escape_string($_POST['ubicacion']);
     $clasificacion = $conexion->real_escape_string($_POST['clasificacion']); // Ajustar según el tipo de la columna en la BD
-    // Construir la consulta para actualizar el registro
-    $sql = "UPDATE excursiones SET 
-                descripcion = '$descripcion', 
-                precio = '$precio', 
-                duracion_horas = '$duracion_horas', 
-                ubicacion = '$ubicacion', 
-                clasificacion = '$clasificacion',
-                fecha_modificacion = NOW()
-            WHERE id_excursion = '$id_excursion_editar'";
-
+    
+    
+    if (isset($_FILES['sellImg']) && $_FILES['sellImg']['error'] == 0) {
+        $imagen = $_FILES['sellImg'];
+        $rutaImg = 'IMG/excursiones/' . basename($imagen['name']); // Define la ruta donde se guardará la imagen
+        if (move_uploaded_file($imagen['tmp_name'], '../' . $rutaImg)) {
+                // Construir la consulta para actualizar el registro
+                $sql = "UPDATE excursiones SET 
+                    descripcion = '$descripcion', 
+                    precio = '$precio', 
+                    duracion_horas = '$duracion_horas', 
+                    ubicacion = '$ubicacion', 
+                    clasificacion = '$clasificacion',
+                    fecha_modificacion = NOW(),
+                    img = '$rutaImg'
+                WHERE id_excursion = '$id_excursion_editar'";
+    }
+    else {
+        echo "Error al mover la imagen a la carpeta.";
+        exit();
+    }
+    } else{
+        // Construir la consulta para actualizar el registro
+        $sql = "UPDATE excursiones SET 
+                    descripcion = '$descripcion', 
+                    precio = '$precio', 
+                    duracion_horas = '$duracion_horas', 
+                    ubicacion = '$ubicacion', 
+                    clasificacion = '$clasificacion',
+                    fecha_modificacion = NOW()
+                WHERE id_excursion = '$id_excursion_editar'";
+    }
     // Ejecutar la consulta
     if ($conexion->query($sql) === TRUE) {
         // Redirigir con éxito

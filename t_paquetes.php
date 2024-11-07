@@ -102,7 +102,7 @@
                                     <td><?= $datos->fecha_creacion ?></td>
                                     <td class="text-center"><?= $datos->fecha_modificacion ?></td>
                                     <td class="text-center">
-                                        <img src="<?=$datos->img?>" alt="Imagen del paquete" style="width: 100px; height: 60px;">
+                                        <img src="<?= $datos->img ?>" alt="Imagen del paquete" style="width: 100px; height: 60px;">
                                     </td>
                                     <td class="text-center">
                                         <button type="button" class="btn btn-secondary" data-bs-toggle="modal" data-bs-target="#banco" data-id="<?= $datos->id_paquete ?>">Iterinarios</button>
@@ -260,8 +260,8 @@
         assignItineraryButtonEvents();
 
 
-                // JS PARA HACER LA IMAGEN APAREZCA
-                function actualizarImg() {
+        // JS PARA HACER LA IMAGEN APAREZCA
+        function actualizarImg() {
             const $inputfile = document.querySelector("#selImg"),
                 $imgcliente = document.querySelector("#image");
 
@@ -286,8 +286,6 @@
 
         // Llamada a la función
         actualizarImg();
-        
-
     </script>
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
 </body>

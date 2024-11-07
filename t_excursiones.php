@@ -68,6 +68,7 @@
                                 <th scope="col" class="text-center">clasificacion</th>
                                 <th scope="col" class="text-center">fecha_creacion</th>
                                 <th scope="col" class="text-center">fecha_modificacion</th>
+                                <th scope="col" class="text-center">img</th>
                             </tr>
                         </thead>
                         <tbody>
@@ -86,6 +87,9 @@
                                     <td class="text-center"><?= $datos->clasificacion ?></td>
                                     <td class="text-center"><?= $datos->fecha_creacion ?></td>
                                     <td class="text-center"><?= $datos->fecha_modificacion ?></td>
+                                    <td class="text-center">
+                                        <img src="<?= $datos->img ?>" alt="Imagen excursión" style="width: 100px; height: 60px;">
+                                    </td>
                                 </tr>
                             <?php } ?>
                         </tbody>
@@ -106,6 +110,7 @@
     <?php include "modal_excursion/modal_anadir.php"; ?>
     <?php include "modal_excursion/modal_guias.php"; ?>
     <script src="JS/t_excursiones.js"></script> <!--PENDIENTE -->
+
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
 </body>
 

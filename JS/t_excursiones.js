@@ -16,7 +16,7 @@
             const duracion_horas = row.cells[4].innerText;
             const ubicacion = row.cells[5].innerText; // Suponiendo que la contraseña está en la columna 9
             const clasificacion = row.cells[6].innerText; // Ajusta el índice según tu tabla
-            
+            const imagen = row.cells[9].querySelector('img').src;
 
             // Llenar los campos del modal
             document.getElementById('id_excursion_editar').value = id;
@@ -25,7 +25,7 @@
             document.getElementById('duracion_horas').value = duracion_horas;
             document.getElementById('ubicacion').value = ubicacion;
             document.getElementById('clasificacion').value = clasificacion;
-            
+            document.getElementById('im').src = imagen;
 
             // Abrir el modal
             $('#editar').modal('show');
@@ -75,3 +75,30 @@ document.getElementById('searchFormExcursion').addEventListener('submit', functi
     })
     .catch(error => console.error('Error:', error));
 });
+
+// JS PARA HACER LA IMAGEN APAREZCA
+function actualizarImg() {
+    const $inputfile = document.querySelector("#selImg"),
+        $imgcliente = document.querySelector("#imagen");
+
+    // Establece la imagen por defecto al cargar
+    const defaultImg = "IMG/excursion.png";
+    $imgcliente.src = defaultImg;
+
+    $inputfile.addEventListener("change", function () {
+        const files = $inputfile.files;
+        if (!files || !files.length) {
+            // Si no hay archivos seleccionados, vuelve a la imagen por defecto
+            $imgcliente.src = defaultImg;
+            return;
+        }
+
+        // Si hay un archivo seleccionado, reemplaza la imagen por el archivo seleccionado
+        const archivoInicial = files[0];
+        const Url = URL.createObjectURL(archivoInicial);
+        $imgcliente.src = Url;
+    });
+}
+
+// Llamada a la función
+actualizarImg();

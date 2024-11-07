@@ -1,13 +1,20 @@
 <!-- Modal -->
 <div class="modal fade" id="añadirmodal" tabindex="-1" aria-labelledby="añadirmodalLabel" aria-hidden="true">
-    <div class="modal-dialog modal-lg">
+    <div class="modal-dialog">
         <div class="modal-content">
             <div class="modal-header">
                 <h1 class="modal-title fs-5" id="exampleModalLabel">Agregar Excursion</h1>
                 <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
             </div>
-            <div class="modal-body">
+            <div class="modal-body custom-scroll">
                 <form action="./controlador/guardar_excursion.php" method="post" enctype="multipart/form-data">
+
+                    <center><img id="imagen" src="IMG/excursion.png" alt="Vista previa de la imagen" style="display: block; max-width: 150px; margin-top: 10px; border-radius: 20%;"></center>
+                    <div class="form-group mb-3">
+                        <label for="imagen" class="form-label">Imagen</label>
+                        <input class="form-control" type="file" id="selImg" name="selImg">
+                    </div>
+
                     <div class="mb-3">
                         <label for="descripcion" class="form-label">Descripcion</label>
                         <textarea name="descripcion" id="descripcion" class="form-control" rows="3" required></textarea>
@@ -37,7 +44,7 @@
                     </div>
                     <br>
                     <div class="">
-                        <button type="submit" class="btn btn-primary"><i class="fa-solid fa-floppy-disk"></i>Guardar</button>
+                        <button type="submit" class="btn btn-primary"><i class="fa-solid fa-floppy-disk"></i> Guardar</button>
                     </div>
                 </form>
 
@@ -46,3 +53,12 @@
         </div>
     </div>
 </div>
+
+<style>
+    .custom-scroll {
+        max-height: 400px;
+        /* Ajusta la altura según tus necesidades */
+        overflow-y: auto;
+    }
+</style>
+

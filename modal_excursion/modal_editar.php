@@ -4,11 +4,16 @@
             <div class="modal-header">
                 <h1 class="modal-title fs-5">Editar Excursion</h1>
             </div>
-            <div class="modal-body">
-                <form id="editarForm" action="./controlador/editar_excursion.php" method="post">
+            <div class="modal-body custom-scroll">
+                <form id="editarForm" action="./controlador/editar_excursion.php" method="post" enctype="multipart/form-data">
                     <input type="hidden" id="id_excursion_editar" name="id_excursion_editar">
-
-                    
+                    <center>
+                        <img id="im" src="" alt="Vista previa de la imagen" style="display: block; max-width: 200px; margin-top: 10px; border-radius: 60%;">
+                    </center>
+                    <div class="form-group mb-3">
+                        <label for="im" class="form-label">Imagen</label>
+                        <input class="form-control" type="file" id="sellImg" name="sellImg">
+                    </div>
                     <div class="mb-3">
                         <label for="descripcion" class="form-label">Descripcion</label>
                         <textarea name="descripcion" id="descripcion" class="form-control" rows="3" required></textarea>
@@ -39,11 +44,6 @@
                             <option value="Fotográfica">Fotográfica</option>
                         </select>
                     </div>
-                    
-
-                    
-
-                    
                 </form>
             </div>
 
@@ -54,3 +54,11 @@
         </div>
     </div>
 </div>
+
+<style>
+    .custom-scroll {
+        max-height: 400px;
+        /* Ajusta la altura según tus necesidades */
+        overflow-y: auto;
+    }
+</style>
