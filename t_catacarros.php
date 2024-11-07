@@ -88,7 +88,7 @@
                                 <td class="text-center"><?= $datos->capacidad ?></td>
                                 <td class="text-center"><?= $datos->estado ?></td>
                                 <td class="text-center">
-                                    <img src="<?= $datos->img ?>" alt="Imagen del cliente" style="width: 100px; height: 60px;">
+                                    <img src="<?= $datos->img ?>" alt="Imagen del Carro" style="width: 100px; height: 60px;">
                                 </td>
                             </tr>
                         <?php } ?>

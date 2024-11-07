@@ -17,11 +17,11 @@ if ($sql->num_rows > 0) {
     echo '<thead class="bg-info">';
     echo '    <tr>';
     echo '        <th scope="col"></th>';
-    echo '        <th scope="col">id_recorrido</th>';
-    echo '        <th scope="col">id_ruta</th>';
-    echo '        <th scope="col">fecha_salida</th>';
-    echo '        <th scope="col">fecha_llegada</th>';
-    echo '        <th scope="col">precio_boleto</th>';
+    echo '        <th scope="col" class="text-center">id_recorrido</th>';
+    echo '        <th scope="col" class="text-center">id_ruta</th>';
+    echo '        <th scope="col" class="text-center">fecha_salida</th>';
+    echo '        <th scope="col" class="text-center">fecha_llegada</th>';
+    echo '        <th scope="col" class="text-center">precio_boleto</th>';
     echo '        <th scope="col" class="text-center">estado</th>';
     echo '    </tr>';
     echo '</thead>';
@@ -29,12 +29,12 @@ if ($sql->num_rows > 0) {
     while ($datos = $sql->fetch_object()) {
         echo "<tr>";
         echo "<td><input type='checkbox' name='ids[]' value='{$datos->id_recorrido}'></td>";
-        echo "<th scope='row'>{$datos->id_recorrido}</th>";
-        echo "<th scope='row'>{$datos->id_ruta}</th>";
-        echo "<td>{$datos->fecha_salida}</td>";
-        echo "<td>{$datos->fecha_llegada}</td>";
-        echo "<td>{$datos->precio_boleto}</td>";
-        echo "<td>{$datos->estado}</td>";
+        echo "<th scope='row' class='text-center'>{$datos->id_recorrido}</th>";
+        echo "<th scope='row' class='text-center'>{$datos->id_ruta}</th>";
+        echo "<td class='text-center'>{$datos->fecha_salida}</td>";
+        echo "<td class='text-center'>{$datos->fecha_llegada}</td>";
+        echo "<td class='text-center'>{$datos->precio_boleto}</td>";
+        echo "<td class='text-center'>{$datos->estado}</td>";
         echo "</tr>";
     }
 } else {

@@ -35,11 +35,11 @@
                         <thead class="bg-info">
                             <tr>
                                 <th scope="col"><input type="hidden" id="selectAll"></th>
-                                <th scope="col">id_pagoea</th>
-                                <th scope="col">id_reservaea</th>
-                                <th scope="col">id_tarjeta</th>
-                                <th scope="col">fecha_pago</th>
-                                <th scope="col">monto_total</th>
+                                <th scope="col" class="text-center">id_pagoea</th>
+                                <th scope="col" class="text-center">id_reservaea</th>
+                                <th scope="col" class="text-center">id_tarjeta</th>
+                                <th scope="col" class="text-center">fecha_pago</th>
+                                <th scope="col" class="text-center">monto_total</th>
                             </tr>
                         </thead>
                         <tbody>
@@ -50,11 +50,11 @@
                             while ($datos = $sql->fetch_object()) { ?>
                                 <tr>
                                     <td><input type="hidden" name="ids[]" value="<?= $datos->id_pagoea ?>"></td>
-                                    <th scope="row"><?= $datos->id_pagoea ?></th>
-                                    <td><?= $datos->id_reservaea ?></td>
-                                    <td><?= $datos->id_tarjeta ?></td>
-                                    <td><?= $datos->fecha_pago ?></td>
-                                    <td><?= $datos->monto_total ?></td>
+                                    <th scope="row" class="text-center"><?= $datos->id_pagoea ?></th>
+                                    <td class="text-center"><?= $datos->id_reservaea ?></td>
+                                    <td class="text-center"><?= $datos->id_tarjeta ?></td>
+                                    <td class="text-center"><?= $datos->fecha_pago ?></td>
+                                    <td class="text-center"><?= $datos->monto_total ?></td>
                                     
                                 </tr>
                             <?php } ?>

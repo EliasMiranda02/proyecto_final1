@@ -73,14 +73,14 @@
                             <tr>
                                 <th scope="col" class="p-3"><input type="hidden" id="selectAll"></th>
                                 <th scope="col" class="text-center">id_paquete</th>
-                                <th scope="col">numero_paquete</th>
+                                <th scope="col" class="text-center">numero_paquete</th>
                                 <th scope="col" class="text-center">nombre</th>
-                                <th scope="col">descripcion</th>
-                                <th scope="col" class="p-2">precio_aproximado</th>
+                                <th scope="col" class="text-center descripcion">descripcion</th>
+                                <th scope="col" class="p-2 text-center">precio_aproximado</th>
                                 <th scope="col" class="text-center">duracion_dias</th>
                                 <th scope="col" class="text-center">destino</th>
-                                <th scope="col">fecha_creacion</th>
-                                <th scope="col">fecha_modificacion</th>
+                                <th scope="col" class="text-center">fecha_creacion</th>
+                                <th scope="col" class="text-center">fecha_modificacion</th>
                                 <th scope="col"></th>
                             </tr>
                         </thead>
@@ -91,16 +91,16 @@
                             while ($datos = $sql->fetch_object()) { ?>
                                 <tr>
                                     <td><input type="checkbox" name="ids[]" value="<?= $datos->id_paquete ?>"></td>
-                                    <th scope="row"><?= $datos->id_paquete ?></th>
-                                    <td><?= $datos->numero_paquete ?></td>
-                                    <td><?= $datos->nombre ?></td>
-                                    <td class="descripcion"><?= $datos->descripcion ?></td>
-                                    <td><?= $datos->precio_aproximado ?></td>
-                                    <td><?= $datos->duracion_dias ?></td>
+                                    <th scope="row" class="text-center"><?= $datos->id_paquete ?></th>
+                                    <td class="text-center"><?= $datos->numero_paquete ?></td>
+                                    <td class="text-center"><?= $datos->nombre ?></td>
+                                    <td class="descripcion text-center"><?= $datos->descripcion ?></td>
+                                    <td class="text-center"><?= $datos->precio_aproximado ?></td>
+                                    <td class="text-center"><?= $datos->duracion_dias ?></td>
                                     <td class="text-center"><?= $datos->destino ?></td>
-                                    <td><?= $datos->fecha_creacion ?></td>
-                                    <td><?= $datos->fecha_modificacion ?></td>
-                                    <td>
+                                    <td class="text-center"><?= $datos->fecha_creacion ?></td>
+                                    <td class="text-center"><?= $datos->fecha_modificacion ?></td>
+                                    <td class="text-center">
                                         <button type="button" class="btn btn-secondary" data-bs-toggle="modal" data-bs-target="#banco" data-id="<?= $datos->id_paquete ?>">Iterinarios</button>
                                     </td>
                                 </tr>

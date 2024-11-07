@@ -61,17 +61,17 @@
                         <thead class="bg-info">
                             <tr>
                                 <th scope="col"><input type="hidden" id="selectAll"></th>
-                                <th scope="col">id_hotel</th>
-                                <th scope="col">nombre del hotel</th>
-                                <th scope="col">direccion</th>
-                                <th scope="col">clave lada</th>
-                                <th scope="col">telefono</th>
-                                <th scope="col">correo electronico</th>
-                                <th scope="col">numero habitaciones</th>
-                                <th scope="col">descripcion</th>
-                                <th scope="col">precio por noche</th>
-                                <th scope="col">calificacion</th>
-                                <th scope="col">img</th>
+                                <th scope="col" class="text-center">id_hotel</th>
+                                <th scope="col" class="text-center">nombre del hotel</th>
+                                <th scope="col" class="text-center">direccion</th>
+                                <th scope="col" class="text-center">clave lada</th>
+                                <th scope="col" class="text-center">telefono</th>
+                                <th scope="col" class="text-center">correo electronico</th>
+                                <th scope="col" class="text-center">numero habitaciones</th>
+                                <th scope="col" class="text-center descripcion">descripcion</th>
+                                <th scope="col" class="text-center">precio por noche</th>
+                                <th scope="col" class="text-center">calificacion</th>
+                                <th scope="col" class="text-center">img</th>
                             </tr>
                         </thead>
                         <tbody>
@@ -82,18 +82,18 @@
                             while ($datos = $sql->fetch_object()) { ?>
                                 <tr>
                                     <td><input type="checkbox" name="ids[]" value="<?= $datos->id_hotel ?>"></td>
-                                    <th scope="row"><?= $datos->id_hotel ?></th>
-                                    <td><?= $datos->nombre_hotel ?></td>
-                                    <td class="descripcion"><?= $datos->direccion ?></td>
-                                    <td><?= $datos->clave_lada ?></td>
-                                    <td><?= $datos->telefono ?></td>
-                                    <td><?= $datos->correo_electronico ?></td>
-                                    <td><?= $datos->numero_habitaciones ?></td>
-                                    <td class="descripcion"><?= $datos->descripcion ?></td>
-                                    <td><?= $datos->precio_noche ?></td>
-                                    <td><?= $datos->calificacion ?></td>
-                                    <td>
-                                        <img src="<?= $datos->img ?>" alt="Imagen" style="width: 100px; height: 60px;">
+                                    <th scope="row" class="text-center"><?= $datos->id_hotel ?></th>
+                                    <td class="text-center"><?= $datos->nombre_hotel ?></td>
+                                    <td class="descripcion text-center" ><?= $datos->direccion ?></td>
+                                    <td class="text-center"><?= $datos->clave_lada ?></td>
+                                    <td class="text-center"><?= $datos->telefono ?></td>
+                                    <td class="text-center"><?= $datos->correo_electronico ?></td>
+                                    <td class="text-center"><?= $datos->numero_habitaciones ?></td>
+                                    <td class="descripcion text-center"><?= $datos->descripcion ?></td>
+                                    <td class="text-center"><?= $datos->precio_noche ?></td>
+                                    <td class="text-center"><?= $datos->calificacion ?></td>
+                                    <td class="text-center">
+                                        <img src="<?= $datos->img ?>" alt="Imagen del hotel" style="width: 100px; height: 60px;">
                                     </td>
                                 </tr>
                             <?php } ?>

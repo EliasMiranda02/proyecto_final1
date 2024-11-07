@@ -60,14 +60,14 @@
                         <thead class="bg-info">
                             <tr>
                                 <th scope="col"><input type="hidden" id="selectAll"></th>
-                                <th scope="col">id_excursion</th>
-                                <th scope="col">descripcion</th>
-                                <th scope="col">precio</th>
-                                <th scope="col">duracion_horas</th>
-                                <th scope="col">ubicacion</th>
-                                <th scope="col">clasificacion</th>
-                                <th scope="col">fecha_creacion</th>
-                                <th scope="col">fecha_modificacion</th>
+                                <th scope="col" class="text-center">id_excursion</th>
+                                <th scope="col" class="text-center">descripcion</th>
+                                <th scope="col" class="text-center">precio</th>
+                                <th scope="col" class="text-center">duracion_horas</th>
+                                <th scope="col" class="text-center">ubicacion</th>
+                                <th scope="col" class="text-center">clasificacion</th>
+                                <th scope="col" class="text-center">fecha_creacion</th>
+                                <th scope="col" class="text-center">fecha_modificacion</th>
                             </tr>
                         </thead>
                         <tbody>
@@ -78,14 +78,14 @@
                             while ($datos = $sql->fetch_object()) { ?>
                                 <tr>
                                     <td><input type="checkbox" name="ids[]" value="<?= $datos->id_excursion ?>"></td>
-                                    <th scope="row"><?= $datos->id_excursion ?></th>
-                                    <td><?= $datos->descripcion ?></td>
-                                    <td><?= $datos->precio ?></td>
-                                    <td><?= $datos->duracion_horas ?></td>
-                                    <td><?= $datos->ubicacion ?></td>
-                                    <td><?= $datos->clasificacion ?></td>
-                                    <td><?= $datos->fecha_creacion ?></td>
-                                    <td><?= $datos->fecha_modificacion ?></td>
+                                    <th scope="row" class="text-center"><?= $datos->id_excursion ?></th>
+                                    <td class="text-center descripcion"><?= $datos->descripcion ?></td>
+                                    <td class="text-center"><?= $datos->precio ?></td>
+                                    <td class="text-center"><?= $datos->duracion_horas ?></td>
+                                    <td class="text-center"><?= $datos->ubicacion ?></td>
+                                    <td class="text-center"><?= $datos->clasificacion ?></td>
+                                    <td class="text-center"><?= $datos->fecha_creacion ?></td>
+                                    <td class="text-center"><?= $datos->fecha_modificacion ?></td>
                                 </tr>
                             <?php } ?>
                         </tbody>

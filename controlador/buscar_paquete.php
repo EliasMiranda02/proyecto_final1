@@ -18,15 +18,16 @@ if ($sql->num_rows > 0) {
     while ($datos = $sql->fetch_object()) {
         echo "<tr>";
             echo "<td><input type='checkbox' name='ids[]' value='{$datos->id_paquete}'></td>";
-            echo "<th scope='row'>{$datos->id_paquete}</th>";
-            echo "<td>{$datos->nombre}</td>";
-            echo "<td>{$datos->descripcion}</td>";
-            echo "<td>{$datos->precio_aproximado}</td>";
-            echo "<td>{$datos->duracion_dias}</td>";
-            echo "<td>{$datos->destino}</td>";
-            echo "<td>{$datos->fecha_creacion}</td>";
-            echo "<td>{$datos->fecha_modificacion}</td>";
-            echo "<td>
+            echo "<th scope='row' class='text-center'>{$datos->id_paquete}</th>";
+            echo "<td class='text-center'>{$datos->numero_paquete}</td>";
+            echo "<td class='text-center'>{$datos->nombre}</td>";
+            echo "<td class='text-center descripcion'>{$datos->descripcion}</td>";
+            echo "<td class='text-center'>{$datos->precio_aproximado}</td>";
+            echo "<td class='text-center'>{$datos->duracion_dias}</td>";
+            echo "<td class='text-center'>{$datos->destino}</td>";
+            echo "<td class='text-center'>{$datos->fecha_creacion}</td>";
+            echo "<td class='text-center'>{$datos->fecha_modificacion}</td>";
+            echo "<td class='text-center'>
                     <button type='button' class='btn btn-secondary itinerarios-button' data-bs-toggle='modal' data-bs-target='#banco' data-id='{$datos->id_paquete}'>Itinerarios</button>
                 </td>";
         echo "</tr>";

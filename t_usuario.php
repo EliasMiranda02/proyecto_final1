@@ -6,6 +6,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Usuarios</title>
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="CSS/hotel.css">
     <script src="https://kit.fontawesome.com/90c11f8b3b.js" crossorigin="anonymous"></script>
 </head>
 
@@ -35,20 +36,21 @@
             <?php endif; ?>
 
             <form id="Clientes" action="controlador/eliminar_usuario.php" method="post">
+            <div class="table-responsive">
                 <table class="table">
                     <thead class="bg-info">
                         <tr>
                             <th scope="col"><input type="hidden" id="selectAll"></th>
-                            <th scope="col">id_usuario</th>
-                            <th scope="col">nombre</th>
-                            <th scope="col">apellido materno</th>
-                            <th scope="col">apellido paterno</th>
+                            <th scope="col" class="text-center">id_usuario</th>
+                            <th scope="col" class="text-center">nombre</th>
+                            <th scope="col" class="text-center">apellido materno</th>
+                            <th scope="col" class="text-center">apellido paterno</th>
                             <th scope="col" class="text-center">email</th>
                             <th scope="col" class="text-center">clave_lada</th>
-                            <th scope="col">telefono</th>
-                            <th scope="col">fecha_registro</th>
-                            <th scope="col">contraseña</th>
-                            <th scope="col">Imagen</th>
+                            <th scope="col" class="text-center">telefono</th>
+                            <th scope="col" class="text-center">fecha_registro</th>
+                            <th scope="col" class="text-center">contraseña</th>
+                            <th scope="col" class="text-center">Imagen</th>
                         </tr>
                     </thead>
                     <tbody>
@@ -59,19 +61,19 @@
                         while ($datos = $sql->fetch_object()) { ?>
                             <tr>
                                 <td><input type="checkbox" name="ids[]" value="<?= $datos->id_cliente ?>"></td>
-                                <th scope="row"><?= $datos->id_cliente ?></th>
-                                <td><?= $datos->nombre ?></td>
-                                <td><?= $datos->apellido_materno ?></td>
-                                <td><?= $datos->apellido_paterno ?></td>
-                                <td><?= $datos->email ?></td>
+                                <th scope="row" class="text-center"><?= $datos->id_cliente ?></th>
+                                <td class="text-center"><?= $datos->nombre ?></td>
+                                <td class="text-center"><?= $datos->apellido_materno ?></td>
+                                <td class="text-center"><?= $datos->apellido_paterno ?></td>
+                                <td class="text-center"><?= $datos->email ?></td>
                                 <td class="text-center"><?= $datos->clave_lada ?></td>
-                                <td><?= $datos->telefono ?></td>
-                                <td><?= $datos->fecha_registro ?></td>
-                                <td><?= $datos->contraseña ?></td>
-                                <td>
+                                <td class="text-center"><?= $datos->telefono ?></td>
+                                <td class="text-center"><?= $datos->fecha_registro ?></td>
+                                <td class="text-center"><?= $datos->contraseña ?></td>
+                                <td class="text-center">
                                     <img src="<?= $datos->img ?>" alt="Imagen del cliente" style="width: 100px; height: 60px;">
                                 </td>
-                                <td>
+                                <td class="text-center">
                                     <button type="button" class="btn btn-success" data-bs-toggle="modal" data-bs-target="#banco" data-id="<?= $datos->id_cliente ?>">Banco</button>
                                 </td>
 
@@ -80,6 +82,7 @@
                         <?php } ?>
                     </tbody>
                 </table>
+            </div>
                 <button type="button" class="btn btn-danger" data-bs-toggle="modal" data-bs-target="#eliminar">Eliminar seleccionados</button>
             </form>
         </div>

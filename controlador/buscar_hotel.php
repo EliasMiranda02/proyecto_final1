@@ -17,18 +17,18 @@ if ($sql->num_rows > 0) {
     while ($datos = $sql->fetch_object()) {
         echo "<tr>";
         echo "<td><input type='checkbox' name='ids[]' value='{$datos->id_hotel}'></td>";
-        echo "<th scope='row'>{$datos->id_hotel}</th>";
-        echo "<td>{$datos->nombre_hotel}</td>";
-        echo "<td>{$datos->direccion}</td>";
-        echo "<td>{$datos->clave_lada}</td>";
-        echo "<td>{$datos->telefono}</td>";
-        echo "<td>{$datos->correo_electronico}</td>";
-        echo "<td>{$datos->numero_habitaciones}</td>";
-        echo "<td>{$datos->descripcion}</td>";
-        echo "<td>{$datos->precio_noche}</td>";
-        echo "<td>{$datos->calificacion}</td>
-                                <td class='text-center'>
-                                    <img src='<?= $datos->img ?>' alt='Imagen del cliente' style='width: 100px; height: 60px;'>
+        echo "<th scope='row' class='text-center'>{$datos->id_hotel}</th>";
+        echo "<td class='text-center'>{$datos->nombre_hotel}</td>";
+        echo "<td class='text-center descripcion'>{$datos->direccion}</td>";
+        echo "<td class='text-center'>{$datos->clave_lada}</td>";
+        echo "<td class='text-center'>{$datos->telefono}</td>";
+        echo "<td class='text-center'>{$datos->correo_electronico}</td>";
+        echo "<td class='text-center'>{$datos->numero_habitaciones}</td>";
+        echo "<td class='text-center descripcion'>{$datos->descripcion}</td>";
+        echo "<td class='text-center'>{$datos->precio_noche}</td>";
+        echo "<td class='text-center'>{$datos->calificacion}</td>";
+        echo                     "<td class='text-center'>
+                                    <img src='{$datos->img}' alt='Imagen del hotel' style='width: 100px; height: 60px;'>
                                 </td>";
         echo "</tr>";
     }

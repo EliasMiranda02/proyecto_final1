@@ -6,6 +6,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Volante</title>
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="CSS/hotel.css">
     <script src="https://kit.fontawesome.com/90c11f8b3b.js" crossorigin="anonymous"></script>
 </head>
 
@@ -61,17 +62,18 @@
 
             <!-- TABLA DE RUTAS -->
             <form id="Recorrido" action="controlador/delete_vuelo.php" method="post">
+            <div class="table-responsive">
                 <table class="table" id="table-body">
                     <thead class="bg-info">
                         <tr>
                             <th scope="col"><input type="hidden" id="selectAll"></th>
-                            <th scope="col">id_vuelo</th>
-                            <th scope="col">numero_vuelo</th>
-                            <th scope="col">origen</th>
-                            <th scope="col">destino</th>
+                            <th scope="col" class="text-center">id_vuelo</th>
+                            <th scope="col" class="text-center">numero_vuelo</th>
+                            <th scope="col" class="text-center">origen</th>
+                            <th scope="col" class="text-center">destino</th>
                             <th scope="col" class="text-center">fecha_salida</th>
                             <th scope="col" class="text-center">fecha_llegada</th>
-                            <th scope="col">precio_vuelo</th>
+                            <th scope="col" class="text-center">precio_vuelo</th>
                         </tr>
                     </thead>
                     <tbody>
@@ -81,17 +83,18 @@
                         while ($datos = $sql->fetch_object()) { ?>
                             <tr>
                                 <td><input type="checkbox" name="ids[]" value="<?= $datos->id_vuelo ?>"></td>
-                                <th scope="row"><?= $datos->id_vuelo ?></th>
-                                <td><?= $datos->numero_vuelo ?></td>
-                                <td><?= $datos->origen ?></td>
-                                <td><?= $datos->destino ?></td>
-                                <td><?= $datos->fecha_salida ?></td>
-                                <td><?= $datos->fecha_llegada ?></td>
-                                <td><?= $datos->precio_vuelo ?></td>
+                                <th scope="row" class="text-center"><?= $datos->id_vuelo ?></th>
+                                <td class="text-center"><?= $datos->numero_vuelo ?></td>
+                                <td class="text-center"><?= $datos->origen ?></td>
+                                <td class="text-center"><?= $datos->destino ?></td>
+                                <td class="text-center"><?= $datos->fecha_salida ?></td>
+                                <td class="text-center"><?= $datos->fecha_llegada ?></td>
+                                <td class="text-center"><?= $datos->precio_vuelo ?></td>
                             </tr>
                         <?php } ?>
                     </tbody>
                 </table>
+            </div>
                 <button type="button" class="btn btn-danger" data-bs-toggle="modal" data-bs-target="#eliminar_ruta">Eliminar seleccionados</button>
                 <button type="button" class="btn btn-warning" id="btnEditar" data-bs-toggle="modal" data-bs-target="#editar">Editar Usuario</button>
             </form>

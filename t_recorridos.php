@@ -6,6 +6,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Recorridos</title>
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="CSS/hotel.css">
     <script src="https://kit.fontawesome.com/90c11f8b3b.js" crossorigin="anonymous"></script>
 </head>
 
@@ -61,17 +62,17 @@
 
             <!-- TABLA DE RECORRIDOS -->
             <form id="Recorrido" action="controlador/delete_recorrido.php" method="post">
+            <div class="table-responsive">
                 <table class="table" id="table-body">
                     <thead class="bg-info">
                         <tr>
                             <th scope="col"><input type="hidden" id="selectAll"></th>
-                            <th scope="col">id_recorrido</th>
-                            <th scope="col">id_ruta</th>
-                            <th scope="col">fecha_salida</th>
-                            <th scope="col">fecha_llegada</th>
-                            <th scope="col">precio_boleto</th>
+                            <th scope="col" class="text-center">id_recorrido</th>
+                            <th scope="col" class="text-center">id_ruta</th>
+                            <th scope="col" class="text-center">fecha_salida</th>
+                            <th scope="col" class="text-center">fecha_llegada</th>
+                            <th scope="col" class="text-center">precio_boleto</th>
                             <th scope="col" class="text-center">estado</th>
-                            <th scope="col" class="text-center"></th>
                         </tr>
                     </thead>
                     <tbody class="">
@@ -81,16 +82,17 @@
                         while ($datos = $sql->fetch_object()) { ?>
                             <tr>
                                 <td><input type="checkbox" name="ids[]" value="<?= $datos->id_recorrido ?>"></td>
-                                <th scope="row"><?= $datos->id_recorrido ?></th>
-                                <th><?= $datos->id_ruta ?></th>
-                                <td><?= $datos->fecha_salida ?></td>
-                                <td><?= $datos->fecha_llegada ?></td>
-                                <td><?= $datos->precio_boleto ?></td>
-                                <td><?= $datos->estado ?></td>
+                                <th scope="row" class="text-center"><?= $datos->id_recorrido ?></th>
+                                <th class="text-center"><?= $datos->id_ruta ?></th>
+                                <td class="text-center"><?= $datos->fecha_salida ?></td>
+                                <td class="text-center"><?= $datos->fecha_llegada ?></td>
+                                <td class="text-center"><?= $datos->precio_boleto ?></td>
+                                <td class="text-center"><?= $datos->estado ?></td>
                             </tr>
                         <?php } ?>
                     </tbody>
                 </table>
+            </div>
                 <button type="button" class="btn btn-danger" data-bs-toggle="modal" data-bs-target="#eliminar_ruta">Eliminar seleccionados</button>
                 <button type="button" class="btn btn-warning" id="btnEditar" data-bs-toggle="modal" data-bs-target="#editar">Editar Usuario</button>
             </form>

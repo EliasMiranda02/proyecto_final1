@@ -55,10 +55,10 @@
                         <thead class="bg-info">
                             <tr>
                                 <th scope="col"><input type="hidden" id="selectAll"></th>
-                                <th scope="col">Numero del Paquete</th>
-                                <th scope="col">Nombre del Paquete</th>
-                                <th scope="col">Destino</th>
-                                <th scope="col">Precio</th>
+                                <th scope="col" class="text-center">Numero del Paquete</th>
+                                <th scope="col" class="text-center">Nombre del Paquete</th>
+                                <th scope="col" class="text-center">Destino</th>
+                                <th scope="col" class="text-center">Precio</th>
                             </tr>
                         </thead>
                         <tbody>
@@ -71,10 +71,10 @@
                             while ($datos = $sql->fetch_object()) { ?>
                                 <tr>
                                     <td><input type="checkbox" name="ids[]" value="<?= $datos->id_precio ?>"></td>
-                                    <th scope="row"><?= $datos->numero_paquete ?></th>
-                                    <td><?= $datos->nombre_paquete ?></td>
-                                    <td><?= $datos->destino ?></td>
-                                    <td><?= $datos->precio_total ?></td>
+                                    <th scope="row" class="text-center"><?= $datos->numero_paquete ?></th>
+                                    <td class="text-center"><?= $datos->nombre_paquete ?></td>
+                                    <td class="text-center"><?= $datos->destino ?></td>
+                                    <td class="text-center"><?= $datos->precio_total ?></td>
                                 </tr>
                             <?php } ?>
                         </tbody>

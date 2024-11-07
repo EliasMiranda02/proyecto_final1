@@ -23,6 +23,8 @@ thead th {
 .table th,
 .table td {
     white-space: nowrap; /* Mantiene el texto en una sola línea */
+    vertical-align: middle; /* Alineación vertical centrada */
+    text-align: center; /* Alineación horizontal centrada */
 }
 
 /* Mantén los botones visibles al desplazarse */

@@ -35,11 +35,11 @@
                         <thead class="bg-info">
                             <tr>
                                 <th scope="col"><input type="hidden" id="selectAll"></th>
-                                <th scope="col">id_pagopv</th>
-                                <th scope="col">id_reservapv</th>
-                                <th scope="col">id_tarjeta</th>
-                                <th scope="col">fecha_pago</th>
-                                <th scope="col">monto_total</th>
+                                <th scope="col" class="text-center">id_pagopv</th>
+                                <th scope="col" class="text-center">id_reservapv</th>
+                                <th scope="col" class="text-center">id_tarjeta</th>
+                                <th scope="col" class="text-center">fecha_pago</th>
+                                <th scope="col" class="text-center">monto_total</th>
                             </tr>
                         </thead>
                         <tbody>

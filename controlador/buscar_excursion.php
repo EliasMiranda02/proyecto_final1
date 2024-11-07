@@ -17,14 +17,14 @@ if ($sql->num_rows > 0) {
     while ($datos = $sql->fetch_object()) {
         echo "<tr>";
         echo "<td><input type='checkbox' name='ids[]' value='{$datos->id_excursion}'></td>";
-        echo "<th scope='row'>{$datos->id_excursion}</th>";
-        echo "<td>{$datos->descripcion}</td>";
-        echo "<td>{$datos->precio}</td>";
-        echo "<td>{$datos->duracion_horas}</td>";
-        echo "<td>{$datos->ubicacion}</td>";
-        echo "<td>{$datos->clasificacion}</td>";
-        echo "<td>{$datos->fecha_creacion}</td>";
-        echo "<td>{$datos->fecha_modificacion}</td>";
+        echo "<th scope='row' class='text-center'>{$datos->id_excursion}</th>";
+        echo "<td class='text-center descripcion'>{$datos->descripcion}</td>";
+        echo "<td class='text-center'>{$datos->precio}</td>";
+        echo "<td class='text-center'>{$datos->duracion_horas}</td>";
+        echo "<td class='text-center'>{$datos->ubicacion}</td>";
+        echo "<td class='text-center'>{$datos->clasificacion}</td>";
+        echo "<td class='text-center'>{$datos->fecha_creacion}</td>";
+        echo "<td class='text-center'>{$datos->fecha_modificacion}</td>";
         echo "</tr>";
     }
 } else {

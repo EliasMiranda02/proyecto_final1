@@ -35,11 +35,11 @@
                         <thead class="bg-info">
                             <tr>
                                 <th scope="col"><input type="hidden" id="selectAll"></th>
-                                <th scope="col">id_pagov</th>
-                                <th scope="col">id_reservav</th>
-                                <th scope="col">id_tarjeta</th>
-                                <th scope="col">pago</th>
-                                <th scope="col">fecha_pago</th>
+                                <th scope="col" class="text-center">id_pagov</th>
+                                <th scope="col" class="text-center">id_reservav</th>
+                                <th scope="col" class="text-center">id_tarjeta</th>
+                                <th scope="col" class="text-center">pago</th>
+                                <th scope="col" class="text-center">fecha_pago</th>
                             </tr>
                         </thead>
                         <tbody>
@@ -50,11 +50,11 @@
                             while ($datos = $sql->fetch_object()) { ?>
                                 <tr>
                                     <td><input type="hidden" name="ids[]" value="<?= $datos->id_pagov ?>"></td>
-                                    <th scope="row"><?= $datos->id_pagov ?></th>
-                                    <td><?= $datos->id_reservav ?></td>
-                                    <td><?= $datos->id_tarjeta ?></td>
-                                    <td><?= $datos->pago ?></td>
-                                    <td><?= $datos->fecha_pago ?></td>
+                                    <th scope="row" class="text-center"><?= $datos->id_pagov ?></th>
+                                    <td class="text-center"><?= $datos->id_reservav ?></td>
+                                    <td class="text-center"><?= $datos->id_tarjeta ?></td>
+                                    <td class="text-center"><?= $datos->pago ?></td>
+                                    <td class="text-center"><?= $datos->fecha_pago ?></td>
                                 </tr>
                             <?php } ?>
                         </tbody>

@@ -17,21 +17,21 @@ if ($sql->num_rows > 0) {
 
     echo '<thead class="bg-info">';
     echo '    <tr>';
-    echo '        <th scope="col">id_pagorc</th>';
-    echo '        <th scope="col">id_renta</th>';
-    echo '        <th scope="col">id_tarjeta</th>';
-    echo '        <th scope="col">fecha_pago</th>';
-    echo '        <th scope="col">monto_total</th>';
+    echo '        <th scope="col" class="text-center">id_pagorc</th>';
+    echo '        <th scope="col" class="text-center">id_renta</th>';
+    echo '        <th scope="col" class="text-center">id_tarjeta</th>';
+    echo '        <th scope="col" class="text-center">fecha_pago</th>';
+    echo '        <th scope="col" class="text-center">monto_total</th>';
     echo '    </tr>';
     echo '</thead>';
 
     while ($datos = $sql->fetch_object()) {
         echo "<tr>";
-        echo "<th scope='row'>{$datos->id_pagorc}</th>";
-        echo "<td>{$datos->id_renta}</td>";
-        echo "<td>{$datos->id_tarjeta}</td>";
-        echo "<td>{$datos->fecha_pago}</td>";
-        echo "<td>{$datos->monto_total}</td>";
+        echo "<th scope='row' class='text-center'>{$datos->id_pagorc}</th>";
+        echo "<td class='text-center'>{$datos->id_renta}</td>";
+        echo "<td class='text-center'>{$datos->id_tarjeta}</td>";
+        echo "<td class='text-center'>{$datos->fecha_pago}</td>";
+        echo "<td class='text-center'>{$datos->monto_total}</td>";
         echo "</tr>";
     }
 } else {

@@ -9,17 +9,17 @@ $campo = $conexion->real_escape_string($campo);
 $query = $conexion->real_escape_string($query);
 
 // Si query es '%', significa que debe mostrar todos los registros
-$sqlQuery = $query === '%' ? "SELECT * FROM reservas_ea" : "SELECT * FROM reservas_ea WHERE $campo LIKE '$query%'";
+$sqlQuery = $query === '%' ? "SELECT * FROM reservas_pv" : "SELECT * FROM reservas_pv WHERE $campo LIKE '$query%'";
 
 $sql = $conexion->query($sqlQuery);
 
 if ($sql->num_rows > 0) {
     while ($datos = $sql->fetch_object()) {
         echo "<tr>";
-        echo "<td><input type='hidden' name='ids[]' value='{$datos->id_reservaea}'></td>";
-        echo "<th scope='row' class='text-center'>{$datos->id_reservaea}</th>";
+        echo "<td><input type='hidden' name='ids[]' value='{$datos->id_reservapv}'></td>";
+        echo "<th scope='row' class='text-center'>{$datos->id_reservapv}</th>";
         echo "<td class='text-center'>{$datos->id_cliente}</td>";
-        echo "<td class='text-center'>{$datos->id_recorrido}</td>";
+        echo "<td class='text-center'>{$datos->id_vuelo}</td>";
         echo "<td class='text-center'>{$datos->id_paquete}</td>";
         echo "<td class='text-center'>{$datos->fecha_reserva }</td>";
         echo "<td class='text-center'>{$datos->estado_reserva}</td>";
@@ -27,7 +27,8 @@ if ($sql->num_rows > 0) {
         echo "<td class='text-center'>{$datos->hora_salida}</td>";
         echo "<td class='text-center'>{$datos->fecha_salida }</td>";
         echo "<td class='text-center'>{$datos->cantidad_asientos }</td>";
-        echo "<td class='text-center'>{$datos->precio_excursion}</td>";
+        echo "<td class='text-center'>{$datos->precio_paquete}</td>";
+        echo "<td class='text-center'>{$datos->disponibilidad}</td>";
         echo "</tr>";
     }
 } else {

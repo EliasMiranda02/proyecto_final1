@@ -21,10 +21,10 @@ if ($sql->num_rows > 0) {
     while ($datos = $sql->fetch_object()) {
         echo "<tr>";
         echo "<td><input type='checkbox' name='ids[]' value='{$datos->id_precio}'></td>";
-        echo "<th scope='row'>{$datos->numero_paquete}</th>";
-        echo "<td>{$datos->nombre_paquete}</td>";
-        echo "<td>{$datos->destino}</td>";
-        echo "<td>{$datos->precio_total}</td>";
+        echo "<th scope='row' class='text-center'>{$datos->numero_paquete}</th>";
+        echo "<td class='text-center'>{$datos->nombre_paquete}</td>";
+        echo "<td class='text-center'>{$datos->destino}</td>";
+        echo "<td class='text-center'>{$datos->precio_total}</td>";
         echo "</tr>";
     }
 } else {

@@ -17,6 +17,8 @@ thead th {
 /* Opcional: hacer que las celdas de la tabla se ajusten al contenido */
 .table th, .table td {
     white-space: nowrap; /* Evitar que el texto se rompa */
+    vertical-align: middle; /* Alineación vertical centrada */
+    text-align: center; /* Alineación horizontal centrada */
 }
 .table td.descripcion {
     max-width: 200px; /* Establece un ancho máximo */

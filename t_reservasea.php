@@ -36,17 +36,17 @@
                         <thead class="bg-info">
                             <tr>
                                 <th scope="col"><input type="hidden" id="selectAll"></th>
-                                <th scope="col">id_reservaea</th>
-                                <th scope="col">id_cliente</th>
-                                <th scope="col">id_recorrido</th>
-                                <th scope="col">id_paquete</th>
-                                <th scope="col">fecha_reserva</th>
-                                <th scope="col">estado_reserva</th>
-                                <th scope="col">lugar_salida</th>
-                                <th scope="col">hora_salida</th>
-                                <th scope="col">fecha_salida</th>
-                                <th scope="col">cantidad_asientos</th>
-                                <th scope="col">precio_excursion</th>
+                                <th scope="col" class="text-center">id_reservaea</th>
+                                <th scope="col" class="text-center">id_cliente</th>
+                                <th scope="col" class="text-center">id_recorrido</th>
+                                <th scope="col" class="text-center">id_paquete</th>
+                                <th scope="col" class="text-center">fecha_reserva</th>
+                                <th scope="col" class="text-center">estado_reserva</th>
+                                <th scope="col" class="text-center">lugar_salida</th>
+                                <th scope="col" class="text-center">hora_salida</th>
+                                <th scope="col" class="text-center">fecha_salida</th>
+                                <th scope="col" class="text-center">cantidad_asientos</th>
+                                <th scope="col" class="text-center">precio_excursion</th>
                             </tr>
                         </thead>
                         <tbody>
@@ -58,16 +58,16 @@
                                 <tr>
                                     <td><input type="hidden" name="ids[]" value="<?= $datos->id_reservaea ?>"></td>
                                     <th scope="row"><?= $datos->id_reservaea ?></th>
-                                    <td><?= $datos->id_cliente ?></td>
-                                    <td><?= $datos->id_recorrido ?></td>
-                                    <td><?= $datos->id_paquete ?></td>
-                                    <td><?= $datos->fecha_reserva ?></td>
-                                    <td><?= $datos->estado_reserva ?></td>
-                                    <td><?= $datos->lugar_salida ?></td>
-                                    <td><?= $datos->hora_salida ?></td>
-                                    <td><?= $datos->fecha_salida ?></td>
-                                    <td><?= $datos->cantidad_asientos ?></td>
-                                    <td><?= $datos->precio_excursion ?></td>
+                                    <td class="text-center"><?= $datos->id_cliente ?></td>
+                                    <td class="text-center"><?= $datos->id_recorrido ?></td>
+                                    <td class="text-center"><?= $datos->id_paquete ?></td>
+                                    <td class="text-center"><?= $datos->fecha_reserva ?></td>
+                                    <td class="text-center"><?= $datos->estado_reserva ?></td>
+                                    <td class="text-center"><?= $datos->lugar_salida ?></td>
+                                    <td class="text-center"><?= $datos->hora_salida ?></td>
+                                    <td class="text-center"><?= $datos->fecha_salida ?></td>
+                                    <td class="text-center"><?= $datos->cantidad_asientos ?></td>
+                                    <td class="text-center"><?= $datos->precio_excursion ?></td>
                                 </tr>
                             <?php } ?>
                         </tbody>

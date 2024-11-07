@@ -33,11 +33,11 @@
             <table class="table" id="table-body">
                 <thead>
                     <tr>
-                        <th scope="col ">id_pagorc</th>
-                        <th scope="col">id_renta</th>
-                        <th scope="col">id_tarjeta</th>
-                        <th scope="col">fecha_pago</th>
-                        <th scope="col">monto_total</th>
+                        <th scope="col" class="text-center">id_pagorc</th>
+                        <th scope="col" class="text-center">id_renta</th>
+                        <th scope="col" class="text-center">id_tarjeta</th>
+                        <th scope="col" class="text-center">fecha_pago</th>
+                        <th scope="col" class="text-center">monto_total</th>
                     </tr>
                 </thead>
                 <tbody class="">
@@ -46,11 +46,11 @@
                     $sql = $conexion->query("SELECT * FROM pagos_rc");
                     while ($datos = $sql->fetch_object()) { ?>
                         <tr>
-                            <th scope="row"><?= $datos->id_pagorc ?></th>
-                            <th><?= $datos->id_renta ?></th>
-                            <td><?= $datos->id_tarjeta ?></td>
-                            <td><?= $datos->fecha_pago ?></td>
-                            <td><?= $datos->monto_total ?></td>
+                            <th scope="row" class="text-center"><?= $datos->id_pagorc ?></th>
+                            <th class="text-center"><?= $datos->id_renta ?></th>
+                            <td class="text-center"><?= $datos->id_tarjeta ?></td>
+                            <td class="text-center"><?= $datos->fecha_pago ?></td>
+                            <td class="text-center"><?= $datos->monto_total ?></td>
                         </tr>
                     <?php } ?>
                 </tbody>

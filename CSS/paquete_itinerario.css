@@ -24,6 +24,7 @@ thead th {
 .table td, .table th {
     padding: 5px; /* Reduce el padding dentro de las celdas */
     vertical-align: middle; /* Centra verticalmente el contenido */
+    text-align: center; /* Alineación horizontal centrada */
 }
 
 .botones{

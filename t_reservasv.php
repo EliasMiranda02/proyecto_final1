@@ -35,12 +35,12 @@
                         <thead class="bg-info">
                             <tr>
                                 <th scope="col"><input type="hidden" id="selectAll"></th>
-                                <th scope="col">id_reservav</th>
-                                <th scope="col">id_cliente</th>
-                                <th scope="col">id_vuelo</th>
-                                <th scope="col">fecha_reserva</th>
-                                <th scope="col">hora_reserva</th>
-                                <th scope="col">estado</th>
+                                <th scope="col" class="text-center">id_reservav</th>
+                                <th scope="col" class="text-center">id_cliente</th>
+                                <th scope="col" class="text-center">id_vuelo</th>
+                                <th scope="col" class="text-center">fecha_reserva</th>
+                                <th scope="col" class="text-center">hora_reserva</th>
+                                <th scope="col" class="text-center">estado</th>
                             </tr>
                         </thead>
                         <tbody>
@@ -51,12 +51,12 @@
                             while ($datos = $sql->fetch_object()) { ?>
                                 <tr>
                                     <td><input type="hidden" name="ids[]" value="<?= $datos->id_reservav ?>"></td>
-                                    <th scope="row"><?= $datos->id_reservav ?></th>
-                                    <td><?= $datos->id_cliente ?></td>
-                                    <td><?= $datos->id_vuelo ?></td>
-                                    <td><?= $datos->fecha_reserva ?></td>
-                                    <td><?= $datos->hora_reserva ?></td>
-                                    <td><?= $datos->estado ?></td>
+                                    <th scope="row" class="text-center"><?= $datos->id_reservav ?></th>
+                                    <td class="text-center"><?= $datos->id_cliente ?></td>
+                                    <td class="text-center"><?= $datos->id_vuelo ?></td>
+                                    <td class="text-center"><?= $datos->fecha_reserva ?></td>
+                                    <td class="text-center"><?= $datos->hora_reserva ?></td>
+                                    <td class="text-center"><?= $datos->estado ?></td>
                                 </tr>
                             <?php } ?>
                         </tbody>

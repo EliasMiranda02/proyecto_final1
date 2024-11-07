@@ -17,12 +17,12 @@ if ($sql->num_rows > 0) {
     while ($datos = $sql->fetch_object()) {
         echo "<tr>";
         echo "<td><input type='hidden' name='ids[]' value='{$datos->id_reservav}'></td>";
-        echo "<th scope='row'>{$datos->id_reservav}</th>";
-        echo "<td>{$datos->id_cliente}</td>";
-        echo "<td>{$datos->id_vuelo}</td>";
-        echo "<td>{$datos->fecha_reserva }</td>";
-        echo "<td>{$datos->hora_reserva }</td>";
-        echo "<td>{$datos->estado}</td>";
+        echo "<th scope='row' class='text-center'>{$datos->id_reservav}</th>";
+        echo "<td class='text-center'>{$datos->id_cliente}</td>";
+        echo "<td class='text-center'>{$datos->id_vuelo}</td>";
+        echo "<td class='text-center'>{$datos->fecha_reserva }</td>";
+        echo "<td class='text-center'>{$datos->hora_reserva }</td>";
+        echo "<td class='text-center'>{$datos->estado}</td>";
         echo "</tr>";
     }
 } else {
