@@ -116,6 +116,3 @@ setTimeout(function() {
         mensajeAlerta.style.display = 'none';
     }
 }, 2000); // 5000 milisegundos = 5 segundos
-
-
-
