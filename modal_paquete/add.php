@@ -7,10 +7,10 @@
             <div class="modal-body custom-scroll">
                 <form action="controlador/add_paquete.php" method="post" enctype="multipart/form-data">
 
-                    <center><img id="image" src="IMG/Imagen1.png" alt="Vista previa de la imagen" style="display: block; max-width: 150px; margin-top: 10px; border-radius: 20%;"></center>
+                    <center><img id="image1" src="IMG/Imagen1.png" alt="Vista previa de la imagen" style="display: block; max-width: 150px; margin-top: 10px; border-radius: 20%;"></center>
                     <div class="form-group mb-3">
                         <label for="imagen" class="form-label">Imagen</label>
-                        <input class="form-control" type="file" id="selImg" name="selImg">
+                        <input class="form-control" type="file" id="sellImg" name="sellImg">
                     </div>
 
                     <div class="form-floating mb-3">

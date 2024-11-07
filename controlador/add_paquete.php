@@ -14,8 +14,8 @@
     // Manejo de la carga de la imagen
     $rutaImg = ''; // Inicializamos la variable para la imagen
 
-    if (isset($_FILES['selImg']) && $_FILES['selImg']['error'] == 0) {
-        $imagen = $_FILES['selImg'];
+    if (isset($_FILES['sellImg']) && $_FILES['sellImg']['error'] == 0) {
+        $imagen = $_FILES['sellImg'];
         $rutaImg = 'IMG/paquetes/' . basename($imagen['name']); // Define la ruta donde se guardará la imagen
 
         // Mover el archivo a la carpeta deseada
