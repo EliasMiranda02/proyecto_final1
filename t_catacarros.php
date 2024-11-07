@@ -51,7 +51,6 @@
                 <input type="hidden" name="cargo" value="Asesor de Viajes"> <!-- Campo oculto -->
                 <div class="input-group">
                     <select name="campo" class="form-select">
-                        <option value="capacidad">Capacidad</option>
                         <option value="modelo">Modelo</option>
                         <option value="estado">Estado</option>
                     </select>

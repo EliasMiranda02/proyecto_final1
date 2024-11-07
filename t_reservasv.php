@@ -21,7 +21,7 @@
                 <input type="hidden" name="Reservav" value="Reservav"> <!-- Campo oculto -->
                 <div class="input-group">
                     <select name="campo" class="form-select" required>
-                        <option value="id_reservav">ID</option>
+                        <option value="id_reservav">Código</option>
                         <option value="estado">Estado</option>
                     </select>
                     <input type="text" class="form-control" name="query" placeholder="Buscar...">

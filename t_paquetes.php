@@ -262,8 +262,8 @@
 
         // JS PARA HACER LA IMAGEN APAREZCA
         function actualizarImg() {
-            const $inputfile = document.querySelector("#selImg"),
-                $imgcliente = document.querySelector("#image");
+            const $inputfile = document.querySelector("#sellImg"),
+                $imgcliente = document.querySelector("#image1");
 
             // Establece la imagen por defecto al cargar
             const defaultImg = "IMG/paquete.png";
