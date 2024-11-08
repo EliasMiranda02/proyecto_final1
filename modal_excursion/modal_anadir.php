@@ -35,7 +35,7 @@
                         <label for="clasificacion" class="form-label">Clasificacion</label>
                         <select id="clasificacion" name="clasificacion" class="form-select" required>
                             <option value="">Seleccionar...</option>
-                            <option value="Aventura y Exploracion">Aventura y Exploracion</option>
+                            <option value="Aventura y Naturaleza">Aventura y Naturaleza</option>
                             <option value="Conexión con la Naturaleza">Conexión con la Naturaleza</option>
                             <option value="Cultural e Histórico">Cultural e Histórico</option>
                             <option value="Gastronómica">Gastronómica</option>

@@ -39,3 +39,12 @@ thead th {
     text-overflow: ellipsis; /* Agrega puntos suspensivos al final del texto que se corta */
     white-space: nowrap; /* Evita que el texto se divida en varias líneas */
 }
+
+.lista1{
+    gap: 30px;
+}
+
+.lista{
+    gap: 25px;
+    padding: 5px;
+}

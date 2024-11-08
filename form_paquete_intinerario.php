@@ -11,28 +11,28 @@
 </head>
 
 <body>
-<?php if (isset($_GET['mensaje'])): ?>
-                <div class="alert alert-info mb-3" id="mensajeAlerta">
-                    <?php
-                    if ($_GET['mensaje'] == 'actualizado') {
-                        echo "Registro actualizado correctamente.";
-                    } elseif ($_GET['mensaje'] == 'error') {
-                        echo "Hubo un error: " . ($_GET['detalle'] ?? '');
-                    } elseif ($_GET['mensaje'] == 'no_id') {
-                        echo "No se seleccionó ningún registro.";
-                    } elseif ($_GET['mensaje'] == 'eliminado') {
-                        echo "Registros eliminados correctamente.";
-                    } elseif ($_GET['mensaje'] == 'id_invalido') {
-                        echo "ID de registro inválido.";
-                    } elseif ($_GET['mensaje'] == 'registro_exitoso') {
-                        echo "Registro guardado correctamente.";
-                    }
-                    ?>
-                </div>
+  <?php if (isset($_GET['mensaje'])): ?>
+    <div class="alert alert-info mb-3" id="mensajeAlerta">
+      <?php
+      if ($_GET['mensaje'] == 'actualizado') {
+        echo "Registro actualizado correctamente.";
+      } elseif ($_GET['mensaje'] == 'error') {
+        echo "Hubo un error: " . ($_GET['detalle'] ?? '');
+      } elseif ($_GET['mensaje'] == 'no_id') {
+        echo "No se seleccionó ningún registro.";
+      } elseif ($_GET['mensaje'] == 'eliminado') {
+        echo "Registros eliminados correctamente.";
+      } elseif ($_GET['mensaje'] == 'id_invalido') {
+        echo "ID de registro inválido.";
+      } elseif ($_GET['mensaje'] == 'registro_exitoso') {
+        echo "Registro guardado correctamente.";
+      }
+      ?>
+    </div>
 
-            <?php endif; ?>
+  <?php endif; ?>
   <form action="controlador/add_itinerario.php" method="post" enctype="multipart/form-data">
-    
+
     <div class="container mt-5">
       <div class="formulario p-0">
 
@@ -72,41 +72,42 @@
         <!-- PARA ITINERARIO -->
         <h4>Lista de Actividades:</h4>
 
-        <div class="row">
+        <div class="row lista1">
 
-          <div class="col-md-3 mb-3">
-            <label for="packageId" class="form-label">Actividad</label>
-            <input type="combobox" class="form-control" id="actividad" name="actividad">
-          </div>
-
-          <div class="col-md-3 mb-3">
+          <div class="col-md-1 mb-3">
             <label for="dates" class="form-label">Dia:</label>
-            <input type="date" id="dia" name="dia" class="form-control">
+            <input type="text" id="dia" name="dia" class="form-control">
           </div>
 
-          <div class="col-md-3 mb-3">
+          <div class="col-md-2 mb-3">
             <label for="times" class="form-label">Hora:</label>
             <input type="time" id="hora" name="hora" class="form-control">
           </div>
+          <br>
 
+          <div class="col-md-6 mb-3">
+            <label for="packageId" class="form-label">Actividad:</label>
+            <input type="combobox" class="form-control" id="actividad" name="actividad">
+          </div>
         </div>
 
-        <div class="row">
+        <div class="row lista">
 
-          <div class="col-md-3 mb-3">
+          <div class="col-md-4 mb-3">
             <label for="descripcion" class="form-label">Detalle</label>
             <textarea name="detalle" id="detalle" class="form-control" rows="3"></textarea>
           </div>
 
-          <div class="col-md-3 mb-3">
+          <div class="col-md-2 mb-2">
             <label for="numeros" class="form-label">Precio:</label>
+            <br>
             <input type="text" id="precio" name="precio" class="form-control">
           </div>
-
+          <br>
           <!-- BOTONES -->
-          <div class="col-md-6 mb-10">
+          <div class="col-md-4 d-flex align-items-center mb-9">
             <!-- Boton para agregar itinerario a la tabla -->
-            <button type="button" id="agregar1" class="btn btn-success">
+            <button type="button" id="agregar1" class="btn btn-success me-2">
               <i class="fa-solid fa-plus"></i>
             </button>
             <!-- Boton para quitar itinerario de la tabla -->
@@ -114,7 +115,9 @@
               <i class="fa-solid fa-x"></i>
             </button>
           </div>
+
         </div>
+
 
       </div>
     </div>
