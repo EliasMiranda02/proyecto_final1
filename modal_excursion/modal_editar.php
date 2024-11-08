@@ -20,7 +20,7 @@
                     </div>
                     <div class="mb-3">
                         <label for="precio" class="form-label">Precio</label>
-                        <input type="number" id="precio" name="precio" class="form-control" required min="100" step="0.01">
+                        <input type="number" id="precio" name="precio" class="form-control" required max="15000" min="100" step="0.01">
                     </div>
 
                     <div class="mb-3">

@@ -18,8 +18,8 @@ if (isset($_POST['id_empleado_editar']) && !empty($_POST['id_empleado_editar']))
     $lada = $conexion->real_escape_string($_POST['no_lada']);
     $cargo = $conexion->real_escape_string($_POST['cargos']);
 
-    if (isset($_FILES['sellImg']) && $_FILES['sellImg']['error'] == 0) {
-        $imagen = $_FILES['sellImg'];
+    if (isset($_FILES['selllImg']) && $_FILES['selllImg']['error'] == 0) {
+        $imagen = $_FILES['selllImg'];
         $rutaImg = 'IMG/empleado/' . basename($imagen['name']); // Define la ruta donde se guardará la imagen
         if (move_uploaded_file($imagen['tmp_name'], '../' . $rutaImg)) {
     // Preparar la consulta
@@ -50,7 +50,7 @@ if (isset($_POST['id_empleado_editar']) && !empty($_POST['id_empleado_editar']))
         telefono = '$numero',
         NIP = '$nip',
         cargo = '$cargo',
-        disponibilidad = '$disponibilidad',
+        disponibilidad = '$disponibilidad'
     WHERE id_empleado = '$id_empleado_editar'";
 }
 

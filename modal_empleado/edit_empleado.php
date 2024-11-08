@@ -16,7 +16,7 @@
                 </center>
                 <div class="form-group mb-3">
                     <label for="imagen" class="form-label">Imagen</label>
-                    <input class="form-control" type="file" id="sellImg" name="sellImg">
+                    <input class="form-control" type="file" id="selllImg" name="selllImg">
                 </div>
                     <div class="mb-3">
                         <label for="nombre" class="form-label">Nombre</label>

@@ -21,15 +21,15 @@
                     </div>
                     <div class="mb-3">
                         <label for="precio" class="form-label">Precio</label>
-                        <input type="number" id="precio" name="precio" class="form-control" required min="100" step="0.01">
+                        <input type="number" id="precio" name="precio" class="form-control" max="15000" min="100" step="0.01" required>
                     </div>
                     <div class="mb-3">
                         <label for="duracion_horas" class="form-label">Duracion por Horas</label>
-                        <input type="number" id="duracion_horas" name="duracion_horas" class="form-control" required min="1">
+                        <input type="number" id="duracion_horas" name="duracion_horas" class="form-control" max="24" required min="1">
                     </div>
                     <div class="mb-3">
                         <label for="ubicacion" class="form-label">Ubicacion</label>
-                        <textarea name="ubicacion" id="ubicacion" class="form-control" rows="2" required></textarea>
+                        <textarea name="ubicacion" maxlength="50" id="ubicacion" class="form-control" rows="2" required></textarea>
                     </div>
                     <div class="mb-3">
                         <label for="clasificacion" class="form-label">Clasificacion</label>
