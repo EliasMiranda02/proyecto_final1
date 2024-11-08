@@ -33,7 +33,7 @@ if (isset($_FILES['selImg']) && $_FILES['selImg']['error'] == 0) {
 // Ejecutar la consulta
 if ($conexion->query($sql)) {
     $_SESSION['mensaje'] = "Registro exitoso!";
-    header('Location: ../t_catacarros.php');
+    header('Location: ../t_catacarros.php?mensaje=registro_exitoso');
     exit();
 } else {
     echo "Error al insertar los datos: " . $conexion->error;
