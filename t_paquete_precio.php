@@ -74,7 +74,7 @@
                                     <th scope="row" class="text-center"><?= $datos->numero_paquete ?></th>
                                     <td class="text-center"><?= $datos->nombre_paquete ?></td>
                                     <td class="text-center"><?= $datos->destino ?></td>
-                                    <td class="text-center"><?= $datos->precio_total ?></td>
+                                    <td class="text-center">$<?= $datos->precio_total ?></td>
                                 </tr>
                             <?php } ?>
                         </tbody>

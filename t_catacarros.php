@@ -83,7 +83,7 @@
                                 <td><input type="checkbox" name="ids[]" value="<?= $datos->id_carro ?>"></td>
                                 <th scope="row" class="text-center"><?= $datos->id_carro ?></th>
                                 <td class="text-center"><?= $datos->modelo ?></td>
-                                <td class="text-center"><?= $datos->precio_renta ?></td>
+                                <td class="text-center">$<?= $datos->precio_renta ?></td>
                                 <td class="text-center"><?= $datos->capacidad ?></td>
                                 <td class="text-center"><?= $datos->estado ?></td>
                                 <td class="text-center">
@@ -118,7 +118,7 @@
                 // Obtener los datos de la fila con los índices corregidos
 
                 const modelo = row.cells[2].innerText;
-                const precio_renta = row.cells[3].innerText;
+                const precio_renta = row.cells[3].innerText.replace('$', '').trim();
                 const capacidad = row.cells[4].innerText;
                 const estado = row.cells[5].innerText;
                 const imagen = row.cells[6].querySelector('img').src;

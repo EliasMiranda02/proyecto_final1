@@ -18,7 +18,7 @@ btnEditar.addEventListener('click', function(event) {
             const correo_electronico = row.cells[6].innerText; // Suponiendo que la contraseña está en la columna 9
             const numero_habitaciones = row.cells[7].innerText; // Ajusta el índice según tu tabla
             const descripcion = row.cells[8].innerText;
-            const precio_noche = row.cells[9].innerText; 
+            const precio_noche = row.cells[9].innerText.replace('$', '').trim(); 
             const calificacion = row.cells[10].innerText;
             const imagen = row.cells[11].querySelector('img').src;
 
@@ -111,3 +111,4 @@ function actualizarImg() {
 
 // Llamada a la función
 actualizarImg();
+

@@ -36,10 +36,9 @@
                         <select id="clasificacion" name="clasificacion" class="form-select" required>
                             <option value="">Seleccionar...</option>
                             <option value="Aventura y Naturaleza">Aventura y Naturaleza</option>
-                            <option value="Conexión con la Naturaleza">Conexión con la Naturaleza</option>
-                            <option value="Cultural e Histórico">Cultural e Histórico</option>
-                            <option value="Gastronómica">Gastronómica</option>
-                            <option value="Fotográfica">Fotográfica</option>
+                            <option value="Historia y Arqueología">Historia y Arqueología</option>
+                            <option value="Cultura y Pueblos Mágicos">Cultura y Pueblos Mágicos</option>
+                            <option value="Playas y Ritmos del Sol ">Playas y Ritmos del Sol </option>
                         </select>
                     </div>
                     <br>

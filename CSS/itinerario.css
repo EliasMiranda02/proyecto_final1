@@ -1,0 +1,97 @@
+/* General */
+body, html {
+    margin: 0;
+    padding: 0;
+    overflow: hidden; /* Evita el scroll en la página completa */
+}
+
+/* Contenedor Principal */
+.container {
+    margin: 0;
+    padding: 0px 60px; /* Reducir padding para compactar contenido */
+    font-size: 0.9em; /* Reducir tamaño de texto ligeramente */
+}
+
+/* PARA PAQUETES */
+select.form-select {
+    width: 240px;
+}
+
+.numero, .duracion {
+    width: 200px; /* Reducir ligeramente */
+    text-align: center;
+}
+
+.nombre {
+    width: 180px;
+}
+.destino {
+    width: 280px;
+}
+.cabeza {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 20px; /* Reducir espacio entre columnas */
+    padding: 0;
+}
+
+.formulario {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 70px; /* Reducir espacio entre secciones */
+}
+.sesion {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 15px; /* Ajustar espacio */
+}
+
+/* PARA ACTIVIDADES */
+.dias {
+    width: 70px; /* Reducir ligeramente */
+}
+.act {
+    width: 250px; /* Reducir ancho */
+}
+.lista1 {
+    display: grid;
+    grid-template-columns: repeat(20, 1fr);
+    gap: 10px; /* Reducir espacio entre elementos */
+}
+
+.detalles {
+    height: 80px; /* Reducir altura */
+    width: 220px;
+}
+.precios {
+    width: 100px; /* Reducir ligeramente */
+}
+
+.lista {
+    display: grid;
+    grid-template-columns: repeat(20, 1fr);
+    gap: 15px; /* Reducir espacio */
+}
+
+/* Tabla */
+.table-container {
+    max-height: 150px; /* Ajustar altura para que la tabla esté visible */
+    overflow-y: auto; /* Scroll solo dentro de la tabla */
+}
+
+
+.actividades{
+    margin: 0px 60px;
+}
+
+.botones{
+    display: grid;
+    grid-template-columns: repeat(9, 1fr);
+    gap: 80px;
+}
+
+.boton{
+
+    height: 40px;
+    width: 150px;
+}
