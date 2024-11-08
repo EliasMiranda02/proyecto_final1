@@ -7,36 +7,41 @@
                 <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
             </div>
             <div class="modal-body custom-scroll">
-                
-                <form action="./controlador/add_empleado.php" method="post" enctype="multipart/form-data"> <!-- Cambia aquí -->
 
+                <form action="./controlador/add_empleado.php" method="post" enctype="multipart/form-data"> <!-- Cambia aquí -->
+                    <center><img id="image" src="IMG/logoempleado1.png" alt="Vista previa de la imagen" style="display: block; max-width: 150px; margin-top: 10px; border-radius: 20%;"></center>
+                    <div class="form-group mb-3">
+                        <label for="imagen" class="form-label">Imagen</label>
+                        <input class="form-control" type="file" id="sellImg" name="sellImg">
+                    </div>
+                    
                     <div class="form-floating mb-3">
-                        <input type="text" class="form-control" id="nombre" name="nombre" required>
+                        <input type="text" maxlength="25" class="form-control" id="nombre" name="nombre" required>
                         <label for="nombre">Nombre</label>
                     </div>
                     <div class="form-floating mb-3">
-                        <input type="text" class="form-control" name="nombre_usuario" id="nombre_usuario" required>
+                        <input type="text" maxlength="25" class="form-control" name="nombre_usuario" id="nombre_usuario" required>
                         <label for="nombre_usuario">Nombre de Usuario</label>
                     </div>
 
                     <div class="form-floating mb-3">
-                        <input type="text" class="form-control" name="apaterno" id="apaterno" required>
+                        <input type="text" maxlength="35" class="form-control" name="apaterno" id="apaterno" required>
                         <label for="apaterno">Apellido Paterno</label>
                     </div>
                     <div class="form-floating mb-3">
-                        <input type="text" class="form-control" name="amaterno" id="amaterno" required>
+                        <input type="text" maxlength="35" class="form-control" name="amaterno" id="amaterno" required>
                         <label for="amaterno">Apellido Materno</label>
                     </div>
                     <div class="form-floating mb-3">
-                        <input type="email" class="form-control" name="email" id="email" required>
+                        <input type="email" maxlength="100" class="form-control" name="email" id="email" required>
                         <label for="email">Correo Electrónico</label>
                     </div>
                     <div class="form-floating mb-3">
-                        <input type="password" class="form-control" name="contraseña1" id="contraseña1" required>
+                        <input type="password" maxlength="8" class="form-control" name="contraseña1" id="contraseña1" required>
                         <label for="pass1">Contraseña</label>
                     </div>
                     <div class="form-floating mb-3">
-                        <input type="password" class="form-control" name="contraseña2" id="contraseña2" required>
+                        <input type="password" maxlength="8" class="form-control" name="contraseña2" id="contraseña2" required>
                         <label for="pass2">Confirma Contraseña</label>
                     </div>
                     <div class="input-group mb-3">
@@ -52,7 +57,7 @@
                     </div>
 
                     <div class="form-floating mb-3">
-                        <input type="text" class="form-control" id="nip" name="nip" pattern="^\d{1,4}$" required oninput="this.value = this.value.replace(/[^0-9]/g, '').slice(0, 4)">
+                        <input type="text" maxlength="4" class="form-control" id="nip" name="nip" pattern="^\d{1,4}$" required oninput="this.value = this.value.replace(/[^0-9]/g, '').slice(0, 4)">
                         <label for="nip">NIP</label>
                     </div>
 

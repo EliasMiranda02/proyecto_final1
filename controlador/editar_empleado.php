@@ -9,8 +9,8 @@ if (isset($_POST['id_empleado_editar']) && !empty($_POST['id_empleado_editar']))
 
     // Obtener los demás datos
     $nombre = $conexion->real_escape_string($_POST['nombre']);
-    $apellidoMaterno = $conexion->real_escape_string($_POST['apellido_materno']);
     $apellidoPaterno = $conexion->real_escape_string($_POST['apellido_paterno']);
+    $apellidoMaterno = $conexion->real_escape_string($_POST['apellido_materno']);
     $email = $conexion->real_escape_string($_POST['email']);
     $numero = $conexion->real_escape_string($_POST['numero']);
     $nip = $conexion->real_escape_string($_POST['nip']);
@@ -18,18 +18,41 @@ if (isset($_POST['id_empleado_editar']) && !empty($_POST['id_empleado_editar']))
     $lada = $conexion->real_escape_string($_POST['no_lada']);
     $cargo = $conexion->real_escape_string($_POST['cargos']);
 
+    if (isset($_FILES['sellImg']) && $_FILES['sellImg']['error'] == 0) {
+        $imagen = $_FILES['sellImg'];
+        $rutaImg = 'IMG/empleado/' . basename($imagen['name']); // Define la ruta donde se guardará la imagen
+        if (move_uploaded_file($imagen['tmp_name'], '../' . $rutaImg)) {
     // Preparar la consulta
     $sql = "UPDATE empleados SET 
         nombre = '$nombre', 
-        apellido_materno = '$apellidoMaterno', 
         apellido_paterno = '$apellidoPaterno', 
+        apellido_materno = '$apellidoMaterno', 
         email = '$email', 
         clave_lada = '$lada',
         telefono = '$numero',
         NIP = '$nip',
         cargo = '$cargo',
-        disponibilidad = '$disponibilidad'
+        disponibilidad = '$disponibilidad',
+        img = '$rutaImg'
     WHERE id_empleado = '$id_empleado_editar'";
+    }
+    else {
+        echo "Error al mover la imagen a la carpeta.";
+        exit();
+    }
+} else{
+    $sql = "UPDATE empleados SET 
+        nombre = '$nombre', 
+        apellido_paterno = '$apellidoPaterno', 
+        apellido_materno = '$apellidoMaterno', 
+        email = '$email', 
+        clave_lada = '$lada',
+        telefono = '$numero',
+        NIP = '$nip',
+        cargo = '$cargo',
+        disponibilidad = '$disponibilidad',
+    WHERE id_empleado = '$id_empleado_editar'";
+}
 
     if ($conexion->query($sql) === TRUE) {
         // Redirigir con éxito

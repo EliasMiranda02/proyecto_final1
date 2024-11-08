@@ -17,16 +17,16 @@
                     </div>
 
                     <div class="form-floating mb-3">
-                        <input type="text" class="form-control" name="modelo" id="modelo" required>
+                        <input type="text" maxlength="6" class="form-control" name="modelo" id="modelo" required>
                         <label for="nombre_usuario">Modelo del carro</label>
                     </div>
                     <div class="form-floating mb-3">
-                        <input type="text" class="form-control" name="precio" id="precio" required>
+                        <input type="number" min="500" max="15000" step="0.01" class="form-control" name="precio" id="precio" required>
                         <label for="pass1">Precio de la renta del carro</label>
                     </div>
 
                     <div class="form-floating mb-3">
-                        <input type="number" step="1" class="form-control" id="capacidad" name="capacidad" required>
+                        <input type="number" step="1" min="1" max="20" class="form-control" id="capacidad" name="capacidad" required>
                         <label for="nip">Capacidad</label>
                     </div>
                     <div class="input-group mb-3" required>
@@ -39,7 +39,7 @@
                     </div>
 
                     <div class="">
-                        <button type="submit" name="registrar" class="btn btn-primary">Understood</button>
+                        <button type="submit" name="registrar" class="btn btn-primary">Guardar</button>
                     </div>
 
                 </form>

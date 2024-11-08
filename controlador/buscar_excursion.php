@@ -18,11 +18,11 @@ if ($sql->num_rows > 0) {
         echo "<tr>";
         echo "<td><input type='checkbox' name='ids[]' value='{$datos->id_excursion}'></td>";
         echo "<th scope='row' class='text-center'>{$datos->id_excursion}</th>";
-        echo "<td class='text-center descripcion'>{$datos->descripcion}</td>";
-        echo "<td class='text-center'>{$datos->precio}</td>";
-        echo "<td class='text-center'>{$datos->duracion_horas}</td>";
         echo "<td class='text-center'>{$datos->ubicacion}</td>";
         echo "<td class='text-center'>{$datos->clasificacion}</td>";
+        echo "<td class='text-center descripcion'>{$datos->descripcion}</td>";
+        echo "<td class='text-center'>{$datos->duracion_horas}</td>";
+        echo "<td class='text-center'>{$datos->precio}</td>";
         echo "<td class='text-center'>{$datos->fecha_creacion}</td>";
         echo "<td class='text-center'>{$datos->fecha_modificacion}</td>
         <td class='text-center'>
