@@ -47,8 +47,8 @@
                 <div class="input-group">
                     <select name="campo" class="form-select" required>
                         <option value="nombre_hotel">Nombre del Hotel</option>
-                        <option value="numero_habitaciones">Numero de Habitaciones</option>
-                        <option value="calificacion">Calificacion</option>
+                        <option value="correo_electronico">Correo Electronico</option>
+                        
                     </select>
                     <input type="text" class="form-control" name="query" placeholder="Buscar...">
                     <button type="submit" class="btn btn-primary">Buscar</button>

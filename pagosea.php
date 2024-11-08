@@ -21,8 +21,9 @@
                 <input type="hidden" name="Pagosea" value="Pagosea"> <!-- Campo oculto -->
                 <div class="input-group">
                     <select name="campo" class="form-select" required>
-                        <option value="id_pagoea">ID</option>
-                        <option value="monto_total">Monto Total</option>
+                        <option value="id_pagoea">Código</option>
+                        <option value="id_reservaea">Código de Reserva EA</option>
+                        <option value="id_tarjeta">Código de Tarjeta</option>
                     </select>
                     <input type="text" class="form-control" name="query" placeholder="Buscar...">
                     <button type="submit" class="btn btn-primary">Buscar</button>

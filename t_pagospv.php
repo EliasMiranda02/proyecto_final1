@@ -21,8 +21,9 @@
                 <input type="hidden" name="PagoPV" value="PagoPV"> <!-- Campo oculto -->
                 <div class="input-group">
                     <select name="campo" class="form-select" required>
-                        <option value="id_pagopv">ID</option>
-                        <option value="monto_total">Monto Total a Pagar</option>
+                        <option value="id_pagopv">Código</option>
+                        <option value="id_reservapv">Código de Reserva PV</option>
+                        <option value="id_tarjeta">Código de Tarjeta</option>
                     </select>
                     <input type="text" class="form-control" name="query" placeholder="Buscar...">
                     <button type="submit" class="btn btn-primary">Buscar</button>

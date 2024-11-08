@@ -21,8 +21,9 @@
                 <input type="hidden" name="Pagospa" value="Pagospa"> <!-- Campo oculto -->
                 <div class="input-group">
                     <select name="campo" class="form-select" required>
-                        <option value="id_pagopa">ID</option>
-                        <option value="monto_total">Monto Total</option>
+                        <option value="id_pagopa">Código</option>
+                        <option value="id_reservapa">Código de Reserva PA</option>
+                        <option value="id_tarjeta">Código de Tarjeta</option>
                     </select>
                     <input type="text" class="form-control" name="query" placeholder="Buscar...">
                     <button type="submit" class="btn btn-primary">Buscar</button>
@@ -55,7 +56,7 @@
                                     <td class="text-center"><?= $datos->id_tarjeta ?></td>
                                     <td class="text-center"><?= $datos->fecha_pago ?></td>
                                     <td class="text-center"><?= $datos->monto_total ?></td>
-                                    
+
                                 </tr>
                             <?php } ?>
                         </tbody>

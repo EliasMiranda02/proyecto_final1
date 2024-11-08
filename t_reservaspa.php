@@ -21,9 +21,10 @@
                 <input type="hidden" name="Reservapa" value="Reservapa"> <!-- Campo oculto -->
                 <div class="input-group">
                     <select name="campo" class="form-select" required>
-                        <option value="id_reservapa">ID</option>
-                        <option value="cantidad_asientos">Cantidad de Asientos</option>
-                        <option value="precio_paquete">Precio del Paquete</option>
+                        <option value="id_reservapa">Código</option>
+                        <option value="fecha_reserva">Fecha de la Reserva</option>
+                        <option value="estado_reserva">Estado de la Reserva</option>
+                        <option value="lugar_salida">Lugar de Salida</option>
                     </select>
                     <input type="text" class="form-control" name="query" placeholder="Buscar...">
                     <button type="submit" class="btn btn-primary">Buscar</button>

@@ -34,55 +34,67 @@
                     ?>
                 </div>
             <?php endif; ?>
+            <form id="searchFormUsuario" class="mb-3" method="POST" action="controlador/buscar_usuario.php">
+                <input type="hidden" name="Usuario" value="Usuario"> <!-- Campo oculto -->
+                <div class="input-group">
+                    <select name="campo" class="form-select" required>
+                        <option value="nombre">Nombre</option>
+                        <option value="apellido_paterno">Apellido</option>
+                        <option value="email">Corrreo Electrónico</option>
+                    </select>
+                    <input type="text" class="form-control" name="query" placeholder="Buscar...">
+                    <button type="submit" class="btn btn-primary">Buscar</button>
+                </div>
+            </form>
 
             <form id="Clientes" action="controlador/eliminar_usuario.php" method="post">
-            <div class="table-responsive">
-                <table class="table">
-                    <thead class="bg-info">
-                        <tr>
-                            <th scope="col"><input type="hidden" id="selectAll"></th>
-                            <th scope="col" class="text-center">id_usuario</th>
-                            <th scope="col" class="text-center">nombre</th>
-                            <th scope="col" class="text-center">apellido materno</th>
-                            <th scope="col" class="text-center">apellido paterno</th>
-                            <th scope="col" class="text-center">email</th>
-                            <th scope="col" class="text-center">clave_lada</th>
-                            <th scope="col" class="text-center">telefono</th>
-                            <th scope="col" class="text-center">fecha_registro</th>
-                            <th scope="col" class="text-center">contraseña</th>
-                            <th scope="col" class="text-center">Imagen</th>
-                        </tr>
-                    </thead>
-                    <tbody>
-                        <?php
-                        include "modelo/conexion.php";
-
-                        $sql = $conexion->query("SELECT * FROM clientes");
-                        while ($datos = $sql->fetch_object()) { ?>
+                <div class="table-responsive">
+                    <table class="table">
+                        <thead class="bg-info">
                             <tr>
-                                <td><input type="checkbox" name="ids[]" value="<?= $datos->id_cliente ?>"></td>
-                                <th scope="row" class="text-center"><?= $datos->id_cliente ?></th>
-                                <td class="text-center"><?= $datos->nombre ?></td>
-                                <td class="text-center"><?= $datos->apellido_materno ?></td>
-                                <td class="text-center"><?= $datos->apellido_paterno ?></td>
-                                <td class="text-center"><?= $datos->email ?></td>
-                                <td class="text-center"><?= $datos->clave_lada ?></td>
-                                <td class="text-center"><?= $datos->telefono ?></td>
-                                <td class="text-center"><?= $datos->fecha_registro ?></td>
-                                <td class="text-center"><?= $datos->contraseña ?></td>
-                                <td class="text-center">
-                                    <img src="<?= $datos->img ?>" alt="Imagen del cliente" style="width: 100px; height: 60px;">
-                                </td>
-                                <td class="text-center">
-                                    <button type="button" class="btn btn-success" data-bs-toggle="modal" data-bs-target="#banco" data-id="<?= $datos->id_cliente ?>">Banco</button>
-                                </td>
-
-
+                                <th scope="col"><input type="hidden" id="selectAll"></th>
+                                <th scope="col" class="text-center">id_usuario</th>
+                                <th scope="col" class="text-center">nombre</th>
+                                <th scope="col" class="text-center">apellido paterno</th>
+                                <th scope="col" class="text-center">apellido materno</th>
+                                <th scope="col" class="text-center">email</th>
+                                <th scope="col" class="text-center">clave_lada</th>
+                                <th scope="col" class="text-center">telefono</th>
+                                <th scope="col" class="text-center">fecha_registro</th>
+                                <th scope="col" class="text-center">contraseña</th>
+                                <th scope="col" class="text-center">Imagen</th>
                             </tr>
-                        <?php } ?>
-                    </tbody>
-                </table>
-            </div>
+                        </thead>
+                        <tbody>
+                            <?php
+                            include "modelo/conexion.php";
+
+                            $sql = $conexion->query("SELECT * FROM clientes");
+                            while ($datos = $sql->fetch_object()) { ?>
+                                <tr>
+                                    <td><input type="checkbox" name="ids[]" value="<?= $datos->id_cliente ?>"></td>
+                                    <th scope="row" class="text-center"><?= $datos->id_cliente ?></th>
+                                    <td class="text-center"><?= $datos->nombre ?></td>
+                                    <td class="text-center"><?= $datos->apellido_paterno ?></td>
+                                    <td class="text-center"><?= $datos->apellido_materno ?></td>
+                                    <td class="text-center"><?= $datos->email ?></td>
+                                    <td class="text-center"><?= $datos->clave_lada ?></td>
+                                    <td class="text-center"><?= $datos->telefono ?></td>
+                                    <td class="text-center"><?= $datos->fecha_registro ?></td>
+                                    <td class="text-center"><?= $datos->contraseña ?></td>
+                                    <td class="text-center">
+                                        <img src="<?= $datos->img ?>" alt="Imagen del cliente" style="width: 100px; height: 60px;">
+                                    </td>
+                                    <td class="text-center">
+                                        <button type="button" class="btn btn-success" data-bs-toggle="modal" data-bs-target="#banco" data-id="<?= $datos->id_cliente ?>">Banco</button>
+                                    </td>
+
+
+                                </tr>
+                            <?php } ?>
+                        </tbody>
+                    </table>
+                </div>
                 <button type="button" class="btn btn-danger" data-bs-toggle="modal" data-bs-target="#eliminar">Eliminar seleccionados</button>
             </form>
         </div>
@@ -146,6 +158,28 @@
                 mensajeAlerta.style.display = 'none';
             }
         }, 2000); // 5000 milisegundos = 5 segundos
+
+        document.getElementById('searchFormUsuario').addEventListener('submit', function(e) {
+            e.preventDefault();
+
+            const formData = new FormData(this);
+            const queryValue = formData.get('query').trim(); // Obtener el valor de 'query' y quitar espacios
+
+            if (queryValue === "") {
+                // Si está vacío, usar un valor especial para indicar "todos los registros"
+                formData.set('query', '%'); // Esto actuará como un comodín en SQL para traer todos los registros
+            }
+            fetch('controlador/buscar_usuario.php', {
+                    method: 'POST',
+                    body: formData
+                })
+                .then(response => response.text())
+                .then(data => {
+                    const tbody = document.querySelector('#Clientes table tbody'); // Especifica el tbody correcto
+                    tbody.innerHTML = data;
+                })
+                .catch(error => console.error('Error:', error));
+        });
     </script>
 
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>

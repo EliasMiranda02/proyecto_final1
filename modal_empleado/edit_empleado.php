@@ -4,7 +4,7 @@
             <div class="modal-header">
                 <h1 class="modal-title fs-5">Editar Empleado</h1>
             </div>
-            <div class="modal-body">
+            <div class="modal-body custom-scroll">
 
                 <form id="editarForm" action="controlador/editar_empleado.php" method="post">
                     <input type="hidden" id="id_empleado_editar" name="id_empleado_editar">
@@ -73,3 +73,10 @@
         </div>
     </div>
 </div>
+<style>
+    .custom-scroll {
+        max-height: 400px;
+        /* Ajusta la altura según tus necesidades */
+        overflow-y: auto;
+    }
+</style>

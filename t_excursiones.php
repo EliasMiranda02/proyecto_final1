@@ -47,7 +47,7 @@
                 <div class="input-group">
                     <select name="campo" class="form-select" required>
                         <option value="clasificacion">Clasificacion</option>
-                        <option value="duracion_horas">Duracion de Horas</option>
+                        <option value="ubicacion">Ubicacion</option>
                     </select>
                     <input type="text" class="form-control" name="query" placeholder="Buscar...">
                     <button type="submit" class="btn btn-primary">Buscar</button>

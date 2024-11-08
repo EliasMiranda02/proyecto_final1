@@ -22,8 +22,9 @@
                 <div class="input-group">
                     <select name="campo" class="form-select" required>
                         <option value="id_reservaea">Código</option>
-                        <option value="cantidad_asientos">Cantidad de Asientos</option>
-                        <option value="precio_excursion">Precio de la Excursion</option>
+                        <option value="fecha_reserva">Fecha de la Reserva</option>
+                        <option value="estado_reserva">Estado de la Reserva</option>
+                        <option value="lugar_salida">Lugar de Salida</option>
                     </select>
                     <input type="text" class="form-control" name="query" placeholder="Buscar...">
                     <button type="submit" class="btn btn-primary">Buscar</button>

@@ -69,6 +69,7 @@
                     <div class="col-md mb-3">
                         <div class="form-floating">
                             <select name="disponibilidad" class="form-select" id="disponibilidad" required>
+                                <option value="">Seleccionar...</option>
                                 <option value="Disponible">Disponible</option>
                                 <option value="No disponible">No Disponible</option>
                                 <option value="Reservado">Reservado</option>
