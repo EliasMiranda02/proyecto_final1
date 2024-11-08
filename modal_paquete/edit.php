@@ -10,7 +10,7 @@
 
           <center>
             <!-- Imagen mostrada en el modal, cambiar cuando se seleccione un archivo -->
-            <img id="imagen" src="" alt="Vista previa de la imagen" style="display: block; max-width: 200px; margin-top: 10px; border-radius: 60%;">
+            <img id="imagen" src="" alt="Vista previa de la imagen" style="display: block; max-width: 200px; margin-top: 10px; border-radius: 10%;">
           </center>
           <div class="form-group mb-3">
             <label for="imagen" class="form-label">Imagen</label>

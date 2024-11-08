@@ -8,7 +8,7 @@
                 <form id="editarForm" action="./controlador/editar_excursion.php" method="post" enctype="multipart/form-data">
                     <input type="hidden" id="id_excursion_editar" name="id_excursion_editar">
                     <center>
-                        <img id="im" src="" alt="Vista previa de la imagen" style="display: block; max-width: 200px; margin-top: 10px; border-radius: 60%;">
+                        <img id="im" src="" alt="Vista previa de la imagen" style="display: block; max-width: 200px; margin-top: 10px; border-radius: 10%;">
                     </center>
                     <div class="form-group mb-3">
                         <label for="im" class="form-label">Imagen</label>
