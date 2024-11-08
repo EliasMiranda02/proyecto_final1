@@ -96,7 +96,7 @@
                                     <td class="text-center"><?= $datos->numero_paquete ?></td>
                                     <td class="text-center"><?= $datos->nombre ?></td>
                                     <td class="descripcion text-center"><?= $datos->descripcion ?></td>
-                                    <td class="text-center"><?= $datos->precio_aproximado ?></td>
+                                    <td class="text-center">$<?= $datos->precio_aproximado ?></td>
                                     <td class="text-center"><?= $datos->duracion_dias ?></td>
                                     <td class="text-center"><?= $datos->destino ?></td>
                                     <td><?= $datos->fecha_creacion ?></td>
@@ -150,7 +150,7 @@
                 // Obtener los datos de la fila
                 const nombre = row.cells[3].innerText;
                 const descripcion = row.cells[4].innerText;
-                const precio_aproximado = row.cells[5].innerText;
+                const precio_aproximado = row.cells[5].innerText.replace('$', '').trim();
                 const duracion_dias = row.cells[6].innerText;
                 const destino = row.cells[7].innerText;
                 const fecha_creacion = row.cells[8].innerText;

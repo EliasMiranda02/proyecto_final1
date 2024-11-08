@@ -10,7 +10,7 @@
 
           <center>
             <!-- Imagen mostrada en el modal, cambiar cuando se seleccione un archivo -->
-            <img id="imagenes" src="" alt="Vista previa de la imagen" style="display: block; max-width: 200px; margin-top: 10px; border-radius: 60%;">
+            <img id="imagenes" src="" alt="Vista previa de la imagen" style="display: block; height:170px; max-width: 250px; margin-top: 10px; border-radius: 10%;">
           </center>
           <div class="form-group mb-3">
             <label for="imagen" class="form-label">Imagen</label>
@@ -22,13 +22,14 @@
             <input type="text" class="form-control" id="nombre_hotel" name="nombre_hotel" required>
           </div>
           <div class="mb-3">
-            <label for="telefono" class="form-label">direccion</label>
+            <label for="telefono" class="form-label">Dirección</label>
             <input type="text" class="form-control" id="direccion" name="direccion">
           </div>
           <div class="mb-3">
             <label for="clave_lada" class="form-label">Clave Lada</label>
             <select id="clave_lada" name="clave_lada" class="form-select" required>
               <option value="961">961</option>
+              <option value="967">967</option>
               <option value="664">664</option>
               <option value="229">229</option>
               <option value="81">81</option>

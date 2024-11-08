@@ -30,7 +30,7 @@ if ($sql->num_rows > 0) {
         echo "<td><input type='checkbox' name='ids[]' value='{$datos->id_carro}'></td>";
         echo "<th scope='row' class='text-center'>{$datos->id_carro}</th>";
         echo "<td class='text-center'>{$datos->modelo}</td>";
-        echo "<td class='text-center'>{$datos->precio_renta}</td>";
+        echo "<td class='text-center'>'$'{$datos->precio_renta}</td>";
         echo "<td class='text-center'>{$datos->capacidad}</td>";
         echo "<td class='text-center'>{$datos->estado}</td>";
         echo "<td class='text-center'>
