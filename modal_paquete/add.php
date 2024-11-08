@@ -14,30 +14,34 @@
                     </div>
 
                     <div class="form-floating mb-3">
-                        <input type="text" class="form-control" id="numero" name="numero" required>
+                        <input type="number" class="form-control" id="numero" name="numero" required>
                         <label for="floatingInput" class="form-label">Numero del Paquete</label>
                     </div>
+
                     <div class="form-floating mb-3">
-                        <input type="text" class="form-control" id="nombres" name="nombres" required>
+                        <input type="text" maxlength="50" class="form-control" id="nombres" name="nombres" required>
                         <label for="floatingInput" class="form-label">Nombre del Paquete</label>
                     </div>
+
                     <div class="mb-3">
                         <label for="descripcion" class="form-label">Descripcion</label>
                         <textarea name="descripcion" id="descripcion" class="form-control" rows="3" required></textarea>
                     </div>
+
                     <div class="form-floating mb-3">
-                        <input type="text" class="form-control" id="precios" name="precios" required>
+                        <input type="number" step="0.01" min="100" max="15000" class="form-control" id="precios" name="precios" required>
                         <label for="floatingInput" class="form-label">Precio del paquete (aprox)</label>
                     </div>
+
                     <div class="form-floating mb-3">
-                        <input type="number" class="form-control" id="duracion" name="duracion" required>
-                        <label for="floatingInput" class="form-label">Duración del paquete</label>
+                        <input type="number" max="7" min="1" class="form-control" id="duracion" name="duracion" required>
+                        <label for="floatingInput" class="form-label">Duración del paquete (dias)</label>
                     </div>
                     <div class="form-floating mb-3">
-                        <input type="text" class="form-control" id="destino" name="destino" required>
+                        <textarea class="form-control" maxlength="50" id="destino" name="destino" rows="3" required></textarea>
                         <label for="floatingInput" class="form-label">Destino</label>
                     </div>
-
+                    
                     <div class="">
                         <button type="submit" name="registrar" class="btn btn-success">
                             <i class="fa-solid fa-file-circle-plus"></i> Agregar

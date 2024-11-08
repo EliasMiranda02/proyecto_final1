@@ -25,7 +25,7 @@
                     </div>
                     <div class="mb-3">
                         <label for="duracion_horas" class="form-label">Duracion por Horas</label>
-                        <input type="number" id="duracion_horas" name="duracion_horas" class="form-control" max="24" required min="1">
+                        <input type="number" id="duracion_horas" name="duracion_horas" class="form-control" max="24" min="1" required>
                     </div>
                     <div class="mb-3">
                         <label for="ubicacion" class="form-label">Ubicacion</label>

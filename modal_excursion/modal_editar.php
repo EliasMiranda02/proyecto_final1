@@ -20,12 +20,12 @@
                     </div>
                     <div class="mb-3">
                         <label for="precio" class="form-label">Precio</label>
-                        <input type="number" id="precio" name="precio" class="form-control" required max="15000" min="100" step="0.01">
+                        <input type="number" id="precio" name="precio" class="form-control" max="15000" min="100" step="0.01" required>
                     </div>
 
                     <div class="mb-3">
                         <label for="duracion_horas" class="form-label">Duracion por Horas</label>
-                        <input type="number" id="duracion_horas" name="duracion_horas" class="form-control" required min="1">
+                        <input type="number" id="duracion_horas" name="duracion_horas" class="form-control" max="24" min="1" required>
                     </div>
 
                     <div class="mb-3">

@@ -17,12 +17,14 @@
 
                     <div class="mb-3">
                         <label for="nombre_hotel" class="form-label">Nombre del Hotel</label>
-                        <input type="text" name="nombre_hotel" id="nombre_hotel" class="form-control" required>
+                        <input type="text" maxlength="50" name="nombre_hotel" id="nombre_hotel" class="form-control" required>
                     </div>
+
                     <div class="mb-3">
                         <label for="direccion" class="form-label">Dirección</label>
-                        <textarea name="direccion" id="direccion" class="form-control" rows="2" required></textarea>
+                        <textarea name="direccion" maxlength="100" id="direccion" class="form-control" rows="2" required></textarea>
                     </div>
+                    
                     <div class="mb-3">
                         <label for="clave_lada" class="form-label">Clave Lada</label>
                         <select id="clave_lada" name="clave_lada" class="form-select" required>
@@ -41,11 +43,11 @@
                     </div>
                     <div class="mb-3">
                         <label for="correo_electronico" class="form-label">Correo Electrónico</label>
-                        <input type="email" id="correo_electronico" name="correo_electronico" class="form-control" required>
+                        <input type="email" maxlength="100" id="correo_electronico" name="correo_electronico" class="form-control" required>
                     </div>
                     <div class="mb-3">
                         <label for="numero_habitaciones" class="form-label">Numero de Habitaciones</label>
-                        <input type="number" id="numero_habitaciones" name="numero_habitaciones" class="form-control" required min="1">
+                        <input type="number" max="80" min="1" id="numero_habitaciones" name="numero_habitaciones" class="form-control" required>
                     </div>
                     <div class="mb-3">
                         <label for="descripcion" class="form-label">Descripción</label>
@@ -53,11 +55,11 @@
                     </div>
                     <div class="mb-3">
                         <label for="precio_noche" class="form-label">Precio por Noche</label>
-                        <input type="number" id="precio_noche" name="precio_noche" class="form-control" required min="100" step="0.01">
+                        <input type="number" min="100" max="15000" step="0.01" id="precio_noche" name="precio_noche" class="form-control" required >
                     </div>
                     <div class="mb-3">
                         <label for="calificacion" class="form-label">Calificación</label>
-                        <input type="number" id="calificacion" name="calificacion" class="form-control" required min="1">
+                        <input type="number" min="1" max="5" step="0.1" id="calificacion" name="calificacion" class="form-control" required >
                     </div>
                     <br>
                     <div class="">
