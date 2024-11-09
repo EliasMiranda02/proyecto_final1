@@ -8,24 +8,24 @@
         <form id="editarForm" action="controlador/edit_ruta.php" method="post">
           <input type="hidden" id="id_ruta_editar" name="id_ruta_editar">
           <div class="form-floating mb-3">
-            <input type="text" class="form-control" id="origen" name="origen" required>
+            <input type="text" maxlength="50" class="form-control" id="origen" name="origen" required>
             <label for="floatingInput">Origen</label>
           </div>
           <div class="form-floating mb-3">
-              <input type="text" class="form-control" id="destino" name="destino" required>
+              <input type="text" maxlength="50" class="form-control" id="destino" name="destino" required>
               <label for="floatingInput" class="form-label">Destino</label>
           </div>
           <div class="form-floating mb-3">
-              <input type="text" class="form-control" id="distancia" name="distancia" required>
+              <input type="number" min="1" max="15000" step="0.01" class="form-control" id="distancia" name="distancia" required>
               <label for="floatingInput" class="form-label">Distancia</label>
           </div>
           <div class="form-floating mb-3">
-              <input type="email" class="form-control" id="duracion" name="duracion" required>
-              <label for="floatingInpu" class="form-label">Duracion</label>
+              <input type="number" min="1" max="15000" step="0.01" class="form-control" id="duracion" name="duracion" required>
+              <label for="floatingInput" class="form-label">Duracion</label>
           </div>
           <div class="form-floating mb-3">
-              <input type="text" class="form-control" id="matricula" name="matricula" required>
-              <label for="floatingInpu" class="form-label">Matricula</label>
+              <input type="text" maxlength="10" class="form-control" id="matricula" name="matricula" required>
+              <label for="floatingInput" class="form-label">Matricula</label>
           </div>
 
         </form>

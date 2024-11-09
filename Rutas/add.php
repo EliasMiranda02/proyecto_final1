@@ -7,23 +7,23 @@
       <div class="modal-body">
         <form id="editarForm" action="controlador/add_rutas.php" method="post" enctype="multipart/form-data">
           <div class="form-floating mb-3">
-            <input type="text" class="form-control" id="origen" name="origen" required>
+            <input type="text" maxlength="50" class="form-control" id="origen" name="origen" required>
             <label for="floatingInput">Origen</label>
           </div>
           <div class="form-floating mb-3">
-            <input type="text" class="form-control" id="destino" name="destino" required>
+            <input type="text" maxlength="50" class="form-control" id="destino" name="destino" required>
             <label for="floatingInput" class="form-label">Destino</label>
           </div>
           <div class="form-floating mb-3">
-            <input type="text" class="form-control" id="distancia" name="distancia"required>
+            <input type="number" min="1" max="15000" step="0.01" class="form-control" id="distancia" name="distancia"required>
             <label for="floatingInput" class="form-label">Distancia (km)</label>
           </div>
           <div class="form-floating mb-3">
-            <input type="text" class="form-control" id="duracion" name="duracion"required>
+            <input type="number" min="1" max="15000" step="0.01" class="form-control" id="duracion" name="duracion"required>
             <label for="floatingInpu" class="form-label">Duracion</label>
           </div>
           <div class="form-floating mb-3">
-            <input type="text" class="form-control" id="matricula" name="matricula" required>
+            <input type="text" maxlength="10" class="form-control" id="matricula" name="matricula" required>
             <label for="floatingInpu" class="form-label">Matricula</label>
           </div>
 

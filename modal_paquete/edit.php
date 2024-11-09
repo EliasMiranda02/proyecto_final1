@@ -18,7 +18,7 @@
           </div>
 
           <div class="form-floating mb-3">
-            <input type="text" class="form-control" id="nombres" name="nombres" required>
+            <input type="text" maxlength="50" class="form-control" id="nombres" name="nombres" required>
             <label for="floatingInput" class="form-label">Nombre del Paquete</label>
           </div>
           <div class="mb-3">
@@ -26,15 +26,15 @@
             <textarea name="descripcion" id="descripcion" class="form-control" rows="3" required></textarea>
           </div>
           <div class="form-floating mb-3">
-            <input type="text" class="form-control" id="precios" name="precios" required>
+            <input type="number" step="0.01" min="100" max="15000" class="form-control" id="precios" name="precios" required>
             <label for="floatingInput" class="form-label">Precio del paquete (aprox)</label>
           </div>
           <div class="form-floating mb-3">
-            <input type="number" class="form-control" id="duracion" name="duracion" required>
+            <input type="number" max="7" min="1" class="form-control" id="duracion" name="duracion" required>
             <label for="floatingInput" class="form-label">Duración del paquete</label>
           </div>
           <div class="form-floating mb-3">
-            <input type="text" class="form-control" id="destino" name="destino" required>
+            <input type="text" maxlength="50" class="form-control" id="destino" name="destino" required>
             <label for="floatingInput" class="form-label">Destino</label>
           </div>
           <div class="form-floating mb-3">

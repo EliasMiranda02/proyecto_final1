@@ -25,7 +25,7 @@
                         <label for="floatingInput" class="form-label">Fecha Llegada</label>
                     </div>
                     <div class="form-floating mb-3">
-                        <input type="text" class="form-control" id="boleto" name="boleto" required>
+                        <input type="number" min="100" max="15000" step="0.01" class="form-control" id="boleto" name="boleto" required>
                         <label for="floatingInput" class="form-label">Precio del Boleto</label>
                     </div>
                     <div class="input-group mb-3" required>

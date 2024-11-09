@@ -19,8 +19,9 @@
 
           <div class="mb-3">
             <label for="nombre_hotel" class="form-label">Nombre del Hotel</label>
-            <input type="text" class="form-control" id="nombre_hotel" name="nombre_hotel" required>
+            <input type="text" maxlength="50" class="form-control" id="nombre_hotel" name="nombre_hotel" required>
           </div>
+
           <div class="mb-3">
             <label for="telefono" class="form-label">Dirección</label>
             <input type="text" class="form-control" id="direccion" name="direccion">
@@ -44,22 +45,22 @@
 
           <div class="mb-3">
             <label for="correo_electronico" class="form-label">Correo electrónico</label>
-            <input type="email" class="form-control" id="correo_electronico" name="correo_electronico" required>
+            <input type="email" maxlength="100" class="form-control" id="correo_electronico" name="correo_electronico" required>
           </div>
 
           <div class="mb-3">
             <label for="numero_habitaciones" class="form-label">Número de Habitaciones</label>
-            <input type="text" class="form-control" id="numero_habitaciones" name="numero_habitaciones" required>
+            <input type="number" max="80" min="1" class="form-control" id="numero_habitaciones" name="numero_habitaciones" required>
           </div>
 
           <div class="mb-3">
             <label for="descripcion" class="form-label">Descripción</label>
-            <textarea type="text" class="form-control" id="descripcion" name="descripcion" rows="3"  required></textarea>
+            <textarea type="text" class="form-control" id="descripcion" name="descripcion" rows="3" required></textarea>
           </div>
 
           <div class="mb-3">
             <label for="precio_noche" class="form-label">Precio por Noche</label>
-            <input type="text" class="form-control" id="precio_noche" name="precio_noche" required>
+            <input type="number" min="100" max="15000" step="0.01" class="form-control" id="precio_noche" name="precio_noche" required>
           </div>
 
           <div class="mb-3">
