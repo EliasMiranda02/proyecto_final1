@@ -11,8 +11,18 @@
 </head>
 
 <body>
+    <div class="franja"></div>
+    <div class="paquetes">
+        <div class="imagen">
+            <img src="IMG/registro/Logo.png" alt="">
+        </div>
 
-    <div class="d-flex justify-content-center align-items-center vh-100">
+        <div class="logo">
+            <h4>REGISTRO DE RESERVAS DE VUELO</h4>
+        </div>
+
+    </div>
+    <div class="d-flex justify-content-center align-items-center">
         <div class="row justify-content-end">
 
         </div>
@@ -25,7 +35,7 @@
                         <option value="estado">Estado</option>
                     </select>
                     <input type="text" class="form-control" name="query" placeholder="Buscar...">
-                    <button type="submit" class="btn btn-primary">Buscar</button>
+                    <button type="submit" class="btn botones">Buscar</button>
                 </div>
             </form>
 
@@ -34,13 +44,13 @@
                     <table class="table">
                         <thead class="bg-info">
                             <tr>
-                                <th scope="col"><input type="hidden" id="selectAll"></th>
-                                <th scope="col" class="text-center">id_reservav</th>
-                                <th scope="col" class="text-center">id_cliente</th>
-                                <th scope="col" class="text-center">id_vuelo</th>
-                                <th scope="col" class="text-center">fecha_reserva</th>
-                                <th scope="col" class="text-center">hora_reserva</th>
-                                <th scope="col" class="text-center">estado</th>
+                                <th scope="col" class="encabezado"><input type="hidden" id="selectAll"></th>
+                                <th scope="col" class="text-center encabezado">id_reservav</th>
+                                <th scope="col" class="text-center encabezado">id_cliente</th>
+                                <th scope="col" class="text-center encabezado">id_vuelo</th>
+                                <th scope="col" class="text-center encabezado">fecha_reserva</th>
+                                <th scope="col" class="text-center encabezado">hora_reserva</th>
+                                <th scope="col" class="text-center encabezado">estado</th>
                             </tr>
                         </thead>
                         <tbody>

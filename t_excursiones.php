@@ -6,13 +6,25 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Excursiones</title>
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
-    <link rel="stylesheet" href="CSS/hotel.css">
     <script src="https://kit.fontawesome.com/90c11f8b3b.js" crossorigin="anonymous"></script>
+    <link rel="stylesheet" href="./CSS/hotel.css">
 </head>
 
 <body>
 
-    <div class="d-flex justify-content-center align-items-center vh-100">
+    <div class="franja"></div>
+    <div class="paquetes">
+        <div class="imagen">
+            <img src="IMG/registro/Logo.png" alt="">
+        </div>
+
+        <div class="logo">
+            <h4>REGISTRO DE EXCURSIONES</h4>
+        </div>
+
+    </div>
+
+    <div class="d-flex justify-content-center align-items-center">
         <div class="row justify-content-end">
 
         </div>
@@ -37,38 +49,46 @@
                     ?>
                 </div>
             <?php endif; ?>
-            <div class="col-auto">
-                <a href="#" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#añadirmodal"><i class="fa-solid fa-circle-plus"></i></a>
-                <i>Nueva Excursion</i>
-            </div>
-            <br>
-            <form id="searchFormExcursion" class="mb-3" method="POST" action="controlador/buscar_excursion.php">
-                <input type="hidden" name="Excursion" value="Excursion"> <!-- Campo oculto -->
-                <div class="input-group">
-                    <select name="campo" class="form-select" required>
-                        <option value="clasificacion">Clasificacion</option>
-                        <option value="ubicacion">Ubicacion</option>
-                    </select>
-                    <input type="text" class="form-control" name="query" placeholder="Buscar...">
-                    <button type="submit" class="btn btn-primary">Buscar</button>
+
+            <div class="cabeza">
+                <div class="add">
+                    <a href="#" class="btn btn-success" data-bs-toggle="modal" data-bs-target="#añadirmodal"><i class="fa-solid fa-circle-plus"></i></a>
+                    <i>Nueva Excursion</i>
                 </div>
-            </form>
+
+                <div class="search">
+                    <form id="searchFormExcursion" class="mb-3" method="POST" action="controlador/buscar_excursion.php">
+                        <input type="hidden" name="Excursion" value="Excursion"> <!-- Campo oculto -->
+                        <div class="input-group">
+                            <select name="campo" class="form-select" required>
+                                <option value="clasificacion">Clasificacion</option>
+                                <option value="ubicacion">Ubicacion</option>
+                            </select>
+                            <input type="text" class="form-control" name="query" placeholder="Buscar...">
+                            <button type="submit" class="btn botones">Buscar</button>
+                        </div>
+                    </form>
+                </div>
+            </div>
+
+
+
 
             <form id="Excursiones" action="controlador/eliminar_excursion.php" method="post">
                 <div class="table-responsive">
                     <table class="table">
                         <thead class="bg-info">
                             <tr>
-                                <th scope="col"><input type="hidden" id="selectAll"></th>
-                                <th scope="col" class="text-center">Código</th>
-                                <th scope="col" class="text-center">Destino</th>
-                                <th scope="col" class="text-center">Clasificación</th>
-                                <th scope="col" class="text-center">Descripción</th>
-                                <th scope="col" class="text-center">Horas</th>
-                                <th scope="col" class="text-center">Precio</th>
-                                <th scope="col" class="text-center">Fecha de Creación</th>
-                                <th scope="col" class="text-center">Fecha de Modificación</th>
-                                <th scope="col" class="text-center">Foto</th>
+                                <th scope="col" class="encabezado"><input type="hidden" id="selectAll"></th>
+                                <th scope="col" class="text-center encabezado">Código</th>
+                                <th scope="col" class="text-center encabezado">Destino</th>
+                                <th scope="col" class="text-center encabezado">Clasificación</th>
+                                <th scope="col" class="text-center encabezado">Descripción</th>
+                                <th scope="col" class="text-center encabezado">Horas</th>
+                                <th scope="col" class="text-center encabezado">Precio</th>
+                                <th scope="col" class="text-center encabezado">Fecha de Creación</th>
+                                <th scope="col" class="text-center encabezado">Fecha de Modificación</th>
+                                <th scope="col" class="text-center encabezado">Foto</th>
                             </tr>
                         </thead>
                         <tbody>
@@ -95,12 +115,17 @@
                         </tbody>
                     </table>
                 </div>
-                <button type="button" class="btn btn-danger" data-bs-toggle="modal" data-bs-target="#eliminar">Eliminar seleccionados</button>
-                <button type="button" class="btn btn-warning" id="btnEditar" data-bs-toggle="modal" data-bs-target="#editar">Editar Excursion</button>
+                <div class="boton d-flex justify-content-between mb-1">
+                    <div class="d-flex">
+                        <button type="button" class="btn btn-warning me-3" id="btnEditar" data-bs-toggle="modal" data-bs-target="#editar">Editar Excursion</button>
+                        <button type="button" class="btn btn-danger" data-bs-toggle="modal" data-bs-target="#eliminar">Eliminar seleccionados</button>
+                    </div>
+                    <div class="d-flex justify-content-center">
+                        <button type="button" class="btn botones" data-bs-toggle="modal" data-bs-target="#Guias">Guias Turisticos</button>
+                    </div>
+                </div>
+
             </form>
-            <div class="d-flex justify-content-center">
-                <button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#Guias">Guias Turisticos</button>
-            </div>
         </div>
 
     </div>

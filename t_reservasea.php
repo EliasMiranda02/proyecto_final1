@@ -6,13 +6,25 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Reservas EA</title>
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
-    <link rel="stylesheet" href="CSS/hotel.css">
     <script src="https://kit.fontawesome.com/90c11f8b3b.js" crossorigin="anonymous"></script>
+    <link rel="stylesheet" href="./CSS/hotel.css">
 </head>
 
 <body>
 
-    <div class="d-flex justify-content-center align-items-center vh-100">
+    <div class="franja"></div>
+    <div class="paquetes">
+        <div class="imagen">
+            <img src="IMG/registro/Logo.png" alt="">
+        </div>
+
+        <div class="logo">
+            <h4>REGISTRO DE RESERVAS EA</h4>
+        </div>
+
+    </div>
+
+    <div class="d-flex justify-content-center align-items-center">
         <div class="row justify-content-end">
 
         </div>
@@ -27,7 +39,7 @@
                         <option value="lugar_salida">Lugar de Salida</option>
                     </select>
                     <input type="text" class="form-control" name="query" placeholder="Buscar...">
-                    <button type="submit" class="btn btn-primary">Buscar</button>
+                    <button type="submit" class="btn botones">Buscar</button>
                 </div>
             </form>
 
@@ -36,18 +48,18 @@
                     <table class="table">
                         <thead class="bg-info">
                             <tr>
-                                <th scope="col"><input type="hidden" id="selectAll"></th>
-                                <th scope="col" class="text-center">id_reservaea</th>
-                                <th scope="col" class="text-center">id_cliente</th>
-                                <th scope="col" class="text-center">id_recorrido</th>
-                                <th scope="col" class="text-center">id_paquete</th>
-                                <th scope="col" class="text-center">fecha_reserva</th>
-                                <th scope="col" class="text-center">estado_reserva</th>
-                                <th scope="col" class="text-center">lugar_salida</th>
-                                <th scope="col" class="text-center">hora_salida</th>
-                                <th scope="col" class="text-center">fecha_salida</th>
-                                <th scope="col" class="text-center">cantidad_asientos</th>
-                                <th scope="col" class="text-center">precio_excursion</th>
+                                <th scope="col" class="encabezado"><input type="hidden" id="selectAll"></th>
+                                <th scope="col" class="text-center encabezado">id_reservaea</th>
+                                <th scope="col" class="text-center encabezado">id_cliente</th>
+                                <th scope="col" class="text-center encabezado">id_recorrido</th>
+                                <th scope="col" class="text-center encabezado">id_paquete</th>
+                                <th scope="col" class="text-center encabezado">fecha_reserva</th>
+                                <th scope="col" class="text-center encabezado">estado_reserva</th>
+                                <th scope="col" class="text-center encabezado">lugar_salida</th>
+                                <th scope="col" class="text-center encabezado">hora_salida</th>
+                                <th scope="col" class="text-center encabezado">fecha_salida</th>
+                                <th scope="col" class="text-center encabezado">cantidad_asientos</th>
+                                <th scope="col" class="text-center encabezado">precio_excursion</th>
                             </tr>
                         </thead>
                         <tbody>

@@ -14,9 +14,9 @@ $sqlQuery = $query === '%' ? "SELECT * FROM recorridos" : "SELECT * FROM recorri
 $sql = $conexion->query($sqlQuery);
 
 if ($sql->num_rows > 0) {
-    echo '<thead class="bg-info">';
+    echo '<thead>';
     echo '    <tr>';
-    echo '        <th scope="col"></th>';
+    echo '        <th scope="col" class="encabezado"></th>';
     echo '        <th scope="col" class="text-center">id_recorrido</th>';
     echo '        <th scope="col" class="text-center">id_ruta</th>';
     echo '        <th scope="col" class="text-center">fecha_salida</th>';
@@ -25,7 +25,7 @@ if ($sql->num_rows > 0) {
     echo '        <th scope="col" class="text-center">estado</th>';
     echo '    </tr>';
     echo '</thead>';
-
+    
     while ($datos = $sql->fetch_object()) {
         echo "<tr>";
         echo "<td><input type='checkbox' name='ids[]' value='{$datos->id_recorrido}'></td>";
@@ -38,8 +38,9 @@ if ($sql->num_rows > 0) {
         echo "</tr>";
     }
 } else {
-    echo "<tr><td colspan='8' class='text-center'>No se encontraron resultados.</td></tr>";
+    echo "<tr><td colspan='7' class='text-center'>No se encontraron resultados.</td></tr>";
 }
+
 
 $conexion->close();
 ?>

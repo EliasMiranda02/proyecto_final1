@@ -14,10 +14,9 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     $dias = $_POST['dia'];
     $horas = $_POST['hora'];
     $detalles = $_POST['detalle'];
-    $precios = $_POST['precio'];
 
     // Preparar la consulta SQL para insertar en itinerarios
-    $stmt = $conexion->prepare("INSERT INTO itinerarios (id_paquete, hora, dia, detalle, nombre_actividad, precio) VALUES (?, ?, ?, ?, ?, ?)");
+    $stmt = $conexion->prepare("INSERT INTO itinerarios (id_paquete, hora, dia, detalle, nombre_actividad) VALUES (?, ?, ?, ?, ?)");
 
     // Verificar si la preparación fue exitosa
     if ($stmt === false) {
@@ -25,7 +24,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     }
 
     // Vincular parámetros
-    $stmt->bind_param("ssssss", $id_paquete, $hora, $dia, $detalle, $actividad, $precio);
+    $stmt->bind_param("ssssss", $id_paquete, $hora, $dia, $detalle, $actividad);
 
     // Variable para acumular el precio total
     $precio_total = 0;
@@ -35,10 +34,9 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
         $dia = $dias[$index];
         $hora = $horas[$index];
         $detalle = $detalles[$index];
-        $precio = $precios[$index];
 
         // Validar que los datos no estén vacíos y que el precio sea numérico
-        if (!empty($actividad) && !empty($dia) && !empty($hora) && !empty($detalle) && is_numeric($precio)) {
+        if (!empty($actividad) && !empty($dia) && !empty($hora) && !empty($detalle)) {
             // Ejecutar la consulta
             if (!$stmt->execute()) {
                 echo "Error en la inserción: " . $stmt->error;

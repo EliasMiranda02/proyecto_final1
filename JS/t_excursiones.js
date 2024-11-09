@@ -99,6 +99,31 @@ function actualizarImg() {
         $imgcliente.src = Url;
     });
 }
-
 // Llamada a la función
 actualizarImg();
+
+
+// PARA HACER CAMBIO DE IMAGEN EN EL MODAL DE EDITAR
+function actualizarImg1() {
+    const $inputfile = document.querySelector("#sellImg"),
+        $imgcliente = document.querySelector("#im");
+
+    // Establece la imagen por defecto al cargar
+    const defaultImg = "IMG/logoempleado1.png";
+    $imgcliente.src = defaultImg;
+
+    $inputfile.addEventListener("change", function () {
+        const files = $inputfile.files;
+        if (!files || !files.length) {
+            // Si no hay archivos seleccionados, vuelve a la imagen por defecto
+            $imgcliente.src = defaultImg;
+            return;
+        }
+
+        // Si hay un archivo seleccionado, reemplaza la imagen por el archivo seleccionado
+        const archivoInicial = files[0];
+        const Url = URL.createObjectURL(archivoInicial);
+        $imgcliente.src = Url;
+    });
+}
+actualizarImg1();

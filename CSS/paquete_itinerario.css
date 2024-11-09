@@ -48,3 +48,18 @@ thead th {
     gap: 25px;
     padding: 5px;
 }
+
+.numero, .dias{
+    text-align: center;
+    width: 250px;
+}
+.form-select{
+    width: 250px;
+}
+.nombre, .destino{
+    width: 350px}
+
+.section1{
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+}

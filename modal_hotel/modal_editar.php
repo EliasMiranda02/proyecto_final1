@@ -10,11 +10,11 @@
 
           <center>
             <!-- Imagen mostrada en el modal, cambiar cuando se seleccione un archivo -->
-            <img id="imagenes" src="" alt="Vista previa de la imagen" style="display: block; height:170px; max-width: 250px; margin-top: 10px; border-radius: 10%;">
+            <img id="imagen" src="" alt="Vista previa de la imagen" style="display: block; height:170px; max-width: 250px; margin-top: 10px; border-radius: 10%;">
           </center>
           <div class="form-group mb-3">
             <label for="imagen" class="form-label">Imagen</label>
-            <input class="form-control" type="file" id="selImgen" name="selImgen">
+            <input class="form-control" type="file" id="selllImg" name="selImgen">
           </div>
 
           <div class="mb-3">
@@ -54,7 +54,7 @@
 
           <div class="mb-3">
             <label for="descripcion" class="form-label">Descripción</label>
-            <input type="text" class="form-control" id="descripcion" name="descripcion" required>
+            <textarea type="text" class="form-control" id="descripcion" name="descripcion" rows="3"  required></textarea>
           </div>
 
           <div class="mb-3">

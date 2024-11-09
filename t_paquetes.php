@@ -11,8 +11,18 @@
 </head>
 
 <body>
+    <div class="franja"></div>
+    <div class="paquetes">
+        <div class="imagen">
+            <img src="IMG/registro/Logo.png" alt="">
+        </div>
 
-    <div class="d-flex justify-content-center align-items-center vh-100">
+        <div class="logo">
+            <h4>REGISTRO DE PAQUETES</h4>
+        </div>
+
+    </div>
+    <div class="d-flex justify-content-center align-items-center">
         <div class="col-10">
 
             <!-- ALERTA DE CUANDO SE EJECTUTAN LOS CRUDS -->
@@ -57,10 +67,11 @@
                                 <option value="destino">Destino</option>
                             </select>
                             <input type="text" class="form-control" name="query" placeholder="Buscar...">
-                            <button type="submit" class="btn btn-primary">Buscar</button>
+                            <button type="submit" class="btn botones">Buscar</button>
                         </div>
                     </form>
                 </div>
+                
             </div>
 
 
@@ -71,18 +82,18 @@
                     <table class="table">
                         <thead>
                             <tr>
-                                <th scope="col" class="p-3"><input type="hidden" id="selectAll"></th>
-                                <th scope="col" class="text-center">Código</th>
-                                <th scope="col" class="text-center">Número de Paquete</th>
-                                <th scope="col" class="text-center">Paquete</th>
-                                <th scope="col" class="text-center descripcion">Descripción</th>
-                                <th scope="col" class="p-2 text-center">Precio Aproximado</th>
-                                <th scope="col" class="text-center">Duración</th>
-                                <th scope="col" class="text-center">Destino</th>
-                                <th scope="col" class="text-center">Fecha de Creación</th>
-                                <th scope="col" class="text-center">Fecha de Modificación</th>
-                                <th scope="col" class="text-center">Foto</th>
-                                <th scope="col" class="text-center"></th>
+                                <th scope="col" class="p-3 encabezado"><input type="hidden" id="selectAll"></th>
+                                <th scope="col" class="text-center encabezado">Código</th>
+                                <th scope="col" class="text-center encabezado">Número de Paquete</th>
+                                <th scope="col" class="text-center encabezado">Paquete</th>
+                                <th scope="col" class="text-center encabezado descripcion">Descripción</th>
+                                <th scope="col" class="p-2 text-center encabezado">Precio Aproximado</th>
+                                <th scope="col" class="text-center encabezado">Duración</th>
+                                <th scope="col" class="text-center encabezado">Destino</th>
+                                <th scope="col" class="text-center encabezado">Fecha de Creación</th>
+                                <th scope="col" class="text-center encabezado">Fecha de Modificación</th>
+                                <th scope="col" class="text-center encabezado">Foto</th>
+                                <th scope="col" class="text-center encabezado"></th>
                             </tr>
                         </thead>
                         <tbody id="table-body">
@@ -105,7 +116,7 @@
                                         <img src="<?= $datos->img ?>" alt="Imagen del paquete" style="width: 100px; height: 60px;">
                                     </td>
                                     <td class="text-center">
-                                        <button type="button" class="btn btn-secondary" data-bs-toggle="modal" data-bs-target="#banco" data-id="<?= $datos->id_paquete ?>">Iterinarios</button>
+                                        <button type="button" class="btn botones" data-bs-toggle="modal" data-bs-target="#banco" data-id="<?= $datos->id_paquete ?>">Iterinarios</button>
                                     </td>
                                 </tr>
                             <?php } ?>
@@ -114,13 +125,13 @@
                 </div>
 
                 <!-- Botones fijos debajo de la tabla -->
-                <div class="botones">
-                    <div class="fixed-buttons text-left">
-                        <button type="button" class="btn btn-danger" data-bs-toggle="modal" data-bs-target="#eliminar">Eliminar seleccionados</button>
-                        <button type="button" class="btn btn-warning" id="btnEditar" data-bs-toggle="modal" data-bs-target="#editar">Editar Paquete</button>
+                <div class="boton d-flex justify-content-between mb-1">
+                    <div class="d-flex">
+                        <button type="button" class="btn btn-warning me-3 editar" id="btnEditar" data-bs-toggle="modal" data-bs-target="#editar">Editar Paquete</button>
+                        <button type="button" class="btn btn-danger eliminar" data-bs-toggle="modal" data-bs-target="#eliminar">Eliminar seleccionados</button>
                     </div>
-                    <div class="fixed-buttons text-right">
-                        <button type="button" class="btn btn-primary" onclick="window.location.href='t_paquete_precio.php'">Agregar itinerario</button>
+                    <div class="fixed-buttons">
+                        <button type="button" class="btn botones agregar" onclick="window.location.href='t_paquete_precio.php'">Agregar itinerario</button>
                     </div>
                 </div>
             </form>
@@ -283,9 +294,34 @@
                 $imgcliente.src = Url;
             });
         }
-
         // Llamada a la función
         actualizarImg();
+
+
+        // JS PARA HACER CAMBIO DE IMAGEN EN EL MODAL DE EDITAR
+        function actualizarImg1() {
+            const $inputfile = document.querySelector("#selImg"),
+                $imgcliente = document.querySelector("#imagen");
+
+            // Establece la imagen por defecto al cargar
+            const defaultImg = "IMG/logoempleado1.png";
+            $imgcliente.src = defaultImg;
+
+            $inputfile.addEventListener("change", function() {
+                const files = $inputfile.files;
+                if (!files || !files.length) {
+                    // Si no hay archivos seleccionados, vuelve a la imagen por defecto
+                    $imgcliente.src = defaultImg;
+                    return;
+                }
+
+                // Si hay un archivo seleccionado, reemplaza la imagen por el archivo seleccionado
+                const archivoInicial = files[0];
+                const Url = URL.createObjectURL(archivoInicial);
+                $imgcliente.src = Url;
+            });
+        }
+        actualizarImg1();
     </script>
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
 </body>

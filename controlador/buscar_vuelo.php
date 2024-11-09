@@ -16,14 +16,14 @@ $sql = $conexion->query($sqlQuery);
 if ($sql->num_rows > 0) {
     echo '<thead class="bg-info">';
     echo '    <tr>';
-    echo '        <th scope="col"></th>';
-    echo '        <th scope="col" class="text-center">id_vuelo</th>';
-    echo '        <th scope="col" class="text-center">numero_vuelo</th>';
-    echo '        <th scope="col" class="text-center">origen</th>';
-    echo '        <th scope="col" class="text-center">destino</th>';
-    echo '        <th scope="col" class="text-center">fecha_salida</th>';
-    echo '        <th scope="col" class="text-center">fecha_llegada</th>';
-    echo '        <th scope="col" class="text-center">precio_vuelo</th>';
+    echo '        <th scope="col" class="encabezado"></th>';
+    echo '        <th scope="col" class="text-center encabezado">id_vuelo</th>';
+    echo '        <th scope="col" class="text-center encabezado">numero_vuelo</th>';
+    echo '        <th scope="col" class="text-center encabezado">origen</th>';
+    echo '        <th scope="col" class="text-center encabezado">destino</th>';
+    echo '        <th scope="col" class="text-center encabezado">fecha_salida</th>';
+    echo '        <th scope="col" class="text-center encabezado">fecha_llegada</th>';
+    echo '        <th scope="col" class="text-center encabezado">precio_vuelo</th>';
     echo '    </tr>';
     echo '</thead>';
 

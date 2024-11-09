@@ -59,9 +59,8 @@ document.getElementById('agregar1').addEventListener('click', function(event) {
     const dia = document.getElementById('dia').value;
     const hora = document.getElementById('hora').value;
     const detalle = document.getElementById('detalle').value;
-    const precio = parseFloat(document.getElementById('precio').value);
 
-    if (actividad === "" || dia === "" || hora === "" || detalle === "" || isNaN(precio)) {
+    if (actividad === "" || dia === "" || hora === "" || detalle === "") {
         alert('Por favor, completa todos los campos correctamente.');
         return;
     }
@@ -73,7 +72,6 @@ document.getElementById('agregar1').addEventListener('click', function(event) {
         <td class="text-center">${dia} <input type="hidden" name="dia[]" value="${dia}"></td>
         <td>${hora} <input type="hidden" name="hora[]" value="${hora}"></td>
         <td class="descripcion">${detalle} <input type="hidden" name="detalle[]" value="${detalle}"></td>
-        <td class="text-center">${precio.toFixed(2)} <input type="hidden" name="precio[]" value="${precio.toFixed(2)}"></td>
     `;
 
     document.getElementById('itinerarioTableBody').appendChild(newRow);
@@ -85,7 +83,7 @@ document.getElementById('agregar1').addEventListener('click', function(event) {
     document.getElementById('dia').value = '';
     document.getElementById('hora').value = '';
     document.getElementById('detalle').value = '';
-    document.getElementById('precio').value = '';
+
 });
 
 // Evento para eliminar actividades seleccionadas

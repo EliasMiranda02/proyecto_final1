@@ -12,10 +12,19 @@
 
 <body>
 
-    <div class="d-flex justify-content-center align-items-center vh-100">
-        <div class="row justify-content-end">
-
+    <div class="franja"></div>
+    <div class="paquetes">
+        <div class="imagen">
+            <img src="IMG/registro/Logo.png" alt="">
         </div>
+
+        <div class="logo">
+            <h4>REGISTRO DE LOS PRECIOS DE PAQUETES</h4>
+        </div>
+
+    </div>
+
+    <div class="d-flex justify-content-center align-items-center">
         <div class=" col-8 p-2">
             <?php if (isset($_GET['mensaje'])): ?>
                 <div class="alert alert-info" id="mensajeAlerta">
@@ -45,7 +54,7 @@
                         <option value="precio_total">Precio</option>
                     </select>
                     <input type="text" class="form-control" name="query" placeholder="Buscar...">
-                    <button type="submit" class="btn btn-primary">Buscar</button>
+                    <button type="submit" class="btn botones">Buscar</button>
                 </div>
             </form>
 
@@ -54,11 +63,11 @@
                     <table class="table">
                         <thead class="bg-info">
                             <tr>
-                                <th scope="col"><input type="hidden" id="selectAll"></th>
-                                <th scope="col" class="text-center">Numero del Paquete</th>
-                                <th scope="col" class="text-center">Nombre del Paquete</th>
-                                <th scope="col" class="text-center">Destino</th>
-                                <th scope="col" class="text-center">Precio</th>
+                                <th scope="col" class="encabezado"><input type="hidden" id="selectAll"></th>
+                                <th scope="col" class="text-center encabezado">Numero del Paquete</th>
+                                <th scope="col" class="text-center encabezado">Nombre del Paquete</th>
+                                <th scope="col" class="text-center encabezado">Destino</th>
+                                <th scope="col" class="text-center encabezado">Precio</th>
                             </tr>
                         </thead>
                         <tbody>
@@ -80,12 +89,18 @@
                         </tbody>
                     </table>
                 </div>
-                <button type="button" class="btn btn-danger" data-bs-toggle="modal" data-bs-target="#eliminar">Eliminar seleccionados</button>
+
+                <div class="boton d-flex justify-content-between mb-1">
+                    <div class="d-flex">
+                        <button type="button" class="btn btn-danger" data-bs-toggle="modal" data-bs-target="#eliminar">Eliminar seleccionados</button>
+                    </div>
+                    <div class="fixed-buttons">
+                        <button type="button" class="btn botones" onclick="window.location.href='form_paquete_intinerario.php'">Agregar itinerario</button>
+                    </div>
+                </div>
+
+
             </form>
-            <br>
-            <div class="fixed-buttons text-right">
-                <button type="button" class="btn btn-primary" onclick="window.location.href='form_paquete_intinerario.php'">Agregar itinerario</button>
-            </div>
         </div>
 
     </div>

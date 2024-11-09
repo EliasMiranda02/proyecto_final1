@@ -12,7 +12,19 @@
 
 <body>
 
-    <div class="d-flex justify-content-center align-items-center vh-100">
+    <div class="franja"></div>
+    <div class="paquetes">
+        <div class="imagen">
+            <img src="IMG/registro/Logo.png" alt="">
+        </div>
+
+        <div class="logo">
+            <h4>REGISTRO DE USUARIOS</h4>
+        </div>
+
+    </div>
+
+    <div class="d-flex justify-content-center align-items-center">
         <div class=" col-10 p-2">
 
             <?php if (isset($_GET['mensaje'])): ?>
@@ -43,7 +55,7 @@
                         <option value="email">Corrreo Electrónico</option>
                     </select>
                     <input type="text" class="form-control" name="query" placeholder="Buscar...">
-                    <button type="submit" class="btn btn-primary">Buscar</button>
+                    <button type="submit" class="btn botones">Buscar</button>
                 </div>
             </form>
 
@@ -52,17 +64,17 @@
                     <table class="table">
                         <thead class="bg-info">
                             <tr>
-                                <th scope="col"><input type="hidden" id="selectAll"></th>
-                                <th scope="col" class="text-center">id_usuario</th>
-                                <th scope="col" class="text-center">nombre</th>
-                                <th scope="col" class="text-center">apellido paterno</th>
-                                <th scope="col" class="text-center">apellido materno</th>
-                                <th scope="col" class="text-center">email</th>
-                                <th scope="col" class="text-center">clave_lada</th>
-                                <th scope="col" class="text-center">telefono</th>
-                                <th scope="col" class="text-center">fecha_registro</th>
-                                <th scope="col" class="text-center">contraseña</th>
-                                <th scope="col" class="text-center">Imagen</th>
+                                <th scope="col" class="encabezado"><input type="hidden" id="selectAll"></th>
+                                <th scope="col" class="text-center encabezado">id_usuario</th>
+                                <th scope="col" class="text-center encabezado">nombre</th>
+                                <th scope="col" class="text-center encabezado">apellido paterno</th>
+                                <th scope="col" class="text-center encabezado">apellido materno</th>
+                                <th scope="col" class="text-center encabezado">email</th>
+                                <th scope="col" class="text-center encabezado">clave_lada</th>
+                                <th scope="col" class="text-center encabezado">telefono</th>
+                                <th scope="col" class="text-center encabezado">fecha_registro</th>
+                                <th scope="col" class="text-center encabezado">contraseña</th>
+                                <th scope="col" class="text-center encabezado">Imagen</th>
                             </tr>
                         </thead>
                         <tbody>
@@ -86,10 +98,8 @@
                                         <img src="<?= $datos->img ?>" alt="Imagen del cliente" style="width: 100px; height: 60px;">
                                     </td>
                                     <td class="text-center">
-                                        <button type="button" class="btn btn-success" data-bs-toggle="modal" data-bs-target="#banco" data-id="<?= $datos->id_cliente ?>">Banco</button>
+                                        <button type="button" class="btn botones" data-bs-toggle="modal" data-bs-target="#banco" data-id="<?= $datos->id_cliente ?>">Banco</button>
                                     </td>
-
-
                                 </tr>
                             <?php } ?>
                         </tbody>

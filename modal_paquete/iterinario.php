@@ -1,7 +1,7 @@
 <div class="modal fade" id="banco" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1" aria-labelledby="staticBackdropLabel" aria-hidden="true">
     <div class="modal-dialog">
         <div class="modal-content">
-            <div class="modal-header bg-success text-white">
+            <div class="modal-header bg-success text-white head">
                 <h1 class="modal-title fs-5" id="staticBackdropLabel">Itinerarios</h1>
             </div>
             <div class="modal-body custom-scroll">
@@ -22,5 +22,9 @@
         max-height: 400px;
         /* Ajusta la altura según tus necesidades */
         overflow-y: auto;
+    }
+
+    .modal-header.head {
+        background-color: #38587c !important;
     }
 </style>

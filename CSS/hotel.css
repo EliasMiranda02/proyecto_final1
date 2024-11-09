@@ -20,9 +20,61 @@ thead th {
     vertical-align: middle; /* Alineación vertical centrada */
     text-align: center; /* Alineación horizontal centrada */
 }
+
 .table td.descripcion {
     max-width: 200px; /* Establece un ancho máximo */
     overflow: hidden; /* Oculta el texto que se desborda */
     text-overflow: ellipsis; /* Agrega puntos suspensivos al final del texto que se corta */
     white-space: nowrap; /* Evita que el texto se divida en varias líneas */
+}
+
+.cabeza {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+}
+
+/* DISEÑO PARA LA PÁGINA PAQUETES-PRECIO */
+.franja {
+    background-color: #38587C !important;
+    height: 30px;
+    margin: 0; /* Elimina cualquier margen */
+    padding: 0; /* Elimina cualquier relleno */
+}
+.d-flex {
+    margin: 2px; 
+    padding: 0; 
+}
+.paquetes {
+    margin: 3px;
+    padding: 5px 30px;
+    display: flex; /* Alinea los elementos en una fila */
+    align-items: center; /* Centra los elementos verticalmente */
+}
+
+.imagen img {
+    width: 200px;
+    height: 48px; 
+}
+
+.logo h4 {
+    text-align: left; 
+    font-family: 'Poppins', sans-serif; 
+    letter-spacing: 3px;
+    font-size: 28px; 
+    margin: 0; 
+}
+.botones{
+    background-color: #38587C;
+    border-radius: 10px;
+    color: white;
+}
+
+.botones:hover {
+    color: white;
+    background-color: #29405a;
+}
+
+.encabezado {
+    background-color: #111821 !important; /* Cambia el color al rojo */
+    color: white !important; /* Cambia el color del texto a blanco */
 }

@@ -12,7 +12,19 @@
 
 <body>
 
-    <div class="d-flex justify-content-center align-items-center vh-100">
+<div class="franja"></div>
+    <div class="paquetes">
+        <div class="imagen">
+            <img src="IMG/registro/Logo.png" alt="">
+        </div>
+
+        <div class="logo">
+            <h4>REGISTRO DE RESERVAS DE VUELOS</h4>
+        </div>
+
+    </div>
+
+    <div class="d-flex justify-content-center align-items-center">
         <div class="col-8 p-2">
 
             <!-- BUSACDOR DE LAS RECORRIDOS -->
@@ -26,7 +38,7 @@
                         <option value="lugar_salida">Lugar de Salida</option>
                     </select>
                     <input type="text" class="form-control" name="query" placeholder="Buscar...">
-                    <button type="submit" class="btn btn-primary">Buscar</button>
+                    <button type="submit" class="btn botones">Buscar</button>
                 </div>
             </form>
 
@@ -37,19 +49,19 @@
                     <table class="table">
                         <thead class="bg-info">
                             <tr>
-                                <th scope="col"><input type="hidden" id="selectAll"></th>
-                                <th scope="col" class="text-center">id_reservapv</th>
-                                <th scope="col" class="text-center">id_cliente</th>
-                                <th scope="col" class="text-center">id_vuelo</th>
-                                <th scope="col" class="text-center">id_paquete</th>
-                                <th scope="col" class="text-center">fecha_reserva</th>
-                                <th scope="col" class="text-center">estado_reserva</th>
-                                <th scope="col" class="text-center">lugar_salida</th>
-                                <th scope="col" class="text-center">hora_salida</th>
-                                <th scope="col" class="text-center">fecha_salida</th>
-                                <th scope="col" class="text-center">cantidad_asientos</th>
-                                <th scope="col" class="text-center">precio_paquete</th>
-                                <th scope="col" class="text-center">disponibilidad</th>
+                                <th scope="col" class="encabezado"><input type="hidden" id="selectAll"></th>
+                                <th scope="col" class="text-center encabezado">id_reservapv</th>
+                                <th scope="col" class="text-center encabezado">id_cliente</th>
+                                <th scope="col" class="text-center encabezado">id_vuelo</th>
+                                <th scope="col" class="text-center encabezado">id_paquete</th>
+                                <th scope="col" class="text-center encabezado">fecha_reserva</th>
+                                <th scope="col" class="text-center encabezado">estado_reserva</th>
+                                <th scope="col" class="text-center encabezado">lugar_salida</th>
+                                <th scope="col" class="text-center encabezado">hora_salida</th>
+                                <th scope="col" class="text-center encabezado">fecha_salida</th>
+                                <th scope="col" class="text-center encabezado">cantidad_asientos</th>
+                                <th scope="col" class="text-center encabezado">precio_paquete</th>
+                                <th scope="col" class="text-center encabezado">disponibilidad</th>
                             </tr>
                         </thead>
                         <tbody>

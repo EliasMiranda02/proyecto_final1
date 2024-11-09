@@ -6,13 +6,25 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Pagos PV</title>
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
-    <link rel="stylesheet" href="CSS/hotel.css">
     <script src="https://kit.fontawesome.com/90c11f8b3b.js" crossorigin="anonymous"></script>
+    <link rel="stylesheet" href="CSS/hotel.css">
 </head>
 
 <body>
 
-    <div class="d-flex justify-content-center align-items-center vh-100">
+    <div class="franja"></div>
+    <div class="paquetes">
+        <div class="imagen">
+            <img src="IMG/registro/Logo.png" alt="">
+        </div>
+
+        <div class="logo">
+            <h4>REGISTRO DE PAGOS PV</h4>
+        </div>
+
+    </div>
+
+    <div class="d-flex justify-content-center align-items-center">
         <div class="row justify-content-end">
 
         </div>
@@ -26,21 +38,21 @@
                         <option value="id_tarjeta">Código de Tarjeta</option>
                     </select>
                     <input type="text" class="form-control" name="query" placeholder="Buscar...">
-                    <button type="submit" class="btn btn-primary">Buscar</button>
+                    <button type="submit" class="btn botones">Buscar</button>
                 </div>
             </form>
 
             <form id="Pagospv" method="post">
                 <div class="table-responsive">
                     <table class="table">
-                        <thead class="bg-info">
+                        <thead>
                             <tr>
-                                <th scope="col"><input type="hidden" id="selectAll"></th>
-                                <th scope="col" class="text-center">id_pagopv</th>
-                                <th scope="col" class="text-center">id_reservapv</th>
-                                <th scope="col" class="text-center">id_tarjeta</th>
-                                <th scope="col" class="text-center">fecha_pago</th>
-                                <th scope="col" class="text-center">monto_total</th>
+                                <th scope="col" class="encabezado"><input type="hidden" id="selectAll"></th>
+                                <th scope="col" class="text-center encabezado">id_pagopv</th>
+                                <th scope="col" class="text-center encabezado">id_reservapv</th>
+                                <th scope="col" class="text-center encabezado">id_tarjeta</th>
+                                <th scope="col" class="text-center encabezado">fecha_pago</th>
+                                <th scope="col" class="text-center encabezado">monto_total</th>
                             </tr>
                         </thead>
                         <tbody>

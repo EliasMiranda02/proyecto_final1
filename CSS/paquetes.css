@@ -1,14 +1,14 @@
 /* Contenedor principal sin scroll */
-.body{
-    overflow-y: hidden;
+.body {
+    overflow-y: hidden; /* Mantiene el cuerpo sin scroll */
 }
 
 /* Contenedor de la tabla con scroll */
 .table-container {
     max-height: 300px; /* Ajusta la altura para mostrar 6 registros */
-    overflow-y: auto;  /* Permite el desplazamiento vertical */
+    overflow-y: auto;  /* Permite el desplazamiento vertical solo en la tabla */
     border: 1px solid #ccc; /* Añade un borde para mayor claridad */
-    margin-bottom: 10px; /* Espacio debajo de la tabla */
+    margin-bottom: 5px; /* Espacio debajo de la tabla */
 }
 
 /* Estilos para el thead */
@@ -44,12 +44,68 @@ thead th {
     white-space: nowrap; /* Evita que el texto se divida en varias líneas */
 }
 
-.botones{
+
+.cabeza {
     display: grid;
     grid-template-columns: repeat(2, 1fr);
 }
 
-.cabeza{
-    display: grid;
-    grid-template-columns: repeat(2, 1fr);
+
+/* DECORACIÓN DE LA PÁGINA */
+.franja {
+    background-color: #38587C !important;
+    height: 30px;
+    margin: 0; /* Elimina cualquier margen */
+    padding: 0; /* Elimina cualquier relleno */
+}
+.d-flex {
+    margin: 2px; 
+    padding: 0; 
+}
+.paquetes {
+    margin: 3px;
+    padding: 5px 30px;
+    display: flex; /* Alinea los elementos en una fila */
+    align-items: center; /* Centra los elementos verticalmente */
+}
+
+.imagen img {
+    width: 200px;
+    height: 48px; 
+}
+
+.logo h4 {
+    text-align: left; 
+    font-family: 'Poppins', sans-serif; 
+    letter-spacing: 3px;
+    font-size: 28px; 
+    margin: 0; 
+}
+
+.encabezado {
+    background-color: #111821 !important; /* Cambia el color al rojo */
+    color: white !important; /* Cambia el color del texto a blanco */
+}
+
+.botones {
+    background-color: #38587C;
+    border-radius: 10px;
+    color: white;
+}
+
+.botones:hover {
+    color: white;
+    background-color: #29405a;
+}
+.agregar{
+    height: 40px;
+    margin: 0;
+}
+.editar{
+    height: 40px;
+}
+.eliminar{
+    width: 220px;
+    height: 40px;
+    padding: 0px 0px;
 }

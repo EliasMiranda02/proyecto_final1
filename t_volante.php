@@ -11,8 +11,19 @@
 </head>
 
 <body>
+    <div class="franja"></div>
+    <div class="paquetes">
+        <div class="imagen">
+            <img src="IMG/registro/Logo.png" alt="">
+        </div>
 
-    <div class="d-flex justify-content-center align-items-center vh-100">
+        <div class="logo">
+            <h4>REGISTRO DE VUELOS</h4>
+        </div>
+
+    </div>
+
+    <div class="d-flex justify-content-center align-items-center">
         <div class="col-8 p-2">
 
             <?php if (isset($_GET['mensaje'])): ?>
@@ -42,61 +53,69 @@
                 </div>
             <?php endif; ?>
             <!-- BUSACDOR DE LAS RUTAS -->
-            <div class="col-auto">
-                <a href="#" class="btn btn-success" data-bs-toggle="modal" data-bs-target="#agregar"><i class="fa-solid fa-circle-plus"></i></a>
-                <i>Nuevo Vuelo</i>
-            </div>
-            <br>
-            <form id="searchFormAsesor" class="mb-3" method="POST" action="controlador/buscar_vuelo.php">
-                <input type="hidden" name="cargo" value="Asesor de Viajes"> <!-- Campo oculto -->
-                <div class="input-group">
-                    <select name="campo" class="form-select">
-                        <option value="numero_vuelo">No_vuelo</option>
-                        <option value="origen">Origen</option>
-                        <option value="destino">Destino</option>
-                    </select>
-                    <input type="text" class="form-control" name="query" placeholder="Buscar...">
-                    <button type="submit" class="btn btn-primary">Buscar</button>
+            <div class="cabeza">
+                <div class="add">
+                    <div class="col-auto">
+                        <a href="#" class="btn btn-success" data-bs-toggle="modal" data-bs-target="#agregar"><i class="fa-solid fa-circle-plus"></i></a>
+                        <i>Nuevo Vuelo</i>
+                    </div>
                 </div>
-            </form>
+
+                <div class="search">
+
+                    <form id="searchFormAsesor" class="mb-3" method="POST" action="controlador/buscar_vuelo.php">
+                        <input type="hidden" name="cargo" value="Asesor de Viajes"> <!-- Campo oculto -->
+                        <div class="input-group">
+                            <select name="campo" class="form-select">
+                                <option value="numero_vuelo">No_vuelo</option>
+                                <option value="origen">Origen</option>
+                                <option value="destino">Destino</option>
+                            </select>
+                            <input type="text" class="form-control" name="query" placeholder="Buscar...">
+                            <button type="submit" class="btn botones">Buscar</button>
+                        </div>
+                    </form>
+
+                </div>
+            </div>
 
             <!-- TABLA DE RUTAS -->
             <form id="Recorrido" action="controlador/delete_vuelo.php" method="post">
-            <div class="table-responsive">
-                <table class="table" id="table-body">
-                    <thead class="bg-info">
-                        <tr>
-                            <th scope="col"><input type="hidden" id="selectAll"></th>
-                            <th scope="col" class="text-center">id_vuelo</th>
-                            <th scope="col" class="text-center">numero_vuelo</th>
-                            <th scope="col" class="text-center">origen</th>
-                            <th scope="col" class="text-center">destino</th>
-                            <th scope="col" class="text-center">fecha_salida</th>
-                            <th scope="col" class="text-center">fecha_llegada</th>
-                            <th scope="col" class="text-center">precio_vuelo</th>
-                        </tr>
-                    </thead>
-                    <tbody>
-                        <?php
-                        include "modelo/conexion.php";
-                        $sql = $conexion->query("SELECT * FROM vuelos");
-                        while ($datos = $sql->fetch_object()) { ?>
+                <div class="table-responsive">
+                    <table class="table" id="table-body">
+                        <thead class="bg-info">
                             <tr>
-                                <td><input type="checkbox" name="ids[]" value="<?= $datos->id_vuelo ?>"></td>
-                                <th scope="row" class="text-center"><?= $datos->id_vuelo ?></th>
-                                <td class="text-center"><?= $datos->numero_vuelo ?></td>
-                                <td class="text-center"><?= $datos->origen ?></td>
-                                <td class="text-center"><?= $datos->destino ?></td>
-                                <td class="text-center"><?= $datos->fecha_salida ?></td>
-                                <td class="text-center"><?= $datos->fecha_llegada ?></td>
-                                <td class="text-center"><?= $datos->precio_vuelo ?></td>
+                                <th scope="col" class="encabezado"><input type="hidden" id="selectAll"></th>
+                                <th scope="col" class="text-center encabezado">id_vuelo</th>
+                                <th scope="col" class="text-center encabezado">numero_vuelo</th>
+                                <th scope="col" class="text-center encabezado">origen</th>
+                                <th scope="col" class="text-center encabezado">destino</th>
+                                <th scope="col" class="text-center encabezado">fecha_salida</th>
+                                <th scope="col" class="text-center encabezado">fecha_llegada</th>
+                                <th scope="col" class="text-center encabezado">precio_vuelo</th>
                             </tr>
-                        <?php } ?>
-                    </tbody>
-                </table>
-            </div>
-                <button type="button" class="btn btn-danger" data-bs-toggle="modal" data-bs-target="#eliminar_ruta">Eliminar seleccionados</button>
+                        </thead>
+                        <tbody>
+                            <?php
+                            include "modelo/conexion.php";
+                            $sql = $conexion->query("SELECT * FROM vuelos");
+                            while ($datos = $sql->fetch_object()) { ?>
+                                <tr>
+                                    <td><input type="checkbox" name="ids[]" value="<?= $datos->id_vuelo ?>"></td>
+                                    <th scope="row" class="text-center"><?= $datos->id_vuelo ?></th>
+                                    <td class="text-center"><?= $datos->numero_vuelo ?></td>
+                                    <td class="text-center"><?= $datos->origen ?></td>
+                                    <td class="text-center"><?= $datos->destino ?></td>
+                                    <td class="text-center"><?= $datos->fecha_salida ?></td>
+                                    <td class="text-center"><?= $datos->fecha_llegada ?></td>
+                                    <td class="text-center"><?= $datos->precio_vuelo ?></td>
+                                </tr>
+                            <?php } ?>
+                        </tbody>
+                    </table>
+                </div>
                 <button type="button" class="btn btn-warning" id="btnEditar" data-bs-toggle="modal" data-bs-target="#editar">Editar Usuario</button>
+                <button type="button" class="btn btn-danger" data-bs-toggle="modal" data-bs-target="#eliminar_ruta">Eliminar seleccionados</button>
             </form>
         </div>
 

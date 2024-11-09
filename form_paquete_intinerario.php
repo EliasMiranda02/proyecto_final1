@@ -47,24 +47,30 @@
         <input type="hidden" id="selectedPackageId" name="selectedPackageId">
 
 
-        <div class="mb-3">
-          <label for="packageNumber" class="form-label">Número de Paquete</label>
-          <input type="text" class="form-control" id="packageNumber" placeholder="Número de Paquete" readonly>
-        </div>
+        <div class="section1">
 
-        <div class="mb-3">
-          <label for="packageName" class="form-label">Nombre del Paquete</label>
-          <input type="text" class="form-control" id="packageName" placeholder="Nombre del Paquete" readonly>
-        </div>
-
-        <div class="row">
-          <div class="col-md-6 mb-3">
-            <label for="destination" class="form-label">Destino</label>
-            <input type="text" class="form-control" id="destination" placeholder="Destino" readonly>
+          <div class="mb-3">
+            <label for="packageName" class="form-label">Nombre del Paquete</label>
+            <input type="text" class="form-control nombre" id="packageName" placeholder="Nombre del Paquete" readonly>
           </div>
-          <div class="col-md-6 mb-3">
+
+          <div class="mb-3">
+            <label for="packageNumber" class="form-label">Número de Paquete</label>
+            <input type="text" class="form-control numero" id="packageNumber" placeholder="Número de Paquete" readonly>
+          </div>
+
+          
+
+        </div>
+
+        <div class="section1">
+          <div class="mb-3">
+            <label for="destination" class="form-label">Destino</label>
+            <input type="text" class="form-control destino" id="destination" placeholder="Destino" readonly>
+          </div>
+          <div class="mb-3">
             <label for="duration" class="form-label">Duración (días)</label>
-            <input type="number" class="form-control" id="duration" placeholder="Duración en días" readonly>
+            <input type="number" class="form-control dias" id="duration" placeholder="Duración en días" readonly>
           </div>
         </div>
         <br>
@@ -76,18 +82,18 @@
 
           <div class="col-md-1 mb-3">
             <label for="dates" class="form-label">Dia:</label>
-            <input type="text" id="dia" name="dia" class="form-control">
+            <input type="text" id="dia" name="dia" class="form-control" require>
           </div>
 
           <div class="col-md-2 mb-3">
             <label for="times" class="form-label">Hora:</label>
-            <input type="time" id="hora" name="hora" class="form-control">
+            <input type="time" id="hora" name="hora" class="form-control" require>
           </div>
           <br>
 
           <div class="col-md-6 mb-3">
             <label for="packageId" class="form-label">Actividad:</label>
-            <input type="combobox" class="form-control" id="actividad" name="actividad">
+            <input type="combobox" class="form-control" id="actividad" name="actividad" require>
           </div>
         </div>
 
@@ -95,13 +101,7 @@
 
           <div class="col-md-4 mb-3">
             <label for="descripcion" class="form-label">Detalle</label>
-            <textarea name="detalle" id="detalle" class="form-control" rows="3"></textarea>
-          </div>
-
-          <div class="col-md-2 mb-2">
-            <label for="numeros" class="form-label">Precio:</label>
-            <br>
-            <input type="text" id="precio" name="precio" class="form-control">
+            <textarea name="detalle" id="detalle" class="form-control" rows="3" require></textarea>
           </div>
           <br>
           <!-- BOTONES -->
@@ -135,7 +135,6 @@
                 <th scope="col" class="text-center">fecha</th>
                 <th scope="col">hora</th>
                 <th scope="col" class="p-2">detalle</th>
-                <th scope="col" class="text-center">Precio</th>
               </tr>
             </thead>
             <tbody id="itinerarioTableBody">
