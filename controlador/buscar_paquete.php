@@ -19,19 +19,19 @@ if ($sql->num_rows > 0) {
         echo "<tr>";
             echo "<td><input type='checkbox' name='ids[]' value='{$datos->id_paquete}'></td>";
             echo "<th scope='row' class='text-center'>{$datos->id_paquete}</th>";
-            echo "<th class='text-center'>{$datos->numero_paquete}</th>";
+            echo "<td class='text-center'>{$datos->numero_paquete}</td>";
             echo "<td class='text-center'>{$datos->nombre}</td>";
-            echo "<td class='text-center'>{$datos->descripcion}</td>";
-            echo "<td class='text-center'>{$datos->precio_aproximado}</td>";
+            echo "<td class='text-center descripcion'>{$datos->descripcion}</td>";
+            echo "<td class='text-center'>\${$datos->precio_aproximado}</td>";
             echo "<td class='text-center'>{$datos->duracion_dias}</td>";
             echo "<td class='text-center'>{$datos->destino}</td>";
             echo "<td class='text-center'>{$datos->fecha_creacion}</td>";
             echo "<td class='text-center'>{$datos->fecha_modificacion}</td>";
             echo "<td class='text-center'>
-                        <img src='{$datos->img}' alt='Imagen del cliente' style='width: 100px; height: 60px;'>
+                        <img src='{$datos->img}' alt='Imagen del paquete' style='width: 100px; height: 60px;'>
                   </td>";
             echo "<td class='text-center'>
-                    <button type='button' class='btn btn-secondary itinerarios-button' data-bs-toggle='modal' data-bs-target='#banco' data-id='{$datos->id_paquete}'>Itinerarios</button>
+                    <button type='button' class='btn botones' data-bs-toggle='modal' data-bs-target='#banco' data-id='{$datos->id_paquete}'>Itinerarios</button>
                   </td>";
         echo "</tr>";
     }

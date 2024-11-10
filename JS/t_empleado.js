@@ -51,7 +51,7 @@ document.getElementById('searchFormAsesor').addEventListener('submit', function(
     })
     .then(response => response.text())
     .then(data => {
-        const tbody = document.querySelector('#Asesor table tbody'); // Especifica el tbody correcto
+        const tbody = document.querySelector('#Asesores table tbody'); // Especifica el tbody correcto
         tbody.innerHTML = data;
     })
     .catch(error => console.error('Error:', error));

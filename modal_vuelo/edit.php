@@ -8,15 +8,15 @@
         <form id="editarForm" action="controlador/edit_vuelo.php" method="post">
           <input type="hidden" id="id_vuelo_editar" name="id_vuelo_editar">
           <div class="form-floating mb-3">
-            <input type="text" class="form-control" id="no_vuelo" name="no_vuelo" required>
+            <input type="number" min="1" class="form-control" id="no_vuelo" name="no_vuelo" required>
             <label for="floatingInput" class="form-label">Numero de Vuelo</label>
           </div>
           <div class="form-floating mb-3">
-            <input type="text" class="form-control" id="origen" name="origen" required>
+            <textarea maxlength="50" rows="2" class="form-control" id="origen" name="origen" required></textarea>
             <label for="floatingInput" class="form-label">Origen</label>
           </div>
           <div class="form-floating mb-3">
-            <input type="text" class="form-control" id="destino" name="destino" required>
+            <textarea maxlength="50" rows="2" class="form-control" id="destino" name="destino" required></textarea>
             <label for="floatingInput" class="form-label">Destino</label>
           </div>
           <div class="form-floating mb-3">
@@ -28,7 +28,7 @@
             <label for="floatingInput" class="form-label">Fecha Llegada</label>
           </div>
           <div class="form-floating mb-3">
-            <input type="text" class="form-control" id="precio" name="precio" required>
+            <input type="number" min="100" step="0.01" class="form-control" id="precio" name="precio" required>
             <label for="floatingInput" class="form-label">Precio de Vuelo</label>
           </div>
           

@@ -17,13 +17,13 @@ if ($sql->num_rows > 0) {
     echo '<thead class="bg-info">';
     echo '    <tr>';
     echo '        <th scope="col" class="encabezado"></th>';
-    echo '        <th scope="col" class="text-center encabezado">id_vuelo</th>';
-    echo '        <th scope="col" class="text-center encabezado">numero_vuelo</th>';
-    echo '        <th scope="col" class="text-center encabezado">origen</th>';
-    echo '        <th scope="col" class="text-center encabezado">destino</th>';
-    echo '        <th scope="col" class="text-center encabezado">fecha_salida</th>';
-    echo '        <th scope="col" class="text-center encabezado">fecha_llegada</th>';
-    echo '        <th scope="col" class="text-center encabezado">precio_vuelo</th>';
+    echo '        <th scope="col" class="text-center encabezado">Código</th>';
+    echo '        <th scope="col" class="text-center encabezado">Número de Vuelo</th>';
+    echo '        <th scope="col" class="text-center encabezado">Origen</th>';
+    echo '        <th scope="col" class="text-center encabezado">Destino</th>';
+    echo '        <th scope="col" class="text-center encabezado">Fecha de Salida</th>';
+    echo '        <th scope="col" class="text-center encabezado">Fecha de Llegada</th>';
+    echo '        <th scope="col" class="text-center encabezado">Precio de Vuelo</th>';
     echo '    </tr>';
     echo '</thead>';
 
@@ -36,7 +36,7 @@ if ($sql->num_rows > 0) {
         echo "<td class='text-center'>{$datos->destino}</td>";
         echo "<td class='text-center'>{$datos->fecha_salida}</td>";
         echo "<td class='text-center'>{$datos->fecha_llegada}</td>";
-        echo "<td class='text-center'>{$datos->precio_vuelo}</td>";
+        echo "<td class='text-center'>\${$datos->precio_vuelo}</td>";
         echo "</tr>";
     }
 } else {

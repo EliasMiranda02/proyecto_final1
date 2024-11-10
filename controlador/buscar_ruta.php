@@ -16,13 +16,13 @@ $sql = $conexion->query($sqlQuery);
 if ($sql->num_rows > 0) {
     echo '<thead class="bg-info">';
     echo '    <tr>';
-    echo '        <th scope="col"></th>';
-    echo '        <th scope="col" class="text-center">id_ruta</th>';
-    echo '        <th scope="col" class="text-center">origen</th>';
-    echo '        <th scope="col" class="text-center">destino</th>';
-    echo '        <th scope="col" class="text-center">distancia</th>';
-    echo '        <th scope="col" class="text-center">duracion</th>';
-    echo '        <th scope="col" class="text-center">matricula</th>';
+    echo '        <th scope="col" class="text-center encabezado"></th>';
+    echo '        <th scope="col" class="text-center encabezado">Código</th>';
+    echo '        <th scope="col" class="text-center encabezado">Origen</th>';
+    echo '        <th scope="col" class="text-center encabezado">Destino</th>';
+    echo '        <th scope="col" class="text-center encabezado">Distancia</th>';
+    echo '        <th scope="col" class="text-center encabezado">Duración</th>';
+    echo '        <th scope="col" class="text-center encabezado">Matricula</th>';
     echo '    </tr>';
     echo '</thead>';
 

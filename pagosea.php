@@ -11,12 +11,20 @@
 </head>
 
 <body>
-
-    <div class="d-flex justify-content-center align-items-center vh-100">
-        <div class="row justify-content-end">
-
+<div class="franja"></div>
+    <div class="paquetes">
+        <div class="imagen">
+            <img src="IMG/LOGO_TABLAS.jpg" alt="">
         </div>
-        <div class=" col-8 p-2">
+
+        <div class="logo">
+            <h4>REGISTRO DE PAGOS EA</h4>
+        </div>
+
+    </div>
+    <div class="d-flex justify-content-center align-items-center">
+        <div class=" col-10">
+        <div class="cabeza">
             <form id="searchFormPagosea" class="mb-3" method="POST" action="controlador/buscar_pagosea.php">
                 <input type="hidden" name="Pagosea" value="Pagosea"> <!-- Campo oculto -->
                 <div class="input-group">
@@ -26,21 +34,22 @@
                         <option value="id_tarjeta">Código de Tarjeta</option>
                     </select>
                     <input type="text" class="form-control" name="query" placeholder="Buscar...">
-                    <button type="submit" class="btn btn-primary">Buscar</button>
+                    <button type="submit" class="btn botones">Buscar</button>
                 </div>
             </form>
+        </div>
 
             <form id="Pagosea" method="post">
                 <div class="table-responsive">
                     <table class="table">
                         <thead class="bg-info">
                             <tr>
-                                <th scope="col"><input type="hidden" id="selectAll"></th>
-                                <th scope="col" class="text-center">id_pagoea</th>
-                                <th scope="col" class="text-center">id_reservaea</th>
-                                <th scope="col" class="text-center">id_tarjeta</th>
-                                <th scope="col" class="text-center">fecha_pago</th>
-                                <th scope="col" class="text-center">monto_total</th>
+                                <th scope="col" class="encabezado"><input type="hidden" id="selectAll"></th>
+                                <th scope="col" class="text-center encabezado">Código</th>
+                                <th scope="col" class="text-center encabezado">Código de Reserva EA</th>
+                                <th scope="col" class="text-center encabezado">Código de Tarjeta</th>
+                                <th scope="col" class="text-center encabezado">Fecha del Pago</th>
+                                <th scope="col" class="text-center encabezado">Monto Total</th>
                             </tr>
                         </thead>
                         <tbody>

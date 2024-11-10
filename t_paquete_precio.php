@@ -15,7 +15,7 @@
     <div class="franja"></div>
     <div class="paquetes">
         <div class="imagen">
-            <img src="IMG/registro/Logo.png" alt="">
+            <img src="IMG/LOGO_TABLAS.jpg" alt="">
         </div>
 
         <div class="logo">
@@ -25,9 +25,9 @@
     </div>
 
     <div class="d-flex justify-content-center align-items-center">
-        <div class=" col-8 p-2">
+        <div class=" col-10">
             <?php if (isset($_GET['mensaje'])): ?>
-                <div class="alert alert-info" id="mensajeAlerta">
+                <div class="alert alert-info mb-3" id="mensajeAlerta">
                     <?php
                     if ($_GET['mensaje'] == 'actualizado') {
                         echo "Registro actualizado correctamente.";
@@ -46,6 +46,7 @@
                 </div>
             <?php endif; ?>
             <br>
+            <div class="cabeza">
             <form id="searchFormpp" class="mb-3" method="POST" action="controlador/buscar_pp.php">
                 <input type="hidden" name="Paqueteprecio" value="Paqueteprecio"> <!-- Campo oculto -->
                 <div class="input-group">
@@ -57,6 +58,7 @@
                     <button type="submit" class="btn botones">Buscar</button>
                 </div>
             </form>
+            </div>
 
             <form id="pp" action="controlador/eliminar_pp.php" method="post">
                 <div class="table-responsive">
@@ -92,10 +94,10 @@
 
                 <div class="boton d-flex justify-content-between mb-1">
                     <div class="d-flex">
-                        <button type="button" class="btn btn-danger" data-bs-toggle="modal" data-bs-target="#eliminar">Eliminar seleccionados</button>
+                        <button type="button" class="btn btn-danger me-3 eliminar" data-bs-toggle="modal" data-bs-target="#eliminar">Eliminar seleccionados</button>
                     </div>
                     <div class="fixed-buttons">
-                        <button type="button" class="btn botones" onclick="window.location.href='form_paquete_intinerario.php'">Agregar itinerario</button>
+                        <button type="button" class="btn botones agregar" onclick="window.location.href='form_paquete_intinerario.php'">Agregar itinerario</button>
                     </div>
                 </div>
 

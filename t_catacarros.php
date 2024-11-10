@@ -25,10 +25,10 @@
     </div>
 
     <div class="d-flex justify-content-center align-items-center">
-        <div class="col-8 p-2">
+        <div class="col-10">
 
             <?php if (isset($_GET['mensaje'])): ?>
-                <div class="alert alert-info" id="mensajeAlerta">
+                <div class="alert alert-info mb-3" id="mensajeAlerta">
                     <?php
                     switch ($_GET['mensaje']) {
                         case 'actualizado':
@@ -56,8 +56,9 @@
 
             <div class="cabeza">
                 <div class="add">
-                    <a href="#" class="btn btn-success" data-bs-toggle="modal" data-bs-target="#agregar"><i class="fa-solid fa-circle-plus"></i></a>
-                    <i>Nuevo Carro</i>
+                    <button type="button" class="btn btn-success mb-3" data-bs-toggle="modal" data-bs-target="#agregar">
+                        <i class="fa-solid fa-plus"></i> Agregar Carro
+                    </button>
                 </div>
 
                 <div class="search">
@@ -80,15 +81,15 @@
             <form id="Carros" action="controlador/delete_catacarro.php" method="post">
                 <div class="table-responsive">
                     <table class="table" id="table-body">
-                        <thead class="bg-success">
+                        <thead class="bg-info">
                             <tr>
-                                <th scope="col" class="encabezado"><input type="hidden" id="selectAll"></th>
-                                <th scope="col" class="text-center encabezado">id_carro</th>
-                                <th scope="col" class="text-center encabezado">modelo</th>
-                                <th scope="col" class="text-center encabezado">precio_renta</th>
-                                <th scope="col" class="text-center encabezado">capacidad</th>
-                                <th scope="col" class="text-center encabezado">estado</th>
-                                <th scope="col" class="text-center encabezado">img</th>
+                                <th scope="col" class="p-3 encabezado"><input type="hidden" id="selectAll"></th>
+                                <th scope="col" class="text-center encabezado">Código</th>
+                                <th scope="col" class="text-center encabezado">Modelo</th>
+                                <th scope="col" class="text-center encabezado">Precio de Renta</th>
+                                <th scope="col" class="text-center encabezado">Capacidad</th>
+                                <th scope="col" class="text-center encabezado">Estado</th>
+                                <th scope="col" class="text-center encabezado">Foto</th>
                             </tr>
                         </thead>
                         <tbody class="">
@@ -111,8 +112,12 @@
                         </tbody>
                     </table>
                 </div>
-                <button type="button" class="btn btn-warning" id="btnEditar" data-bs-toggle="modal" data-bs-target="#editar">Editar Usuario</button>
-                <button type="button" class="btn btn-danger" data-bs-toggle="modal" data-bs-target="#eliminar_ruta">Eliminar seleccionados</button>
+                <div class="boton d-flex justify-content-between mb-1">
+                    <div class="d-flex">
+                        <button type="button" class="btn btn-warning me-3 editar" id="btnEditar" data-bs-toggle="modal" data-bs-target="#editar">Editar Usuario</button>
+                        <button type="button" class="btn btn-danger eliminar" data-bs-toggle="modal" data-bs-target="#eliminar_ruta">Eliminar seleccionados</button>
+                    </div>
+                </div>
             </form>
         </div>
 

@@ -15,7 +15,7 @@
     <div class="franja"></div>
     <div class="paquetes">
         <div class="imagen">
-            <img src="IMG/registro/Logo.png" alt="">
+            <img src="IMG/LOGO_TABLAS.jpg" alt="">
         </div>
 
         <div class="logo">
@@ -25,10 +25,9 @@
     </div>
 
     <div class="d-flex justify-content-center align-items-center">
-        <div class="row justify-content-end">
-
-        </div>
-        <div class=" col-8 p-2">
+        
+        <div class=" col-10">
+        <div class="cabeza">
             <form id="searchFormPagoPV" class="mb-3" method="POST" action="controlador/buscar_pagopv.php">
                 <input type="hidden" name="PagoPV" value="PagoPV"> <!-- Campo oculto -->
                 <div class="input-group">
@@ -41,6 +40,7 @@
                     <button type="submit" class="btn botones">Buscar</button>
                 </div>
             </form>
+        </div>
 
             <form id="Pagospv" method="post">
                 <div class="table-responsive">
@@ -48,11 +48,11 @@
                         <thead>
                             <tr>
                                 <th scope="col" class="encabezado"><input type="hidden" id="selectAll"></th>
-                                <th scope="col" class="text-center encabezado">id_pagopv</th>
-                                <th scope="col" class="text-center encabezado">id_reservapv</th>
-                                <th scope="col" class="text-center encabezado">id_tarjeta</th>
-                                <th scope="col" class="text-center encabezado">fecha_pago</th>
-                                <th scope="col" class="text-center encabezado">monto_total</th>
+                                <th scope="col" class="text-center encabezado">Código</th>
+                                <th scope="col" class="text-center encabezado">Código de Reserva PV</th>
+                                <th scope="col" class="text-center encabezado">Código de Tarjeta</th>
+                                <th scope="col" class="text-center encabezado">Fecha del Pago</th>
+                                <th scope="col" class="text-center encabezado">Monto Total</th>
                             </tr>
                         </thead>
                         <tbody>

@@ -15,7 +15,7 @@
     <div class="franja"></div>
     <div class="paquetes">
         <div class="imagen">
-            <img src="IMG/registro/Logo.png" alt="">
+            <img src="IMG/LOGO_TABLAS.jpg" alt="">
         </div>
 
         <div class="logo">
@@ -25,13 +25,10 @@
     </div>
 
     <div class="d-flex justify-content-center align-items-center">
-        <div class="row justify-content-end">
-
-        </div>
-        <div class=" col-8 p-2">
+        <div class=" col-10">
 
             <?php if (isset($_GET['mensaje'])): ?>
-                <div class="alert alert-info" id="mensajeAlerta">
+                <div class="alert alert-info mb-3" id="mensajeAlerta">
                     <?php
                     if ($_GET['mensaje'] == 'actualizado') {
                         echo "Registro actualizado correctamente.";
@@ -52,9 +49,11 @@
 
             <div class="cabeza">
                 <div class="add">
-                    <a href="#" class="btn btn-success" data-bs-toggle="modal" data-bs-target="#añadirmodal"><i class="fa-solid fa-circle-plus"></i></a>
-                    <i>Nuevo Hotel</i>
+                    <button type="button" class="btn btn-success mb-3" data-bs-toggle="modal" data-bs-target="#añadirmodal">
+                        <i class="fa-solid fa-plus"></i> Agregar Hotel
+                    </button>
                 </div>
+
                 <div class="search">
                     <form id="searchFormHotel" class="mb-3" method="POST" action="controlador/buscar_hotel.php">
                         <input type="hidden" name="Hotel" value="Hotel"> <!-- Campo oculto -->
@@ -79,18 +78,18 @@
                     <table class="table">
                         <thead class="bg-info">
                             <tr>
-                                <th scope="col" class="encabezado"><input type="hidden" id="selectAll"></th>
-                                <th scope="col" class="text-center encabezado">id_hotel</th>
-                                <th scope="col" class="text-center encabezado">nombre del hotel</th>
-                                <th scope="col" class="text-center encabezado">direccion</th>
-                                <th scope="col" class="text-center encabezado">clave lada</th>
-                                <th scope="col" class="text-center encabezado">telefono</th>
-                                <th scope="col" class="text-center encabezado">correo electronico</th>
-                                <th scope="col" class="text-center encabezado">numero habitaciones</th>
-                                <th scope="col" class="text-center descripcion encabezado">descripcion</th>
-                                <th scope="col" class="text-center encabezado">precio por noche</th>
-                                <th scope="col" class="text-center encabezado">calificacion</th>
-                                <th scope="col" class="text-center encabezado">img</th>
+                                <th scope="col" class="p-3 encabezado"><input type="hidden" id="selectAll"></th>
+                                <th scope="col" class="text-center encabezado">Código</th>
+                                <th scope="col" class="text-center encabezado">Nombre del Hotel</th>
+                                <th scope="col" class="text-center encabezado">Dirección</th>
+                                <th scope="col" class="text-center encabezado">Clave Lada</th>
+                                <th scope="col" class="text-center encabezado">Teléfono</th>
+                                <th scope="col" class="text-center encabezado">Correo Eléctronico</th>
+                                <th scope="col" class="text-center encabezado">Numero de Habitaciones</th>
+                                <th scope="col" class="text-center encabezado">Descripción</th>
+                                <th scope="col" class="text-center encabezado">Precio por noche</th>
+                                <th scope="col" class="text-center encabezado">Calificación</th>
+                                <th scope="col" class="text-center encabezado">Foto</th>
                             </tr>
                         </thead>
                         <tbody>
@@ -119,8 +118,12 @@
                         </tbody>
                     </table>
                 </div>
-                <button type="button" class="btn btn-warning" id="btnEditar" data-bs-toggle="modal" data-bs-target="#editar">Editar Hotel</button>
-                <button type="button" class="btn btn-danger" data-bs-toggle="modal" data-bs-target="#eliminar">Eliminar seleccionados</button>
+                <div class="boton d-flex justify-content-between mb-1">
+                    <div class="d-flex">
+                        <button type="button" class="btn btn-warning me-3 editar" id="btnEditar" data-bs-toggle="modal" data-bs-target="#editar">Editar Hotel</button>
+                        <button type="button" class="btn btn-danger eliminar" data-bs-toggle="modal" data-bs-target="#eliminar">Eliminar seleccionados</button>
+                    </div>
+                </div>
             </form>
         </div>
 

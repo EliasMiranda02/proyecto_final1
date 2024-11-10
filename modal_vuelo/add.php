@@ -9,16 +9,16 @@
 
                     <div class="mb-3">
                         <label for="nombre_hotel" class="form-label">Numero del Vuelo</label>
-                        <input type="text" class="form-control" id="no_vuelo" name="no_vuelo" required>
+                        <input type="number" min="1" class="form-control" id="no_vuelo" name="no_vuelo" required>
                     </div>
                     <div class="mb-3">
                         <label for="telefono" class="form-label">Origen</label>
-                        <input type="text" class="form-control" id="origen" name="origen">
+                        <textarea maxlength="50" rows="2" class="form-control" id="origen" name="origen"></textarea>
                     </div>
 
                     <div class="mb-3">
                         <label for="telefono" class="form-label">Destino</label>
-                        <input type="text" class="form-control" id="destino" name="destino">
+                        <textarea maxlength="50" rows="2" class="form-control" id="destino" name="destino"></textarea>
                     </div>
 
                     <div class="mb-3">
@@ -32,7 +32,7 @@
                     </div>
                     <div class="mb-3">
                         <label for="telefono" class="form-label">Precio del Vuelo</label>
-                        <input type="text" class="form-control" id="precio" name="precio">
+                        <input type="number" min="1" max="15000" step="0.01" class="form-control" id="precio" name="precio">
                     </div>
 
 

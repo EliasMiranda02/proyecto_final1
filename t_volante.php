@@ -14,7 +14,7 @@
     <div class="franja"></div>
     <div class="paquetes">
         <div class="imagen">
-            <img src="IMG/registro/Logo.png" alt="">
+            <img src="IMG/LOGO_TABLAS.jpg" alt="">
         </div>
 
         <div class="logo">
@@ -24,10 +24,10 @@
     </div>
 
     <div class="d-flex justify-content-center align-items-center">
-        <div class="col-8 p-2">
+        <div class="col-10">
 
             <?php if (isset($_GET['mensaje'])): ?>
-                <div class="alert alert-info" id="mensajeAlerta">
+                <div class="alert alert-info mb-3" id="mensajeAlerta">
                     <?php
                     switch ($_GET['mensaje']) {
                         case 'actualizado':
@@ -55,11 +55,12 @@
             <!-- BUSACDOR DE LAS RUTAS -->
             <div class="cabeza">
                 <div class="add">
-                    <div class="col-auto">
-                        <a href="#" class="btn btn-success" data-bs-toggle="modal" data-bs-target="#agregar"><i class="fa-solid fa-circle-plus"></i></a>
-                        <i>Nuevo Vuelo</i>
+                    
+                        <button type="button" class="btn btn-success mb-3" data-bs-toggle="modal" data-bs-target="#agregar">
+                        <i class="fa-solid fa-plus"></i> Agregar Vuelo
+                    
                     </div>
-                </div>
+                
 
                 <div class="search">
 
@@ -86,13 +87,13 @@
                         <thead class="bg-info">
                             <tr>
                                 <th scope="col" class="encabezado"><input type="hidden" id="selectAll"></th>
-                                <th scope="col" class="text-center encabezado">id_vuelo</th>
-                                <th scope="col" class="text-center encabezado">numero_vuelo</th>
-                                <th scope="col" class="text-center encabezado">origen</th>
-                                <th scope="col" class="text-center encabezado">destino</th>
-                                <th scope="col" class="text-center encabezado">fecha_salida</th>
-                                <th scope="col" class="text-center encabezado">fecha_llegada</th>
-                                <th scope="col" class="text-center encabezado">precio_vuelo</th>
+                                <th scope="col" class="text-center encabezado">Código</th>
+                                <th scope="col" class="text-center encabezado">Número de Vuelo</th>
+                                <th scope="col" class="text-center encabezado">Origen</th>
+                                <th scope="col" class="text-center encabezado">Destino</th>
+                                <th scope="col" class="text-center encabezado">Fecha de Salida</th>
+                                <th scope="col" class="text-center encabezado">Fecha de Llegada</th>
+                                <th scope="col" class="text-center encabezado">Precio de Vuelo</th>
                             </tr>
                         </thead>
                         <tbody>
@@ -108,14 +109,14 @@
                                     <td class="text-center"><?= $datos->destino ?></td>
                                     <td class="text-center"><?= $datos->fecha_salida ?></td>
                                     <td class="text-center"><?= $datos->fecha_llegada ?></td>
-                                    <td class="text-center"><?= $datos->precio_vuelo ?></td>
+                                    <td class="text-center">$<?= $datos->precio_vuelo ?></td>
                                 </tr>
                             <?php } ?>
                         </tbody>
                     </table>
                 </div>
-                <button type="button" class="btn btn-warning" id="btnEditar" data-bs-toggle="modal" data-bs-target="#editar">Editar Usuario</button>
-                <button type="button" class="btn btn-danger" data-bs-toggle="modal" data-bs-target="#eliminar_ruta">Eliminar seleccionados</button>
+                <button type="button" class="btn btn-warning editar" id="btnEditar" data-bs-toggle="modal" data-bs-target="#editar">Editar Usuario</button>
+                <button type="button" class="btn btn-danger eliminar" data-bs-toggle="modal" data-bs-target="#eliminar_ruta">Eliminar seleccionados</button>
             </form>
         </div>
 

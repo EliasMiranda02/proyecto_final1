@@ -14,7 +14,7 @@
     <div class="franja"></div>
     <div class="paquetes">
         <div class="imagen">
-            <img src="IMG/registro/Logo.png" alt="">
+            <img src="IMG/LOGO_TABLAS.jpg" alt="">
         </div>
 
         <div class="logo">
@@ -23,10 +23,9 @@
 
     </div>
     <div class="d-flex justify-content-center align-items-center">
-        <div class="row justify-content-end">
-
-        </div>
-        <div class=" col-8 p-2">
+        
+        <div class=" col-10">
+        <div class="cabeza">
             <form id="searchFormReservasv" class="mb-3" method="POST" action="controlador/buscar_reservav.php">
                 <input type="hidden" name="Reservav" value="Reservav"> <!-- Campo oculto -->
                 <div class="input-group">
@@ -38,6 +37,7 @@
                     <button type="submit" class="btn botones">Buscar</button>
                 </div>
             </form>
+        </div>
 
             <form id="Reservav" method="post">
                 <div class="table-responsive">
@@ -45,12 +45,12 @@
                         <thead class="bg-info">
                             <tr>
                                 <th scope="col" class="encabezado"><input type="hidden" id="selectAll"></th>
-                                <th scope="col" class="text-center encabezado">id_reservav</th>
-                                <th scope="col" class="text-center encabezado">id_cliente</th>
-                                <th scope="col" class="text-center encabezado">id_vuelo</th>
-                                <th scope="col" class="text-center encabezado">fecha_reserva</th>
-                                <th scope="col" class="text-center encabezado">hora_reserva</th>
-                                <th scope="col" class="text-center encabezado">estado</th>
+                                <th scope="col" class="text-center encabezado">Código</th>
+                                <th scope="col" class="text-center encabezado">Código del Cliente</th>
+                                <th scope="col" class="text-center encabezado">Código del Vuelo</th>
+                                <th scope="col" class="text-center encabezado">Fecha de Reserva</th>
+                                <th scope="col" class="text-center encabezado">Hora de Reserva</th>
+                                <th scope="col" class="text-center encabezado">Estado</th>
                             </tr>
                         </thead>
                         <tbody>

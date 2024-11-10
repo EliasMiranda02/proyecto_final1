@@ -15,7 +15,7 @@
     <div class="franja"></div>
     <div class="paquetes">
         <div class="imagen">
-            <img src="IMG/registro/Logo.png" alt="">
+            <img src="IMG/LOGO_TABLAS.jpg" alt="">
         </div>
 
         <div class="logo">
@@ -25,10 +25,10 @@
     </div>
 
     <div class="d-flex justify-content-center align-items-center">
-        <div class=" col-10 p-2">
+        <div class=" col-10">
 
             <?php if (isset($_GET['mensaje'])): ?>
-                <div class="alert alert-info" id="mensajeAlerta">
+                <div class="alert alert-info mb-3" id="mensajeAlerta">
                     <?php
                     if ($_GET['mensaje'] == 'actualizado') {
                         echo "Registro actualizado correctamente.";
@@ -46,18 +46,20 @@
                     ?>
                 </div>
             <?php endif; ?>
-            <form id="searchFormUsuario" class="mb-3" method="POST" action="controlador/buscar_usuario.php">
-                <input type="hidden" name="Usuario" value="Usuario"> <!-- Campo oculto -->
-                <div class="input-group">
-                    <select name="campo" class="form-select" required>
-                        <option value="nombre">Nombre</option>
-                        <option value="apellido_paterno">Apellido</option>
-                        <option value="email">Corrreo Electrónico</option>
-                    </select>
-                    <input type="text" class="form-control" name="query" placeholder="Buscar...">
-                    <button type="submit" class="btn botones">Buscar</button>
-                </div>
-            </form>
+            <div class="cabeza">
+                <form id="searchFormUsuario" class="mb-3" method="POST" action="controlador/buscar_usuario.php">
+                    <input type="hidden" name="Usuario" value="Usuario"> <!-- Campo oculto -->
+                    <div class="input-group">
+                        <select name="campo" class="form-select" required>
+                            <option value="nombre">Nombre</option>
+                            <option value="apellido_paterno">Apellido</option>
+                            <option value="email">Corrreo Electrónico</option>
+                        </select>
+                        <input type="text" class="form-control" name="query" placeholder="Buscar...">
+                        <button type="submit" class="btn botones">Buscar</button>
+                    </div>
+                </form>
+            </div>
 
             <form id="Clientes" action="controlador/eliminar_usuario.php" method="post">
                 <div class="table-responsive">
@@ -65,16 +67,17 @@
                         <thead class="bg-info">
                             <tr>
                                 <th scope="col" class="encabezado"><input type="hidden" id="selectAll"></th>
-                                <th scope="col" class="text-center encabezado">id_usuario</th>
-                                <th scope="col" class="text-center encabezado">nombre</th>
-                                <th scope="col" class="text-center encabezado">apellido paterno</th>
-                                <th scope="col" class="text-center encabezado">apellido materno</th>
-                                <th scope="col" class="text-center encabezado">email</th>
-                                <th scope="col" class="text-center encabezado">clave_lada</th>
-                                <th scope="col" class="text-center encabezado">telefono</th>
-                                <th scope="col" class="text-center encabezado">fecha_registro</th>
-                                <th scope="col" class="text-center encabezado">contraseña</th>
-                                <th scope="col" class="text-center encabezado">Imagen</th>
+                                <th scope="col" class="text-center encabezado">Código</th>
+                                <th scope="col" class="text-center encabezado">Nombre</th>
+                                <th scope="col" class="text-center encabezado">Apellido Paterno</th>
+                                <th scope="col" class="text-center encabezado">Apellido Materno</th>
+                                <th scope="col" class="text-center encabezado">Email</th>
+                                <th scope="col" class="text-center encabezado">Clave_Lada</th>
+                                <th scope="col" class="text-center encabezado">Telefono</th>
+                                <th scope="col" class="text-center encabezado">Fecha de Registro</th>
+                                <th scope="col" class="text-center encabezado">Contraseña</th>
+                                <th scope="col" class="text-center encabezado">Foto</th>
+                                <th scope="col" class="text-center encabezado"></th>
                             </tr>
                         </thead>
                         <tbody>
@@ -95,7 +98,7 @@
                                     <td class="text-center"><?= $datos->fecha_registro ?></td>
                                     <td class="text-center"><?= $datos->contraseña ?></td>
                                     <td class="text-center">
-                                        <img src="<?= $datos->img ?>" alt="Imagen del cliente" style="width: 100px; height: 60px;">
+                                        <img src="<?= $datos->img ?>" alt="Imagen del Cliente" style="width: 100px; height: 60px;">
                                     </td>
                                     <td class="text-center">
                                         <button type="button" class="btn botones" data-bs-toggle="modal" data-bs-target="#banco" data-id="<?= $datos->id_cliente ?>">Banco</button>
@@ -105,8 +108,13 @@
                         </tbody>
                     </table>
                 </div>
-                <button type="button" class="btn btn-danger" data-bs-toggle="modal" data-bs-target="#eliminar">Eliminar seleccionados</button>
+                <div class="boton d-flex justify-content-between mb-1">
+                    <div class="d-flex">
+                        <button type="button" class="btn btn-danger eliminar" data-bs-toggle="modal" data-bs-target="#eliminar">Eliminar seleccionados</button>
+                    </div>
+                </div>
             </form>
+
         </div>
 
     </div>

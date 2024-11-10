@@ -11,7 +11,7 @@
                     <div class="row justify-content-end">
 
                     </div>
-                    <div class=" col-8 p-2">
+                    <div class=" col-10">
 
                         <form id="searchFormGuia" class="mb-3" method="POST" action="controlador/buscar_empleado.php">
                             <input type="hidden" name="cargo" value="Guia Turistico"> <!-- Campo oculto -->
@@ -23,7 +23,7 @@
                                     <option value="email">Email</option>
                                 </select>
                                 <input type="text" class="form-control" name="query" placeholder="Buscar...">
-                                <button type="submit" class="btn btn-primary">Buscar</button>
+                                <button type="submit" class="btn botones">Buscar</button>
                             </div>
                         </form>
                         
@@ -31,20 +31,21 @@
                                 <table class="table">
                                     <thead class="bg-info">
                                         <tr>
-                                            <th scope="col"><input type="hidden" id="selectAll"></th>
-                                            <th scope="col">id_empleado</th>
-                                            <th scope="col">nombre</th>
-                                            <th scope="col">apellido paterno</th>
-                                            <th scope="col">apellido materno</th>
-                                            <th scope="col" class="px-3 text-center">email</th>
-                                            <th scope="col" class="text-center">clave_lada</th>
-                                            <th scope="col">telefono</th>
-                                            <th scope="col">fecha_registro</th>
-                                            <th scope="col">contraseña</th>
-                                            <th scope="col">nombre_usuario</th>
-                                            <th scope="col">NIP</th>
-                                            <th scope="col">cargo</th>
-                                            <th scope="col">disponibilidad</th>
+                                            <th scope="col" class="p-3 encabezado"><input type="hidden" id="selectAll"></th>
+                                            <th scope="col" class="text-center encabezado">Código del Empleado</th>
+                                            <th scope="col" class="text-center encabezado">Nombre</th>
+                                            <th scope="col" class="text-center encabezado">Apellido Paterno</th>
+                                            <th scope="col" class="text-center encabezado">Apellido Materno</th>
+                                            <th scope="col" class="px-3 text-center encabezado">Email</th>
+                                            <th scope="col" class="text-center encabezado">Clave_lada</th>
+                                            <th scope="col" class="text-center encabezado">Telefono</th>
+                                            <th scope="col" class="text-center encabezado">Fecha de Registro</th>
+                                            <th scope="col" class="text-center encabezado">Contraseña</th>
+                                            <th scope="col" class="text-center encabezado">Nombre de Usuario</th>
+                                            <th scope="col" class="text-center encabezado">NIP</th>
+                                            <th scope="col" class="text-center encabezado">Cargo</th>
+                                            <th scope="col" class="text-center encabezado">Disponibilidad</th>
+                                            <th scope="col" class="text-center encabezado">Foto</th>
                                         </tr>
                                     </thead>
                                     <tbody>
@@ -55,19 +56,22 @@
                                         while ($datos = $sql->fetch_object()) { ?>
                                             <tr>
                                                 <td><input type="hidden" name="ids[]" value="<?= $datos->id_empleado ?>"></td>
-                                                <th scope="row"><?= $datos->id_empleado ?></th>
-                                                <td><?= $datos->nombre ?></td>
-                                                <td><?= $datos->apellido_paterno ?></td>
-                                                <td><?= $datos->apellido_materno ?></td>
-                                                <td><?= $datos->email ?></td>
-                                                <td><?= $datos->clave_lada ?></td>
-                                                <td><?= $datos->telefono ?></td>
-                                                <td><?= $datos->fecha_registro ?></td>
-                                                <td><?= $datos->contraseña ?></td>
-                                                <td><?= $datos->nombre_usuario ?></td>
-                                                <td><?= $datos->NIP ?></td>
-                                                <td><?= $datos->cargo ?></td>
-                                                <td><?= $datos->disponibilidad ?></td>
+                                                <th scope="row" class="text-center"><?= $datos->id_empleado ?></th>
+                                                <td class="text-center"><?= $datos->nombre ?></td>
+                                                <td class="text-center"><?= $datos->apellido_paterno ?></td>
+                                                <td class="text-center"><?= $datos->apellido_materno ?></td>
+                                                <td class="text-center"><?= $datos->email ?></td>
+                                                <td class="text-center"><?= $datos->clave_lada ?></td>
+                                                <td class="text-center"><?= $datos->telefono ?></td>
+                                                <td class="text-center"><?= $datos->fecha_registro ?></td>
+                                                <td class="text-center"><?= $datos->contraseña ?></td>
+                                                <td class="text-center"><?= $datos->nombre_usuario ?></td>
+                                                <td class="text-center"><?= $datos->NIP ?></td>
+                                                <td class="text-center"><?= $datos->cargo ?></td>
+                                                <td class="text-center"><?= $datos->disponibilidad ?></td>
+                                                <td class="text-center">
+                                            <img src="<?= $datos->img ?>" alt="Imagen del empleado" style="width: 100px; height: 60px;">
+                                        </td>
                                             </tr>
                                         <?php } ?>
                                     </tbody>

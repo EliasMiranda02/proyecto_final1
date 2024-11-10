@@ -14,7 +14,7 @@
     <div class="franja"></div>
     <div class="paquetes">
         <div class="imagen">
-            <img src="IMG/registro/Logo.png" alt="">
+            <img src="IMG/LOGO_TABLAS.jpg" alt="">
         </div>
 
         <div class="logo">
@@ -62,7 +62,7 @@
                         <input type="hidden" name="cargo" value="Asesor de Viajes"> <!-- Campo oculto -->
                         <div class="input-group">
                             <select name="campo" class="form-select">
-                                <option value="id_paquete">id_paquete</option>
+                                <option value="id_paquete">Código</option>
                                 <option value="nombre">Nombre</option>
                                 <option value="destino">Destino</option>
                             </select>
@@ -116,7 +116,7 @@
                                         <img src="<?= $datos->img ?>" alt="Imagen del paquete" style="width: 100px; height: 60px;">
                                     </td>
                                     <td class="text-center">
-                                        <button type="button" class="btn botones" data-bs-toggle="modal" data-bs-target="#banco" data-id="<?= $datos->id_paquete ?>">Iterinarios</button>
+                                        <button type="button" class="btn botones" data-bs-toggle="modal" data-bs-target="#banco" data-id="<?= $datos->id_paquete ?>">Itinerarios</button>
                                     </td>
                                 </tr>
                             <?php } ?>

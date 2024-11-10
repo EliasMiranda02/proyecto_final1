@@ -17,13 +17,13 @@ if ($sql->num_rows > 0) {
 
     echo '<thead class="bg-info">';
     echo '    <tr>';
-    echo '        <th scope="col" class="text-center">id_renta</th>';
-    echo '        <th scope="col" class="text-center">id_carro</th>';
-    echo '        <th scope="col" class="text-center">id_cliente</th>';
-    echo '        <th scope="col" class="text-center">fecha_renta</th>';
-    echo '        <th scope="col" class="text-center">fecha_devolucion</th>';
-    echo '        <th scope="col" class="text-center">estado_renta</th>';
-    echo '        <th scope="col" class="text-center">dias_rentados</th>';
+    echo '        <th scope="col" class="text-center encabezado">Código</th>';
+    echo '        <th scope="col" class="text-center encabezado">Código del Carro</th>';
+    echo '        <th scope="col" class="text-center encabezado">Código del Cliente</th>';
+    echo '        <th scope="col" class="text-center encabezado">Fecha de Renta</th>';
+    echo '        <th scope="col" class="text-center encabezado">Fecha de Devolución</th>';
+    echo '        <th scope="col" class="text-center encabezado">Estado de la Renta</th>';
+    echo '        <th scope="col" class="text-center encabezado">Días Rentados</th>';
     echo '    </tr>';
     echo '</thead>';
 

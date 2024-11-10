@@ -15,18 +15,18 @@
 <div class="franja"></div>
     <div class="paquetes">
         <div class="imagen">
-            <img src="IMG/registro/Logo.png" alt="">
+            <img src="IMG/LOGO_TABLAS.jpg" alt="">
         </div>
 
         <div class="logo">
-            <h4>REGISTRO DE RESERVAS DE VUELOS</h4>
+            <h4>REGISTRO DE RESERVAS PV</h4>
         </div>
 
     </div>
 
     <div class="d-flex justify-content-center align-items-center">
-        <div class="col-8 p-2">
-
+        <div class="col-10">
+        <div class="cabeza">
             <!-- BUSACDOR DE LAS RECORRIDOS -->
             <form id="searchFormReservapv" class="mb-3" method="POST" action="controlador/buscar_reservapv.php">
                 <input type="hidden" name="Reservapv" value="Reservapv"> <!-- Campo oculto -->
@@ -41,6 +41,7 @@
                     <button type="submit" class="btn botones">Buscar</button>
                 </div>
             </form>
+        </div>
 
             <!-- TABLA DE RECORRIDOS -->
 
@@ -50,18 +51,18 @@
                         <thead class="bg-info">
                             <tr>
                                 <th scope="col" class="encabezado"><input type="hidden" id="selectAll"></th>
-                                <th scope="col" class="text-center encabezado">id_reservapv</th>
-                                <th scope="col" class="text-center encabezado">id_cliente</th>
-                                <th scope="col" class="text-center encabezado">id_vuelo</th>
-                                <th scope="col" class="text-center encabezado">id_paquete</th>
-                                <th scope="col" class="text-center encabezado">fecha_reserva</th>
-                                <th scope="col" class="text-center encabezado">estado_reserva</th>
-                                <th scope="col" class="text-center encabezado">lugar_salida</th>
-                                <th scope="col" class="text-center encabezado">hora_salida</th>
-                                <th scope="col" class="text-center encabezado">fecha_salida</th>
-                                <th scope="col" class="text-center encabezado">cantidad_asientos</th>
-                                <th scope="col" class="text-center encabezado">precio_paquete</th>
-                                <th scope="col" class="text-center encabezado">disponibilidad</th>
+                                <th scope="col" class="text-center encabezado">Código</th>
+                                <th scope="col" class="text-center encabezado">Código del Cliente</th>
+                                <th scope="col" class="text-center encabezado">Código del Vuelo</th>
+                                <th scope="col" class="text-center encabezado">Código del Paquete</th>
+                                <th scope="col" class="text-center encabezado">Fecha de Reserva</th>
+                                <th scope="col" class="text-center encabezado">Estado de Reserva</th>
+                                <th scope="col" class="text-center encabezado">Lugar de Salida</th>
+                                <th scope="col" class="text-center encabezado">Hora de Salida</th>
+                                <th scope="col" class="text-center encabezado">Fecha de Salida</th>
+                                <th scope="col" class="text-center encabezado">Cantidad de Asientos</th>
+                                <th scope="col" class="text-center encabezado">Precio de Paquete</th>
+                                <th scope="col" class="text-center encabezado">Disponibilidad</th>
                             </tr>
                         </thead>
                         <tbody>

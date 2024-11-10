@@ -53,7 +53,7 @@ thead th {
 
 /* DECORACIÓN DE LA PÁGINA */
 .franja {
-    background-color: #38587C !important;
+    background-color: #111821 !important;
     height: 30px;
     margin: 0; /* Elimina cualquier margen */
     padding: 0; /* Elimina cualquier relleno */
@@ -63,7 +63,7 @@ thead th {
     padding: 0; 
 }
 .paquetes {
-    margin: 3px;
+    margin: 50px;
     padding: 5px 30px;
     display: flex; /* Alinea los elementos en una fila */
     align-items: center; /* Centra los elementos verticalmente */
@@ -79,7 +79,7 @@ thead th {
     font-family: 'Poppins', sans-serif; 
     letter-spacing: 3px;
     font-size: 28px; 
-    margin: 0; 
+    margin: 20px; /*NUEVO*/
 }
 
 .encabezado {
@@ -108,4 +108,11 @@ thead th {
     width: 220px;
     height: 40px;
     padding: 0px 0px;
+}
+#mensajeAlerta {
+    position: fixed;
+    top: 30px; /* Ajusta según sea necesario */
+    left: 50%;
+    transform: translateX(-50%);
+    z-index: 1000;
 }

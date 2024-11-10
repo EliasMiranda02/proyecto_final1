@@ -15,7 +15,7 @@
     <div class="franja"></div>
     <div class="paquetes">
         <div class="imagen">
-            <img src="IMG/registro/Logo.png" alt="">
+            <img src="IMG/LOGO_TABLAS.jpg" alt="">
         </div>
 
         <div class="logo">
@@ -25,10 +25,10 @@
     </div>
 
     <div class="d-flex justify-content-center align-items-center">
-        <div class="col-8 p-2">
+        <div class="col-10">
 
             <?php if (isset($_GET['mensaje'])): ?>
-                <div class="alert alert-info" id="mensajeAlerta">
+                <div class="alert alert-info mb-3" id="mensajeAlerta">
                     <?php
                     switch ($_GET['mensaje']) {
                         case 'actualizado':
@@ -38,7 +38,7 @@
                             echo "Hubo un error: " . ($_GET['detalle'] ?? '');
                             break;
                         case 'no_id':
-                            echo "No se seleccionó ningún registro para editar.";
+                            echo "No se seleccionó ningún registro.";
                             break;
                         case 'eliminado':
                             echo "Registros eliminados correctamente.";
@@ -56,28 +56,32 @@
 
             <div class="cabeza">
 
-                <div class="col-auto">
-                    <a href="#" class="btn btn-success" data-bs-toggle="modal" data-bs-target="#agregar"><i class="fa-solid fa-circle-plus"></i></a>
-                    <i>Nuevo Recorrido</i>
+            <div class="add">
+                    <!-- AGREGAR PAQUETE -->
+                    <button type="button" class="btn btn-success mb-3" data-bs-toggle="modal" data-bs-target="#agregar">
+                        <i class="fa-solid fa-plus"></i> Agregar Recorrido
+                    </button>
                 </div>
-
+                
+                
                 <div class="search">
                     <!-- BUSACDOR DE LAS RECORRIDOS -->
                     <form id="searchFormAsesor" class="mb-3" method="POST" action="controlador/buscar_recorrido.php">
                         <input type="hidden" name="cargo" value="Asesor de Viajes"> <!-- Campo oculto -->
                         <div class="input-group">
                             <select name="campo" class="form-select">
-                                <option value="id_ruta">id_ruta</option>
-                                <option value="fecha_salida">fecha_salida</option>
-                                <option value="fecha_llegada">fecha_llegada</option>
+                                <option value="id_recorrido">Código</option>
+                                <option value="fecha_salida">Fecha de Salida</option>
+                                <option value="fecha_llegada">Fecha de Llegada</option>
                             </select>
                             <input type="text" class="form-control" name="query" placeholder="Buscar...">
                             <button type="submit" class="btn botones">Buscar</button>
                         </div>
                     </form>
                 </div>
-
             </div>
+
+            
 
             <!-- TABLA DE RECORRIDOS -->
             <form id="Recorrido" action="controlador/delete_recorrido.php" method="post">
@@ -86,12 +90,12 @@
                         <thead>
                             <tr>
                                 <th scope="col" class="encabezado"><input type="hidden" id="selectAll"></th>
-                                <th scope="col" class="text-center encabezado">id_recorrido</th>
-                                <th scope="col" class="text-center encabezado">id_ruta</th>
-                                <th scope="col" class="text-center encabezado">fecha_salida</th>
-                                <th scope="col" class="text-center encabezado">fecha_llegada</th>
-                                <th scope="col" class="text-center encabezado">precio_boleto</th>
-                                <th scope="col" class="text-center encabezado">estado</th>
+                                <th scope="col" class="text-center encabezado">Código</th>
+                                <th scope="col" class="text-center encabezado">Código de Ruta</th>
+                                <th scope="col" class="text-center encabezado">Fecha de Salida</th>
+                                <th scope="col" class="text-center encabezado">Fecha de Llegada</th>
+                                <th scope="col" class="text-center encabezado">Precio del Boleto</th>
+                                <th scope="col" class="text-center encabezado">Estado</th>
                             </tr>
                         </thead>
                         <tbody id="table-body">
@@ -102,7 +106,7 @@
                                 <tr>
                                     <td><input type="checkbox" name="ids[]" value="<?= $datos->id_recorrido ?>"></td>
                                     <th scope="row" class="text-center"><?= $datos->id_recorrido ?></th>
-                                    <th class="text-center"><?= $datos->id_ruta ?></th>
+                                    <td class="text-center"><?= $datos->id_ruta ?></td>
                                     <td class="text-center"><?= $datos->fecha_salida ?></td>
                                     <td class="text-center"><?= $datos->fecha_llegada ?></td>
                                     <td class="text-center"><?= $datos->precio_boleto ?></td>
@@ -114,11 +118,11 @@
                 </div>
                 <div class="boton d-flex justify-content-between mb-1">
                     <div class="d-flex">
-                        <button type="button" class="btn btn-warning me-3" id="btnEditar" data-bs-toggle="modal" data-bs-target="#editar">Editar Usuario</button>
-                        <button type="button" class="btn btn-danger" data-bs-toggle="modal" data-bs-target="#eliminar_ruta">Eliminar seleccionados</button>
+                        <button type="button" class="btn btn-warning me-3 editar" id="btnEditar" data-bs-toggle="modal" data-bs-target="#editar">Editar Usuario</button>
+                        <button type="button" class="btn btn-danger eliminar" data-bs-toggle="modal" data-bs-target="#eliminar_ruta">Eliminar seleccionados</button>
                     </div>
-                    <div class="d-flex justify-content-center">
-                        <button type="button" class="btn botones" onclick="window.location.href='rutas.php'">Rutas</button>
+                    <div class="fixed-buttons">
+                        <button type="button" class="btn botones agregar" onclick="window.location.href='rutas.php'">Rutas</button>
                     </div>
                 </div>
 

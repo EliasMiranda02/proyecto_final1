@@ -11,11 +11,21 @@
 </head>
 
 <body>
+<div class="franja"></div>
+    <div class="paquetes">
+        <div class="imagen">
+            <img src="IMG/LOGO_TABLAS.jpg" alt="">
+        </div>
 
-    <div class="d-flex justify-content-center align-items-center vh-100">
-        <div class="col-8 p-2">
+        <div class="logo">
+            <h4>REGISTRO DE RENTA DE CARROS</h4>
+        </div>
 
+    </div>
+    <div class="d-flex justify-content-center align-items-center">
+        <div class="col-10">
             <!-- BUSACDOR DE LAS RECORRIDOS -->
+            <div class="cabeza">
             <form id="searchFormAsesor" class="mb-3" method="POST" action="controlador/buscar_Rcarro.php">
                 <input type="hidden" name="cargo" value="Asesor de Viajes"> <!-- Campo oculto -->
                 <div class="input-group">
@@ -25,22 +35,23 @@
                         <option value="id_cliente">Código de cliente</option>
                     </select>
                     <input type="text" class="form-control" name="query" placeholder="Buscar...">
-                    <button type="submit" class="btn btn-primary">Buscar</button>
+                    <button type="submit" class="btn botones">Buscar</button>
                 </div>
             </form>
+            </div>
 
             <!-- TABLA DE RECORRIDOS -->
             <div class="table-responsive">
             <table class="table" id="table-body">
                 <thead class="bg-info">
                     <tr>
-                        <th scope="col" class="text-center">id_renta</th>
-                        <th scope="col" class="text-center">id_carro</th>
-                        <th scope="col" class="text-center">id_cliente</th>
-                        <th scope="col" class="text-center">fecha_renta</th>
-                        <th scope="col" class="text-center">fecha_devolucion</th>
-                        <th scope="col" class="text-center">estado_renta</th>
-                        <th scope="col" class="text-center">dias_rentados</th>
+                        <th scope="col" class="text-center encabezado">Código</th>
+                        <th scope="col" class="text-center encabezado">Código del Carro</th>
+                        <th scope="col" class="text-center encabezado">Código del Cliente</th>
+                        <th scope="col" class="text-center encabezado">Fecha de Renta</th>
+                        <th scope="col" class="text-center encabezado">Fecha de Devolución</th>
+                        <th scope="col" class="text-center encabezado">Estado de la Renta</th>
+                        <th scope="col" class="text-center encabezado">Días Rentados</th>
                     </tr>
                 </thead>
                 <tbody class="">
@@ -50,7 +61,7 @@
                     while ($datos = $sql->fetch_object()) { ?>
                         <tr>
                             <th scope="row" class="text-center"><?= $datos->id_renta ?></th>
-                            <th class="text-center"><?= $datos->id_carro ?></th>
+                            <td class="text-center"><?= $datos->id_carro ?></td>
                             <td class="text-center"><?= $datos->id_cliente ?></td>
                             <td class="text-center"><?= $datos->fecha_renta ?></td>
                             <td class="text-center"><?= $datos->fecha_devolucion ?></td>

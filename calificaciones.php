@@ -6,17 +6,25 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Calificaciones</title>
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
-    <link rel="stylesheet" href="CSS/hotel.css">
+    <link rel="stylesheet" href="./CSS/hotel.css">
     <script src="https://kit.fontawesome.com/90c11f8b3b.js" crossorigin="anonymous"></script>
 </head>
 
 <body>
-
-    <div class="d-flex justify-content-center align-items-center vh-100">
-        <div class="row justify-content-end">
-
+<div class="franja"></div>
+    <div class="paquetes">
+        <div class="imagen">
+            <img src="IMG/LOGO_TABLAS.jpg" alt="">
         </div>
-        <div class=" col-8 p-2">
+
+        <div class="logo">
+            <h4>REGISTRO DE CALIFICACIONES</h4>
+        </div>
+    </div>
+
+    <div class="d-flex justify-content-center align-items-center">
+        <div class="col-10">
+        <div class="cabeza">
             <form id="searchFormCalificacion" class="mb-3" method="POST" action="controlador/buscar_calificacion.php">
                 <input type="hidden" name="Calificacion" value="Calificacion"> <!-- Campo oculto -->
                 <div class="input-group">
@@ -26,24 +34,25 @@
                         
                     </select>
                     <input type="text" class="form-control" name="query" placeholder="Buscar...">
-                    <button type="submit" class="btn btn-primary">Buscar</button>
+                    <button type="submit" class="btn botones">Buscar</button>
                 </div>
             </form>
+        </div>
 
             <form id="Calificacion" method="post">
                 <div class="table-responsive">
                     <table class="table">
                         <thead class="bg-info">
                             <tr>
-                                <th scope="col"><input type="hidden" id="selectAll"></th>
-                                <th scope="col" class="text-center">id_calificacion</th>
-                                <th scope="col" class="text-center">id_cliente</th>
-                                <th scope="col" class="text-center">Nombre del Cliente</th>
-                                <th scope="col" class="text-center">Apellido Paterno</th>
-                                <th scope="col" class="text-center">Apellido Materno</th>
-                                <th scope="col" class="text-center">Correo Electronico</th>
-                                <th scope="col" class="text-center">promedio_calificacion</th>
-                                <th scope="col" class="text-center">comentario</th>
+                                <th scope="col" class="p-3 encabezado"><input type="hidden" id="selectAll"></th>
+                                <th scope="col" class="text-center encabezado">Código</th>
+                                <th scope="col" class="text-center encabezado">Código del Cliente</th>
+                                <th scope="col" class="text-center encabezado">Nombre del Cliente</th>
+                                <th scope="col" class="text-center encabezado">Apellido Paterno</th>
+                                <th scope="col" class="text-center encabezado">Apellido Materno</th>
+                                <th scope="col" class="text-center encabezado">Correo Electrónico</th>
+                                <th scope="col" class="text-center encabezado">Promedio de la Calificación</th>
+                                <th scope="col" class="text-center encabezado">Comentario</th>
                             </tr>
                         </thead>
                         <tbody>

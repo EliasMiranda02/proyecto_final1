@@ -5,7 +5,7 @@
     max-height: 300px; /* Ajusta la altura para mostrar 6 registros */
     overflow-y: auto;  /* Permite el desplazamiento vertical */
     border: 1px solid #ccc; /* Añade un borde para mayor claridad */
-    margin-bottom: 10px; /* Espacio debajo de la tabla */
+    margin-bottom: 5px; /* Espacio debajo de la tabla */
 }
 thead th {
     position: sticky;
@@ -35,7 +35,7 @@ thead th {
 
 /* DISEÑO PARA LA PÁGINA PAQUETES-PRECIO */
 .franja {
-    background-color: #38587C !important;
+    background-color: #111821 !important;
     height: 30px;
     margin: 0; /* Elimina cualquier margen */
     padding: 0; /* Elimina cualquier relleno */
@@ -45,7 +45,7 @@ thead th {
     padding: 0; 
 }
 .paquetes {
-    margin: 3px;
+    margin: 50px;
     padding: 5px 30px;
     display: flex; /* Alinea los elementos en una fila */
     align-items: center; /* Centra los elementos verticalmente */
@@ -61,7 +61,7 @@ thead th {
     font-family: 'Poppins', sans-serif; 
     letter-spacing: 3px;
     font-size: 28px; 
-    margin: 0; 
+    margin: 20px; /*NUEVO*/
 }
 .botones{
     background-color: #38587C;
@@ -77,4 +77,23 @@ thead th {
 .encabezado {
     background-color: #111821 !important; /* Cambia el color al rojo */
     color: white !important; /* Cambia el color del texto a blanco */
+}
+#mensajeAlerta {
+    position: fixed;
+    top: 30px; /* Ajusta según sea necesario */
+    left: 50%;
+    transform: translateX(-50%);
+    z-index: 1000;
+}
+.agregar{
+    height: 40px;
+    margin: 0;
+}
+.editar{
+    height: 40px;
+}
+.eliminar{
+    width: 220px;
+    height: 40px;
+    padding: 0px 0px;
 }

@@ -15,7 +15,7 @@
     <div class="franja"></div>
     <div class="paquetes">
         <div class="imagen">
-            <img src="IMG/registro/Logo.png" alt="">
+            <img src="IMG/LOGO_TABLAS.jpg" alt="">
         </div>
 
         <div class="logo">
@@ -25,7 +25,7 @@
     </div>
 
     <div class="d-flex justify-content-center align-items-center">
-        <div class="col-8 p-2">
+        <div class="col-10">
 
             <!-- BUSACDOR DE LAS RECORRIDOS -->
             <form id="searchFormAsesor" class="mb-3" method="POST" action="controlador/buscar_pagosrc.php">
@@ -46,11 +46,11 @@
             <table class="table">
                 <thead>
                     <tr>
-                        <th scope="col" class="text-center encabezado">id_pagorc</th>
-                        <th scope="col" class="text-center encabezado">id_renta</th>
-                        <th scope="col" class="text-center encabezado">id_tarjeta</th>
-                        <th scope="col" class="text-center encabezado">fecha_pago</th>
-                        <th scope="col" class="text-center encabezado">monto_total</th>
+                        <th scope="col" class="text-center encabezado">Código</th>
+                        <th scope="col" class="text-center encabezado">Código de la Renta</th>
+                        <th scope="col" class="text-center encabezado">Código de la Tarjeta</th>
+                        <th scope="col" class="text-center encabezado">Fecha de Pago</th>
+                        <th scope="col" class="text-center encabezado">Monto Total</th>
                     </tr>
                 </thead>
                 <tbody id="table-body">
@@ -60,7 +60,7 @@
                     while ($datos = $sql->fetch_object()) { ?>
                         <tr>
                             <th scope="row" class="text-center"><?= $datos->id_pagorc ?></th>
-                            <th class="text-center"><?= $datos->id_renta ?></th>
+                            <td class="text-center"><?= $datos->id_renta ?></td>
                             <td class="text-center"><?= $datos->id_tarjeta ?></td>
                             <td class="text-center"><?= $datos->fecha_pago ?></td>
                             <td class="text-center"><?= $datos->monto_total ?></td>

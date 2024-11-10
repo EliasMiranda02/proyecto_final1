@@ -27,10 +27,10 @@ if ($sql->num_rows > 0) {
         echo "<td class='text-center descripcion'>{$datos->fecha_registro}</td>";
         echo "<td class='text-center'>{$datos->contraseña}</td>";
         echo                     "<td class='text-center'>
-                                    <img src='{$datos->img}' alt='Imagen del Usuario' style='width: 100px; height: 60px;'>
+                                    <img src='{$datos->img}' alt='Imagen del Cliente' style='width: 100px; height: 60px;'>
                                 </td>";
         echo "<td class='text-center'>
-                                        <button type='button' class='btn btn-success' data-bs-toggle='modal' data-bs-target='#banco' data-id='<?= $datos->id_cliente ?>'>Banco</button>
+                                        <button type='button' class='btn botones' data-bs-toggle='modal' data-bs-target='#banco' data-id='<?= $datos->id_cliente ?>'>Banco</button>
                                     </td>";
         echo "</tr>";
     }

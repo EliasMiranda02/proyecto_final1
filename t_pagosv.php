@@ -25,10 +25,8 @@
     </div>
 
     <div class="d-flex justify-content-center align-items-center">
-        <div class="row justify-content-end">
-
-        </div>
-        <div class=" col-8 p-2">
+        
+        <div class=" col-10">
             <form id="searchFormPagov" class="mb-3" method="POST" action="controlador/buscar_pagov.php">
                 <input type="hidden" name="Pagov" value="Pagov"> <!-- Campo oculto -->
                 <div class="input-group">
@@ -48,11 +46,11 @@
                         <thead>
                             <tr>
                                 <th scope="col" class="encabezado"><input type="hidden" id="selectAll"></th>
-                                <th scope="col" class="text-center encabezado">id_pagov</th>
-                                <th scope="col" class="text-center encabezado">id_reservav</th>
-                                <th scope="col" class="text-center encabezado">id_tarjeta</th>
-                                <th scope="col" class="text-center encabezado">pago</th>
-                                <th scope="col" class="text-center encabezado">fecha_pago</th>
+                                <th scope="col" class="text-center encabezado">Código</th>
+                                <th scope="col" class="text-center encabezado">Código de Reserva V</th>
+                                <th scope="col" class="text-center encabezado">Código de Tarjeta</th>
+                                <th scope="col" class="text-center encabezado">Pago</th>
+                                <th scope="col" class="text-center encabezado">Fecha del Pago</th>
                             </tr>
                         </thead>
                         <tbody>

@@ -15,7 +15,7 @@
     <div class="franja"></div>
     <div class="paquetes">
         <div class="imagen">
-            <img src="IMG/registro/Logo.png" alt="">
+            <img src="IMG/LOGO_TABLAS.jpg" alt="">
         </div>
 
         <div class="logo">
@@ -25,13 +25,10 @@
     </div>
 
     <div class="d-flex justify-content-center align-items-center">
-        <div class="row justify-content-end">
-
-        </div>
-        <div class=" col-8 p-2">
+        <div class=" col-10">
 
             <?php if (isset($_GET['mensaje'])): ?>
-                <div class="alert alert-info" id="mensajeAlerta">
+                <div class="alert alert-info mb-3" id="mensajeAlerta">
                     <?php
                     if ($_GET['mensaje'] == 'actualizado') {
                         echo "Registro actualizado correctamente.";
@@ -52,8 +49,9 @@
 
             <div class="cabeza">
                 <div class="add">
-                    <a href="#" class="btn btn-success" data-bs-toggle="modal" data-bs-target="#añadirmodal"><i class="fa-solid fa-circle-plus"></i></a>
-                    <i>Nueva Excursion</i>
+                <button href="#" class="btn btn-success mb-3" data-bs-toggle="modal" data-bs-target="#añadirmodal">
+                        <i class="fa-solid fa-plus"></i> Agregar Excursion
+                    </button>
                 </div>
 
                 <div class="search">
@@ -79,7 +77,7 @@
                     <table class="table">
                         <thead class="bg-info">
                             <tr>
-                                <th scope="col" class="encabezado"><input type="hidden" id="selectAll"></th>
+                                <th scope="col" class="p-3 encabezado"><input type="hidden" id="selectAll"></th>
                                 <th scope="col" class="text-center encabezado">Código</th>
                                 <th scope="col" class="text-center encabezado">Destino</th>
                                 <th scope="col" class="text-center encabezado">Clasificación</th>
@@ -108,7 +106,7 @@
                                     <td class="text-center"><?= $datos->fecha_creacion ?></td>
                                     <td class="text-center"><?= $datos->fecha_modificacion ?></td>
                                     <td class="text-center">
-                                        <img src="<?= $datos->img ?>" alt="Imagen excursión" style="width: 100px; height: 60px;">
+                                        <img src="<?= $datos->img ?>" alt="Imagen Excursión" style="width: 100px; height: 60px;">
                                     </td>
                                 </tr>
                             <?php } ?>
@@ -117,11 +115,11 @@
                 </div>
                 <div class="boton d-flex justify-content-between mb-1">
                     <div class="d-flex">
-                        <button type="button" class="btn btn-warning me-3" id="btnEditar" data-bs-toggle="modal" data-bs-target="#editar">Editar Excursion</button>
-                        <button type="button" class="btn btn-danger" data-bs-toggle="modal" data-bs-target="#eliminar">Eliminar seleccionados</button>
+                        <button type="button" class="btn btn-warning me-3 editar" id="btnEditar" data-bs-toggle="modal" data-bs-target="#editar">Editar Excursion</button>
+                        <button type="button" class="btn btn-danger eliminar" data-bs-toggle="modal" data-bs-target="#eliminar">Eliminar seleccionados</button>
                     </div>
                     <div class="d-flex justify-content-center">
-                        <button type="button" class="btn botones" data-bs-toggle="modal" data-bs-target="#Guias">Guias Turisticos</button>
+                        <button type="button" class="btn botones agregar" data-bs-toggle="modal" data-bs-target="#Guias">Guias Turisticos</button>
                     </div>
                 </div>
 

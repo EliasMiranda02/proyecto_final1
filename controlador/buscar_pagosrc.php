@@ -14,17 +14,6 @@ $sqlQuery = $query === '%' ? "SELECT * FROM pagos_rc" : "SELECT * FROM pagos_rc 
 $sql = $conexion->query($sqlQuery);
 
 if ($sql->num_rows > 0) {
-
-    echo '<thead class="bg-info">';
-    echo '    <tr>';
-    echo '        <th scope="col" class="text-center">id_pagorc</th>';
-    echo '        <th scope="col" class="text-center">id_renta</th>';
-    echo '        <th scope="col" class="text-center">id_tarjeta</th>';
-    echo '        <th scope="col" class="text-center">fecha_pago</th>';
-    echo '        <th scope="col" class="text-center">monto_total</th>';
-    echo '    </tr>';
-    echo '</thead>';
-
     while ($datos = $sql->fetch_object()) {
         echo "<tr>";
         echo "<th scope='row' class='text-center'>{$datos->id_pagorc}</th>";

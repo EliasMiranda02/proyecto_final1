@@ -26,7 +26,7 @@ if ($sql->num_rows > 0) {
         echo "<td class='text-center'>{$datos->fecha_creacion}</td>";
         echo "<td class='text-center'>{$datos->fecha_modificacion}</td>
         <td class='text-center'>
-                                            <img src='{$datos->img}' alt='Imagen del empleado' style='width: 100px; height: 60px;'>
+                                            <img src='{$datos->img}' alt='Imagen Excursión' style='width: 100px; height: 60px;'>
                                         </td>";
         echo "</tr>";
     }

@@ -17,12 +17,12 @@ if ($sql->num_rows > 0) {
     echo '<thead class="bg-info">';
     echo '    <tr>';
     echo '        <th scope="col" class="encabezado"></th>';
-    echo '        <th scope="col" class="text-center encabezado">id_carro</th>';
-    echo '        <th scope="col" class="text-center encabezado">modelo</th>';
-    echo '        <th scope="col" class="text-center encabezado">precio_renta</th>';
-    echo '        <th scope="col" class="text-center encabezado">capacidad</th>';
-    echo '        <th scope="col" class="text-center encabezado">estado</th>';
-    echo '        <th scope="col" class="text-center encabezado">img</th>';
+    echo '        <th scope="col" class="text-center encabezado">Código</th>';
+    echo '        <th scope="col" class="text-center encabezado">Modelo</th>';
+    echo '        <th scope="col" class="text-center encabezado">Precio de Renta</th>';
+    echo '        <th scope="col" class="text-center encabezado">Capacidad</th>';
+    echo '        <th scope="col" class="text-center encabezado">Estado</th>';
+    echo '        <th scope="col" class="text-center encabezado">Foto</th>';
     echo '    </tr>';
     echo '</thead>';
     while ($datos = $sql->fetch_object()) {
@@ -30,11 +30,11 @@ if ($sql->num_rows > 0) {
         echo "<td><input type='checkbox' name='ids[]' value='{$datos->id_carro}'></td>";
         echo "<th scope='row' class='text-center'>{$datos->id_carro}</th>";
         echo "<td class='text-center'>{$datos->modelo}</td>";
-        echo "<td class='text-center'>$ {$datos->precio_renta}</td>";
+        echo "<td class='text-center'>\${$datos->precio_renta}</td>";
         echo "<td class='text-center'>{$datos->capacidad}</td>";
         echo "<td class='text-center'>{$datos->estado}</td>";
         echo "<td class='text-center'>
-                                    <img src='{$datos->img}' alt='Imagen del carro' style='width: 100px; height: 60px;'>
+                                    <img src='{$datos->img}' alt='Imagen del Carro' style='width: 100px; height: 60px;'>
                                 </td>";
         echo "</tr>";
     }
