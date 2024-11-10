@@ -36,45 +36,78 @@
     <div class="container mt-5">
       <div class="formulario p-0">
 
-        <div class="mb-3">
-          <label for="packageId" class="form-label">Paquete</label>
-          <select class="form-select" name="packageId" id="packageId" onchange="fillPackageData()">
-            <option value="">Selecciona un paquete</option>
-            <!-- Las opciones serán cargadas dinámicamente con JavaScript -->
-          </select>
+        <div class="seccion1">
+
+          <div class="paquetes">
+
+            <div class="mb-3">
+              <label for="packageId" class="form-label">Paquete</label>
+              <select class="form-select" name="packageId" id="packageId" onchange="fillPackageData()">
+                <option value="">Selecciona un paquete</option>
+                <!-- Las opciones serán cargadas dinámicamente con JavaScript -->
+              </select>
+            </div>
+            <input type="hidden" id="selectedPackageId" name="selectedPackageId">
+            <div class="section1">
+              <div class="mb-3">
+                <label for="packageName" class="form-label">Nombre del Paquete</label>
+                <input type="text" class="form-control nombre" id="packageName" placeholder="Nombre del Paquete" readonly>
+              </div>
+              <div class="mb-3">
+                <label for="packageNumber" class="form-label">Número de Paquete</label>
+                <input type="text" class="form-control numero" id="packageNumber" placeholder="Número de Paquete" readonly>
+              </div>
+            </div>
+            <div class="section1">
+              <div class="mb-3">
+                <label for="destination" class="form-label">Destino</label>
+                <input type="text" class="form-control destino" id="destination" placeholder="Destino" readonly>
+              </div>
+              <div class="mb-3">
+                <label for="duration" class="form-label">Duración (días)</label>
+                <input type="number" class="form-control dias" id="duration" placeholder="Duración en días" readonly>
+              </div>
+            </div>
+
+          </div>
+
+          <div class="listas mb-3">
+
+            <div class="input-group mb-3">
+              <span class="input-group-text">Transporte</span>
+              <span class="input-group-text signo">$</span>
+              <input type="text" class="form-control" id="transporte" aria-label="Amount (to the nearest dollar)">
+            </div>
+
+            <div class="input-group mb-3">
+              <span class="input-group-text">Alojamiento</span>
+              <span class="input-group-text signo">$</span>
+              <input type="text" class="form-control" id="alojamiento" aria-label="Amount (to the nearest dollar)">
+            </div>
+
+            <div class="input-group mb-3">
+              <span class="input-group-text">Actividades</span>
+              <span class="input-group-text signo">$</span>
+              <input type="text" class="form-control" id="actividades" aria-label="Amount (to the nearest dollar)">
+            </div>
+
+            <div class="input-group mb-3">
+              <span class="input-group-text">Alimentación</span>
+              <span class="input-group-text signo"> $ </span>
+              <input type="text" class="form-control" id="alimentacion" aria-label="Amount (to the nearest dollar)">
+            </div>
+
+            <hr class="linea">
+            <!-- SUMA TOTAL DE transporte, alojamiento, actividades y alimentacion -->
+            <div class="input-group mb-1">
+              <span class="input-group-text">Total</span>
+              <span class="input-group-text signo"> $ </span>
+              <input type="text" id="precio_total" name="precio_total" value="" class="form-control" disabled>
+            </div>
+
+          </div>
+
         </div>
-
-        <input type="hidden" id="selectedPackageId" name="selectedPackageId">
-
-
-        <div class="section1">
-
-          <div class="mb-3">
-            <label for="packageName" class="form-label">Nombre del Paquete</label>
-            <input type="text" class="form-control nombre" id="packageName" placeholder="Nombre del Paquete" readonly>
-          </div>
-
-          <div class="mb-3">
-            <label for="packageNumber" class="form-label">Número de Paquete</label>
-            <input type="text" class="form-control numero" id="packageNumber" placeholder="Número de Paquete" readonly>
-          </div>
-
-          
-
-        </div>
-
-        <div class="section1">
-          <div class="mb-3">
-            <label for="destination" class="form-label">Destino</label>
-            <input type="text" class="form-control destino" id="destination" placeholder="Destino" readonly>
-          </div>
-          <div class="mb-3">
-            <label for="duration" class="form-label">Duración (días)</label>
-            <input type="number" class="form-control dias" id="duration" placeholder="Duración en días" readonly>
-          </div>
-        </div>
-        <br>
-
         <!-- PARA ITINERARIO -->
         <h4>Lista de Actividades:</h4>
 
@@ -121,7 +154,6 @@
 
       </div>
     </div>
-
     <!-- PARA LA TABLA -->
 
     <div class="d-flex justify-content-center align-items-center p-100vh">
@@ -148,12 +180,6 @@
 
     <div class="container mt-4">
       <div class="botones">
-
-        <div class="col-md-5 mb-5">
-          <label for="numeros" class="form-label">Precio Total:</label>
-          <input type="text" id="precio_total" name="precio_total" class="form-control">
-        </div>
-
         <div class="fixed-buttons text-right">
           <button type="submit" class="btn btn-primary">Nuevo itinerario</button>
         </div>

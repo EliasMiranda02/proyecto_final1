@@ -4,6 +4,8 @@ ini_set('display_errors', 1);
 ini_set('display_startup_errors', 1);
 error_reporting(E_ALL);
 
+var_dump($_POST);
+
 // Incluir archivo de conexión
 include "../modelo/conexion.php";
 
@@ -14,6 +16,8 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     $dias = $_POST['dia'];
     $horas = $_POST['hora'];
     $detalles = $_POST['detalle'];
+    $precio = $_POST['precio_total'];  // Captura el valor de precio_total
+
 
     // Preparar la consulta SQL para insertar en itinerarios
     $stmt = $conexion->prepare("INSERT INTO itinerarios (id_paquete, hora, dia, detalle, nombre_actividad) VALUES (?, ?, ?, ?, ?)");
@@ -24,10 +28,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     }
 
     // Vincular parámetros
-    $stmt->bind_param("ssssss", $id_paquete, $hora, $dia, $detalle, $actividad);
-
-    // Variable para acumular el precio total
-    $precio_total = 0;
+    $stmt->bind_param("sssss", $id_paquete, $hora, $dia, $detalle, $actividad);
 
     // Recorrer los arrays y realizar la inserción
     foreach ($actividades as $index => $actividad) {
@@ -42,7 +43,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
                 echo "Error en la inserción: " . $stmt->error;
             } else {
                 // Acumular el precio para el total
-                $precio_total += $precio; 
+    
             }
         } else {
             echo "Datos inválidos para la actividad: $actividad<br>";
@@ -61,7 +62,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     }
 
     // Vincular parámetros
-    $stmtPrecio->bind_param("sd", $id_paquete, $precio_total);
+    $stmtPrecio->bind_param("sd", $id_paquete, $precio);
 
     // Ejecutar la inserción en precios_paquete
     if (!$stmtPrecio->execute()) {

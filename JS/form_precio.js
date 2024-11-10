@@ -43,13 +43,6 @@ function fillPackageData() {
 // Llamar a la función de carga al cargar la página
 document.addEventListener("DOMContentLoaded", loadPackages);
 
-// Inicializa el precio total
-let precioTotal = 0;
-
-// Función para actualizar el precio total en el campo correspondiente
-function actualizarPrecioTotal() {
-    document.getElementById('precio_total').value = precioTotal.toFixed(2); // Formato con dos decimales
-}
 
 // Evento para agregar una actividad a la tabla
 document.getElementById('agregar1').addEventListener('click', function(event) {
@@ -75,9 +68,6 @@ document.getElementById('agregar1').addEventListener('click', function(event) {
     `;
 
     document.getElementById('itinerarioTableBody').appendChild(newRow);
-    precioTotal += precio;
-    actualizarPrecioTotal();
-
     // Limpiar campos después de agregar actividad
     document.getElementById('actividad').value = '';
     document.getElementById('dia').value = '';
@@ -86,31 +76,53 @@ document.getElementById('agregar1').addEventListener('click', function(event) {
 
 });
 
+
 // Evento para eliminar actividades seleccionadas
 document.getElementById('eliminar1').addEventListener('click', function(event) {
     event.preventDefault(); // Previene el envío del formulario
 
     const checkboxes = document.querySelectorAll('.actividad-checkbox:checked');
-    let precioEliminado = 0;
+    
+    // Verificar si hay checkboxes seleccionados
+    if (checkboxes.length === 0) {
+        alert("Por favor, selecciona al menos una actividad para eliminar.");
+        return;
+    }
 
-    checkboxes.forEach(checkbox => {
-        // Encuentra la fila correspondiente al checkbox seleccionado
-        const row = checkbox.closest('tr');
-        // Obtiene el precio de la celda correspondiente
-        const precioCelda = parseFloat(row.cells[5].textContent);
-        // Suma el precio a eliminar
-        precioEliminado += precioCelda;
-        // Elimina la fila de la tabla
-        row.remove();
+    // Eliminar solo la fila correspondiente a cada checkbox seleccionado
+    checkboxes.forEach(function(checkbox) {
+        const row = checkbox.closest('tr'); // Obtiene la fila <tr> que contiene el checkbox
+        if (row) {
+            row.remove(); // Elimina la fila
+        }
     });
-
-    // Actualiza el precio total
-    precioTotal -= precioEliminado;
-    actualizarPrecioTotal();
 });
+
+
+
 setTimeout(function() {
     const mensajeAlerta = document.getElementById('mensajeAlerta');
     if (mensajeAlerta) {
         mensajeAlerta.style.display = 'none';
     }
 }, 2000); // 5000 milisegundos = 5 segundos
+
+// Función para actualizar el total
+function actualizarTotal() {
+    var transporte = parseFloat(document.getElementById("transporte").value) || 0;
+    var alojamiento = parseFloat(document.getElementById("alojamiento").value) || 0;
+    var actividades = parseFloat(document.getElementById("actividades").value) || 0;
+    var alimentacion = parseFloat(document.getElementById("alimentacion").value) || 0;
+
+    // Sumar los valores
+    var total = transporte + alojamiento + actividades + alimentacion;
+
+    // Establecer el valor del campo "precio_total" con la suma
+    document.getElementById("precio_total").value = total; // Formateado a dos decimales
+}
+
+// Agregar event listeners a los inputs para que se actualice el total cuando cambie algún valor
+document.getElementById("transporte").addEventListener("input", actualizarTotal);
+document.getElementById("alojamiento").addEventListener("input", actualizarTotal);
+document.getElementById("actividades").addEventListener("input", actualizarTotal);
+document.getElementById("alimentacion").addEventListener("input", actualizarTotal);
