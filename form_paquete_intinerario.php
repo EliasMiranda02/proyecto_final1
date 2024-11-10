@@ -102,7 +102,7 @@
             <div class="input-group mb-1">
               <span class="input-group-text">Total</span>
               <span class="input-group-text signo"> $ </span>
-              <input type="text" id="precio_total" name="precio_total" value="" class="form-control" disabled>
+              <input type="text" id="precio_total" name="precio_total" class="form-control" readonly>
             </div>
 
           </div>
@@ -115,7 +115,7 @@
 
           <div class="col-md-1 mb-3">
             <label for="dates" class="form-label">Dia:</label>
-            <input type="text" id="dia" name="dia" class="form-control" require>
+            <input type="date" id="dia" name="dia" class="form-control" require>
           </div>
 
           <div class="col-md-2 mb-3">

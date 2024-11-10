@@ -94,3 +94,10 @@ thead th {
     border: 3px solid white; /* Color y grosor de la línea */
     opacity: 0.8;
 }
+#mensajeAlerta {
+    position: fixed;
+    top: 30px; /* Ajusta según sea necesario */
+    left: 50%;
+    transform: translateX(-50%);
+    z-index: 1000;
+}
