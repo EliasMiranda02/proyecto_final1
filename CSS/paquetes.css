@@ -63,7 +63,7 @@ thead th {
     padding: 0; 
 }
 .paquetes {
-    margin: 50px;
+    margin: 30px;
     padding: 5px 30px;
     display: flex; /* Alinea los elementos en una fila */
     align-items: center; /* Centra los elementos verticalmente */
@@ -109,6 +109,7 @@ thead th {
     height: 40px;
     padding: 0px 0px;
 }
+
 #mensajeAlerta {
     position: fixed;
     top: 30px; /* Ajusta según sea necesario */

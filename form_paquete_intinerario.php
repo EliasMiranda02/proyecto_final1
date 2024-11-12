@@ -11,6 +11,19 @@
 </head>
 
 <body>
+
+  <div class="franja"></div>
+  <div class="paquete">
+    <div class="imagen">
+      <img src="IMG/LOGO_TABLAS.jpg" alt="">
+    </div>
+
+    <div class="logo">
+      <h4>REGISTRO DE ITINERARIOS</h4>
+    </div>
+
+  </div>
+
   <?php if (isset($_GET['mensaje'])): ?>
     <div class="alert alert-info mb-3" id="mensajeAlerta">
       <?php
@@ -108,48 +121,53 @@
           </div>
 
         </div>
-        <!-- PARA ITINERARIO -->
-        <h4>Lista de Actividades:</h4>
 
-        <div class="row lista1">
+        <div class="lista_actividad">
 
-          <div class="col-md-1 mb-3">
-            <label for="dates" class="form-label">Dia:</label>
-            <input type="date" id="dia" name="dia" class="form-control" require>
+          <!-- PARA ITINERARIO -->
+          <h4>Lista de Actividades:</h4>
+
+          <div class="row lista1">
+
+            <div class="col-md-1 mb-3">
+              <label for="dates" class="form-label">Dia:</label>
+              <input type="number" min="1" id="dia" name="dia" class="form-control" require>
+            </div>
+
+            <div class="col-md-2 mb-3">
+              <label for="times" class="form-label">Hora:</label>
+              <input type="time" id="hora" name="hora" class="form-control" require>
+            </div>
+            <br>
           </div>
-
-          <div class="col-md-2 mb-3">
-            <label for="times" class="form-label">Hora:</label>
-            <input type="time" id="hora" name="hora" class="form-control" require>
-          </div>
-          <br>
 
           <div class="col-md-6 mb-3">
             <label for="packageId" class="form-label">Actividad:</label>
-            <input type="combobox" class="form-control" id="actividad" name="actividad" require>
+            <input type="combobox" class="form-control act" id="actividad" name="actividad" require>
           </div>
+
+          <div class="row lista">
+            <div class="col-md-4 mb-3">
+              <label for="descripcion" class="form-label">Detalle</label>
+              <textarea name="detalle" id="detalle" class="form-control" rows="3" require></textarea>
+            </div>
+            <br>
+            <!-- BOTONES -->
+            <div class="col-md-4 d-flex align-items-center mb-9">
+              <!-- Boton para agregar itinerario a la tabla -->
+              <button type="button" id="agregar1" class="btn btn-success me-2">
+                <i class="fa-solid fa-plus"></i>
+              </button>
+              <!-- Boton para quitar itinerario de la tabla -->
+              <button id="eliminar1" class="btn btn-danger">
+                <i class="fa-solid fa-x"></i>
+              </button>
+            </div>
+
+          </div>
+
         </div>
 
-        <div class="row lista">
-
-          <div class="col-md-4 mb-3">
-            <label for="descripcion" class="form-label">Detalle</label>
-            <textarea name="detalle" id="detalle" class="form-control" rows="3" require></textarea>
-          </div>
-          <br>
-          <!-- BOTONES -->
-          <div class="col-md-4 d-flex align-items-center mb-9">
-            <!-- Boton para agregar itinerario a la tabla -->
-            <button type="button" id="agregar1" class="btn btn-success me-2">
-              <i class="fa-solid fa-plus"></i>
-            </button>
-            <!-- Boton para quitar itinerario de la tabla -->
-            <button id="eliminar1" class="btn btn-danger">
-              <i class="fa-solid fa-x"></i>
-            </button>
-          </div>
-
-        </div>
 
 
       </div>
@@ -162,11 +180,11 @@
           <table class="table table-bordered table-container">
             <thead>
               <tr>
-                <th scope="col" class="p-3"><input type="hidden" id="selectAll"></th>
-                <th scope="col" class="text-center">Actividad</th>
-                <th scope="col" class="text-center">fecha</th>
-                <th scope="col">hora</th>
-                <th scope="col" class="p-2">detalle</th>
+                <th scope="col" class="p-3 encabezado"><input type="hidden" id="selectAll"></th>
+                <th scope="col" class="text-center encabezado">Actividad</th>
+                <th scope="col" class="text-center encabezado">Fecha</th>
+                <th scope="col" class="encabezado">Hora</th>
+                <th scope="col" class="p-2 encabezado">Detalle</th>
               </tr>
             </thead>
             <tbody id="itinerarioTableBody">
@@ -179,9 +197,9 @@
     <!-- TERMINA TABLA -->
 
     <div class="container mt-4">
-      <div class="botones">
+      <div class="">
         <div class="fixed-buttons text-right">
-          <button type="submit" class="btn btn-primary">Nuevo itinerario</button>
+          <button type="submit" class="btn boton">Nuevo itinerario</button>
         </div>
 
       </div>

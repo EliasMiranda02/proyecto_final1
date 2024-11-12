@@ -68,11 +68,13 @@ thead th {
 .seccion1{
     display: grid;
     grid-template-columns: repeat(2, 1fr);
-    gap: 40px;
+    gap: 80px;
 }
 
+
+
 .listas{
-    background: #38587C;
+    background: #111821;
     border-radius: 10px; 
     padding: 20px; 
     width: 350px; 
@@ -100,4 +102,44 @@ thead th {
     left: 50%;
     transform: translateX(-50%);
     z-index: 1000;
+}
+
+.act{
+    width: 360px;
+}
+
+/* DISEÑO PARA LA PÁGINA */
+.franja {
+    background-color: #111821 !important;
+    height: 30px;
+    margin: 0; /* Elimina cualquier margen */
+    padding: 0; /* Elimina cualquier relleno */
+}
+
+.paquete{
+    margin: 20px;
+    padding: 5px 30px;
+    gap: 5px;
+    display: flex; /* Alinea los elementos en una fila */
+    align-items: center; /* Centra los elementos verticalmente */
+}
+
+.imagen img {
+    width: 200px;
+    height: 48px; 
+}
+
+.encabezado {
+    background-color: #111821 !important; /* Cambia el color al rojo */
+    color: white !important; /* Cambia el color del texto a blanco */
+}
+
+.boton{
+    background-color: #38587C !important;
+    color: white;
+}
+
+.boton:hover{
+    background-color: #2a425e !important;
+    color: white;
 }
