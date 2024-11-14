@@ -181,14 +181,7 @@
 
 
         </div>
-
-
-
         <!-- SECCION PARA LA TABLA -->
-
-
-
-
     </form>
     <br><br>
 
