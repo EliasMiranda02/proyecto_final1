@@ -6,8 +6,8 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Carros</title>
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
-    <link rel="stylesheet" href="CSS/hotel.css">
     <script src="https://kit.fontawesome.com/90c11f8b3b.js" crossorigin="anonymous"></script>
+    <link rel="stylesheet" href="CSS/hotel.css">
 </head>
 
 <body>
@@ -101,7 +101,7 @@
                                     <td><input type="checkbox" name="ids[]" value="<?= $datos->id_carro ?>"></td>
                                     <th scope="row" class="text-center"><?= $datos->id_carro ?></th>
                                     <td class="text-center"><?= $datos->modelo ?></td>
-                                    <td class="text-center">$<?= $datos->precio_renta ?></td>
+                                    <td class="text-center"><?= "$" . number_format($datos->precio_renta,2)?></td>
                                     <td class="text-center"><?= $datos->capacidad ?></td>
                                     <td class="text-center"><?= $datos->estado ?></td>
                                     <td class="text-center">
@@ -148,7 +148,7 @@
                 // Llenar los campos del modal
                 document.getElementById('id_carro_editar').value = id;
                 document.getElementById('modelos').value = modelo;
-                document.getElementById('precios').value = precio_renta;
+                document.getElementById('precios').value = formatMoneda(precio_renta);
                 document.getElementById('capacidades').value = capacidad;
                 document.getElementById('estados').value = estado;
                 document.getElementById('imagen').src = imagen;
@@ -163,6 +163,17 @@
                 document.getElementById('editarForm').submit(); // Envía el formulario para actualizar el registro
             });
         });
+
+        // Función para formatear el número como moneda
+        function formatMoneda(valor) {
+            const numero = parseFloat(valor.replace(',', '')) || 0; // Eliminar comas y convertir a número
+            return new Intl.NumberFormat('es-MX', {
+                style: 'currency',
+                currency: 'MXN',
+                minimumFractionDigits: 2,
+                maximumFractionDigits: 2
+            }).format(numero); // Formato con 2 decimales
+        }
 
         // PARA ELIMINAR
         document.getElementById('selectAll').addEventListener('change', function() {

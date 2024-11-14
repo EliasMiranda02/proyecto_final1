@@ -26,7 +26,7 @@
             <textarea name="descripcion" id="descripcion" class="form-control" rows="3" required></textarea>
           </div>
           <div class="form-floating mb-3">
-            <input type="number" step="0.01" min="100" max="15000" class="form-control" id="precios" name="precios" required>
+            <input type="text" class="form-control" id="precios" name="precios" required>
             <label for="floatingInput" class="form-label">Precio del paquete (aprox)</label>
           </div>
           <div class="form-floating mb-3">
@@ -63,3 +63,38 @@
     overflow-y: auto;
   }
 </style>
+
+
+<script>
+  const precioInput = document.getElementById('precios');
+
+  // Función para formatear el valor a moneda
+  function formatCurrency(value) {
+    return value.toLocaleString('es-MX', {
+      style: 'currency',
+      currency: 'MXN'
+    });
+  }
+
+  // Formatear como moneda cuando el campo pierde el foco
+  precioInput.addEventListener('blur', function() {
+    let valor = parseFloat(this.value.replace(/[^0-9.-]/g, '').replace(',', ''));
+    if (!isNaN(valor)) {
+      this.value = formatCurrency(valor);
+    }
+  });
+
+  // Restringir la entrada a solo números y el punto decimal
+  precioInput.addEventListener('input', function() {
+    // Guardar el valor actual sin formato
+    let rawValue = this.value.replace(/[^0-9\.]/g, ''); // solo números y punto
+
+    // Evitar más de un punto decimal
+    if (rawValue.split('.').length > 2) {
+      rawValue = rawValue.slice(0, -1);
+    }
+
+    // Establecer el valor sin formato para que el cursor esté en la posición correcta
+    this.value = rawValue;
+  });
+</script>

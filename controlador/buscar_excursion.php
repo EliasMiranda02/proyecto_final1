@@ -22,7 +22,7 @@ if ($sql->num_rows > 0) {
         echo "<td class='text-center'>{$datos->clasificacion}</td>";
         echo "<td class='text-center descripcion'>{$datos->descripcion}</td>";
         echo "<td class='text-center'>{$datos->duracion_horas}</td>";
-        echo "<td class='text-center'>{$datos->precio}</td>";
+        echo "<td class='text-center'>" . '$' . number_format($datos->precio,2) ."</td>";
         echo "<td class='text-center'>{$datos->fecha_creacion}</td>";
         echo "<td class='text-center'>{$datos->fecha_modificacion}</td>
         <td class='text-center'>

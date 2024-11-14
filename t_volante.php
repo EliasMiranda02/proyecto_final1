@@ -6,8 +6,8 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Volante</title>
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
-    <link rel="stylesheet" href="CSS/hotel.css">
     <script src="https://kit.fontawesome.com/90c11f8b3b.js" crossorigin="anonymous"></script>
+    <link rel="stylesheet" href="CSS/hotel.css">
 </head>
 
 <body>
@@ -55,12 +55,12 @@
             <!-- BUSACDOR DE LAS RUTAS -->
             <div class="cabeza">
                 <div class="add">
-                    
-                        <button type="button" class="btn btn-success mb-3" data-bs-toggle="modal" data-bs-target="#agregar">
+
+                    <button type="button" class="btn btn-success mb-3" data-bs-toggle="modal" data-bs-target="#agregar">
                         <i class="fa-solid fa-plus"></i> Agregar Vuelo
-                    
-                    </div>
-                
+
+                </div>
+
 
                 <div class="search">
 
@@ -109,7 +109,7 @@
                                     <td class="text-center"><?= $datos->destino ?></td>
                                     <td class="text-center"><?= $datos->fecha_salida ?></td>
                                     <td class="text-center"><?= $datos->fecha_llegada ?></td>
-                                    <td class="text-center">$<?= $datos->precio_vuelo ?></td>
+                                    <td class="text-center"><?= "$" . number_format($datos->precio_vuelo, 2) ?></td>
                                 </tr>
                             <?php } ?>
                         </tbody>
@@ -142,7 +142,7 @@
                 const destino = row.cells[4].innerText;
                 const fecha_salida = row.cells[5].innerText;
                 const fecha_llegada = row.cells[6].innerText;
-                const precio = row.cells[7].innerText;
+                const precio = row.cells[7].innerText.replace('$', '').trim();
 
                 // Llenar los campos del modal
                 document.getElementById('id_vuelo_editar').value = id;
@@ -151,7 +151,7 @@
                 document.getElementById('destino').value = destino;
                 document.getElementById('date_salida').value = fecha_salida.replace(" ", "T").slice(0, 16);
                 document.getElementById('date_llegada').value = fecha_llegada.replace(" ", "T").slice(0, 16);
-                document.getElementById('precio').value = precio;
+                document.getElementById('precio').value = formatMoneda(precio);
                 // Abrir el modal
                 $('#editar').modal('show');
             } else {
@@ -162,6 +162,18 @@
                 document.getElementById('editarForm').submit(); // Envía el formulario para actualizar el registro
             });
         });
+
+        // Función para formatear el número como moneda
+        function formatMoneda(valor) {
+            const numero = parseFloat(valor.replace(',', '')) || 0; // Eliminar comas y convertir a número
+            return new Intl.NumberFormat('es-MX', {
+                style: 'currency',
+                currency: 'MXN',
+                minimumFractionDigits: 2,
+                maximumFractionDigits: 2
+            }).format(numero); // Formato con 2 decimales
+        }
+
 
         // PARA ELIMINAR
         document.getElementById('selectAll').addEventListener('change', function() {

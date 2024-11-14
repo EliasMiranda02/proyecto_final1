@@ -88,33 +88,28 @@
 
             <div class="input-group mb-3">
               <span class="input-group-text">Transporte</span>
-              <span class="input-group-text signo">$</span>
-              <input type="text" class="form-control" id="transporte" aria-label="Amount (to the nearest dollar)">
+              <input type="text" class="form-control" id="transporte" oninput="formatCurrency(this)" aria-label="Amount (to the nearest dollar)">
             </div>
 
             <div class="input-group mb-3">
               <span class="input-group-text">Alojamiento</span>
-              <span class="input-group-text signo">$</span>
-              <input type="text" class="form-control" id="alojamiento" aria-label="Amount (to the nearest dollar)">
+              <input type="text" class="form-control" id="alojamiento" oninput="formatCurrency(this)" aria-label="Amount (to the nearest dollar)">
             </div>
 
             <div class="input-group mb-3">
               <span class="input-group-text">Actividades</span>
-              <span class="input-group-text signo">$</span>
-              <input type="text" class="form-control" id="actividades" aria-label="Amount (to the nearest dollar)">
+              <input type="text" class="form-control" id="actividades" oninput="formatCurrency(this)" aria-label="Amount (to the nearest dollar)">
             </div>
 
             <div class="input-group mb-3">
               <span class="input-group-text">Alimentación</span>
-              <span class="input-group-text signo"> $ </span>
-              <input type="text" class="form-control" id="alimentacion" aria-label="Amount (to the nearest dollar)">
+              <input type="text" class="form-control" id="alimentacion" oninput="formatCurrency(this)" aria-label="Amount (to the nearest dollar)">
             </div>
 
             <hr class="linea">
             <!-- SUMA TOTAL DE transporte, alojamiento, actividades y alimentacion -->
             <div class="input-group mb-1">
               <span class="input-group-text">Total</span>
-              <span class="input-group-text signo"> $ </span>
               <input type="text" id="precio_total" name="precio_total" class="form-control" readonly>
             </div>
 

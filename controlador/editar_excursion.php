@@ -8,7 +8,10 @@ if (isset($_POST['id_excursion_editar']) && !empty($_POST['id_excursion_editar']
     // Obtener los demás datos
     
     $descripcion = $conexion->real_escape_string($_POST['descripcion']);
+
     $precio = $conexion->real_escape_string($_POST['precio']);
+    $precio = preg_replace('/[^0-9.]/', '', $precio);
+
     $duracion_horas = $conexion->real_escape_string($_POST['duracion_horas']);
     $ubicacion = $conexion->real_escape_string($_POST['ubicacion']);
     $clasificacion = $conexion->real_escape_string($_POST['clasificacion']); // Ajustar según el tipo de la columna en la BD

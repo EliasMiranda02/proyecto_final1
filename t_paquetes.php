@@ -71,7 +71,7 @@
                         </div>
                     </form>
                 </div>
-                
+
             </div>
 
 
@@ -107,7 +107,7 @@
                                     <td class="text-center"><?= $datos->numero_paquete ?></td>
                                     <td class="text-center"><?= $datos->nombre ?></td>
                                     <td class="descripcion text-center"><?= $datos->descripcion ?></td>
-                                    <td class="text-center">$<?= $datos->precio_aproximado ?></td>
+                                    <td class="text-center"><?= "$" . number_format($datos->precio_aproximado, 2) ?></td>
                                     <td class="text-center"><?= $datos->duracion_dias ?></td>
                                     <td class="text-center"><?= $datos->destino ?></td>
                                     <td><?= $datos->fecha_creacion ?></td>
@@ -149,6 +149,7 @@
             checkboxes.forEach(checkbox => checkbox.checked = this.checked);
         });
 
+
         // PARA EL BOTON DE EDITAR
         btnEditar.addEventListener('click', function(event) {
             const checkedCheckboxes = document.querySelectorAll('input[name="ids[]"]:checked');
@@ -161,7 +162,7 @@
                 // Obtener los datos de la fila
                 const nombre = row.cells[3].innerText;
                 const descripcion = row.cells[4].innerText;
-                const precio_aproximado = row.cells[5].innerText.replace('$', '').trim();
+                const precio_aproximado = row.cells[5].innerText.replace('$', '').trim(); // Eliminamos el símbolo de moneda
                 const duracion_dias = row.cells[6].innerText;
                 const destino = row.cells[7].innerText;
                 const fecha_creacion = row.cells[8].innerText;
@@ -172,7 +173,10 @@
                 document.getElementById('id_paquete_editar').value = id;
                 document.getElementById('nombres').value = nombre;
                 document.getElementById('descripcion').value = descripcion;
-                document.getElementById('precios').value = precio_aproximado;
+
+                // Formatear el precio como moneda antes de asignarlo
+                document.getElementById('precios').value = formatMoneda(precio_aproximado);
+
                 document.getElementById('duracion').value = duracion_dias;
                 document.getElementById('destino').value = destino;
                 document.getElementById('fecha_creacion').value = fecha_creacion.replace(" ", "T").slice(0, 16);
@@ -189,6 +193,17 @@
                 document.getElementById('editarForm').submit(); // Envía el formulario para actualizar el registro
             });
         });
+
+        // Función para formatear el número como moneda
+        function formatMoneda(valor) {
+            const numero = parseFloat(valor.replace(',', '')) || 0; // Eliminar comas y convertir a número
+            return new Intl.NumberFormat('es-MX', {
+                style: 'currency',
+                currency: 'MXN',
+                minimumFractionDigits: 2,
+                maximumFractionDigits: 2
+            }).format(numero); // Formato con 2 decimales
+        }
 
         // ELIMINAR EL MENSAJE EN 2 SEGUNDOS
         setTimeout(function() {

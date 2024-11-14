@@ -13,7 +13,10 @@ if (isset($_POST['id_hotel_editar']) && !empty($_POST['id_hotel_editar'])) {
     $correo_electronico = $conexion->real_escape_string($_POST['correo_electronico']);
     $numero_habitaciones = $conexion->real_escape_string($_POST['numero_habitaciones']); // Ajustar según el tipo de la columna en la BD
     $descripcion = $conexion->real_escape_string($_POST['descripcion']); 
+
     $precio_noche = $conexion->real_escape_string($_POST['precio_noche']);
+    $precio_noche = preg_replace('/[^0-9.]/', '', $precio_noche);
+
     $calificacion = $conexion->real_escape_string($_POST['calificacion']);
 
     if (isset($_FILES['selImgen']) && $_FILES['selImgen']['error'] == 0) {

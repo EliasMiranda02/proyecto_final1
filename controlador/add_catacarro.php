@@ -4,7 +4,11 @@ include "../modelo/conexion.php";
 
 // Obtener los valores del formulario
 $modelo = $conexion->real_escape_string($_POST['modelo']);
+
 $precio = $conexion->real_escape_string($_POST['precio']);
+$precio = preg_replace('/[^0-9.]/', '', $precio);
+
+
 $capacidad = $conexion->real_escape_string($_POST['capacidad']);
 $estado = $conexion->real_escape_string($_POST['estado']);
 

@@ -20,7 +20,7 @@
                     </div>
                     <div class="mb-3">
                         <label for="precio" class="form-label">Precio</label>
-                        <input type="number" id="precio" name="precio" class="form-control" max="15000" min="100" step="0.01" required>
+                        <input type="text" id="precio" name="precio" class="form-control" required>
                     </div>
 
                     <div class="mb-3">
@@ -34,13 +34,12 @@
                     </div>
 
                     <div class="mb-3">
-                        <label for="clasificacion" class="form-label">Clasificacion</label>
-                        <select id="clasificacion" name="clasificacion" class="form-select" required>
-                            <option value="Aventura y Exploracion">Aventura y Exploracion</option>
-                            <option value="Conexión con la Naturaleza">Conexión con la Naturaleza</option>
-                            <option value="Cultural e Histórico">Cultural e Histórico</option>
-                            <option value="Gastronómica">Gastronómica</option>
-                            <option value="Fotográfica">Fotográfica</option>
+                        <label for="clasificar" class="form-label">Clasificacion</label>
+                        <select id="clasificaciones" name="clasificacion" class="form-select" required>
+                            <option value="Aventura y Naturaleza">Aventura y Naturaleza</option>
+                            <option value="Historia y Arqueología">Historia y Arqueología</option>
+                            <option value="Cultura y Pueblos Mágicos">Cultura y Pueblos Mágicos</option>
+                            <option value="Playas y Ritmos del Sol">Playas y Ritmos del Sol</option>
                         </select>
                     </div>
                 </form>
@@ -61,3 +60,37 @@
         overflow-y: auto;
     }
 </style>
+
+<script>
+  const precioInput = document.getElementById('precio');
+
+  // Función para formatear el valor a moneda
+  function formatCurrency(value) {
+    return value.toLocaleString('es-MX', {
+      style: 'currency',
+      currency: 'MXN'
+    });
+  }
+
+  // Formatear como moneda cuando el campo pierde el foco
+  precioInput.addEventListener('blur', function() {
+    let valor = parseFloat(this.value.replace(/[^0-9.-]/g, '').replace(',', ''));
+    if (!isNaN(valor)) {
+      this.value = formatCurrency(valor);
+    }
+  });
+
+  // Restringir la entrada a solo números y el punto decimal
+  precioInput.addEventListener('input', function() {
+    // Guardar el valor actual sin formato
+    let rawValue = this.value.replace(/[^0-9\.]/g, ''); // solo números y punto
+
+    // Evitar más de un punto decimal
+    if (rawValue.split('.').length > 2) {
+      rawValue = rawValue.slice(0, -1);
+    }
+
+    // Establecer el valor sin formato para que el cursor esté en la posición correcta
+    this.value = rawValue;
+  });
+</script>

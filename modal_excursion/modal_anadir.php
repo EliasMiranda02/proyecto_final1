@@ -21,7 +21,7 @@
                     </div>
                     <div class="mb-3">
                         <label for="precio" class="form-label">Precio</label>
-                        <input type="number" id="precio" name="precio" class="form-control" max="15000" min="100" step="0.01" required>
+                        <input type="text" id="precios" name="precio" class="form-control" oninput="updateCurrency(this)" required>
                     </div>
                     <div class="mb-3">
                         <label for="duracion_horas" class="form-label">Duracion por Horas</label>
@@ -61,3 +61,30 @@
     }
 </style>
 
+<!-- PARA QUE EL INPUT DE PRECIO TENGA EL FORMATO MODENA -->
+<script>
+    // Función para formatear el valor como moneda
+    function formatCurrency(value) {
+        return value.toLocaleString("es-MX", {
+            style: "currency",
+            currency: "MXN"
+        });
+    }
+
+    // Función para convertir el valor del input a número, eliminando caracteres de formato
+    function parseCurrency(value) {
+        return parseFloat(value.replace(/[^0-9.-]+/g, "")) || 0;
+    }
+
+    // Actualizar el valor del campo de texto como moneda
+    function updateCurrency(input) {
+        let value = input.value.replace(/[^0-9.-]/g, ''); // Eliminar caracteres no numéricos
+        input.value = value; // Mantener el valor sin formato para edición
+
+        // Si el valor tiene más de 0, agregar formato cuando se termine de editar
+        input.addEventListener('blur', function() {
+            let numValue = parseCurrency(input.value);
+            input.value = formatCurrency(numValue); // Convertir a moneda
+        });
+    }
+</script>

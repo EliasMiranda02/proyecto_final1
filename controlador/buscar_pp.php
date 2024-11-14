@@ -24,7 +24,7 @@ if ($sql->num_rows > 0) {
         echo "<th scope='row' class='text-center'>{$datos->numero_paquete}</th>";
         echo "<td class='text-center'>{$datos->nombre_paquete}</td>";
         echo "<td class='text-center'>{$datos->destino}</td>";
-        echo "<td class='text-center'>\${$datos->precio_total}</td>";
+        echo "<td class='text-center'>" . '$' . number_format($datos->precio_total,2) ."</td>";
         echo "</tr>";
     }
 } else {

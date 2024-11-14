@@ -9,7 +9,10 @@ if (isset($_POST['id_paquete_editar']) && !empty($_POST['id_paquete_editar'])) {
     
     $nombre = $conexion->real_escape_string($_POST['nombres']);
     $descripcion = $conexion->real_escape_string($_POST['descripcion']);
+
     $precio_aproximado = $conexion->real_escape_string($_POST['precios']);
+    $precio_aproximado = preg_replace('/[^0-9.]/', '', $precio_aproximado);
+
     $duracion_horas = $conexion->real_escape_string($_POST['duracion']);
     $destino = $conexion->real_escape_string($_POST['destino']); 
 

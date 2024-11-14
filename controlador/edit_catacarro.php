@@ -8,7 +8,10 @@ if (isset($_POST['id_carro_editar']) && !empty($_POST['id_carro_editar'])) {
     // Obtener los demás datos
     
     $modelo = $conexion->real_escape_string($_POST['modelos']);
-    $precio = $conexion->real_escape_string($_POST['precios']); // Ajustar según el tipo de la columna en la BD
+    
+    $precio = $conexion->real_escape_string($_POST['precios']);
+    $precio = preg_replace('/[^0-9.]/', '', $precio);
+
     $capacidad = $conexion->real_escape_string($_POST['capacidades']);
     $estado = $conexion->real_escape_string($_POST['estado']);
 

@@ -14,7 +14,9 @@ if (isset($_POST['id_vuelo_editar']) && !empty($_POST['id_vuelo_editar'])) {
     $destino = $conexion->real_escape_string($_POST['destino']);
     $fecha_salida = date('Y-m-d H:i:s', strtotime($_POST['date_salida']));
     $fecha_llegada = date('Y-m-d H:i:s', strtotime($_POST['date_llegada']));
+
     $precio = $conexion->real_escape_string($_POST['precio']); // Corregido
+    $precio = preg_replace('/[^0-9.]/', '', $precio);
 
     // Construir la consulta para actualizar el registro
     $sql = "UPDATE vuelos SET 

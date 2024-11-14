@@ -16,9 +16,9 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     $dias = $_POST['dia'];
     $horas = $_POST['hora'];
     $detalles = $_POST['detalle'];
-    $precio = $_POST['precio_total'];  // Captura el valor de precio_total
-
-
+    $precio = $_POST['precio_total'];
+    $precio = preg_replace('/[^0-9.]/', '', $precio);
+    
     // Preparar la consulta SQL para insertar en itinerarios
     $stmt = $conexion->prepare("INSERT INTO itinerarios (id_paquete, hora, dia, detalle, nombre_actividad) VALUES (?, ?, ?, ?, ?)");
 

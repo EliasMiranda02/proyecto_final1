@@ -4,11 +4,11 @@
       <div class="modal-header bg-warning">
         <h1 class="modal-title fs-5">Editar Usuario</h1>
       </div>
-      <div class="modal-body">
+      <div class="modal-body custom-scroll">
         <form id="editarForm" action="controlador/edit_vuelo.php" method="post">
           <input type="hidden" id="id_vuelo_editar" name="id_vuelo_editar">
           <div class="form-floating mb-3">
-            <input type="number" min="1" class="form-control" id="no_vuelo" name="no_vuelo" required>
+            <input type="text" class="form-control" id="no_vuelo" name="no_vuelo" required>
             <label for="floatingInput" class="form-label">Numero de Vuelo</label>
           </div>
           <div class="form-floating mb-3">
@@ -28,7 +28,7 @@
             <label for="floatingInput" class="form-label">Fecha Llegada</label>
           </div>
           <div class="form-floating mb-3">
-            <input type="number" min="100" step="0.01" class="form-control" id="precio" name="precio" required>
+            <input type="text" class="form-control" id="precio" name="precio" required>
             <label for="floatingInput" class="form-label">Precio de Vuelo</label>
           </div>
           
@@ -42,3 +42,46 @@
     </div>
   </div>
 </div>
+
+<style>
+  .custom-scroll {
+    max-height: 400px;
+    /* Ajusta la altura según tus necesidades */
+    overflow-y: auto;
+  }
+</style>
+
+
+<script>
+  const precioInput = document.getElementById('precio');
+
+  // Función para formatear el valor a moneda
+  function formatCurrency(value) {
+    return value.toLocaleString('es-MX', {
+      style: 'currency',
+      currency: 'MXN'
+    });
+  }
+
+  // Formatear como moneda cuando el campo pierde el foco
+  precioInput.addEventListener('blur', function() {
+    let valor = parseFloat(this.value.replace(/[^0-9.-]/g, '').replace(',', ''));
+    if (!isNaN(valor)) {
+      this.value = formatCurrency(valor);
+    }
+  });
+
+  // Restringir la entrada a solo números y el punto decimal
+  precioInput.addEventListener('input', function() {
+    // Guardar el valor actual sin formato
+    let rawValue = this.value.replace(/[^0-9\.]/g, ''); // solo números y punto
+
+    // Evitar más de un punto decimal
+    if (rawValue.split('.').length > 2) {
+      rawValue = rawValue.slice(0, -1);
+    }
+
+    // Establecer el valor sin formato para que el cursor esté en la posición correcta
+    this.value = rawValue;
+  });
+</script>

@@ -9,7 +9,10 @@
     $correo_electronico = $conexion->real_escape_string($_POST['correo_electronico']);
     $numero_habitaciones = $conexion->real_escape_string($_POST['numero_habitaciones']);
     $descripcion = $conexion->real_escape_string($_POST['descripcion']);
+
     $precio_noche = $conexion->real_escape_string($_POST['precio_noche']);
+    $precio_noche = preg_replace('/[^0-9.]/', '', $precio_noche);
+
     $calificacion = $conexion->real_escape_string($_POST['calificacion']);
 
 

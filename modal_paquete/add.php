@@ -29,7 +29,7 @@
                     </div>
 
                     <div class="form-floating mb-3">
-                        <input type="number" step="0.01" min="100" max="15000" class="form-control" id="precios" name="precios" required>
+                        <input type="text" class="form-control" id="precios" name="precios" oninput="updateCurrency(this)" required>
                         <label for="floatingInput" class="form-label">Precio del paquete (aprox)</label>
                     </div>
 
@@ -41,7 +41,7 @@
                         <textarea class="form-control" maxlength="50" id="destino" name="destino" rows="3" required></textarea>
                         <label for="floatingInput" class="form-label">Destino</label>
                     </div>
-                    
+
                     <div class="">
                         <button type="submit" name="registrar" class="btn btn-success">
                             <i class="fa-solid fa-file-circle-plus"></i> Agregar
@@ -61,3 +61,31 @@
         overflow-y: auto;
     }
 </style>
+
+<!-- PARA QUE EL INPUT DE PRECIO TENGA EL FORMATO MODENA -->
+<script>
+    // Función para formatear el valor como moneda
+    function formatCurrency(value) {
+        return value.toLocaleString("es-MX", {
+            style: "currency",
+            currency: "MXN"
+        });
+    }
+
+    // Función para convertir el valor del input a número, eliminando caracteres de formato
+    function parseCurrency(value) {
+        return parseFloat(value.replace(/[^0-9.-]+/g, "")) || 0;
+    }
+
+    // Actualizar el valor del campo de texto como moneda
+    function updateCurrency(input) {
+        let value = input.value.replace(/[^0-9.-]/g, ''); // Eliminar caracteres no numéricos
+        input.value = value; // Mantener el valor sin formato para edición
+
+        // Si el valor tiene más de 0, agregar formato cuando se termine de editar
+        input.addEventListener('blur', function() {
+            let numValue = parseCurrency(input.value);
+            input.value = formatCurrency(numValue); // Convertir a moneda
+        });
+    }
+</script>

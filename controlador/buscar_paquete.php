@@ -22,7 +22,7 @@ if ($sql->num_rows > 0) {
             echo "<td class='text-center'>{$datos->numero_paquete}</td>";
             echo "<td class='text-center'>{$datos->nombre}</td>";
             echo "<td class='text-center descripcion'>{$datos->descripcion}</td>";
-            echo "<td class='text-center'>\${$datos->precio_aproximado}</td>";
+            echo "<td class='text-center'>" . '$' . number_format($datos->precio_aproximado, 2) . "</td>";
             echo "<td class='text-center'>{$datos->duracion_dias}</td>";
             echo "<td class='text-center'>{$datos->destino}</td>";
             echo "<td class='text-center'>{$datos->fecha_creacion}</td>";

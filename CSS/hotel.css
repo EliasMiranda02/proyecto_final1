@@ -48,7 +48,7 @@ thead th {
     padding: 0; 
 }
 .paquetes {
-    margin: 50px;
+    margin: 30px;
     padding: 5px 30px;
     display: flex; /* Alinea los elementos en una fila */
     align-items: center; /* Centra los elementos verticalmente */

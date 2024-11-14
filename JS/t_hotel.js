@@ -31,7 +31,7 @@ btnEditar.addEventListener('click', function(event) {
             document.getElementById('correo_electronico').value = correo_electronico;
             document.getElementById('numero_habitaciones').value = numero_habitaciones;
             document.getElementById('descripcion').value = descripcion;
-            document.getElementById('precio_noche').value = precio_noche;
+            document.getElementById('precio_noche').value = formatMoneda(precio_noche);
             document.getElementById('calificacion').value = calificacion;
             document.getElementById('imagen').src = imagen;
 
@@ -43,11 +43,20 @@ btnEditar.addEventListener('click', function(event) {
         }
     });
 
-    // Enviar el formulario al hacer clic en "Guardar Cambios"
-    document.getElementById('confirmarEditar').addEventListener('click', function() {
-        document.getElementById('editarForm').submit(); // Envía el formulario para actualizar el registro
-    });
-
+// Enviar el formulario al hacer clic en "Guardar Cambios"
+document.getElementById('confirmarEditar').addEventListener('click', function () {
+    document.getElementById('editarForm').submit(); // Envía el formulario para actualizar el registro
+});
+// Función para formatear el número como moneda
+function formatMoneda(valor) {
+    const numero = parseFloat(valor.replace(',', '')) || 0; // Eliminar comas y convertir a número
+    return new Intl.NumberFormat('es-MX', {
+        style: 'currency',
+        currency: 'MXN',
+        minimumFractionDigits: 2,
+        maximumFractionDigits: 2
+    }).format(numero); // Formato con 2 decimales
+}
 
 // Para eliminar
 document.getElementById('selectAll').addEventListener('change', function() {

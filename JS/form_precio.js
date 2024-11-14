@@ -107,22 +107,46 @@ setTimeout(function() {
     }
 }, 2000); // 5000 milisegundos = 5 segundos
 
-// Función para actualizar el total
+
+
+// PARA HACER EL FORMATO MODENA Y EL SUMADO DE LOS INPUT
+
+
+
+// Función para formatear un número a moneda mexicana
+function formatCurrency(value) {
+    return value.toLocaleString("es-MX", { style: "currency", currency: "MXN" });
+}
+
+// Función para convertir el valor del input a número, eliminando caracteres de formato
+function parseCurrency(value) {
+    return parseFloat(value.replace(/[^0-9.-]+/g, "")) || 0;
+}
+
+// Función para actualizar el total y aplicar formato de moneda
 function actualizarTotal() {
-    var transporte = parseFloat(document.getElementById("transporte").value) || 0;
-    var alojamiento = parseFloat(document.getElementById("alojamiento").value) || 0;
-    var actividades = parseFloat(document.getElementById("actividades").value) || 0;
-    var alimentacion = parseFloat(document.getElementById("alimentacion").value) || 0;
+    var transporte = parseCurrency(document.getElementById("transporte").value);
+    var alojamiento = parseCurrency(document.getElementById("alojamiento").value);
+    var actividades = parseCurrency(document.getElementById("actividades").value);
+    var alimentacion = parseCurrency(document.getElementById("alimentacion").value);
 
     // Sumar los valores
     var total = transporte + alojamiento + actividades + alimentacion;
 
-    // Establecer el valor del campo "precio_total" con la suma
-    document.getElementById("precio_total").value = total; // Formateado a dos decimales
+    // Establecer el valor del campo "precio_total" con la suma formateada
+    document.getElementById("precio_total").value = formatCurrency(total);
 }
 
-// Agregar event listeners a los inputs para que se actualice el total cuando cambie algún valor
-document.getElementById("transporte").addEventListener("input", actualizarTotal);
-document.getElementById("alojamiento").addEventListener("input", actualizarTotal);
-document.getElementById("actividades").addEventListener("input", actualizarTotal);
-document.getElementById("alimentacion").addEventListener("input", actualizarTotal);
+// Función para formatear el campo en tiempo real al escribir
+function formatInput(event) {
+    const input = event.target;
+    const value = parseCurrency(input.value);
+    input.value = formatCurrency(value);
+    actualizarTotal(); // Actualizar el total cada vez que se formatea
+}
+
+// Agregar event listeners a los inputs para que se actualice el total y el formato
+document.getElementById("transporte").addEventListener("input", formatInput);
+document.getElementById("alojamiento").addEventListener("input", formatInput);
+document.getElementById("actividades").addEventListener("input", formatInput);
+document.getElementById("alimentacion").addEventListener("input", formatInput);

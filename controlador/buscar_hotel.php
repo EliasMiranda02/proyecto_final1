@@ -25,7 +25,7 @@ if ($sql->num_rows > 0) {
         echo "<td class='text-center'>{$datos->correo_electronico}</td>";
         echo "<td class='text-center'>{$datos->numero_habitaciones}</td>";
         echo "<td class='text-center descripcion'>{$datos->descripcion}</td>";
-        echo "<td class='text-center'>$ {$datos->precio_noche}</td>";
+        echo "<td class='text-center'>" . '$' . number_format($datos->precio_noche,2) ."</td>";
         echo "<td class='text-center'>{$datos->calificacion}</td>";
         echo                     "<td class='text-center'>
                                     <img src='{$datos->img}' alt='Imagen del hotel' style='width: 100px; height: 60px;'>

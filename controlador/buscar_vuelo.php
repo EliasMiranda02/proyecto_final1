@@ -36,7 +36,7 @@ if ($sql->num_rows > 0) {
         echo "<td class='text-center'>{$datos->destino}</td>";
         echo "<td class='text-center'>{$datos->fecha_salida}</td>";
         echo "<td class='text-center'>{$datos->fecha_llegada}</td>";
-        echo "<td class='text-center'>\${$datos->precio_vuelo}</td>";
+        echo "<td class='text-center'>" . '$' . number_format($datos->precio_vuelo,2) . "</td>";
         echo "</tr>";
     }
 } else {

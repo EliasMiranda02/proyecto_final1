@@ -102,7 +102,7 @@
                                     <td class="text-center"><?= $datos->clasificacion ?></td>
                                     <td class="text-center descripcion"><?= $datos->descripcion ?></td>
                                     <td class="text-center"><?= $datos->duracion_horas ?></td>
-                                    <td class="text-center"><?= $datos->precio ?></td>
+                                    <td class="text-center"><?= "$" . number_format($datos->precio,2)?></td>
                                     <td class="text-center"><?= $datos->fecha_creacion ?></td>
                                     <td class="text-center"><?= $datos->fecha_modificacion ?></td>
                                     <td class="text-center">

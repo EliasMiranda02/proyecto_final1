@@ -108,7 +108,7 @@
                                     <td class="text-center"><?= $datos->correo_electronico ?></td>
                                     <td class="text-center"><?= $datos->numero_habitaciones ?></td>
                                     <td class="descripcion text-center"><?= $datos->descripcion ?></td>
-                                    <td class="text-center">$<?= $datos->precio_noche ?></td>
+                                    <td class="text-center"><?= "$" . number_format($datos->precio_noche,2) ?></td>
                                     <td class="text-center"><?= $datos->calificacion ?></td>
                                     <td class="text-center">
                                         <img src="<?= $datos->img ?>" alt="Imagen del hotel" style="width: 100px; height: 60px;">
