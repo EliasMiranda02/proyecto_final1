@@ -1,3 +1,7 @@
+*{
+    font-family: 'Poppins', sans-serif; 
+}
+
 /* Contenedor principal sin scroll */
 .body {
     overflow-y: hidden; /* Mantiene el cuerpo sin scroll */
