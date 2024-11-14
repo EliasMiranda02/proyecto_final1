@@ -1,5 +1,9 @@
+*{
+    font-family: 'Poppins', sans-serif; 
+}
 .body{
     overflow-y: hidden;
+    
 }
 .table-container {
     max-height: 300px; /* Ajusta la altura para mostrar 6 registros */

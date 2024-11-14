@@ -1,3 +1,6 @@
+*{
+    font-family: 'Poppins', sans-serif; 
+}
 /* General */
 body, html {
     margin: 0;
