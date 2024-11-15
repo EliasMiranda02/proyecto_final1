@@ -12,7 +12,7 @@
                     <center><img id="image" src="IMG/hotel.png" alt="Vista previa de la imagen" style="display: block; height:150px; max-width: 200px; margin-top: 10px; border-radius: 10%;"></center>
                     <div class="form-group mb-3">
                         <label for="imagen" class="form-label">Imagen</label>
-                        <input class="form-control" type="file" id="selImg" name="selImg">
+                        <input class="form-control" type="file" id="selImg" name="selImg" required>
                     </div>
 
                     <div class="mb-3">

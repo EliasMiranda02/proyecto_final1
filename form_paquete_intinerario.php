@@ -55,7 +55,7 @@
 
             <div class="mb-3">
               <label for="packageId" class="form-label">Paquete</label>
-              <select class="form-select" name="packageId" id="packageId" onchange="fillPackageData()">
+              <select class="form-select" name="packageId" id="packageId" onchange="fillPackageData()" required>
                 <option value="">Selecciona un paquete</option>
                 <!-- Las opciones serán cargadas dinámicamente con JavaScript -->
               </select>
@@ -88,22 +88,22 @@
 
             <div class="input-group mb-3">
               <span class="input-group-text">Transporte</span>
-              <input type="text" class="form-control" id="transporte" oninput="formatCurrency(this)" aria-label="Amount (to the nearest dollar)">
+              <input type="text" class="form-control" id="transporte" oninput="formatCurrency(this)" aria-label="Amount (to the nearest dollar)" required>
             </div>
 
             <div class="input-group mb-3">
               <span class="input-group-text">Alojamiento</span>
-              <input type="text" class="form-control" id="alojamiento" oninput="formatCurrency(this)" aria-label="Amount (to the nearest dollar)">
+              <input type="text" class="form-control" id="alojamiento" oninput="formatCurrency(this)" aria-label="Amount (to the nearest dollar)" required>
             </div>
 
             <div class="input-group mb-3">
               <span class="input-group-text">Actividades</span>
-              <input type="text" class="form-control" id="actividades" oninput="formatCurrency(this)" aria-label="Amount (to the nearest dollar)">
+              <input type="text" class="form-control" id="actividades" oninput="formatCurrency(this)" aria-label="Amount (to the nearest dollar)" required>
             </div>
 
             <div class="input-group mb-3">
               <span class="input-group-text">Alimentación</span>
-              <input type="text" class="form-control" id="alimentacion" oninput="formatCurrency(this)" aria-label="Amount (to the nearest dollar)">
+              <input type="text" class="form-control" id="alimentacion" oninput="formatCurrency(this)" aria-label="Amount (to the nearest dollar)" required>
             </div>
 
             <hr class="linea">
@@ -126,25 +126,25 @@
 
             <div class="col-md-1 mb-3">
               <label for="dates" class="form-label">Dia:</label>
-              <input type="number" min="1" id="dia" name="dia" class="form-control" require>
+              <input type="number" min="1" id="dia" name="dia" class="form-control" required>
             </div>
 
             <div class="col-md-2 mb-3">
               <label for="times" class="form-label">Hora:</label>
-              <input type="time" id="hora" name="hora" class="form-control" require>
+              <input type="time" id="hora" name="hora" class="form-control" required>
             </div>
             <br>
           </div>
 
           <div class="col-md-6 mb-3">
             <label for="packageId" class="form-label">Actividad:</label>
-            <input type="combobox" class="form-control act" id="actividad" name="actividad" require>
+            <input type="combobox" class="form-control act" id="actividad" name="actividad" required>
           </div>
 
           <div class="row lista">
             <div class="col-md-4 mb-3">
               <label for="descripcion" class="form-label">Detalle</label>
-              <textarea name="detalle" id="detalle" class="form-control" rows="3" require></textarea>
+              <textarea name="detalle" id="detalle" class="form-control" rows="3" required></textarea>
             </div>
             <br>
             <!-- BOTONES -->

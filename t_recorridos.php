@@ -166,6 +166,7 @@
                 document.getElementById('date_llegada').value = fecha_llegada.replace(" ", "T").slice(0, 16);
                 document.getElementById('boleto').value = boleto;
                 document.getElementById('estados').value = estado;
+                document.getElementById('estado').value = estado;
 
                 // Abrir el modal
                 $('#editar').modal('show');

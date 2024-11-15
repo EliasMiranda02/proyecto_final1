@@ -12,7 +12,7 @@
                     <center><img id="image" src="IMG/logoempleado1.png" alt="Vista previa de la imagen" style="display: block; max-width: 150px; margin-top: 10px; border-radius: 20%;"></center>
                     <div class="form-group mb-3">
                         <label for="imagen" class="form-label">Imagen</label>
-                        <input class="form-control" type="file" id="sellImg" name="sellImg">
+                        <input class="form-control" type="file" id="sellImg" name="sellImg" required>
                     </div>
                     
                     <div class="form-floating mb-3">
