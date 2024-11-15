@@ -16,7 +16,7 @@
             <label for="floatingInput" class="form-label">Fecha Llegada</label>
           </div>
           <div class="form-floating mb-3">
-            <input type="number" min="100" max="15000" step="0.01" class="form-control" id="boleto" name="boleto" required>
+            <input type="text" class="form-control" id="boleto" name="boleto" required>
             <label for="floatingInput" class="form-label">Precio del Boleto</label>
           </div>
           <div class="input-group">
@@ -38,3 +38,37 @@
     </div>
   </div>
 </div>
+
+<script>
+    const precioInput = document.getElementById('boleto');
+
+    // Función para formatear el valor a moneda
+    function formatCurrency(value) {
+        return value.toLocaleString('es-MX', {
+            style: 'currency',
+            currency: 'MXN'
+        });
+    }
+
+    // Formatear como moneda cuando el campo pierde el foco
+    precioInput.addEventListener('blur', function() {
+        let valor = parseFloat(this.value.replace(/[^0-9.-]/g, '').replace(',', ''));
+        if (!isNaN(valor)) {
+            this.value = formatCurrency(valor);
+        }
+    });
+
+    // Restringir la entrada a solo números y el punto decimal
+    precioInput.addEventListener('input', function() {
+        // Guardar el valor actual sin formato
+        let rawValue = this.value.replace(/[^0-9\.]/g, ''); // solo números y punto
+
+        // Evitar más de un punto decimal
+        if (rawValue.split('.').length > 2) {
+            rawValue = rawValue.slice(0, -1);
+        }
+
+        // Establecer el valor sin formato para que el cursor esté en la posición correcta
+        this.value = rawValue;
+    });
+</script>

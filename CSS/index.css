@@ -177,3 +177,32 @@ dialog#modal-nombre {
     transform: translate(-50%, -50%);
     box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.2);
 }
+
+.botones{
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 4px;
+
+    padding: 0px 60px;
+}
+
+.botones button{
+    width: 180px;
+}
+
+/* FONDO BORROSO */
+#blur-background {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    backdrop-filter: blur(5px); /* Aplica el efecto de desenfoque */
+    background-color: rgba(0, 0, 0, 0.4); /* Capa semi-transparente */
+    z-index: 10; /* Asegúrate de que esté detrás del modal */
+    display: none; /* Inicialmente oculto */
+}
+
+dialog {
+    z-index: 20; /* Asegúrate de que esté delante del fondo borroso */
+}

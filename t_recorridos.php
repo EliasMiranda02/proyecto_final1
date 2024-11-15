@@ -109,7 +109,7 @@
                                     <td class="text-center"><?= $datos->id_ruta ?></td>
                                     <td class="text-center"><?= $datos->fecha_salida ?></td>
                                     <td class="text-center"><?= $datos->fecha_llegada ?></td>
-                                    <td class="text-center"><?= $datos->precio_boleto ?></td>
+                                    <td class="text-center"><?= "$" . number_format($datos->precio_boleto,2) ?></td>
                                     <td class="text-center"><?= $datos->estado ?></td>
                                 </tr>
                             <?php } ?>

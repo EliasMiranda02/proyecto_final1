@@ -32,7 +32,7 @@
                     <div class="input-group mb-3">
                         <span class="input-group-text">Estado</span>
                         <input type="text" class="form-control" id="estados" disabled>
-                        <select id="estado" name="estado" class="form-select">
+                        <select id="Sestados" name="estado" class="form-select">
                             <option value="Activo">Activo</option>
                             <option value="Pendiente">Pendiente</option>
                             <option value="Inactivo">Inactivo</option>
