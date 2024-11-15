@@ -12,7 +12,7 @@
 
     <div class="login">
         <div class="texto">
-        <br><br><br>
+            <br><br><br>
             <h1><b>¡BIENVENIDOS!</b></h1>
 
             <br><br>
@@ -37,11 +37,12 @@
                 Crear Cuenta
             </button>
 
+            <!-- Modal principal -->
             <dialog id="modal">
                 <h2>TIPO DE USUARIO</h2>
                 <hr>
                 <div class="modal-buttons">
-                    <button onclick="window.location.href='registro_empleado.php'">
+                    <button id="btn-equipo-trabajo">
                         Equipo de Trabajo
                     </button>
                     <button onclick="window.location.href='registro.php'">
@@ -51,10 +52,24 @@
                 <button id="btn-cerrar-modal" class="btn-cerrar">Cerrar</button>
             </dialog>
 
+            <div class="nips">
+                <!-- Modal para solicitar nombre -->
+                <dialog id="modal-nombre">
+                    <h2>Ingrese NIP</h2>
+                    <form id="form-nip">
+                        <input type="text" id="nip" name="nip" placeholder="NIP" required>
+                        <button type="submit">Aceptar</button>
+                        <button type="button" id="btn-cerrar-modal-nombre" class="btn-cerrar">Cerrar</button>
+                    </form>
+                    <p id="error-message" style="color: red; display: none;">NIP incorrecto, por favor intente de nuevo.</p>
+                </dialog>
+            </div>
+
+
         </div>
 
         <div class="inicio">
-            
+
             <h1>Inicia Sesión</h1>
             <br><br>
             <form action="" method="POST">
@@ -76,4 +91,5 @@
     <script src="JS/modal.js"></script>
 
 </body>
+
 </html>
