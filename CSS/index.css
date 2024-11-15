@@ -162,3 +162,18 @@ dialog#modal {
     right: 20px;
     width: 120px; /* Ancho del botón */
 }
+
+/* PARA EL "MODAL" DEL NIP */
+
+
+/* Asegura que el modal esté centrado en la pantalla */
+dialog#modal-nombre {
+    width: 500px;
+    padding: 20px;
+    border-radius: 8px;
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.2);
+}
