@@ -264,9 +264,9 @@
                                 data.forEach(dato => {
                                     datosBancarios.innerHTML += `
                                 <p><strong>ID Itinerario:</strong> ${dato.id_itinerario}</p>
-                                <P><strong>Nombre:</strong> ${dato.nombre_actividad}</P> 
-                                <p><strong>Hora:</strong> ${dato.hora}</p>
                                 <p><strong>Día:</strong> ${dato.dia}</p>
+                                <p><strong>Hora:</strong> ${dato.hora}</p>
+                                <P><strong>Nombre:</strong> ${dato.nombre_actividad}</P> 
                                 <p><strong>Detalle:</strong> ${dato.detalle}</p>
                                 <hr>
                             `;
