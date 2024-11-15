@@ -1,4 +1,4 @@
-<!-- MODAL PARA EL BOTON DE t_empleado para agregar un nuevo empleado -->
+<!-- MODAL PARA EL BOTON DE t_empleado para agregar un nuevo empleadoo -->
 <div class="modal fade" id="agregar" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1" aria-labelledby="agregarlabel" aria-hidden="true">
     <div class="modal-dialog ">
         <div class="modal-content">
