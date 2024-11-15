@@ -14,7 +14,7 @@
           </center>
           <div class="form-group mb-3">
             <label for="imagen" class="form-label">Imagen</label>
-            <input class="form-control" type="file" id="selllImg" name="selImgen">
+            <input class="form-control" type="file" id="selllImg" name="selImgen" required>
           </div>
 
           <div class="mb-3">

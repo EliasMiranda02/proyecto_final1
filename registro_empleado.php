@@ -39,7 +39,7 @@
             <div class="imagen1">
                 <img id="image" src="" alt="Vista previa de la imagen" style="display: block; max-width: 150px; margin-top: 10px;">
                 <br>
-                <input type="file" id="selImg" name="selImg">
+                <input type="file" id="selImg" name="selImg" required>
             </div>
             <br>
 

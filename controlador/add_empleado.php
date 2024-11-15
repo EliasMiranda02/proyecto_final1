@@ -40,8 +40,8 @@ if (isset($_FILES['sellImg']) && $_FILES['sellImg']['error'] == 0) {
     VALUES('$nombre','$amaterno','$apaterno','$email','$lada','$telefono',NOW(),'$contraseña','$nombre_usuario', '$NIP', '$cargo', '$disponibilidad', '')";
 }
 
-    ($conexion->query($sql));
-    header('Location: ../t_empleado.php?mensaje=registro_exitoso');
+    ($conexion->query($sql)); //EJEMPLO DEL CAMBIO QUE HARE
+    header('Location: ../index.php?i=empleado&mensaje=registro_exitoso');
 } else {
     echo "Las contraseñas no coinciden.";
 }

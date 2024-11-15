@@ -14,7 +14,7 @@
                     </center>
                     <div class="form-group mb-3">
                         <label for="imagen" class="form-label">Imagen</label>
-                        <input class="form-control" type="file" id="sellImg" name="selImg">
+                        <input class="form-control" type="file" id="sellImg" name="selImg" required>
                     </div>
 
                     <div class="form-floating mb-3">
@@ -29,7 +29,7 @@
                         <input type="number" step="1" min="1" max="20" class="form-control" id="capacidades" name="capacidades" required>
                         <label for="nip">Capacidad</label>
                     </div>
-                    <div class="input-group mb-3" required>
+                    <div class="input-group mb-3">
                         <span class="input-group-text">Estado</span>
                         <input type="text" class="form-control" id="estados" disabled>
                         <select id="estado" name="estado" class="form-select">

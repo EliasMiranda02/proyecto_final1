@@ -150,6 +150,7 @@
                 document.getElementById('modelos').value = modelo;
                 document.getElementById('precios').value = formatMoneda(precio_renta);
                 document.getElementById('capacidades').value = capacidad;
+                document.getElementById('estado').value = estado;
                 document.getElementById('estados').value = estado;
                 document.getElementById('imagen').src = imagen;
 

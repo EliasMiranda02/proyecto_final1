@@ -12,7 +12,7 @@
                     </center>
                     <div class="form-group mb-3">
                         <label for="im" class="form-label">Imagen</label>
-                        <input class="form-control" type="file" id="sellImg" name="sellImg">
+                        <input class="form-control" type="file" id="sellImg" name="sellImg" required>
                     </div>
                     <div class="mb-3">
                         <label for="descripcion" class="form-label">Descripcion</label>
