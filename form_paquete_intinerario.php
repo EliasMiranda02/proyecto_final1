@@ -126,25 +126,25 @@
 
             <div class="col-md-1 mb-3">
               <label for="dates" class="form-label">Dia:</label>
-              <input type="number" min="1" id="dia" name="dia" class="form-control" required>
+              <input type="number" min="1" id="dia" name="dia" class="form-control">
             </div>
 
             <div class="col-md-2 mb-3">
               <label for="times" class="form-label">Hora:</label>
-              <input type="time" id="hora" name="hora" class="form-control" required>
+              <input type="time" id="hora" name="hora" class="form-control">
             </div>
             <br>
           </div>
 
           <div class="col-md-6 mb-3">
             <label for="packageId" class="form-label">Actividad:</label>
-            <input type="combobox" class="form-control act" id="actividad" name="actividad" required>
+            <input type="combobox" class="form-control act" id="actividad" name="actividad">
           </div>
 
           <div class="row lista">
             <div class="col-md-4 mb-3">
               <label for="descripcion" class="form-label">Detalle</label>
-              <textarea name="detalle" id="detalle" class="form-control" rows="3" required></textarea>
+              <textarea name="detalle" id="detalle" class="form-control" rows="3"></textarea>
             </div>
             <br>
             <!-- BOTONES -->

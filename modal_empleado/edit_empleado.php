@@ -23,6 +23,10 @@
                         <input type="text" maxlength="25" class="form-control" id="nombre" name="nombre" required>
                     </div>
                     <div class="mb-3">
+                        <label for="nombre_usuario" class="form-label">Nombre de Usuario</label>
+                        <input type="text" maxlength="25" class="form-control" id="nombre_usuario" name="nombre_usuario" required>
+                    </div>
+                    <div class="mb-3">
                         <label for="apellido_paterno" class="form-label">Apellido Paterno</label>
                         <input type="text" maxlength="35" class="form-control" id="apellido_paterno" name="apellido_paterno" required>
                     </div>
