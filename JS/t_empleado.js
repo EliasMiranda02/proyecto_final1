@@ -112,6 +112,7 @@ document.addEventListener('DOMContentLoaded', function() {
             const lada = row.cells[6].innerText;
             const numero = row.cells[7].innerText; // Asegúrate de que este es el índice correcto para contraseña
             const pass = row.cells[9].innerText;
+            const nombre_usuario = row.cells[10].innerText; // Asegúrate de que este es el índice correcto para contraseña
             const nip = row.cells[11].innerText; // Ajusta el índice según tu tabla para el número de cédula
             const cargo = row.cells[12].innerText;
             const disponibilidad = row.cells[13].innerText;
@@ -120,6 +121,7 @@ document.addEventListener('DOMContentLoaded', function() {
             // Llenar los campos del modal                     
             document.getElementById('id_empleado_editar').value = id;
             document.getElementById('nombre').value = nombre;
+            document.getElementById('nombre_usuario').value = nombre_usuario;
             document.getElementById('apellido_paterno').value = apellidoPaterno;
             document.getElementById('apellido_materno').value = apellidoMaterno;
             document.getElementById('email').value = email;
