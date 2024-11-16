@@ -150,3 +150,15 @@ document.getElementById("transporte").addEventListener("input", formatInput);
 document.getElementById("alojamiento").addEventListener("input", formatInput);
 document.getElementById("actividades").addEventListener("input", formatInput);
 document.getElementById("alimentacion").addEventListener("input", formatInput);
+
+
+// ALERTA PARA CUANDO NO HAYA DATOS EN LA TABLA CUANDO SE HAGA EL SUBMIT
+document.getElementById('nuevoItinerarioForm').addEventListener('submit', function(event) {
+    const tableBody = document.getElementById('itinerarioTableBody');
+    
+    // Verificar si la tabla está vacía
+    if (tableBody.children.length === 0) {
+        event.preventDefault(); // Detener el envío del formulario
+        alert("La tabla de itinerario está vacía. Por favor, agrega al menos una actividad.");
+    }
+});
