@@ -144,7 +144,7 @@
           <div class="row lista">
             <div class="col-md-4 mb-3">
               <label for="descripcion" class="form-label">Detalle</label>
-              <textarea name="detalle" id="detalle" class="form-control" rows="3" ></textarea>
+              <textarea name="detalle" id="detalle" class="form-control" rows="3"></textarea>
             </div>
             <br>
             <!-- BOTONES -->

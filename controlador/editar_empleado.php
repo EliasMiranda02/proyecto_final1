@@ -9,10 +9,12 @@ if (isset($_POST['id_empleado_editar']) && !empty($_POST['id_empleado_editar']))
 
     // Obtener los demás datos
     $nombre = $conexion->real_escape_string($_POST['nombre']);
+    $nombre_usuario = $conexion->real_escape_string($_POST['nombre_usuario']);
     $apellidoPaterno = $conexion->real_escape_string($_POST['apellido_paterno']);
     $apellidoMaterno = $conexion->real_escape_string($_POST['apellido_materno']);
     $email = $conexion->real_escape_string($_POST['email']);
     $numero = $conexion->real_escape_string($_POST['numero']);
+    $pass = $conexion->real_escape_string($_POST['pass']);
     $nip = $conexion->real_escape_string($_POST['nip']);
     $disponibilidad = $conexion->real_escape_string($_POST['estado']);
     $lada = $conexion->real_escape_string($_POST['no_lada']);
@@ -25,11 +27,13 @@ if (isset($_POST['id_empleado_editar']) && !empty($_POST['id_empleado_editar']))
     // Preparar la consulta
     $sql = "UPDATE empleados SET 
         nombre = '$nombre', 
+        nombre_usuario = '$nombre_usuario',
         apellido_paterno = '$apellidoPaterno', 
         apellido_materno = '$apellidoMaterno', 
         email = '$email', 
         clave_lada = '$lada',
         telefono = '$numero',
+        contraseña = '$pass',
         NIP = '$nip',
         cargo = '$cargo',
         disponibilidad = '$disponibilidad',
@@ -43,11 +47,13 @@ if (isset($_POST['id_empleado_editar']) && !empty($_POST['id_empleado_editar']))
 } else{
     $sql = "UPDATE empleados SET 
         nombre = '$nombre', 
+        nombre_usuario = '$nombre_usuario',
         apellido_paterno = '$apellidoPaterno', 
         apellido_materno = '$apellidoMaterno', 
         email = '$email', 
         clave_lada = '$lada',
         telefono = '$numero',
+        contraseña = '$pass',
         NIP = '$nip',
         cargo = '$cargo',
         disponibilidad = '$disponibilidad'
