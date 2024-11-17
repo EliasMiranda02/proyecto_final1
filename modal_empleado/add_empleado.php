@@ -102,3 +102,29 @@
         overflow-y: auto;
     }
 </style>
+<script>
+        const togglePassword = document.getElementById('togglePassword');
+        const passwordInput = document.getElementById('contraseña1');
+
+        togglePassword.addEventListener('click', () => {
+            // Alternar el tipo de entrada entre 'password' y 'text'
+            const type = passwordInput.type === 'password' ? 'text' : 'password';
+            passwordInput.type = type;
+
+            // Cambiar el ícono
+            togglePassword.classList.toggle('fa-eye');
+            togglePassword.classList.toggle('fa-eye-slash');
+        });
+        
+    document.querySelector('#form').addEventListener('submit', function(event) {
+    const pass1 = document.getElementById('contraseña1').value;
+    const pass2 = document.getElementById('contraseña2').value;
+
+    // Validar si las contraseñas coinciden
+    if (pass1 !== pass2) {
+        event.preventDefault(); // Detiene el envío del formulario
+        alert('Las contraseñas no coinciden. Por favor, verifica e inténtalo de nuevo.');
+    }
+});
+
+</script>
