@@ -21,7 +21,7 @@
                     </div>
                     <div class="mb-3">
                         <label for="precio" class="form-label">Precio</label>
-                        <input type="text" id="precios" name="precio" class="form-control" oninput="updateCurrency(this)" required>
+                        <input type="text" maxlength="4" id="precios" name="precio" class="form-control" oninput="updateCurrency(this)" required>
                     </div>
                     <div class="mb-3">
                         <label for="duracion_horas" class="form-label">Duracion por Horas</label>

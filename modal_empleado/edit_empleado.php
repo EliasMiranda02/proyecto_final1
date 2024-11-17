@@ -41,6 +41,7 @@
                     <div class="mb-3">
                         <label for="text" class="form-label">Contraseña</label>
                         <input type="password" maxlength="8" class="form-control" id="pass" name="pass" required>
+                        
                     </div>
                     <div class="input-group mb-3">
                         <span class="input-group-text">Numero de Celular</span>
@@ -67,7 +68,6 @@
                             <option value="Guia Turistico">Guia Turistico</option>
                         </select>
                     </div>
-
                     <div class="input-group">
                         <span class="input-group-text">Disponibilidad</span>
                         <input type="text" aria-label="First name" class="form-control" name="estados" id="estados" disabled>

@@ -21,7 +21,7 @@
                         <label for="nombre_usuario">Modelo del carro</label>
                     </div>
                     <div class="form-floating mb-3">
-                        <input type="text" class="form-control" name="precio" id="precio" oninput="updateCurrency(this)" required>
+                        <input type="text" maxlength="8" class="form-control" name="precio" id="precio" oninput="updateCurrency(this)" required>
                         <label for="pass1">Precio de la renta del carro</label>
                     </div>
 

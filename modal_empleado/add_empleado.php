@@ -39,6 +39,7 @@
                     <div class="form-floating mb-3">
                         <input type="password" maxlength="8" class="form-control" name="contraseña1" id="contraseña1" required>
                         <label for="pass1">Contraseña</label>
+                        <i id="togglePassword" class="fas fa-eye position-absolute" style="top: 50%; right: 10px; transform: translateY(-50%); cursor: pointer;"></i>
                     </div>
                     <div class="form-floating mb-3">
                         <input type="password" maxlength="8" class="form-control" name="contraseña2" id="contraseña2" required>
@@ -101,3 +102,17 @@
         overflow-y: auto;
     }
 </style>
+<script>
+        const togglePassword = document.getElementById('togglePassword');
+        const passwordInput = document.getElementById('contraseña1');
+
+        togglePassword.addEventListener('click', () => {
+            // Alternar el tipo de entrada entre 'password' y 'text'
+            const type = passwordInput.type === 'password' ? 'text' : 'password';
+            passwordInput.type = type;
+
+            // Cambiar el ícono
+            togglePassword.classList.toggle('fa-eye');
+            togglePassword.classList.toggle('fa-eye-slash');
+        });
+    </script>

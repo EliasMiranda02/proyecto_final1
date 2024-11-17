@@ -22,11 +22,11 @@
                         <label for="floatingInput">Modelo del carro</label>
                     </div>
                     <div class="form-floating mb-3">
-                        <input type="text" class="form-control" name="precios" id="precios" required>
+                        <input type="text" maxlength="8" class="form-control" name="precios" id="precios" required>
                         <label for="floatingInput">Precio de la renta del carro</label>
                     </div>
                     <div class="form-floating mb-3">
-                        <input type="number" step="1" min="1" max="20" class="form-control" id="capacidades" name="capacidades" required>
+                        <input type="number" step="1" min="1" max="20" class="form-control" id="capacidades" name="capacidades" pattern="^\d{1,2}$" oninput="this.value = this.value.replace(/[^0-9]/g, '').slice(0, 2)" required>
                         <label for="nip">Capacidad</label>
                     </div>
                     <div class="input-group mb-3">

@@ -18,14 +18,15 @@
                         <label for="descripcion" class="form-label">Descripcion</label>
                         <textarea name="descripcion" id="descripcion" class="form-control" rows="3" required></textarea>
                     </div>
+
                     <div class="mb-3">
                         <label for="precio" class="form-label">Precio</label>
-                        <input type="text" id="precio" name="precio" class="form-control" required>
+                        <input type="text" maxlength="4" id="precio" name="precio" class="form-control" required>
                     </div>
 
                     <div class="mb-3">
                         <label for="duracion_horas" class="form-label">Duracion por Horas</label>
-                        <input type="number" id="duracion_horas" name="duracion_horas" class="form-control" max="24" min="1" required>
+                        <input type="number" id="duracion_horas" name="duracion_horas" class="form-control" max="24" min="1" pattern="^\d{1,2}$" required oninput="this.value = this.value.replace(/[^0-9]/g, '').slice(0, 2)" required>
                     </div>
 
                     <div class="mb-3">
