@@ -32,7 +32,7 @@
                     </div>
                     <div class="mb-3">
                         <label for="telefono" class="form-label">Precio del Vuelo</label>
-                        <input type="text" class="form-control" id="precio" name="precio" oninput="updateCurrency(this)" required>
+                        <input type="text" class="form-control" id="precio" name="precio" maxlength="8" oninput="updateCurrency(this)" required>
                     </div>
 
 

@@ -8,7 +8,7 @@
             </div>
             <div class="modal-body custom-scroll">
 
-                <form action="./controlador/add_empleado.php" method="post" enctype="multipart/form-data"> <!-- Cambia aquí -->
+                <form id="form" action="./controlador/add_empleado.php" method="post" enctype="multipart/form-data"> <!-- Cambia aquí -->
                     <center><img id="image" src="IMG/logoempleado1.png" alt="Vista previa de la imagen" style="display: block; max-width: 150px; margin-top: 10px; border-radius: 20%;"></center>
                     <div class="form-group mb-3">
                         <label for="imagen" class="form-label">Imagen</label>
@@ -102,17 +102,3 @@
         overflow-y: auto;
     }
 </style>
-<script>
-        const togglePassword = document.getElementById('togglePassword');
-        const passwordInput = document.getElementById('contraseña1');
-
-        togglePassword.addEventListener('click', () => {
-            // Alternar el tipo de entrada entre 'password' y 'text'
-            const type = passwordInput.type === 'password' ? 'text' : 'password';
-            passwordInput.type = type;
-
-            // Cambiar el ícono
-            togglePassword.classList.toggle('fa-eye');
-            togglePassword.classList.toggle('fa-eye-slash');
-        });
-    </script>

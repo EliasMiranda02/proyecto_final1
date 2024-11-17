@@ -26,11 +26,11 @@
             <textarea name="descripcion" id="descripcion" class="form-control" rows="3" required></textarea>
           </div>
           <div class="form-floating mb-3">
-            <input type="text" class="form-control" id="precios" name="precios" required>
+            <input type="text" class="form-control" id="precios" name="precios" maxlength="9" required>
             <label for="floatingInput" class="form-label">Precio del paquete (aprox)</label>
           </div>
           <div class="form-floating mb-3">
-            <input type="number" max="7" min="1" class="form-control" id="duracion" name="duracion" required>
+            <input type="number" max="7" min="1" class="form-control" id="duracion" name="duracion" required pattern="^\d{1,2}$" required oninput="this.value = this.value.replace(/[^0-9]/g, '').slice(0, 2)">
             <label for="floatingInput" class="form-label">Duración del paquete</label>
           </div>
           <div class="form-floating mb-3">
@@ -97,4 +97,5 @@
     // Establecer el valor sin formato para que el cursor esté en la posición correcta
     this.value = rawValue;
   });
+  
 </script>

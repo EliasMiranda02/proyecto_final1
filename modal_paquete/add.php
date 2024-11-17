@@ -14,7 +14,7 @@
                     </div>
 
                     <div class="form-floating mb-3">
-                        <input type="number" class="form-control" id="numero" name="numero" required>
+                        <input type="number" class="form-control" id="numero" name="numero" max="1000" required>
                         <label for="floatingInput" class="form-label">Numero del Paquete</label>
                     </div>
 
@@ -29,7 +29,7 @@
                     </div>
 
                     <div class="form-floating mb-3">
-                        <input type="text" class="form-control" id="precios" name="precios" oninput="updateCurrency(this)" required>
+                        <input type="text" maxlength="8" class="form-control" id="precios" name="precios" oninput="updateCurrency(this)" required>
                         <label for="floatingInput" class="form-label">Precio del paquete (aprox)</label>
                     </div>
 
