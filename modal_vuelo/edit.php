@@ -28,7 +28,7 @@
             <label for="floatingInput" class="form-label">Fecha Llegada</label>
           </div>
           <div class="form-floating mb-3">
-            <input type="text" class="form-control" id="precio" name="precio" required>
+            <input type="text" class="form-control" id="precio" name="precio" maxlength="8" required>
             <label for="floatingInput" class="form-label">Precio de Vuelo</label>
           </div>
           

@@ -8,7 +8,7 @@
             </div>
             <div class="modal-body custom-scroll">
 
-                <form action="./controlador/add_empleado.php" method="post" enctype="multipart/form-data"> <!-- Cambia aquí -->
+                <form id="form" action="./controlador/add_empleado.php" method="post" enctype="multipart/form-data"> <!-- Cambia aquí -->
                     <center><img id="image" src="IMG/logoempleado1.png" alt="Vista previa de la imagen" style="display: block; max-width: 150px; margin-top: 10px; border-radius: 20%;"></center>
                     <div class="form-group mb-3">
                         <label for="imagen" class="form-label">Imagen</label>
@@ -101,3 +101,17 @@
         overflow-y: auto;
     }
 </style>
+
+<script>
+    document.querySelector('#form').addEventListener('submit', function(event) {
+    const pass1 = document.getElementById('contraseña1').value;
+    const pass2 = document.getElementById('contraseña2').value;
+
+    // Validar si las contraseñas coinciden
+    if (pass1 !== pass2) {
+        event.preventDefault(); // Detiene el envío del formulario
+        alert('Las contraseñas no coinciden. Por favor, verifica e inténtalo de nuevo.');
+    }
+});
+
+</script>

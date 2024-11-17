@@ -60,7 +60,7 @@
 
           <div class="mb-3">
             <label for="precio_noche" class="form-label">Precio por Noche</label>
-            <input type="text" class="form-control" id="precio_noche" name="precio_noche" required>
+            <input type="text" maxlength="8" class="form-control" id="precio_noche" name="precio_noche" required>
           </div>
 
           <div class="mb-3">
