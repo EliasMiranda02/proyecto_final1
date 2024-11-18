@@ -23,7 +23,7 @@
                         <input type="text" maxlength="25" class="form-control" name="nombre_usuario" id="nombre_usuario" required>
                         <label for="nombre_usuario">Nombre de Usuario</label>
                     </div>
-
+                    
                     <div class="form-floating mb-3">
                         <input type="text" maxlength="35" class="form-control" name="apaterno" id="apaterno" required>
                         <label for="apaterno">Apellido Paterno</label>
@@ -115,7 +115,7 @@
             togglePassword.classList.toggle('fa-eye');
             togglePassword.classList.toggle('fa-eye-slash');
         });
-        
+
     document.querySelector('#form').addEventListener('submit', function(event) {
     const pass1 = document.getElementById('contraseña1').value;
     const pass2 = document.getElementById('contraseña2').value;

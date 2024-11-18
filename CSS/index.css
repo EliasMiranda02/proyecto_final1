@@ -206,3 +206,17 @@ dialog#modal-nombre {
 dialog {
     z-index: 20; /* Asegúrate de que esté delante del fondo borroso */
 }
+#mensajeAlerta {
+    position: fixed;
+    top: 30px; /* Ajusta según sea necesario */
+    left: 50%;
+    transform: translateX(-50%);
+    z-index: 1000;
+    padding: 20px 40px; /* Ajusta el espacio interior */
+    background-color: #d9f2f6; /* Fondo azul claro */
+    font-size: 16px; /* Tamaño de texto */
+    border: 1px solid #bcdde1; /* Borde con color sutil */
+    border-radius: 8px; /* Bordes redondeados */
+    box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.1); /* Sombra */
+    text-align: center; /* Centrar texto */
+}

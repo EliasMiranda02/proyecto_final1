@@ -9,7 +9,17 @@
 </head>
 
 <body>
+<?php if (isset($_GET['mensaje'])): ?>
+                <div class="alert alert-info mb-3" id="mensajeAlerta">
+                    <?php
+                    if ($_GET['mensaje'] == 'incorrecto') {
+                        echo "El correo o la contraseña son incorrectos";
+                    }
+                    ?>
+                </div>
+            <?php endif; ?>
     <div id="blur-background"></div>
+    
     
     <div class="login">
         <div class="texto">
@@ -76,7 +86,7 @@
 
             <h1>Inicia Sesión</h1>
             <br><br>
-            <form action="" method="POST">
+            <form action="./controlador/validausuario.php" method="POST">
                 <label for="correo">Correo Electrónico</label>
                 <br>
                 <input type="text" name="correo" id="correo" required>
