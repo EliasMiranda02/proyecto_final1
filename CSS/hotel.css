@@ -1,20 +1,23 @@
 *{
     font-family: 'Poppins', sans-serif; 
 }
+
 .body{
     overflow-y: hidden;
 }
+
 .table-responsive {
     max-height: 300px; /* Ajusta la altura para mostrar 6 registros */
     overflow-y: auto;  /* Permite el desplazamiento vertical */
     border: 1px solid #ccc; /* Añade un borde para mayor claridad */
     margin-bottom: 5px; /* Espacio debajo de la tabla */
 }
+/* LE AGREGUE -1 PARA QUE APAEREZCA DEBAJO DEL SIDEBAR */
 thead th {
     position: sticky;
     top: 0;
     background-color: white; /* Fondo blanco para el encabezado */
-    z-index: 10; /* Asegura que el encabezado esté por encima del cuerpo */
+    z-index: -1; /* Asegura que el encabezado esté por encima del cuerpo */
 }
 
 /* Opcional: hacer que las celdas de la tabla se ajusten al contenido */
@@ -36,17 +39,26 @@ thead th {
     grid-template-columns: repeat(2, 1fr);
 }
 
+/* PARA EL DISEÑO DEL BUSCADOR PARA T_USUARIO */
+.buscador{
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 0;
+}
+
 /* DISEÑO PARA LA PÁGINA PAQUETES-PRECIO */
 .franja {
     background-color: #111821 !important;
     height: 30px;
-    margin: 0; /* Elimina cualquier margen */
+    margin-top: 0; /* Elimina cualquier margen */
     padding: 0; /* Elimina cualquier relleno */
 }
+
 .d-flex {
     margin: 2px; 
     padding: 0; 
 }
+
 .paquetes {
     margin: 30px;
     padding: 5px 30px;
@@ -66,6 +78,21 @@ thead th {
     font-size: 28px; 
     margin: 20px; /*NUEVO*/
 }
+
+/* PARA EL BOTON DEL BUSCADOR botone */
+.botone{
+    background-color: #38587C;
+    border-radius: 10px;
+    border: none;
+    color: white;
+    width: 90px;
+    height: 37px;
+}
+
+.botone:hover {
+    background-color: #29405a;
+}
+
 .botones{
     background-color: #38587C;
     border-radius: 10px;
@@ -81,6 +108,7 @@ thead th {
     background-color: #111821 !important; /* Cambia el color al rojo */
     color: white !important; /* Cambia el color del texto a blanco */
 }
+
 #mensajeAlerta {
     position: fixed;
     top: 30px; /* Ajusta según sea necesario */
@@ -88,15 +116,23 @@ thead th {
     transform: translateX(-50%);
     z-index: 1000;
 }
+
 .agregar{
     height: 40px;
     margin: 0;
 }
+
 .editar{
     height: 40px;
 }
+
 .eliminar{
     width: 220px;
     height: 40px;
     padding: 0px 0px;
+}
+
+/* tamaño del select de t_usuario */
+.seleccionar, .buscar{
+    width: 250px;
 }

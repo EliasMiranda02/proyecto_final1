@@ -72,12 +72,14 @@ nav.open .sidebar {
     left: 0;
 }
 
+/* AGREGUE z-index para el SIDEBAR */
 .sidebar .sidebar-content {
     display: flex;
     height: 100%;
     flex-direction: column;
     justify-content: space-between;
     padding: 30px 16px;
+    z-index: 1000;
 }
 
 .sidebar-content .list {

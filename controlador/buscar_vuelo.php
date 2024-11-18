@@ -14,7 +14,7 @@ $sqlQuery = $query === '%' ? "SELECT * FROM vuelos" : "SELECT * FROM vuelos WHER
 $sql = $conexion->query($sqlQuery);
 
 if ($sql->num_rows > 0) {
-    echo '<thead class="bg-info">';
+    echo '<thead>';
     echo '    <tr>';
     echo '        <th scope="col" class="encabezado"></th>';
     echo '        <th scope="col" class="text-center encabezado">Código</th>';
