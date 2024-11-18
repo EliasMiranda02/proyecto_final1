@@ -15,7 +15,7 @@ thead th {
     position: sticky;
     top: 0;
     background-color: white; /* Fondo blanco para el encabezado */
-    z-index: 10; /* Asegura que el encabezado esté por encima del cuerpo */
+    z-index: -1; /* Asegura que el encabezado esté por encima del cuerpo */
 }
 
 /* Opcional: hacer que las celdas de la tabla se ajusten al contenido */
@@ -93,6 +93,19 @@ thead th {
 .encabezado {
     background-color: #111821 !important; /* Cambia el color al rojo */
     color: white !important; /* Cambia el color del texto a blanco */
+}
+/* PARA EL BOTON DEL BUSCADOR botone */
+.botone{
+    background-color: #38587C !important;
+    border-top-right-radius: 10px !important;
+    border-bottom-right-radius: 10px !important;
+    color: white !important;
+    border: none;
+    width: 83.5px;
+}
+
+.botone:hover {
+    background-color: #29405a;
 }
 
 .botones {
