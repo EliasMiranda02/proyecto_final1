@@ -64,7 +64,7 @@
                     </li>
 
                     <li class="list">
-                        <a href="#" class="nav-link">
+                        <a href="renta_carros.php" class="nav-link">
                             <i class='bx bxs-bus icon'></i>
                             <span class="link">Chiapas Rodante</span>
                         </a>
