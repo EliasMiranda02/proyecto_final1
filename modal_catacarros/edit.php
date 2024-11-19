@@ -3,7 +3,7 @@
     <div class="modal-dialog">
         <div class="modal-content">
             <div class="modal-header bg-warning">
-                <h1 class="modal-title fs-5">Editar Usuario</h1>
+                <h1 class="modal-title fs-5">Editar Carro</h1>
             </div>
             <div class="modal-body custom-scroll">
                 <form id="editarForm" action="controlador/edit_catacarro.php" method="post" enctype="multipart/form-data">

@@ -160,7 +160,7 @@
             <div class="cabeza">
                 <div class="add">
                     <button type="button" class="btn btn-success mb-3" data-bs-toggle="modal" data-bs-target="#agregar">
-                        <i class="fa-solid fa-plus"></i> Agregar Carro
+                        <i class="fa-solid fa-plus"></i> Agregar Catálogo
                     </button>
                 </div>
 
@@ -217,7 +217,7 @@
                 </div>
                 <div class="boton d-flex justify-content-between mb-1">
                     <div class="d-flex">
-                        <button type="button" class="btn btn-warning me-3 editar" id="btnEditar" data-bs-toggle="modal" data-bs-target="#editar">Editar Usuario</button>
+                        <button type="button" class="btn btn-warning me-3 editar" id="btnEditar" data-bs-toggle="modal" data-bs-target="#editar">Editar Catálogo</button>
                         <button type="button" class="btn btn-danger eliminar" data-bs-toggle="modal" data-bs-target="#eliminar_ruta">Eliminar seleccionados</button>
                     </div>
                 </div>

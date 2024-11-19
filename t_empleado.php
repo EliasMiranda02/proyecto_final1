@@ -242,7 +242,7 @@
                     </div>
                     <div class="boton d-flex justify-content-between mb-1">
                         <div class="d-flex">
-                            <button type="button" class="btn btn-warning me-3 editar" id="btnEditar" data-bs-toggle="modal" data-bs-target="#editar">Editar Usuario</button>
+                            <button type="button" class="btn btn-warning me-3 editar" id="btnEditar" data-bs-toggle="modal" data-bs-target="#editar">Editar Empleado</button>
                             <button type="button" class="btn btn-danger eliminar" data-bs-toggle="modal" data-bs-target="#eliminar" data-form-id="deleteForm">Eliminar seleccionados</button>
                         </div>
                     </div>
@@ -329,7 +329,7 @@
                     </div>
                     <div class="boton d-flex justify-content-between mb-1">
                         <div class="d-flex">
-                            <button type="button" class="btn btn-warning me-3 editar" id="btnEditar2" data-bs-toggle="modal" data-bs-target="#editar">Editar Usuario</button>
+                            <button type="button" class="btn btn-warning me-3 editar" id="btnEditar2" data-bs-toggle="modal" data-bs-target="#editar">Editar Empleado</button>
                             <button type="button" class="btn btn-danger eliminar" data-bs-toggle="modal" data-bs-target="#eliminar" data-form-id="deleteFormAsesor">Eliminar seleccionados</button>
                         </div>
                     </div>
@@ -417,7 +417,7 @@
                     </div>
                     <div class="boton d-flex justify-content-between mb-1">
                         <div class="d-flex">
-                            <button type="button" class="btn btn-warning me-3 editar" id="btnEditar3" data-bs-toggle="modal" data-bs-target="#editar">Editar Usuario</button>
+                            <button type="button" class="btn btn-warning me-3 editar" id="btnEditar3" data-bs-toggle="modal" data-bs-target="#editar">Editar Empleado</button>
                             <button type="button" class="btn btn-danger eliminar" data-bs-toggle="modal" data-bs-target="#eliminar" data-form-id="deleteFormGuia">Eliminar seleccionados</button>
                         </div>
                     </div>

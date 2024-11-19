@@ -15,17 +15,6 @@ $sql = $conexion->query($sqlQuery);
 
 if ($sql->num_rows > 0) {
 
-    echo '<thead class="bg-info">';
-    echo '    <tr>';
-    echo '        <th scope="col" class="text-center encabezado">Código</th>';
-    echo '        <th scope="col" class="text-center encabezado">Código del Carro</th>';
-    echo '        <th scope="col" class="text-center encabezado">Código del Cliente</th>';
-    echo '        <th scope="col" class="text-center encabezado">Fecha de Renta</th>';
-    echo '        <th scope="col" class="text-center encabezado">Fecha de Devolución</th>';
-    echo '        <th scope="col" class="text-center encabezado">Estado de la Renta</th>';
-    echo '        <th scope="col" class="text-center encabezado">Días Rentados</th>';
-    echo '    </tr>';
-    echo '</thead>';
 
     while ($datos = $sql->fetch_object()) {
         echo "<tr>";

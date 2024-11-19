@@ -221,7 +221,7 @@
                         </tbody>
                     </table>
                 </div>
-                <button type="button" class="btn btn-warning editar" id="btnEditar" data-bs-toggle="modal" data-bs-target="#editar">Editar Usuario</button>
+                <button type="button" class="btn btn-warning editar" id="btnEditar" data-bs-toggle="modal" data-bs-target="#editar">Editar Vuelo</button>
                 <button type="button" class="btn btn-danger eliminar" data-bs-toggle="modal" data-bs-target="#eliminar_ruta">Eliminar seleccionados</button>
             </form>
         </div>

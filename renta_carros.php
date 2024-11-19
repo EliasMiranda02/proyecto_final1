@@ -150,7 +150,7 @@
             <!-- TABLA DE RECORRIDOS -->
             <div class="table-responsive">
                 <table class="table" id="table-body">
-                    <thead class="bg-info">
+                    <thead class="">
                         <tr>
                             <th scope="col" class="text-center encabezado">Código</th>
                             <th scope="col" class="text-center encabezado">Código del Carro</th>
