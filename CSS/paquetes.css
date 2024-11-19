@@ -20,7 +20,6 @@ thead th {
     position: sticky;
     top: 0;
     background-color: white; /* Fondo blanco para el encabezado */
-    z-index: 10; /* Asegura que el encabezado esté por encima del cuerpo */
 }
 
 /* Evita que las celdas se dividan en varias líneas */
@@ -89,6 +88,20 @@ thead th {
 .encabezado {
     background-color: #111821 !important; /* Cambia el color al rojo */
     color: white !important; /* Cambia el color del texto a blanco */
+}
+
+/* PARA EL BOTON DEL BUSCADOR botone */
+.botone{
+    background-color: #38587C;
+    border-radius: 0 10px 10px 0; /* Esquinas redondeadas solo en la superior izquierda e inferior izquierda */
+    border: none;
+    color: white;
+    width: 90px;
+    height: 37px;
+}
+
+.botone:hover {
+    background-color: #29405a;
 }
 
 .botones {

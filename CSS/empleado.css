@@ -15,7 +15,6 @@ thead th {
     position: sticky;
     top: 0;
     background-color: white; /* Fondo blanco para el encabezado */
-    z-index: -1; /* Asegura que el encabezado esté por encima del cuerpo */
 }
 
 /* Opcional: hacer que las celdas de la tabla se ajusten al contenido */
@@ -29,6 +28,7 @@ thead th {
     display: flex;
     align-items: flex-start; /* Alinea los contenedores al inicio verticalmente */
     margin-top: 0;
+    gap: 80px;
 }
 
 /* Contenedor izquierdo para los botones */
@@ -113,6 +113,7 @@ thead th {
     border-top-right-radius: 10px !important;
     border-bottom-right-radius: 10px !important;
     color: white !important;
+    width: 200px;
 }
 
 .botones:hover {
@@ -141,4 +142,12 @@ thead th {
     left: 50%;
     transform: translateX(-50%);
     z-index: 1000;
+}
+
+/* COLUMNA DE BOTONES */
+
+.columna {
+    display: flex;
+    flex-direction: column; /* Para que los botones se apilen verticalmente */
+    gap: 70px; /* Espacio entre los botones */
 }

@@ -6,9 +6,8 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Usuarios</title>
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
-    <link rel="stylesheet" href="CSS/hotel.css">
-    <!-- LINKS DE MARCELA -->
-    <link rel="stylesheet" href="vista/CSS/acceso.css" />
+    <link rel="stylesheet" href="./CSS/hotel.css">
+    <link rel="stylesheet" href="./vista/CSS/acceso.css" />
     <script src="https://kit.fontawesome.com/90c11f8b3b.js" crossorigin="anonymous"></script>
     <link href="https://unpkg.com/boxicons@2.1.2/css/boxicons.min.css" rel="stylesheet" />
 </head>
@@ -52,9 +51,9 @@
                         </div>
 
                         <ul class="sub-menu">
-                            <li><a href="#">Paquetes Turísticos</a></li>
-                            <li><a href="#">Excursiones</a></li>
-                            <li><a href="#">Hospedaje</a></li>
+                            <li><a href="t_paquetes.php">Paquetes Turísticos</a></li>
+                            <li><a href="t_excursiones.php">Excursiones</a></li>
+                            <li><a href="t_hoteles.php">Hospedaje</a></li>
                         </ul>
                     </li>
 
@@ -73,7 +72,7 @@
                     </li>
 
                     <li class="list">
-                        <a href="#" class="nav-link">
+                        <a href="t_catacarros.php" class="nav-link">
                             <i class='bx bxs-car icon'></i>
                             <span class="link">Catalogo de Carros</span>
                         </a>
@@ -87,16 +86,16 @@
                         </div>
 
                         <ul class="sub-menu">
-                            <li><a href="#">Paquetes Turísticos</a></li>
-                            <li><a href="#">Excursiones</a></li>
+                            <li><a href="t_reservaspa.php">Paquetes Turísticos</a></li>
+                            <li><a href="t_reservasea.php">Excursiones</a></li>
                             <li><a href="#">Alojamiento</a></li>
-                            <li><a href="#">Reservas de Vuelos</a></li>
-                            <li><a href="#">Renta de Vehículos</a></li>
+                            <li><a href="t_reservasv.php">Reservas de Vuelos</a></li>
+                            <li><a href="t_reservaspv.php">Renta de Vehículos</a></li>
                         </ul>
                     </li>
 
                     <li class="list">
-                        <a href="#" class="nav-link">
+                        <a href="calificaciones.php" class="nav-link">
                             <i class='bx bxs-chat icon'></i>
                             <span class="link">Calificaciones</span>
                         </a>
@@ -152,34 +151,25 @@
                     ?>
                 </div>
             <?php endif; ?>
-
+            
             <div class="cabeza">
                 <form id="searchFormUsuario" class="mb-3" method="POST" action="controlador/buscar_usuario.php">
                     <input type="hidden" name="Usuario" value="Usuario"> <!-- Campo oculto -->
-                    <div class="buscador">
-                        <div>
-                            <!-- LE AGREGUE EL seleccionar para que no afectara a los modales agregar y editar -->
-                            <select name="campo" class="form-select seleccionar" required>
-                                <option value="nombre">Nombre</option>
-                                <option value="apellido_paterno">Apellido</option>
-                                <option value="email">Corrreo Electrónico</option>
-                            </select>
-                        </div>
-                        <div>
-                             <!-- LE AGREGUE EL buscar para que no afectara a los modales agregar y editar -->
-                            <input type="text" class="form-control buscar" name="query" placeholder="Buscar...">
-                        </div>
-                        <div>
-                            <button type="submit" class="botone">Buscar</button>
-                        </div>
+                    <div class="input-group menu">
+                        <select name="campo" class="form-select" required>
+                            <option value="nombre">Nombre</option>
+                            <option value="apellido_paterno">Apellido</option>
+                            <option value="email">Corrreo Electrónico</option>
+                        </select>
+                        <input type="text" class="form-control" name="query" placeholder="Buscar...">
+                        <button type="submit" class="botone">Buscar</button>
                     </div>
                 </form>
             </div>
 
             <form id="Clientes" action="controlador/eliminar_usuario.php" method="post">
                 <div class="table-responsive">
-                    <table class="table ola">
-                        <!-- QUITE bg-info -->
+                    <table class="table">
                         <thead class="">
                             <tr>
                                 <th scope="col" class="encabezado"><input type="hidden" id="selectAll"></th>
@@ -317,7 +307,7 @@
                 .catch(error => console.error('Error:', error));
         });
 
-        // AGREGUE SIDEBAR JS DE Marcela
+        // SIDEBAR JS
 
         document.querySelector('.menu-icon').addEventListener('click', () => {
             const nav = document.querySelector('nav');
