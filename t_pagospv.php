@@ -129,22 +129,22 @@
     </div>
 
     <div class="d-flex justify-content-center align-items-center">
-        
+
         <div class=" col-10">
-        <div class="cabeza">
-            <form id="searchFormPagoPV" class="mb-3" method="POST" action="controlador/buscar_pagopv.php">
-                <input type="hidden" name="PagoPV" value="PagoPV"> <!-- Campo oculto -->
-                <div class="input-group">
-                    <select name="campo" class="form-select" required>
-                        <option value="id_pagopv">Código</option>
-                        <option value="id_reservapv">Código de Reserva PV</option>
-                        <option value="id_tarjeta">Código de Tarjeta</option>
-                    </select>
-                    <input type="text" class="form-control" name="query" placeholder="Buscar...">
-                    <button type="submit" class="botone">Buscar</button>
-                </div>
-            </form>
-        </div>
+            <div class="cabeza">
+                <form id="searchFormPagoPV" class="mb-3" method="POST" action="controlador/buscar_pagopv.php">
+                    <input type="hidden" name="PagoPV" value="PagoPV"> <!-- Campo oculto -->
+                    <div class="input-group">
+                        <select name="campo" class="form-select" required>
+                            <option value="id_pagopv">Código</option>
+                            <option value="id_reservapv">Código de Reserva PV</option>
+                            <option value="id_tarjeta">Código de Tarjeta</option>
+                        </select>
+                        <input type="text" class="form-control" name="query" placeholder="Buscar...">
+                        <button type="submit" class="botone">Buscar</button>
+                    </div>
+                </form>
+            </div>
 
             <form id="Pagospv" method="post">
                 <div class="table-responsive">
@@ -178,6 +178,15 @@
                     </table>
                 </div>
             </form>
+            <div class="boton d-flex justify-content-between mb-1">
+                <div class="d-flex">
+                    <!-- <button type="button" class="btn btn-warning me-3 editar" id="btnEditar" data-bs-toggle="modal" data-bs-target="#editar">Editar Disponibilidad</button>
+                    <button type="button" class="btn btn-danger eliminar" data-bs-toggle="modal" data-bs-target="#eliminar">Eliminar seleccionados</button> -->
+                </div>
+                <div class="fixed-buttons">
+                    <button type="button" class="btn botones agregar" onclick="window.location.href='t_reservaspv.php'">Reservas</button>
+                </div>
+            </div>
         </div>
 
     </div>

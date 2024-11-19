@@ -155,7 +155,7 @@
                                 <th scope="col" class="text-center encabezado">Código</th>
                                 <th scope="col" class="text-center encabezado">Código del Cliente</th>
                                 <th scope="col" class="text-center encabezado">Código del Recorrido</th>
-                                <th scope="col" class="text-center encabezado">Códigp del Paquete</th>
+                                <th scope="col" class="text-center encabezado">Código del Paquete</th>
                                 <th scope="col" class="text-center encabezado">Fecha de Reserva</th>
                                 <th scope="col" class="text-center encabezado">Estado de Reserva</th>
                                 <th scope="col" class="text-center encabezado">Lugar de Salida</th>
@@ -190,6 +190,15 @@
                     </table>
                 </div>
             </form>
+            <div class="boton d-flex justify-content-between mb-1">
+                <div class="d-flex">
+                    <!-- <button type="button" class="btn btn-warning me-3 editar" id="btnEditar" data-bs-toggle="modal" data-bs-target="#editar">Editar Disponibilidad</button>
+                    <button type="button" class="btn btn-danger eliminar" data-bs-toggle="modal" data-bs-target="#eliminar">Eliminar seleccionados</button> -->
+                </div>
+                <div class="fixed-buttons">
+                    <button type="button" class="btn botones agregar" onclick="window.location.href='pagosea.php'">Pagos</button>
+                </div>
+            </div>
         </div>
 
     </div>

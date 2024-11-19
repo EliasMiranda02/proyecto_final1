@@ -215,6 +215,9 @@
                         <button type="button" class="btn btn-warning me-3 editar" id="btnEditar" data-bs-toggle="modal" data-bs-target="#editar">Editar Disponibilidad</button>
                         <button type="button" class="btn btn-danger eliminar" data-bs-toggle="modal" data-bs-target="#eliminar">Eliminar seleccionados</button>
                     </div>
+                    <div class="fixed-buttons">
+                        <button type="button" class="btn botones agregar" onclick="window.location.href='t_pagospv.php'">Pagos</button>
+                    </div>
                 </div>
             </form>
         </div>
