@@ -18,7 +18,7 @@ if ($sql->num_rows > 0) {
         echo "<tr>";
         echo "<td><input type='hidden' name='ids[]' value='{$datos->id_reservapv}'></td>";
         echo "<th scope='row' class='text-center'>{$datos->id_reservapv}</th>";
-        echo "<td class='text-center'>{$datos->id_cliente}</td>";
+        
         echo "<td class='text-center'>{$datos->id_vuelo}</td>";
         echo "<td class='text-center'>{$datos->id_paquete}</td>";
         echo "<td class='text-center'>{$datos->fecha_reserva }</td>";
@@ -28,7 +28,7 @@ if ($sql->num_rows > 0) {
         echo "<td class='text-center'>{$datos->fecha_salida }</td>";
         echo "<td class='text-center'>{$datos->cantidad_asientos }</td>";
         echo "<td class='text-center'>{$datos->precio_paquete}</td>";
-        echo "<td class='text-center'>{$datos->disponibilidad}</td>";
+        
         echo "</tr>";
     }
 } else {

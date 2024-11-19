@@ -52,17 +52,17 @@
                             <tr>
                                 <th scope="col" class="encabezado"><input type="hidden" id="selectAll"></th>
                                 <th scope="col" class="text-center encabezado">Código</th>
-                                <th scope="col" class="text-center encabezado">Código del Cliente</th>
+                                
                                 <th scope="col" class="text-center encabezado">Código del Vuelo</th>
                                 <th scope="col" class="text-center encabezado">Código del Paquete</th>
                                 <th scope="col" class="text-center encabezado">Fecha de Reserva</th>
-                                <th scope="col" class="text-center encabezado">Estado de Reserva</th>
+                                <th scope="col" class="text-center encabezado">Disponibilidad</th>
                                 <th scope="col" class="text-center encabezado">Lugar de Salida</th>
                                 <th scope="col" class="text-center encabezado">Hora de Salida</th>
                                 <th scope="col" class="text-center encabezado">Fecha de Salida</th>
                                 <th scope="col" class="text-center encabezado">Cantidad de Asientos</th>
                                 <th scope="col" class="text-center encabezado">Precio de Paquete</th>
-                                <th scope="col" class="text-center encabezado">Disponibilidad</th>
+                                
                             </tr>
                         </thead>
                         <tbody>
@@ -73,7 +73,7 @@
                                 <tr>
                                     <td><input type="hidden" name="ids[]" value="<?= $datos->id_reservapv ?>"></td>
                                     <th scope="row" class="text-center"><?= $datos->id_reservapv ?></th>
-                                    <th class="text-center"><?= $datos->id_cliente ?></th>
+                                    
                                     <td class="text-center"><?= $datos->id_vuelo ?></td>
                                     <td class="text-center"><?= $datos->id_paquete ?></td>
                                     <td class="text-center"><?= $datos->fecha_reserva ?></td>
@@ -83,7 +83,7 @@
                                     <td class="text-center"><?= $datos->fecha_salida ?></td>
                                     <td class="text-center"><?= $datos->cantidad_asientos ?></td>
                                     <td class="text-center"><?= $datos->precio_paquete ?></td>
-                                    <td class="text-center"><?= $datos->disponibilidad ?></td>
+                                    
                                 </tr>
                             <?php } ?>
                         </tbody>
