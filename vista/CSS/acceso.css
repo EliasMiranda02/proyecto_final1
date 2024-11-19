@@ -22,6 +22,7 @@ nav {
     align-items: center;
     background: #F0F9FE;
     box-shadow: 0 0 1px rgba(0, 0, 0, 0.1);
+    z-index: 1000;
 }
 
 nav .logo {
@@ -66,6 +67,7 @@ nav .sidebar {
     background-color: #11101D;
     box-shadow: 0 5px 1px rgba(0, 0, 0, 0.1);
     transition: all 0.4s ease;
+    z-index: 999;
 }
 
 nav.open .sidebar {
@@ -79,7 +81,6 @@ nav.open .sidebar {
     flex-direction: column;
     justify-content: space-between;
     padding: 30px 16px;
-    z-index: 1000;
 }
 
 .sidebar-content .list {

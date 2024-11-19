@@ -53,14 +53,14 @@
                         </div>
 
                         <ul class="sub-menu">
-                            <li><a href="#">Paquetes Turísticos</a></li>
-                            <li><a href="#">Excursiones</a></li>
-                            <li><a href="#">Hospedaje</a></li>
+                            <li><a href="t_paquetes.php">Paquetes Turísticos</a></li>
+                            <li><a href="t_excursiones.php">Excursiones</a></li>
+                            <li><a href="t_hoteles.php">Hospedaje</a></li>
                         </ul>
                     </li>
 
                     <li class="list">
-                        <a href="#" class="nav-link">
+                        <a href="t_volante.php" class="nav-link">
                             <i class='bx bxs-plane-alt icon'></i>
                             <span class="link">Chiapas Volante</span>
                         </a>
@@ -74,7 +74,7 @@
                     </li>
 
                     <li class="list">
-                        <a href="#" class="nav-link">
+                        <a href="t_catacarros.php" class="nav-link">
                             <i class='bx bxs-car icon'></i>
                             <span class="link">Catalogo de Carros</span>
                         </a>

@@ -8,9 +8,112 @@
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
     <script src="https://kit.fontawesome.com/90c11f8b3b.js" crossorigin="anonymous"></script>
     <link rel="stylesheet" href="./CSS/hotel.css">
+    <!-- LINKS DE MARCELA -->
+    <link rel="stylesheet" href="vista/CSS/acceso.css" />
+    <link href="https://unpkg.com/boxicons@2.1.2/css/boxicons.min.css" rel="stylesheet" />
 </head>
 
 <body>
+    <nav>
+        <div class="logo">
+            <i class="bx bx-menu menu-icon"></i>
+            <span class="tittle"><b>Chiapas Viajero</b> | Panel de Administración</span>
+        </div>
+
+        <div class="sidebar">
+            <div class="logo">
+                <i class='bx bx-menu icon-menu'></i>
+                <span class="logo-name"><b>Chiapas Viajero</b></span>
+            </div>
+
+            <div class="sidebar-content">
+                <ul class="lists">
+                    <li class="list">
+                        <div class="nav-link">
+                            <i class='bx bxs-user icon'></i>
+                            <span class="link">Usuarios</span>
+                            <i class='bx bxs-chevron-down arrow'></i>
+                        </div>
+
+                        <ul class="sub-menu">
+                            <li><a href="t_usuario.php">Viajeros</a></li>
+                            <li><a href="index.php?i=empleado">Equipo de Trabajo</a></li> <!--EJEMPLO DE CAMBIO QUE HARE-->
+                        </ul>
+                    </li>
+
+                    <li class="list">
+                        <div class="nav-link">
+                            <i class='bx bxs-store icon'></i>
+                            <span class="link">Servicios</span>
+                            <i class='bx bxs-chevron-down arrow'></i>
+                        </div>
+
+                        <ul class="sub-menu">
+                            <li><a href="t_paquetes.php">Paquetes Turísticos</a></li>
+                            <li><a href="t_excursiones.php">Excursiones</a></li>
+                            <li><a href="t_hoteles.php">Hospedaje</a></li>
+                        </ul>
+                    </li>
+
+                    <li class="list">
+                        <a href="t_volante.php" class="nav-link">
+                            <i class='bx bxs-plane-alt icon'></i>
+                            <span class="link">Chiapas Volante</span>
+                        </a>
+                    </li>
+
+                    <li class="list">
+                        <a href="#" class="nav-link">
+                            <i class='bx bxs-bus icon'></i>
+                            <span class="link">Chiapas Rodante</span>
+                        </a>
+                    </li>
+
+                    <li class="list">
+                        <a href="t_catacarros.php" class="nav-link">
+                            <i class='bx bxs-car icon'></i>
+                            <span class="link">Catalogo de Carros</span>
+                        </a>
+                    </li>
+
+                    <li class="list">
+                        <div class="nav-link">
+                            <i class='bx bxs-book-content icon'></i>
+                            <span class="link">Reservas</span>
+                            <i class='bx bxs-chevron-down arrow'></i>
+                        </div>
+
+                        <ul class="sub-menu">
+                            <li><a href="#">Paquetes Turísticos</a></li>
+                            <li><a href="#">Excursiones</a></li>
+                            <li><a href="#">Alojamiento</a></li>
+                            <li><a href="#">Reservas de Vuelos</a></li>
+                            <li><a href="#">Renta de Vehículos</a></li>
+                        </ul>
+                    </li>
+
+                    <li class="list">
+                        <a href="#" class="nav-link">
+                            <i class='bx bxs-chat icon'></i>
+                            <span class="link">Calificaciones</span>
+                        </a>
+                    </li>
+                </ul>
+
+                <div class="botton-content">
+                    <li class="list">
+                        <a href="home.php" class="nav-linki">
+                            <i class='bx bx-log-out iconi'></i>
+                            <span class="linki">Regresar</span>
+                        </a>
+                    </li>
+                </div>
+            </div>
+        </div>
+    </nav>
+
+    <!-- FIN DEL SIDEBAR -->
+
 
     <div class="franja"></div>
     <div class="paquetes">
@@ -49,7 +152,7 @@
 
             <div class="cabeza">
                 <div class="add">
-                <button href="#" class="btn btn-success mb-3" data-bs-toggle="modal" data-bs-target="#añadirmodal">
+                    <button href="#" class="btn btn-success mb-3" data-bs-toggle="modal" data-bs-target="#añadirmodal">
                         <i class="fa-solid fa-plus"></i> Agregar Excursion
                     </button>
                 </div>
@@ -63,7 +166,7 @@
                                 <option value="ubicacion">Ubicacion</option>
                             </select>
                             <input type="text" class="form-control" name="query" placeholder="Buscar...">
-                            <button type="submit" class="btn botones">Buscar</button>
+                            <button type="submit" class="botone">Buscar</button>
                         </div>
                     </form>
                 </div>
@@ -102,7 +205,7 @@
                                     <td class="text-center"><?= $datos->clasificacion ?></td>
                                     <td class="text-center descripcion"><?= $datos->descripcion ?></td>
                                     <td class="text-center"><?= $datos->duracion_horas ?></td>
-                                    <td class="text-center"><?= "$" . number_format($datos->precio,2)?></td>
+                                    <td class="text-center"><?= "$" . number_format($datos->precio, 2) ?></td>
                                     <td class="text-center"><?= $datos->fecha_creacion ?></td>
                                     <td class="text-center"><?= $datos->fecha_modificacion ?></td>
                                     <td class="text-center">
@@ -132,6 +235,8 @@
     <?php include "modal_excursion/modal_eliminar.php"; ?>
     <?php include "modal_excursion/modal_anadir.php"; ?>
     <?php include "modal_excursion/modal_guias.php"; ?>
+    <section class="overlay"></section>
+    <script src="./vista/JS/acceso_sidebar.js"></script>
     <script src="JS/t_excursiones.js"></script> <!--PENDIENTE -->
 
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>

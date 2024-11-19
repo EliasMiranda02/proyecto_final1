@@ -19,3 +19,21 @@ document.getElementById('searchFormReservaspa').addEventListener('submit', funct
     })
     .catch(error => console.error('Error:', error));
 });
+
+// SIDEBAR JS
+
+document.querySelector('.menu-icon').addEventListener('click', () => {
+    const nav = document.querySelector('nav');
+    const overlay = document.querySelector('.overlay');
+
+    nav.classList.toggle('open');
+    overlay.classList.toggle('active');
+});
+
+document.querySelector('.overlay').addEventListener('click', () => {
+    const nav = document.querySelector('nav');
+    const overlay = document.querySelector('.overlay');
+
+    nav.classList.remove('open');
+    overlay.classList.remove('active');
+});

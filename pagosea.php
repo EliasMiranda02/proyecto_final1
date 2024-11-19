@@ -76,7 +76,8 @@
 
     </div>
 
-
+    <section class="overlay"></section>
+    <script src="./vista/JS/acceso_sidebar.js"></script>
     <script src="JS/pagosea.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
 </body>
