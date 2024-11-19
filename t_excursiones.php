@@ -63,7 +63,7 @@
                     </li>
 
                     <li class="list">
-                        <a href="#" class="nav-link">
+                        <a href="renta_carros.php" class="nav-link">
                             <i class='bx bxs-bus icon'></i>
                             <span class="link">Chiapas Rodante</span>
                         </a>
@@ -84,11 +84,10 @@
                         </div>
 
                         <ul class="sub-menu">
-                            <li><a href="#">Paquetes Turísticos</a></li>
-                            <li><a href="#">Excursiones</a></li>
-                            <li><a href="#">Alojamiento</a></li>
-                            <li><a href="#">Reservas de Vuelos</a></li>
-                            <li><a href="#">Renta de Vehículos</a></li>
+                            <li><a href="t_reservaspa.php">Paquetes Turísticos</a></li>
+                            <li><a href="t_reservasea.php">Excursiones</a></li>
+                            <li><a href="t_reservasv.php">Reservas de Vuelos</a></li>
+                            <li><a href="t_reservaspv.php">Renta de Vehículos</a></li>
                         </ul>
                     </li>
 
