@@ -14,7 +14,17 @@ $sqlQuery = $query === '%' ? "SELECT * FROM renta_carros" : "SELECT * FROM renta
 $sql = $conexion->query($sqlQuery);
 
 if ($sql->num_rows > 0) {
-
+        echo '<thead class="">';
+        echo '    <tr>';
+        echo '        <th scope="col" class="text-center encabezado"></th>';
+        echo '        <th scope="col" class="text-center encabezado">Código</th>';
+        echo '        <th scope="col" class="text-center encabezado">Origen</th>';
+        echo '        <th scope="col" class="text-center encabezado">Destino</th>';
+        echo '        <th scope="col" class="text-center encabezado">Distancia</th>';
+        echo '        <th scope="col" class="text-center encabezado">Duración</th>';
+        echo '        <th scope="col" class="text-center encabezado">Matricula</th>';
+        echo '    </tr>';
+        echo '</thead>';
 
     while ($datos = $sql->fetch_object()) {
         echo "<tr>";
