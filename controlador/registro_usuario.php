@@ -30,7 +30,7 @@ if (!empty($_POST["registrar"])) {
                     // Verificar si la consulta fue exitosa
                     if ($sql) {
                         $_SESSION['mensaje'] = "Registro exitoso!";
-                        header("Location: registro.php");
+                        header("Location: index.php?i=registrousuario");
                         exit();
                     } else {
                         echo "Error al insertar datos: " . $conexion->error;

@@ -26,16 +26,16 @@ if (isset($_POST['id_usuario_editar']) && !empty($_POST['id_usuario_editar'])) {
     // Ejecutar la consulta
     if ($conexion->query($sql) === TRUE) {
         // Redirigir con éxito
-        header('Location: ../t_usuario.php?mensaje=actualizado');
+        header('Location: ../index.php?i=usuario&mensaje=actualizado');
         exit();
     } else {
         // Manejar errores
-        header('Location: ../t_usuario.php?mensaje=error&detalle=' . urlencode($conexion->error));
+        header('Location: ../index.php?i=usuario&mensaje=error&detalle=' . urlencode($conexion->error));
         exit();
     }
 } else {
     // Si no se enviaron datos
-    header('Location: ../t_usuario.php?mensaje=no_id');
+    header('Location: ../index.php?i=usuario&mensaje=no_id');
     exit();
 }
 ?>

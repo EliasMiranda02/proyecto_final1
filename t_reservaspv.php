@@ -138,7 +138,7 @@
                     } elseif ($_GET['mensaje'] == 'error') {
                         echo "Hubo un error: " . ($_GET['detalle'] ?? '');
                     } elseif ($_GET['mensaje'] == 'no_id') {
-                        echo "No se seleccionó ningún registro para editar.";
+                        echo "No se seleccionó ningún registro.";
                     } elseif ($_GET['mensaje'] == 'eliminado') {
                         echo "Registros eliminados correctamente.";
                     } elseif ($_GET['mensaje'] == 'id_invalido') {

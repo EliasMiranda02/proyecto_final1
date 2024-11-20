@@ -14,6 +14,6 @@ $precio = preg_replace('/[^0-9.]/', '', $precio);
 $sql = "INSERT INTO vuelos (numero_vuelo, origen, destino, fecha_salida, fecha_llegada, precio_vuelo) 
 VALUES('$no_vuelo','$origen','$destino','$date_salida','$date_llegada','$precio')";
 ($conexion->query($sql));
-header('Location: ../t_volante.php?mensaje=registro_exitoso');
+header('Location: ../index.php?i=volante&mensaje=registro_exitoso');
 
 ?>

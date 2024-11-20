@@ -14,12 +14,12 @@
 
         // Ejecutar el query e insertar los datos
         if ($conexion->query($sql) === TRUE) {
-            header('Location: ../rutas.php?mensaje=registro_exitoso');
+            header('Location: ../index.php?i=ruta&mensaje=registro_exitoso');
         } else {
-            header('Location: ../rutas.php?mensaje=error&detalle=' . $conexion->error);
+            header('Location: ../index.php?i=ruta&mensaje=error&detalle=' . $conexion->error);
         }
     } else {
-        header('Location: ../rutas.php?mensaje=datos_faltantes');
+        header('Location: ../index.php?i=ruta&mensaje=datos_faltantes');
     }
 
     $conexion->close();

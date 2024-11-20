@@ -15,16 +15,16 @@ if (isset($_POST['id_reservapv_editar']) && !empty($_POST['id_reservapv_editar']
     // Ejecutar la consulta
     if ($conexion->query($sql) === TRUE) {
         // Redirigir con éxito
-        header('Location: ../t_reservaspv.php?mensaje=actualizado');
+        header('Location: ../index.php?i=reservapv&mensaje=actualizado');
         exit();
     } else {
         // Manejar errores
-        header('Location: ../t_reservaspv.php?mensaje=error&detalle=' . urlencode($conexion->error));
+        header('Location: ../index.php?i=reservapv&mensaje=error&detalle=' . urlencode($conexion->error));
         exit();
     }
 } else {
     // Si no se enviaron datos
-    header('Location: ../t_reservaspv.php?mensaje=no_id');
+    header('Location: ../index.php?i=reservapv&mensaje=no_id');
     exit();
 }
 ?>

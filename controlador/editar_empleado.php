@@ -62,16 +62,16 @@ if (isset($_POST['id_empleado_editar']) && !empty($_POST['id_empleado_editar']))
 
     if ($conexion->query($sql) === TRUE) {
         // Redirigir con éxito
-        header('Location: ../t_empleado.php?mensaje=actualizado');
+        header('Location: ../index.php?i=empleado&mensaje=actualizado');
         exit();
     } else {
         // Manejar errores
-        header('Location: ../t_empleado.php?mensaje=error&detalle=' . urlencode($conexion->error));
+        header('Location: ../index.php?i=empleado&mensaje=error&detalle=' . urlencode($conexion->error));
         exit();
     }
 } else {
     // Si no se enviaron datos
-    header('Location: ../t_empleado.php?mensaje=no_id');
+    header('Location: ../index.php?i=empleado&mensaje=no_id');
     exit();
 }
 

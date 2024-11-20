@@ -21,22 +21,22 @@ if (isset($_POST['ids']) && !empty($_POST['ids'])) {
 
         if ($conexion->query($sql) === TRUE) {
             // Redirigir con éxito
-            header('Location: ../t_volante.php?mensaje=eliminado');
-            echo "<div>HOLA</div>";
+            header('Location: ../index.php?i=volante&mensaje=eliminado');
+            
             exit();
         } else {
             // Manejar errores
-            header('Location: ../t_volante.php?mensaje=error&detalle=' . urlencode($conexion->error));
+            header('Location: ../index.php?i=volante&mensaje=error&detalle=' . urlencode($conexion->error));
             exit();
         }
     } else {
         // Si no se encontraron IDs válidos
-        header('Location: ../t_volante.php?mensaje=id_invalido');
+        header('Location: ../index.php?i=volante&mensaje=id_invalido');
         exit();
     }
 } else {
     // Si no se enviaron IDs
-    header('Location: ../t_volante.php?mensaje=no_id');
+    header('Location: ../index.php?i=volante&mensaje=no_id');
     exit();
 }
 ?>

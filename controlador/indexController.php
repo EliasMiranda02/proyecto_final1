@@ -21,7 +21,7 @@ class IndexController{
         require_once("./t_paquetes.php"); //PERMITIR DESPLEGAR LA VISTA
     }
     public static function excursion(){
-        require_once("./t_paquetes.php"); //PERMITIR DESPLEGAR LA VISTA
+        require_once("./t_excursiones.php"); //PERMITIR DESPLEGAR LA VISTA
     }
     public static function hotel(){
         require_once("./t_hoteles.php"); //PERMITIR DESPLEGAR LA VISTA
@@ -53,5 +53,24 @@ class IndexController{
     public static function home(){
         require_once("./home.php"); //PERMITIR DESPLEGAR LA VISTA
     }
+    public static function form_paquete_itinerario(){
+        require_once("./form_paquete_intinerario.php"); //PERMITIR DESPLEGAR LA VISTA
+    }
+    public static function recorrido(){
+        require_once("./t_recorridos.php"); //PERMITIR DESPLEGAR LA VISTA
+    }
+    public static function ruta(){
+        require_once("./rutas.php"); //PERMITIR DESPLEGAR LA VISTA
+    }
+    public static function paqueteprecio(){
+        require_once("./t_paquete_precio.php"); //PERMITIR DESPLEGAR LA VISTA
+    }
+    public static function registroempleado(){
+        require_once("./registro_empleado.php"); //PERMITIR DESPLEGAR LA VISTA
+    }
+    public static function registrousuario(){
+        require_once("./registro.php"); //PERMITIR DESPLEGAR LA VISTA
+    }
+
 }
 ?>

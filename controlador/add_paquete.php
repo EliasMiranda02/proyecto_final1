@@ -39,7 +39,7 @@
 
     // Ejecutar la consulta
     if ($conexion->query($sql)) {
-        header('Location: ../t_paquetes.php?mensaje=registro_exitoso');
+        header('Location: ../index.php?i=paquete&mensaje=registro_exitoso');
         exit();
     } else {
         echo "Error al insertar los datos: " . $conexion->error;

@@ -50,7 +50,7 @@ VALUES (?, ?, ?, ?, ?, ?, NOW(), ?, ?, ?, ?,?, ?)");
             // Ejecutar la consulta y verificar si fue exitosa
             if ($stmt->execute()) {
                 $_SESSION['mensaje'] = "Registro exitoso!";
-                header('Location: registro_empleado.php'); // Redirigir después del registro exitoso
+                header('Location: index.php?i=registroempleado'); // Redirigir después del registro exitoso
                 exit();
             } else {
                 echo "Error al insertar datos: " . $stmt->error;

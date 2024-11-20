@@ -21,21 +21,21 @@ if (isset($_POST['ids']) && !empty($_POST['ids'])) {
 
         if ($conexion->query($sql) === TRUE) {
             // Redirigir con éxito
-            header('Location: ../t_usuario.php?mensaje=eliminado');
+            header('Location: ../index.php?i=usuario&mensaje=eliminado');
             exit();
         } else {
             // Manejar errores
-            header('Location: ../t_usuario.php?mensaje=error&detalle=' . urlencode($conexion->error));
+            header('Location: ../index.php?i=usuario&mensaje=error&detalle=' . urlencode($conexion->error));
             exit();
         }
     } else {
         // Si no se encontraron IDs válidos
-        header('Location: ../t_usuario.php?mensaje=id_invalido');
+        header('Location: ../index.php?i=usuario&mensaje=id_invalido');
         exit();
     }
 } else {
     // Si no se enviaron IDs
-    header('Location: ../t_usuario.php?mensaje=no_id');
+    header('Location: ../index.php?i=usuario&mensaje=no_id');
     exit();
 }
 ?>

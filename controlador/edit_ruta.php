@@ -24,16 +24,16 @@ if (isset($_POST['id_ruta_editar']) && !empty($_POST['id_ruta_editar'])) {
     // Ejecutar la consulta
     if ($conexion->query($sql) === TRUE) {
         // Redirigir con éxito
-        header('Location: ../rutas.php?mensaje=actualizado');
+        header('Location: ../index.php?i=ruta&mensaje=actualizado');
         exit();
     } else {
         // Manejar errores
-        header('Location: ../rutas.php?mensaje=error&detalle=' . urlencode($conexion->error));
+        header('Location: ../index.php?i=ruta&mensaje=error&detalle=' . urlencode($conexion->error));
         exit();
     }
 } else {
     // Si no se enviaron datos
-    header('Location: ../rutas.php?mensaje=no_id');
+    header('Location: ../index.php?i=ruta&mensaje=no_id');
     exit();
 }
 ?>

@@ -31,14 +31,14 @@ if (isset($_POST['id_vuelo_editar']) && !empty($_POST['id_vuelo_editar'])) {
     // Ejecutar la consulta
     if ($conexion->query($sql) === TRUE) {
         // Redirigir a la página con un mensaje de éxito
-        header('Location: ../t_volante.php?mensaje=actualizado');
+        header('Location: ../index.php?i=volante&mensaje=actualizado');
         exit();
     } else {
         die("Error al actualizar: " . $conexion->error);
     }
 } else {
     // Si no se enviaron datos
-    header('Location: ../t_volante.php?mensaje=no_id');
+    header('Location: ../index.php?i=volante&mensaje=no_id');
     exit();
 }
 ?>

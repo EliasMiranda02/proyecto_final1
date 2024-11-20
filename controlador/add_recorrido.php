@@ -17,5 +17,5 @@
         VALUES ('$id_ruta','$fecha_salida','$fecha_llegada','$precio_boleto','$estado')";
     
     ($conexion->query($sql));
-    header('Location: ../t_recorridos.php?mensaje=registro_exitoso');
+    header('Location: ../index.php?i=recorrido&mensaje=registro_exitoso');
 ?>

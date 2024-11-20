@@ -21,22 +21,21 @@ if (isset($_POST['ids']) && !empty($_POST['ids'])) {
 
         if ($conexion->query($sql) === TRUE) {
             // Redirigir con éxito
-            header('Location: ../rutas.php?mensaje=eliminado');
-            echo "<div>HOLA</div>";
+            header('Location: ../index.php?i=ruta&mensaje=eliminado');
             exit();
         } else {
             // Manejar errores
-            header('Location: ../rutas.php?mensaje=error&detalle=' . urlencode($conexion->error));
+            header('Location: ../index.php?i=ruta&mensaje=error&detalle=' . urlencode($conexion->error));
             exit();
         }
     } else {
         // Si no se encontraron IDs válidos
-        header('Location: ../rutas.php?mensaje=id_invalido');
+        header('Location: ../index.php?i=ruta&mensaje=id_invalido');
         exit();
     }
 } else {
     // Si no se enviaron IDs
-    header('Location: ../rutas.php?mensaje=no_id');
+    header('Location: ../index.php?i=ruta&mensaje=no_id');
     exit();
 }
 ?>

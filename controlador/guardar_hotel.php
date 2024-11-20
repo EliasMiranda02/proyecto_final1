@@ -36,7 +36,7 @@
     }
 
     if ($conexion->query($sql)) {
-        header('Location: ../t_hoteles.php?mensaje=registro_exitoso');
+        header('Location: ../index.php?i=hotel&mensaje=registro_exitoso');
         exit();
     } else {
         echo "Error al insertar los datos: " . $conexion->error;
