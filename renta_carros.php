@@ -152,9 +152,9 @@
                 <table class="table" id="table-body">
                     <thead class="">
                         <tr>
+                        <th scope="col" class="encabezado"><input type="hidden" id="selectAll"></th>
                             <th scope="col" class="text-center encabezado">Código</th>
                             <th scope="col" class="text-center encabezado">Código del Carro</th>
-                            <th scope="col" class="text-center encabezado">Código del Cliente</th>
                             <th scope="col" class="text-center encabezado">Fecha de Renta</th>
                             <th scope="col" class="text-center encabezado">Fecha de Devolución</th>
                             <th scope="col" class="text-center encabezado">Estado de la Renta</th>
@@ -167,9 +167,9 @@
                         $sql = $conexion->query("SELECT * FROM renta_carros");
                         while ($datos = $sql->fetch_object()) { ?>
                             <tr>
+                            <td><input type="checkbox" name="ids[]" value="<?= $datos->id_renta ?>"></td>
                                 <th scope="row" class="text-center"><?= $datos->id_renta ?></th>
                                 <td class="text-center"><?= $datos->id_carro ?></td>
-                                <td class="text-center"><?= $datos->id_cliente ?></td>
                                 <td class="text-center"><?= $datos->fecha_renta ?></td>
                                 <td class="text-center"><?= $datos->fecha_devolucion ?></td>
                                 <td class="text-center"><?= $datos->estado_renta ?></td>
@@ -183,8 +183,7 @@
 
             <div class="boton d-flex justify-content-between mb-1">
                 <div class="d-flex">
-                    <!-- <button type="button" class="btn btn-warning me-3 editar" id="btnEditar" data-bs-toggle="modal" data-bs-target="#editar">Editar Disponibilidad</button>
-                    <button type="button" class="btn btn-danger eliminar" data-bs-toggle="modal" data-bs-target="#eliminar">Eliminar seleccionados</button> -->
+                <button type="button" class="btn btn-warning me-3 editar" id="btnEditar" data-bs-toggle="modal" data-bs-target="#editar">Editar Disponibilidad</button>
                 </div>
                 <div class="fixed-buttons">
                     <button type="button" class="btn botones agregar" onclick="window.location.href='index.php?i=pagosrc'">Pagos</button>
@@ -195,6 +194,7 @@
 
     </div>
 
+    <?php include "modal_rentacarros/modal_editar.php"; ?>
     <section class="overlay"></section>
     <script src="./vista/JS/acceso_sidebar.js"></script>
     <script>
@@ -241,6 +241,42 @@
             nav.classList.remove('open');
             overlay.classList.remove('active');
         });
+        btnEditar.addEventListener('click', function(event) {
+    const checkedCheckboxes = document.querySelectorAll('input[name="ids[]"]:checked');
+
+    // Prevenir el comportamiento por defecto del botón
+    event.preventDefault();
+
+    // Comprobar si hay exactamente un checkbox seleccionado
+    if (checkedCheckboxes.length === 1) {
+        const id = checkedCheckboxes[0].value;
+        const row = checkedCheckboxes[0].closest('tr');
+
+        // Obtener los datos de la fila
+        const disponibilidad = row.cells[5].innerText;
+
+        // Llenar los campos del modal
+        document.getElementById('id_rentacarro_editar').value = id;
+        document.getElementById('disponibilidad').value = disponibilidad;
+
+        // Abrir el modal
+        $('#editar').modal('show');
+    } else {
+        // Solo mostrar la alerta, sin abrir el modal
+        alert('Por favor, selecciona un único registro para editar.');
+    }
+});
+
+// Enviar el formulario al hacer clic en "Guardar Cambios"
+document.getElementById('confirmarEditar').addEventListener('click', function () {
+document.getElementById('editarForm').submit(); // Envía el formulario para actualizar el registro
+});
+setTimeout(function() {
+    const mensajeAlerta = document.getElementById('mensajeAlerta');
+    if (mensajeAlerta) {
+        mensajeAlerta.style.display = 'none';
+    }
+}, 2000); // 5000 milisegundos = 5 segundos
     </script>
 
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>

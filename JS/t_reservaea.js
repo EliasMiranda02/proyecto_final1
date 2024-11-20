@@ -37,3 +37,39 @@ document.querySelector('.overlay').addEventListener('click', () => {
     nav.classList.remove('open');
     overlay.classList.remove('active');
 });
+btnEditar.addEventListener('click', function(event) {
+    const checkedCheckboxes = document.querySelectorAll('input[name="ids[]"]:checked');
+
+    // Prevenir el comportamiento por defecto del botón
+    event.preventDefault();
+
+    // Comprobar si hay exactamente un checkbox seleccionado
+    if (checkedCheckboxes.length === 1) {
+        const id = checkedCheckboxes[0].value;
+        const row = checkedCheckboxes[0].closest('tr');
+
+        // Obtener los datos de la fila
+        const disponibilidad = row.cells[5].innerText;
+
+        // Llenar los campos del modal
+        document.getElementById('id_reservaea_editar').value = id;
+        document.getElementById('disponibilidad').value = disponibilidad;
+
+        // Abrir el modal
+        $('#editar').modal('show');
+    } else {
+        // Solo mostrar la alerta, sin abrir el modal
+        alert('Por favor, selecciona un único registro para editar.');
+    }
+});
+
+// Enviar el formulario al hacer clic en "Guardar Cambios"
+document.getElementById('confirmarEditar').addEventListener('click', function () {
+document.getElementById('editarForm').submit(); // Envía el formulario para actualizar el registro
+});
+setTimeout(function() {
+    const mensajeAlerta = document.getElementById('mensajeAlerta');
+    if (mensajeAlerta) {
+        mensajeAlerta.style.display = 'none';
+    }
+}, 2000); // 5000 milisegundos = 5 segundos

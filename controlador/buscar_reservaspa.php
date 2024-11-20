@@ -16,9 +16,8 @@ $sql = $conexion->query($sqlQuery);
 if ($sql->num_rows > 0) {
     while ($datos = $sql->fetch_object()) {
         echo "<tr>";
-        echo "<td><input type='hidden' name='ids[]' value='{$datos->id_reservapa}'></td>";
+        echo "<td><input type='checkbox' name='ids[]' value='{$datos->id_reservapa}'></td>";
         echo "<th scope='row' class='text-center'>{$datos->id_reservapa}</th>";
-        echo "<td class='text-center'>{$datos->id_cliente}</td>";
         echo "<td class='text-center'>{$datos->id_recorrido}</td>";
         echo "<td class='text-center'>{$datos->id_paquete}</td>";
         echo "<td class='text-center'>{$datos->fecha_reserva }</td>";

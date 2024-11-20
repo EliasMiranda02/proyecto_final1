@@ -18,9 +18,9 @@ if ($sql->num_rows > 0) {
 
     while ($datos = $sql->fetch_object()) {
         echo "<tr>";
+        echo "<td><input type='checkbox' name='ids[]' value='{$datos->id_renta}'></td>";
         echo "<th scope='row' class='text-center'>{$datos->id_renta}</th>";
         echo "<td class='text-center'>{$datos->id_carro}</td>";
-        echo "<td class='text-center'>{$datos->id_cliente}</td>";
         echo "<td class='text-center'>{$datos->fecha_renta}</td>";
         echo "<td class='text-center'>{$datos->fecha_devolucion}</td>";
         echo "<td class='text-center'>{$datos->estado_renta}</td>";

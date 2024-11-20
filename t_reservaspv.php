@@ -214,7 +214,7 @@
                 <div class="boton d-flex justify-content-between mb-1">
                     <div class="d-flex">
                         <button type="button" class="btn btn-warning me-3 editar" id="btnEditar" data-bs-toggle="modal" data-bs-target="#editar">Editar Disponibilidad</button>
-                        <button type="button" class="btn btn-danger eliminar" data-bs-toggle="modal" data-bs-target="#eliminar">Eliminar seleccionados</button>
+                        
                     </div>
                     <div class="fixed-buttons">
                         <button type="button" class="btn botones agregar" onclick="window.location.href='index.php?i=pagopv'">Pagos</button>
@@ -225,7 +225,6 @@
     </div>
 
     <?php include "modal_reservapv/modal_editar.php"; ?>
-    <?php include "modal_reservapv/modal_eliminar.php"; ?>
 
     <section class="overlay"></section>
     <script src="./vista/JS/acceso_sidebar.js"></script>

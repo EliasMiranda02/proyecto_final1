@@ -131,6 +131,23 @@
 
     <div class="d-flex justify-content-center align-items-center">
         <div class=" col-10">
+        <?php if (isset($_GET['mensaje'])): ?>
+                <div class="alert alert-info mb-3" id="mensajeAlerta">
+                    <?php
+                    if ($_GET['mensaje'] == 'actualizado') {
+                        echo "Registro actualizado correctamente.";
+                    } elseif ($_GET['mensaje'] == 'error') {
+                        echo "Hubo un error: " . ($_GET['detalle'] ?? '');
+                    } elseif ($_GET['mensaje'] == 'no_id') {
+                        echo "No se seleccionó ningún registro.";
+                    } elseif ($_GET['mensaje'] == 'eliminado') {
+                        echo "Registros eliminados correctamente.";
+                    } elseif ($_GET['mensaje'] == 'id_invalido') {
+                        echo "ID de registro inválido.";
+                    }
+                    ?>
+                </div>
+            <?php endif; ?>
             <div class="cabeza">
                 <form id="searchFormReservasea" class="mb-3" method="POST" action="controlador/buscar_reservaea.php">
                     <input type="hidden" name="Reservaea" value="Reservaea"> <!-- Campo oculto -->
@@ -154,7 +171,6 @@
                             <tr>
                                 <th scope="col" class="encabezado"><input type="hidden" id="selectAll"></th>
                                 <th scope="col" class="text-center encabezado">Código</th>
-                                <th scope="col" class="text-center encabezado">Código del Cliente</th>
                                 <th scope="col" class="text-center encabezado">Código del Recorrido</th>
                                 <th scope="col" class="text-center encabezado">Código del Paquete</th>
                                 <th scope="col" class="text-center encabezado">Fecha de Reserva</th>
@@ -173,9 +189,8 @@
                             $sql = $conexion->query("SELECT * FROM reservas_ea");
                             while ($datos = $sql->fetch_object()) { ?>
                                 <tr>
-                                    <td><input type="hidden" name="ids[]" value="<?= $datos->id_reservaea ?>"></td>
+                                    <td><input type="checkbox" name="ids[]" value="<?= $datos->id_reservaea ?>"></td>
                                     <th scope="row"><?= $datos->id_reservaea ?></th>
-                                    <td class="text-center"><?= $datos->id_cliente ?></td>
                                     <td class="text-center"><?= $datos->id_recorrido ?></td>
                                     <td class="text-center"><?= $datos->id_paquete ?></td>
                                     <td class="text-center"><?= $datos->fecha_reserva ?></td>
@@ -193,8 +208,7 @@
             </form>
             <div class="boton d-flex justify-content-between mb-1">
                 <div class="d-flex">
-                    <!-- <button type="button" class="btn btn-warning me-3 editar" id="btnEditar" data-bs-toggle="modal" data-bs-target="#editar">Editar Disponibilidad</button>
-                    <button type="button" class="btn btn-danger eliminar" data-bs-toggle="modal" data-bs-target="#eliminar">Eliminar seleccionados</button> -->
+                <button type="button" class="btn btn-warning me-3 editar" id="btnEditar" data-bs-toggle="modal" data-bs-target="#editar">Editar Disponibilidad</button>
                 </div>
                 <div class="fixed-buttons">
                     <button type="button" class="btn botones agregar" onclick="window.location.href='index.php?i=pagoea'">Pagos</button>
@@ -203,6 +217,8 @@
         </div>
 
     </div>
+
+    <?php include "modal_reservaea/modal_editar.php"; ?>
 
     <section class="overlay"></section>
     <script src="./vista/JS/acceso_sidebar.js"></script>
