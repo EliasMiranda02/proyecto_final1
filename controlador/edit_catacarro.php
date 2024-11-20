@@ -45,16 +45,16 @@ if (isset($_POST['id_carro_editar']) && !empty($_POST['id_carro_editar'])) {
     // Ejecutar la consulta
     if ($conexion->query($sql) === TRUE) {
         // Redirigir con éxito
-        header('Location: ../t_catacarros.php?mensaje=actualizado');
+        header('Location: ../index.php?i=catacarro&mensaje=actualizado');
         exit();
     } else {
         // Manejar errores
-        header('Location: ../t_catacarros.php?mensaje=error&detalle=' . urlencode($conexion->error));
+        header('Location: ../index.php?i=catacarro&mensaje=error&detalle=' . urlencode($conexion->error));
         exit();
     }
 } else {
     // Si no se enviaron datos
-    header('Location: ../t_catacarros.php?mensaje=no_id');
+    header('Location: ../index.php?i=catacarro&mensaje=no_id');
     exit();
 }
 ?>

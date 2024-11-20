@@ -35,7 +35,7 @@ $clasificacion = $conexion->real_escape_string($_POST['clasificacion']);
 
     // Ejecutar la consulta
     if ($conexion->query($sql)) {
-        header('Location: ../t_excursiones.php?mensaje=registro_exitoso');
+        header('Location: ../index.php?i=excursion&mensaje=registro_exitoso');
         exit();
     } else{
         echo "Error al insertar los datos: " . $conexion->error;

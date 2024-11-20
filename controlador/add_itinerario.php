@@ -74,7 +74,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     $conexion->close();
 
     // Redirigir después de la inserción
-    header('Location: ../form_paquete_intinerario.php?mensaje=registro_exitoso');
+    header('Location: ../index.php?i=form_paquete_itinerario&mensaje=registro_exitoso');
     exit(); // Asegúrate de salir después de redirigir
 }
 ?>

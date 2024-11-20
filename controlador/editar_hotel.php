@@ -57,16 +57,16 @@ if (isset($_POST['id_hotel_editar']) && !empty($_POST['id_hotel_editar'])) {
     // Ejecutar la consulta
     if ($conexion->query($sql) === TRUE) {
         // Redirigir con éxito
-        header('Location: ../t_hoteles.php?mensaje=actualizado');
+        header('Location: ../index.php?i=hotel&mensaje=actualizado');
         exit();
     } else {
         // Manejar errores
-        header('Location: ../t_hoteles.php?mensaje=error&detalle=' . urlencode($conexion->error));
+        header('Location: ../index.php?i=hotel&mensaje=error&detalle=' . urlencode($conexion->error));
         exit();
     }
 } else {
     // Si no se enviaron datos
-    header('Location: ../t_hoteles.php?mensaje=no_id');
+    header('Location: ../index.php?i=hotel&mensaje=no_id');
     exit();
 }
 ?>

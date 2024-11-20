@@ -27,16 +27,16 @@ $filaClientes = $resultadoClientes ? mysqli_fetch_assoc($resultadoClientes) : nu
 
 // Verificar si el usuario pertenece a empleados
 if ($filaEmpleados && $filaEmpleados['email'] == $correo && $filaEmpleados['contraseña'] == $clave) {
-    header("Location: ../home.php"); // Página para empleados
+    header("Location: ../index.php?i=home"); // Página para empleados
     exit();
 }
 // Verificar si el usuario pertenece a clientes
 elseif ($filaClientes && $filaClientes['email'] == $correo && $filaClientes['contraseña'] == $clave) {
-    header("Location: ../home.php"); // Página para clientes
+    header("Location: ../index.php?i=home"); // Página para clientes
     exit();
 } else {
     // Si no se encuentra en ninguna tabla
-    header("Location: ../menu.php?mensaje=incorrecto");
+    header("Location: ../index.php?i=index&mensaje=incorrecto");
     exit();
 }
 ?>
