@@ -87,7 +87,7 @@ thead th {
 }
 
 .input-group-text{
-    width: 110px;
+    width: 125px;
 }
 
 .signo{
@@ -122,6 +122,7 @@ thead th {
 
 .paquete{
     margin: 20px;
+    margin-top: 45px;
     padding: 5px 30px;
     gap: 5px;
     display: flex; /* Alinea los elementos en una fila */

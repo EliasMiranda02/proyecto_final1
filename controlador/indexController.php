@@ -83,6 +83,9 @@ class IndexController{
     public static function pagov(){
         require_once("./t_pagosv.php"); //PERMITIR DESPLEGAR LA VISTA
     }
+    public static function pagosrc(){
+        require_once("./t_pagosrc.php"); //PERMITIR DESPLEGAR LA VISTA
+    }
 
 
 }

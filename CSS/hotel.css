@@ -59,11 +59,13 @@ thead th {
 }
 
 .paquetes {
-    margin: 30px;
+    margin: 20px;
+    margin-top: 45px;
     padding: 5px 30px;
     display: flex; /* Alinea los elementos en una fila */
     align-items: center; /* Centra los elementos verticalmente */
 }
+
 
 .imagen img {
     width: 200px;
