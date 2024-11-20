@@ -39,7 +39,7 @@
                         </div>
 
                         <ul class="sub-menu">
-                            <li><a href="t_usuario.php">Viajeros</a></li>
+                            <li><a href="index.php?i=usuario">Viajeros</a></li>
                             <li><a href="index.php?i=empleado">Equipo de Trabajo</a></li> <!--EJEMPLO DE CAMBIO QUE HARE-->
                         </ul>
                     </li>
@@ -52,28 +52,28 @@
                         </div>
 
                         <ul class="sub-menu">
-                            <li><a href="t_paquetes.php">Paquetes Turísticos</a></li>
-                            <li><a href="t_excursiones.php">Excursiones</a></li>
-                            <li><a href="t_hoteles.php">Hospedaje</a></li>
+                            <li><a href="index.php?i=paquete">Paquetes Turísticos</a></li>
+                            <li><a href="index.php?i=excursion">Excursiones</a></li>
+                            <li><a href="index.php?i=hotel">Hospedaje</a></li>
                         </ul>
                     </li>
 
                     <li class="list">
-                        <a href="t_volante.php" class="nav-link">
+                        <a href="index.php?i=volante" class="nav-link">
                             <i class='bx bxs-plane-alt icon'></i>
                             <span class="link">Chiapas Volante</span>
                         </a>
                     </li>
 
                     <li class="list">
-                        <a href="renta_carros.php" class="nav-link">
+                        <a href="index.php?i=ruta" class="nav-link">
                             <i class='bx bxs-bus icon'></i>
                             <span class="link">Chiapas Rodante</span>
                         </a>
                     </li>
 
                     <li class="list">
-                        <a href="t_catacarros.php" class="nav-link">
+                        <a href="index.php?i=catacarro" class="nav-link">
                             <i class='bx bxs-car icon'></i>
                             <span class="link">Catalogo de Carros</span>
                         </a>
@@ -87,15 +87,16 @@
                         </div>
 
                         <ul class="sub-menu">
-                            <li><a href="t_reservaspa.php">Paquetes Turísticos</a></li>
-                            <li><a href="t_reservasea.php">Excursiones</a></li>
-                            <li><a href="t_reservasv.php">Reservas de Vuelos</a></li>
-                            <li><a href="t_reservaspv.php">Renta de Vehículos</a></li>
+                            <li><a href="index.php?i=reservapa">Paquetes Turísticos (A)</a></li>
+                            <li><a href="index.php?i=reservapv">Paquetes Turísticos (B)</a></li>
+                            <li><a href="index.php?i=reservaea">Excursiones</a></li>
+                            <li><a href="index.php?i=reservav">Reservas de Vuelos</a></li>
+                            <li><a href="index.php?i=rentacarro">Renta de Vehículos</a></li>
                         </ul>
                     </li>
 
                     <li class="list">
-                        <a href="calificaciones.php" class="nav-link">
+                        <a href="index.php?i=calificacion" class="nav-link">
                             <i class='bx bxs-chat icon'></i>
                             <span class="link">Calificaciones</span>
                         </a>
@@ -104,7 +105,7 @@
 
                 <div class="botton-content">
                     <li class="list">
-                        <a href="home.php" class="nav-linki">
+                        <a href="index.php?i=home" class="nav-linki">
                             <i class='bx bx-log-out iconi'></i>
                             <span class="linki">Regresar</span>
                         </a>
@@ -196,7 +197,7 @@
                     <button type="button" class="btn btn-danger eliminar" data-bs-toggle="modal" data-bs-target="#eliminar">Eliminar seleccionados</button> -->
                 </div>
                 <div class="fixed-buttons">
-                    <button type="button" class="btn botones agregar" onclick="window.location.href='pagosea.php'">Pagos</button>
+                    <button type="button" class="btn botones agregar" onclick="window.location.href='index.php?i=pagoea'">Pagos</button>
                 </div>
             </div>
         </div>

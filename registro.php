@@ -106,7 +106,7 @@
 
         <p>
             <b>
-                ¿Ya tienes cuenta? <a href="./index.php">Inica sesión</a>
+                ¿Ya tienes cuenta? <a href="index.php?i=index">Inica sesión</a>
             </b>
         </p>
 

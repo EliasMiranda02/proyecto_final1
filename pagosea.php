@@ -184,7 +184,7 @@
                     <button type="button" class="btn btn-danger eliminar" data-bs-toggle="modal" data-bs-target="#eliminar">Eliminar seleccionados</button> -->
                 </div>
                 <div class="fixed-buttons">
-                    <button type="button" class="btn botones agregar" onclick="window.location.href='index'">Reservas</button>
+                    <button type="button" class="btn botones agregar" onclick="window.location.href='index.php?i=reservaea'">Reservas</button>
                 </div>
             </div>
         </div>

@@ -71,6 +71,19 @@ class IndexController{
     public static function registrousuario(){
         require_once("./registro.php"); //PERMITIR DESPLEGAR LA VISTA
     }
+    public static function pagoea(){
+        require_once("./pagosea.php"); //PERMITIR DESPLEGAR LA VISTA
+    }
+    public static function pagopa(){
+        require_once("./t_pagospa.php"); //PERMITIR DESPLEGAR LA VISTA
+    }
+    public static function pagopv(){
+        require_once("./t_pagospv.php"); //PERMITIR DESPLEGAR LA VISTA
+    }
+    public static function pagov(){
+        require_once("./t_pagosv.php"); //PERMITIR DESPLEGAR LA VISTA
+    }
+
 
 }
 ?>
