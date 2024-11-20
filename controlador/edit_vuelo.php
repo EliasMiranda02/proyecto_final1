@@ -12,8 +12,10 @@ if (isset($_POST['id_vuelo_editar']) && !empty($_POST['id_vuelo_editar'])) {
     $no_vuelo = $conexion->real_escape_string($_POST['no_vuelo']);
     $origen = $conexion->real_escape_string($_POST['origen']);
     $destino = $conexion->real_escape_string($_POST['destino']);
-    $fecha_salida = date('Y-m-d H:i:s', strtotime($_POST['date_salida']));
-    $fecha_llegada = date('Y-m-d H:i:s', strtotime($_POST['date_llegada']));
+    $fecha_salida = date('Y-m-d', strtotime($_POST['date_salida']));
+    $hora_salida = date('H:i:s', strtotime($_POST['time_salida']));
+    $fecha_llegada = date('Y-m-d', strtotime($_POST['date_llegada']));
+    $hora_llegada = date('H:i:s', strtotime($_POST['time_llegada']));
 
     $precio = $conexion->real_escape_string($_POST['precio']); // Corregido
     $precio = preg_replace('/[^0-9.]/', '', $precio);
@@ -24,7 +26,9 @@ if (isset($_POST['id_vuelo_editar']) && !empty($_POST['id_vuelo_editar'])) {
             origen = '$origen', 
             destino = '$destino', 
             fecha_salida = '$fecha_salida',
+            hora_salida = '$hora_salida',
             fecha_llegada = '$fecha_llegada',
+            hora_llegada = '$hora_llegada',
             precio_vuelo = '$precio'
         WHERE id_vuelo = '$id_vuelo_editar'";
 
