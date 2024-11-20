@@ -85,8 +85,7 @@
                         </div>
 
                         <ul class="sub-menu">
-                            <li><a href="index.php?i=reservapa">Paquetes Turísticos (A)</a></li>
-                            <li><a href="index.php?i=reservapv">Paquetes Turísticos (B)</a></li>
+                            <li><a href="index.php?i=reservapv">Paquetes Turísticos</a></li>
                             <li><a href="index.php?i=reservaea">Excursiones</a></li>
                             <li><a href="index.php?i=reservav">Reservas de Vuelos</a></li>
                             <li><a href="index.php?i=rentacarro">Renta de Vehículos</a></li>
