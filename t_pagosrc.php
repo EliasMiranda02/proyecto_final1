@@ -8,7 +8,7 @@
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
     <script src="https://kit.fontawesome.com/90c11f8b3b.js" crossorigin="anonymous"></script>
     <link rel="stylesheet" href="./CSS/hotel.css">
-    !-- LINKS DE MARCELA -->
+
     <link rel="stylesheet" href="vista/CSS/acceso.css" />
     <link href="https://unpkg.com/boxicons@2.1.2/css/boxicons.min.css" rel="stylesheet" />
 </head>
@@ -131,20 +131,22 @@
 
     <div class="d-flex justify-content-center align-items-center">
         <div class="col-10">
+            <div class="cabeza">
+                <!-- BUSACDOR DE LAS RECORRIDOS -->
+                <form id="searchFormAsesor" class="mb-3" method="POST" action="controlador/buscar_pagosrc.php">
+                    <input type="hidden" name="cargo" value="Asesor de Viajes"> <!-- Campo oculto -->
+                    <div class="input-group">
+                        <select name="campo" class="form-select">
+                            <option value="id_pagorc">Código de Pago</option>
+                            <option value="id_renta">Código de Renta</option>
+                            <option value="id_tarjeta">Código de Tarjeta</option>
+                        </select>
+                        <input type="text" class="form-control" name="query" placeholder="Buscar...">
+                        <button type="submit" class="botone">Buscar</button>
+                    </div>
+                </form>
+            </div>
 
-            <!-- BUSACDOR DE LAS RECORRIDOS -->
-            <form id="searchFormAsesor" class="mb-3" method="POST" action="controlador/buscar_pagosrc.php">
-                <input type="hidden" name="cargo" value="Asesor de Viajes"> <!-- Campo oculto -->
-                <div class="input-group">
-                    <select name="campo" class="form-select">
-                        <option value="id_pagorc">Código de Pago</option>
-                        <option value="id_renta">Código de Renta</option>
-                        <option value="id_tarjeta">Código de Tarjeta</option>
-                    </select>
-                    <input type="text" class="form-control" name="query" placeholder="Buscar...">
-                    <button type="submit" class="botone">Buscar</button>
-                </div>
-            </form>
 
             <!-- TABLA DE RECORRIDOS -->
 
@@ -215,7 +217,7 @@
                 })
                 .catch(error => console.error('Error:', error));
         });
-        
+
         // SIDEBAR JS
 
         document.querySelector('.menu-icon').addEventListener('click', () => {
