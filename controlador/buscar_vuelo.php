@@ -22,7 +22,9 @@ if ($sql->num_rows > 0) {
     echo '        <th scope="col" class="text-center encabezado">Origen</th>';
     echo '        <th scope="col" class="text-center encabezado">Destino</th>';
     echo '        <th scope="col" class="text-center encabezado">Fecha de Salida</th>';
+    echo '        <th scope="col" class="text-center encabezado">Hora de Salida</th>';
     echo '        <th scope="col" class="text-center encabezado">Fecha de Llegada</th>';
+    echo '        <th scope="col" class="text-center encabezado">Hora de Llegada</th>';
     echo '        <th scope="col" class="text-center encabezado">Precio de Vuelo</th>';
     echo '    </tr>';
     echo '</thead>';
@@ -35,7 +37,9 @@ if ($sql->num_rows > 0) {
         echo "<td class='text-center'>{$datos->origen}</td>";
         echo "<td class='text-center'>{$datos->destino}</td>";
         echo "<td class='text-center'>{$datos->fecha_salida}</td>";
+        echo "<td class='text-center'>{$datos->hora_salida}</td>";
         echo "<td class='text-center'>{$datos->fecha_llegada}</td>";
+        echo "<td class='text-center'>{$datos->hora_llegada}</td>";
         echo "<td class='text-center'>" . '$' . number_format($datos->precio_vuelo,2) . "</td>";
         echo "</tr>";
     }
