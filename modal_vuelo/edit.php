@@ -19,19 +19,24 @@
             <textarea maxlength="50" rows="2" class="form-control" id="destino" name="destino" required></textarea>
             <label for="floatingInput" class="form-label">Destino</label>
           </div>
-          <div class="form-floating mb-3">
-            <input type="datetime-local" class="form-control" id="date_salida" name="date_salida">
-            <label for="floatingInput">Fecha Salida</label>
+
+           Fecha y Hora de Salida:
+          <div class="input-group mb-3">
+            <input type="date" aria-label="First name" class="form-control" id="date_salida" name="date_salida" required>
+            <input type="time" class="form-control" id="time_salidas" name="time_salida" required>
           </div>
-          <div class="form-floating mb-3">
-            <input type="datetime-local" class="form-control" id="date_llegada" name="date_llegada" required>
-            <label for="floatingInput" class="form-label">Fecha Llegada</label>
+
+          Fecha y Hora de Llegada:
+          <div class="input-group mb-3">
+            <input type="date" aria-label="First name" class="form-control" id="date_llegada" name="date_llegada" required>
+            <input type="time" class="form-control" id="time_llegadas" name="time_llegada" required>
           </div>
+
           <div class="form-floating mb-3">
             <input type="text" class="form-control" id="precio" name="precio" maxlength="8" required>
             <label for="floatingInput" class="form-label">Precio de Vuelo</label>
           </div>
-          
+
 
         </form>
       </div>

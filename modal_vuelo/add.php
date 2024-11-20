@@ -21,14 +21,16 @@
                         <textarea maxlength="50" rows="2" class="form-control" id="destino" name="destino"></textarea>
                     </div>
 
-                    <div class="mb-3">
-                        <label for="numero_habitaciones" class="form-label">Fecha Salida</label>
-                        <input type="datetime-local" class="form-control" id="date_salida" name="date_salida" required>
+                    Fecha y Hora de Salida:
+                    <div class="input-group mb-3">
+                        <input type="date" aria-label="First name" class="form-control" id="date_salida" name="date_salida" required>
+                        <input type="time" class="form-control" id="time_salidas" name="time_salida" required>
                     </div>
 
-                    <div class="mb-3">
-                        <label for="correo_electronico" class="form-label">Fecha de LLegada</label>
-                        <input type="datetime-local" class="form-control" id="date_llegada" name="date_llegada" required>
+                    Fecha y Hora de Llegada:
+                    <div class="input-group mb-3">
+                        <input type="date" aria-label="First name" class="form-control" id="date_llegada" name="date_llegada" required>
+                        <input type="time" class="form-control" id="time_llegadas" name="time_llegada" required>
                     </div>
                     <div class="mb-3">
                         <label for="telefono" class="form-label">Precio del Vuelo</label>

@@ -198,7 +198,9 @@
                                 <th scope="col" class="text-center encabezado">Origen</th>
                                 <th scope="col" class="text-center encabezado">Destino</th>
                                 <th scope="col" class="text-center encabezado">Fecha de Salida</th>
+                                <th scope="col" class="text-center encabezado">Hora de Salida</th>
                                 <th scope="col" class="text-center encabezado">Fecha de Llegada</th>
+                                <th scope="col" class="text-center encabezado">Hora de Llegada</th>
                                 <th scope="col" class="text-center encabezado">Precio de Vuelo</th>
                             </tr>
                         </thead>
@@ -214,7 +216,9 @@
                                     <td class="text-center"><?= $datos->origen ?></td>
                                     <td class="text-center"><?= $datos->destino ?></td>
                                     <td class="text-center"><?= $datos->fecha_salida ?></td>
+                                    <td class="text-center"><?= $datos->hora_salida ?></td>
                                     <td class="text-center"><?= $datos->fecha_llegada ?></td>
+                                    <td class="text-center"><?= $datos->hora_llegada ?></td>
                                     <td class="text-center"><?= "$" . number_format($datos->precio_vuelo, 2) ?></td>
                                 </tr>
                             <?php } ?>
@@ -249,8 +253,11 @@
                 const origen = row.cells[3].innerText;
                 const destino = row.cells[4].innerText;
                 const fecha_salida = row.cells[5].innerText;
-                const fecha_llegada = row.cells[6].innerText;
-                const precio = row.cells[7].innerText.replace('$', '').trim();
+                const fecha_llegada = row.cells[7].innerText;
+                const precio = row.cells[9].innerText.replace('$', '').trim();
+
+                const hora_salida = row.cells[6].innerText;
+                const hora_llegada = row.cells[8].innerText;
 
                 // Llenar los campos del modal
                 document.getElementById('id_vuelo_editar').value = id;
@@ -260,6 +267,10 @@
                 document.getElementById('date_salida').value = fecha_salida.replace(" ", "T").slice(0, 16);
                 document.getElementById('date_llegada').value = fecha_llegada.replace(" ", "T").slice(0, 16);
                 document.getElementById('precio').value = formatMoneda(precio);
+
+                document.getElementById('time_salidas').value = hora_salida.trim();
+                document.getElementById('time_llegadas').value = hora_llegada.trim();
+
                 // Abrir el modal
                 $('#editar').modal('show');
             } else {
