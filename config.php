@@ -1,4 +1,4 @@
 <!--NUEVO ARCHIVO-->
 <?php
-define("urlsite","http://localhost/proyecto_final1/") //DEFINIR CONSTANTES CON VALOR
+define("urlsite","https://cv.chiapasviajero.com/") //DEFINIR CONSTANTES CON VALOR
 ?>
