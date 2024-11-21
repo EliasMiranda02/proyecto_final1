@@ -18,8 +18,7 @@ if ($sql->num_rows > 0) {
         echo "<tr>";
         echo "<td><input type='checkbox' name='ids[]' value='{$datos->id_reservaea}'></td>";
         echo "<th scope='row' class='text-center'>{$datos->id_reservaea}</th>";
-        echo "<td class='text-center'>{$datos->id_recorrido}</td>";
-        echo "<td class='text-center'>{$datos->id_paquete}</td>";
+        echo "<td class='text-center'>{$datos->id_excursion}</td>";
         echo "<td class='text-center'>{$datos->fecha_reserva }</td>";
         echo "<td class='text-center'>{$datos->estado_reserva}</td>";
         echo "<td class='text-center'>{$datos->lugar_salida}</td>";

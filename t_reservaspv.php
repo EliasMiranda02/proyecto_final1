@@ -174,7 +174,6 @@
 
                                 <th scope="col" class="p-3 encabezado"><input type="hidden" id="selectAll"></th>
                                 <th scope="col" class="text-center encabezado">Código</th>
-                                <th scope="col" class="text-center encabezado">Código del Vuelo</th>
                                 <th scope="col" class="text-center encabezado">Código del Paquete</th>
                                 <th scope="col" class="text-center encabezado">Fecha de Reserva</th>
                                 <th scope="col" class="text-center encabezado">Disponibilidad</th>
@@ -194,8 +193,6 @@
                                 <tr>
                                     <td><input type="checkbox" name="ids[]" value="<?= $datos->id_reservapv ?>"></td>
                                     <th scope="row" class="text-center"><?= $datos->id_reservapv ?></th>
-
-                                    <td class="text-center"><?= $datos->id_vuelo ?></td>
                                     <td class="text-center"><?= $datos->id_paquete ?></td>
                                     <td class="text-center"><?= $datos->fecha_reserva ?></td>
                                     <td class="text-center"><?= $datos->estado_reserva ?></td>

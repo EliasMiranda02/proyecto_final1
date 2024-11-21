@@ -131,6 +131,23 @@
     <div class="d-flex justify-content-center align-items-center">
         <div class="col-10">
             <!-- BUSACDOR DE LAS RECORRIDOS -->
+            <?php if (isset($_GET['mensaje'])): ?>
+                <div class="alert alert-info mb-3" id="mensajeAlerta">
+                    <?php
+                    if ($_GET['mensaje'] == 'actualizado') {
+                        echo "Registro actualizado correctamente.";
+                    } elseif ($_GET['mensaje'] == 'error') {
+                        echo "Hubo un error: " . ($_GET['detalle'] ?? '');
+                    } elseif ($_GET['mensaje'] == 'no_id') {
+                        echo "No se seleccionó ningún registro.";
+                    } elseif ($_GET['mensaje'] == 'eliminado') {
+                        echo "Registros eliminados correctamente.";
+                    } elseif ($_GET['mensaje'] == 'id_invalido') {
+                        echo "ID de registro inválido.";
+                    }
+                    ?>
+                </div>
+            <?php endif; ?>
             <div class="cabeza">
                 <form id="searchFormAsesor" class="mb-3" method="POST" action="controlador/buscar_Rcarro.php">
                     <input type="hidden" name="cargo" value="Asesor de Viajes"> <!-- Campo oculto -->
@@ -158,6 +175,7 @@
                             <th scope="col" class="text-center encabezado">Fecha de Devolución</th>
                             <th scope="col" class="text-center encabezado">Estado de la Renta</th>
                             <th scope="col" class="text-center encabezado">Días Rentados</th>
+                            <th scope="col" class="text-center encabezado">Total</th>
                         </tr>
                     </thead>
                     <tbody class="">
@@ -173,6 +191,7 @@
                                 <td class="text-center"><?= $datos->fecha_devolucion ?></td>
                                 <td class="text-center"><?= $datos->estado_renta ?></td>
                                 <td class="text-center"><?= $datos->dias_rentados ?></td>
+                                <td class="text-center"><?= $datos->total ?></td>
                             </tr>
                         <?php } ?>
                     </tbody>

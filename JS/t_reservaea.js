@@ -49,7 +49,7 @@ btnEditar.addEventListener('click', function(event) {
         const row = checkedCheckboxes[0].closest('tr');
 
         // Obtener los datos de la fila
-        const disponibilidad = row.cells[5].innerText;
+        const disponibilidad = row.cells[4].innerText;
 
         // Llenar los campos del modal
         document.getElementById('id_reservaea_editar').value = id;

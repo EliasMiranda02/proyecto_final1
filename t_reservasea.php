@@ -170,8 +170,7 @@
                             <tr>
                                 <th scope="col" class="encabezado"><input type="hidden" id="selectAll"></th>
                                 <th scope="col" class="text-center encabezado">Código</th>
-                                <th scope="col" class="text-center encabezado">Código del Recorrido</th>
-                                <th scope="col" class="text-center encabezado">Código del Paquete</th>
+                                <th scope="col" class="text-center encabezado">Código de Excursion</th>
                                 <th scope="col" class="text-center encabezado">Fecha de Reserva</th>
                                 <th scope="col" class="text-center encabezado">Estado de Reserva</th>
                                 <th scope="col" class="text-center encabezado">Lugar de Salida</th>
@@ -190,8 +189,7 @@
                                 <tr>
                                     <td><input type="checkbox" name="ids[]" value="<?= $datos->id_reservaea ?>"></td>
                                     <th scope="row"><?= $datos->id_reservaea ?></th>
-                                    <td class="text-center"><?= $datos->id_recorrido ?></td>
-                                    <td class="text-center"><?= $datos->id_paquete ?></td>
+                                    <td class="text-center"><?= $datos->id_excursion ?></td>
                                     <td class="text-center"><?= $datos->fecha_reserva ?></td>
                                     <td class="text-center"><?= $datos->estado_reserva ?></td>
                                     <td class="text-center"><?= $datos->lugar_salida ?></td>

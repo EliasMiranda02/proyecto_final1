@@ -86,6 +86,18 @@ class IndexController{
     public static function pagosrc(){
         require_once("./t_pagosrc.php"); //PERMITIR DESPLEGAR LA VISTA
     }
+    public static function reservapvusuario(){
+        require_once("./reservaspv_usuario.php"); //PERMITIR DESPLEGAR LA VISTA
+    }
+    public static function reservaeausuario(){
+        require_once("./reservasea_usuario.php"); //PERMITIR DESPLEGAR LA VISTA
+    }
+    public static function reservavusuario(){
+        require_once("./reservasCV_usuario.php"); //PERMITIR DESPLEGAR LA VISTA
+    }
+    public static function reservarcusuario(){
+        require_once("./reservasCR_usuario.php"); //PERMITIR DESPLEGAR LA VISTA
+    }
 
 
 }
