@@ -20,8 +20,12 @@ if ($sql->num_rows > 0) {
         echo "<th scope='row' class='text-center'>{$datos->id_reservav}</th>";
         echo "<td class='text-center'>{$datos->id_vuelo}</td>";
         echo "<td class='text-center'>{$datos->fecha_reserva }</td>";
-        echo "<td class='text-center'>{$datos->hora_reserva }</td>";
         echo "<td class='text-center'>{$datos->estado}</td>";
+        echo "<td class='text-center'>{$datos->lugar_salida}</td>";
+        echo "<td class='text-center'>{$datos->hora_salida}</td>";
+        echo "<td class='text-center'>{$datos->fecha_salida}</td>";
+        echo "<td class='text-center'>{$datos->cantidad_asiento}</td>";
+        echo "<td class='text-center'>{$datos->total}</td>";
         echo "</tr>";
     }
 } else {

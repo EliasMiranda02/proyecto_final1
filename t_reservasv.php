@@ -170,10 +170,12 @@
                                 <th scope="col" class="text-center encabezado">Código</th>
                                 <th scope="col" class="text-center encabezado">Código del Vuelo</th>
                                 <th scope="col" class="text-center encabezado">Fecha de Reserva</th>
-                                <th scope="col" class="text-center encabezado">Hora de Reserva</th>
-                                <th scope="col" class="text-center encabezado">Estado</th>
-                                <th scope="col" class="text-center encabezado">Cantidad Asientos</th>
-                                <th scope="col" class="text-center encabezado">Total</th>
+                                <th scope="col" class="text-center encabezado">Disponibilidad</th>
+                                <th scope="col" class="text-center encabezado">Lugar de Salida</th>
+                                <th scope="col" class="text-center encabezado">Hora de Salida</th>
+                                <th scope="col" class="text-center encabezado">Fecha de Salida</th>
+                                <th scope="col" class="text-center encabezado">Cantidad de Asientos</th>
+                                <th scope="col" class="text-center encabezado">Precio Total</th>
                             </tr>
                         </thead>
                         <tbody>
@@ -187,10 +189,7 @@
                                     <th scope="row" class="text-center"><?= $datos->id_reservav ?></th>
                                     <td class="text-center"><?= $datos->id_vuelo ?></td>
                                     <td class="text-center"><?= $datos->fecha_reserva ?></td>
-                                    <td class="text-center"><?= $datos->hora_reserva ?></td>
                                     <td class="text-center"><?= $datos->estado ?></td>
-                                    <td class="text-center"><?= $datos->cantidad_asiento?></td>
-                                    <td class="text-center"><?= $datos->total?></td>
                                 </tr>
                             <?php } ?>
                         </tbody>

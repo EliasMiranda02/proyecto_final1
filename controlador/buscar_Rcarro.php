@@ -18,11 +18,12 @@ if ($sql->num_rows > 0) {
         echo '    <tr>';
         echo '        <th scope="col" class="text-center encabezado"></th>';
         echo '        <th scope="col" class="text-center encabezado">Código</th>';
-        echo '        <th scope="col" class="text-center encabezado">Origen</th>';
-        echo '        <th scope="col" class="text-center encabezado">Destino</th>';
-        echo '        <th scope="col" class="text-center encabezado">Distancia</th>';
-        echo '        <th scope="col" class="text-center encabezado">Duración</th>';
-        echo '        <th scope="col" class="text-center encabezado">Matricula</th>';
+        echo '        <th scope="col" class="text-center encabezado">Código del carro</th>';
+        echo '        <th scope="col" class="text-center encabezado">Fecha de Renta</th>';
+        echo '        <th scope="col" class="text-center encabezado">Fecha de Devolución</th>';
+        echo '        <th scope="col" class="text-center encabezado">Estado de la Renta</th>';
+        echo '        <th scope="col" class="text-center encabezado">Dias Rentados</th>';
+        echo '        <th scope="col" class="text-center encabezado">Dias Total</th>';
         echo '    </tr>';
         echo '</thead>';
 
@@ -35,6 +36,7 @@ if ($sql->num_rows > 0) {
         echo "<td class='text-center'>{$datos->fecha_devolucion}</td>";
         echo "<td class='text-center'>{$datos->estado_renta}</td>";
         echo "<td class='text-center'>{$datos->dias_rentados}</td>";
+        echo "<td class='text-center'>{$datos->total}</td>";
         echo "</tr>";
     }
 } else {

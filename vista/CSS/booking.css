@@ -1,0 +1,306 @@
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700&display=swap');
+
+body {
+    font-family: 'Poppins', Arial, sans-serif;
+    margin: 0;
+    padding: 0;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 100vh;
+    background: #E1E8EF;
+}
+
+.container {
+    display: flex;
+    width: 90%;
+    height: 90%;
+    max-width: 1400px;
+    border-radius: 10px;
+    overflow: hidden;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+}
+
+.calendar {
+    padding: 20px;
+    width: 65%;
+    background: #F9F9F9;
+    display: flex;
+    flex-direction: column;
+}
+
+.calendar-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.calendar-header h2 {
+    margin: 0;
+    font-size: 22px;
+    color: #333;
+}
+
+.arrow {
+    cursor: pointer;
+    font-size: 28px;
+    font-weight: bold;
+    color: #172535;
+    padding: 3px 10px;
+    border-radius: 5px;
+    background: #F9F9F9;
+}
+
+.arrow:hover {
+    background: #D3D3D3;
+}
+
+.calendar table {
+    width: 100%;
+    border-collapse: collapse;
+    margin-top: 15px;
+    flex-grow: 1;
+}
+
+.calendar th,
+.calendar td {
+    width: 50px;
+    height: 50px;
+    padding: 10px;
+    text-align: center;
+    font-size: 16px;
+    cursor: pointer;
+    vertical-align: middle;
+}
+
+.calendar th {
+    background: #28425E;
+    font-weight: bold;
+    color: #FFF;
+    font-size: 16px;
+}
+
+.calendar th {
+    background: #28425E;
+    font-weight: bold;
+    color: #FFF;
+    font-size: 16px;
+}
+
+.calendar td {
+    background: #FFF;
+    border: 1px solid #DDD;
+    color: #333;
+}
+
+.calendar td.tuesday {
+    background: #E1EAF3;
+    position: relative;
+    font-weight: bold;
+    cursor: pointer;
+}
+
+.calendar td.tuesday .subtext {
+    font-size: 12px;
+    color: #366aa2;
+    margin-top: 5px;
+    display: block;
+}
+
+.calendar td.disabled {
+    color: #878787;
+    cursor: not-allowed;
+    background: #F3F3F3;
+}
+
+.calendar .selected {
+    background: #BACDE1 !important;
+    color: #333;
+}
+
+.formulario {
+    width: 35%;
+    padding: 20px;
+    background: #FFF;
+    box-shadow: -2px 0 10px rgba(0, 0, 0, 0.1);
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    padding-left: 50px;
+    height: 100%;
+}
+
+.header-form-container {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    width: 95%;
+    margin-bottom: 2px;
+}
+
+.fecha-container input {
+    font-size: 15px;
+    padding: 15px;
+    border: 1px solid #CCC;
+    border-radius: 5px;
+    text-align: center;
+    background: #F3F3F3;
+    font-weight: bold;
+}
+
+.formulario .titulo {
+    margin-top: 7px;
+    margin-left: -26px;
+    font-size: 22px;
+    color: #28425E;
+    letter-spacing: 2px;
+    font-weight: bolder;
+}
+
+.formulario label {
+    display: block;
+    margin-bottom: 10px;
+    font-weight: bold;
+    text-align: left;
+    width: 100%;
+    font-size: 16.5px;
+}
+
+.formulario select,
+.formulario input,
+.formulario button {
+    width: 90%;
+    padding: 14px;
+    margin-bottom: 15px;
+    border: 1px solid #DDD;
+    border-radius: 5px;
+    font-size: 14.5px;
+    font-family: 'Poppins', Arial, sans-serif;
+}
+
+.textoA {
+    margin-left: -26px;
+}
+
+#paquete {
+    width: 400px;
+    text-align: left;
+    margin-left: -26px;
+    font-size: 14.5px;
+    padding: 12px;
+}
+
+#excursion {
+    width: 400px;
+    text-align: left;
+    margin-left: -26px;
+    font-size: 14.5px;
+    padding: 12px;
+}
+
+.ciudad-precio-container {
+    display: flex;
+    gap: 25px;
+    margin-left: -26px;
+}
+
+select#ciudad-salida {
+    width: 243px;
+    padding: 10px;
+    border: 1px solid #DDD;
+    border-radius: 5px;
+    box-sizing: border-box;
+    font-size: 14.5px;
+}
+
+input#precio {
+    width: 130px;
+    padding: 10px;
+    border: 1px solid #DDD;
+    border-radius: 5px;
+    box-sizing: border-box;
+    text-align: center;
+    font-size: 14.5px;
+}
+
+.formulario .fecha-hora {
+    display: flex;
+    gap: 25px;
+    width: 100%;
+    margin-left: -26px;
+}
+
+.formulario .fecha-hora input {
+    width: 165.5px;
+    padding: 10px;
+    font-size: 14.5px;
+}
+
+.cantidad-precio {
+    display: flex;
+    gap: 25px;
+    width: 100%;
+    margin-left: -26px;
+}
+
+select#cantidad {
+    width: 189px;
+    padding: 10px;
+    border: 1px solid #DDD;
+    border-radius: 5px;
+    box-sizing: border-box;
+    font-size: 14.5px;
+}
+
+input#total {
+    width: 187px;
+    padding: 10px;
+    border: 1px solid #DDD;
+    border-radius: 5px;
+    box-sizing: border-box;
+    text-align: center;
+    font-size: 14.5px;
+    font-weight: bold;
+}
+
+.formulario button {
+    font-family: "Poppins", sans-serif;
+    font-size: 16px;
+    font-weight: bold;
+    letter-spacing: 2px;
+    background: #172535;
+    color: #FFF;
+    border: none;
+    cursor: pointer;
+    margin-top: 15px;
+}
+
+.formulario button:hover {
+    background: #111821;
+}
+
+#mensajeAlerta {
+    position: fixed;
+    top: 30px;
+    /* Ajusta según sea necesario */
+    left: 50%;
+    transform: translateX(-50%);
+    z-index: 1000;
+    padding: 20px 40px;
+    /* Ajusta el espacio interior */
+    background-color: #d9f2f6;
+    /* Fondo azul claro */
+    font-size: 16px;
+    /* Tamaño de texto */
+    border: 1px solid #bcdde1;
+    /* Borde con color sutil */
+    border-radius: 8px;
+    /* Bordes redondeados */
+    box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.1);
+    /* Sombra */
+    text-align: center;
+    /* Centrar texto */
+
+
+}
