@@ -172,6 +172,8 @@
                                 <th scope="col" class="text-center encabezado">Fecha de Reserva</th>
                                 <th scope="col" class="text-center encabezado">Hora de Reserva</th>
                                 <th scope="col" class="text-center encabezado">Estado</th>
+                                <th scope="col" class="text-center encabezado">Cantidad Asientos</th>
+                                <th scope="col" class="text-center encabezado">Total</th>
                             </tr>
                         </thead>
                         <tbody>
@@ -187,6 +189,8 @@
                                     <td class="text-center"><?= $datos->fecha_reserva ?></td>
                                     <td class="text-center"><?= $datos->hora_reserva ?></td>
                                     <td class="text-center"><?= $datos->estado ?></td>
+                                    <td class="text-center"><?= $datos->cantidad_asiento?></td>
+                                    <td class="text-center"><?= $datos->total?></td>
                                 </tr>
                             <?php } ?>
                         </tbody>
