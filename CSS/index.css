@@ -25,10 +25,14 @@ body {
 }
 
 .texto h1 {
+    letter-spacing: 3px;
+    font-family: 'Poppins', sans-serif;
     font-size: 60px;
 }
 
 .frase1, .frase2 {
+    font-family: 'Poppins', sans-serif;
+    line-height: 1.3;
     font-size: 20px;
 }
 

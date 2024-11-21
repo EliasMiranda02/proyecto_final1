@@ -4,11 +4,11 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Calificaciones</title>
+    <title>Renta de Carros</title>
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
-    <link rel="stylesheet" href="./CSS/hotel.css">
     <script src="https://kit.fontawesome.com/90c11f8b3b.js" crossorigin="anonymous"></script>
-    <!-- LINKS DE MARCELA -->
+    <link rel="stylesheet" href="./CSS/hotel.css">
+
     <link rel="stylesheet" href="vista/CSS/acceso.css" />
     <link href="https://unpkg.com/boxicons@2.1.2/css/boxicons.min.css" rel="stylesheet" />
 </head>
@@ -123,82 +123,101 @@
         </div>
 
         <div class="logo">
-            <h4>REGISTRO DE CALIFICACIONES</h4>
+            <h4>REGISTRO DE PAGOS RC</h4>
         </div>
+
     </div>
 
     <div class="d-flex justify-content-center align-items-center">
         <div class="col-10">
-            <div class="cabeza">
-                <form id="searchFormCalificacion" class="mb-3" method="POST" action="controlador/buscar_calificacion.php">
-                    <input type="hidden" name="Calificacion" value="Calificacion"> <!-- Campo oculto -->
-                    <div class="input-group">
-                        <select name="campo" class="form-select" required>
-                            <option value="id_calificacion">Código</option>
-                            <option value="promedio_calificacion">Promedio de Calificacion</option>
 
-                        </select>
-                        <input type="text" class="form-control" name="query" placeholder="Buscar...">
-                        <button type="submit" class="botone">Buscar</button>
-                    </div>
-                </form>
-            </div>
+            <!-- TABLA DE RECORRIDOS -->
 
-            <form id="Calificacion" method="post">
-                <div class="table-responsive">
-                    <table class="table">
-                        <thead class="bg-info">
-                            <tr>
-                                <th scope="col" class="p-3 encabezado"><input type="hidden" id="selectAll"></th>
-                                <th scope="col" class="text-center encabezado">Código</th>
-                                <th scope="col" class="text-center encabezado">Código del Cliente</th>
-                                <th scope="col" class="text-center encabezado">Nombre del Cliente</th>
-                                <th scope="col" class="text-center encabezado">Apellido Paterno</th>
-                                <th scope="col" class="text-center encabezado">Apellido Materno</th>
-                                <th scope="col" class="text-center encabezado">Correo Electrónico</th>
-                                <th scope="col" class="text-center encabezado">Promedio de la Calificación</th>
-                                <th scope="col" class="text-center encabezado">Comentario</th>
-                            </tr>
-                        </thead>
-                        <tbody>
-                            <?php
-                            include "modelo/conexion.php";
+            <table class="table">
+                <thead>
+                    <tr>
+                        <th scope="col" class="text-center encabezado">Código</th>
+                        <th scope="col" class="text-center encabezado">Código del Cliente</th>
+                        <th scope="col" class="text-center encabezado">Sugerencia</th>
+                    </tr>
+                </thead>
+                <tbody id="table-body">
+                    <?php
+                    include "modelo/conexion.php";
+                    $sql = $conexion->query("SELECT * FROM mensajes");
+                    while ($datos = $sql->fetch_object()) { ?>
+                        <tr>
+                            <th scope="row" class="text-center"><?= $datos->id_mensaje ?></th>
+                            <td class="text-center"><?= $datos->id_cliente?></td>
+                            <td class="text-center"><?= $datos->mensaje?></td>
+                        </tr>
+                    <?php } ?>
+                </tbody>
+            </table>
 
-                            $sql = $conexion->query("SELECT c.id_cliente, c.nombre, c.apellido_paterno, c.apellido_materno, c.email, cal.id_calificacion, cal.promedio_calificacion, cal.comentario
-                         FROM clientes c
-                         JOIN calificaciones cal ON c.id_cliente = cal.id_cliente");
-                            while ($datos = $sql->fetch_object()) { ?>
-                                <tr>
-                                    <td><input type="hidden" name="ids[]" value="<?= $datos->id_calificacion ?>"></td>
-                                    <th scope="row" class="text-center"><?= $datos->id_calificacion ?></th>
-                                    <td class="text-center"><?= $datos->id_cliente ?></td>
-                                    <td class="text-center"><?= $datos->nombre ?></td>
-                                    <td class="text-center"><?= $datos->apellido_paterno ?></td>
-                                    <td class="text-center"><?= $datos->apellido_materno ?></td>
-                                    <td class="text-center"><?= $datos->email ?></td>
-                                    <td class="text-center"><?= $datos->promedio_calificacion ?></td>
-                                    <td class="descripcion text-center"><?= $datos->comentario ?></td>
 
-                                </tr>
-                            <?php } ?>
-                        </tbody>
-                    </table>
+            <div class="boton d-flex justify-content-between mb-1">
+                <div class="d-flex">
+                    <!-- <button type="button" class="btn btn-warning me-3 editar" id="btnEditar" data-bs-toggle="modal" data-bs-target="#editar">Editar Disponibilidad</button>
+                    <button type="button" class="btn btn-danger eliminar" data-bs-toggle="modal" data-bs-target="#eliminar">Eliminar seleccionados</button> -->
                 </div>
-            </form>
-            
+                <div class="fixed-buttons">
+                    <button type="button" class="btn botones agregar" onclick="window.location.href='index.php?i=calificacion'">Calificaciones</button>
+                </div>
+            </div>
         </div>
 
-        
     </div>
-
-    <div class="atencion">
-        <button type="button" class="btn btn-danger" onclick="window.location.href='index.php?i=atencioncliente'">Sugerencias</button>
-    </div>
-
     <section class="overlay"></section>
     <script src="./vista/JS/acceso_sidebar.js"></script>
-    <script src="JS/t_calificaciones.js"></script>
+    <script>
+        // PARA HACER EL BUSCACOR
+        document.getElementById('searchFormAsesor').addEventListener('submit', function(event) {
+            event.preventDefault();
+
+            const formData = new FormData(this);
+            const queryValue = formData.get('query').trim(); // Obtener el valor de 'query' y quitar espacios
+
+            // Verificar si el campo de búsqueda está vacío
+            if (queryValue === "") {
+                // Si está vacío, usar un valor especial para indicar "todos los registros"
+                formData.set('query', '%'); // Esto actuará como un comodín en SQL para traer todos los registros
+            }
+
+            // Realizar la solicitud AJAX
+            fetch('controlador/buscar_pagosrc.php', {
+                    method: 'POST',
+                    body: formData
+                })
+                .then(response => response.text())
+                .then(data => {
+                    // Actualizar el contenido de la tabla con los resultados de la búsqueda
+                    document.getElementById('table-body').innerHTML = data;
+                })
+                .catch(error => console.error('Error:', error));
+        });
+
+        // SIDEBAR JS
+
+        document.querySelector('.menu-icon').addEventListener('click', () => {
+            const nav = document.querySelector('nav');
+            const overlay = document.querySelector('.overlay');
+
+            nav.classList.toggle('open');
+            overlay.classList.toggle('active');
+        });
+
+        document.querySelector('.overlay').addEventListener('click', () => {
+            const nav = document.querySelector('nav');
+            const overlay = document.querySelector('.overlay');
+
+            nav.classList.remove('open');
+            overlay.classList.remove('active');
+        });
+    </script>
+
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
+
 </body>
 
 </html>

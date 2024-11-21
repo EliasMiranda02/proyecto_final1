@@ -26,7 +26,7 @@
             <br><br><br>
             <h1><b>¡BIENVENIDOS!</b></h1>
 
-            <br><br>
+            <br>
 
             <p class="frase1">
                 Es un placer recibirte en Chiapas Viajero, te <br>

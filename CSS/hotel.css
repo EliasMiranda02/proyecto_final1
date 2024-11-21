@@ -141,3 +141,16 @@ thead th {
 .seleccionar{
     border-radius: 10px 0 0 10px;
 }
+
+.atencion{
+    margin-top: 80px;
+    display: flex;
+    justify-content: center; /* Centrar horizontalmente */
+    align-items: center;    /* Centrar verticalmente */
+}
+
+.atencion button{
+    font-size: 25px;
+    width: 180px;
+    height: 60px;
+}

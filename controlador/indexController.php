@@ -98,6 +98,9 @@ class IndexController{
     public static function reservarcusuario(){
         require_once("./reservasCR_usuario.php"); //PERMITIR DESPLEGAR LA VISTA
     }
+    public static function atencioncliente(){
+        require_once("./t_sugerencias.php"); //PERMITIR DESPLEGAR LA VISTA
+    }
 
 
 }
